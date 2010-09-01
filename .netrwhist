@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/vinh_tran/product-e2e/spec'
+let g:netrw_dirhist_2='/Users/vinhtiensinh/.vim/bundle/vpoker/ftplugin'
+let g:netrw_dirhist_3='/Users/vinhtiensinh/.vim/bundle/vpoker/syntax'
