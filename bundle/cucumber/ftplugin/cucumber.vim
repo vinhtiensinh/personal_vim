@@ -124,8 +124,17 @@ function! CucumberComplete(findstart,base) abort
       endif
     endif
   endfor
-  call filter(steps,'strpart(v:val,0,strlen(a:base)) ==# a:base')
+  call filter(steps,'s:filterstep(v:val,a:base)')
   return sort(steps)
+endfunction
+
+function! s:filterstep(receiver,target)
+  for word in split(a:target," ")
+    if a:receiver !~ word
+      return 0 
+    endif
+  endfor
+  return 1 
 endfunction
 
 " vim:set sts=2 sw=2:
