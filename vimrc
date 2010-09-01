@@ -21,6 +21,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 filetype on
 :filetype plugin on
 :filetype indent on
+:syntax on
 
 map df gt
 map fd gT
