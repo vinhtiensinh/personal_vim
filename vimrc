@@ -33,23 +33,27 @@ map KJ <C-W>k
 map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 
 set wildignore=*.git,*.swp 
-
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
 
-map <LEADER>f :FufFile ./**/<ENTER>
-map <LEADER>b :FufMruFile<ENTER>
+"method to find, find file, fine buffer, find tag etc
+map <LEADER>ff :FufFile ./**/<ENTER>
+map <LEADER>fb :FufMruFile<ENTER>
+map <LEADER>ft :TlistToggle<ENTER>
+
+"method to jump, jump to a step, jump to a class etc
+map <LEADER>js <C-]>
+map <LEADER>jc gf
+
+"method to execute a command, run perl test
+map <LEADER>er :!perl %<ENTER>
+
+map <LEADER>ucm :NERDComToggleComment<ENTER>
+map <LEADER>gitd :VCSVimDiff<ENTER>
+
+map 90 :BufExplorer<ENTER>j<ENTER>
 
 map ; :
-map <LEADER>t :TlistToggle<ENTER>
-map <LEADER>on :vsplit<SPACE>
-map <LEADER>cm :NERDComToggleComment<ENTER>
-map <LEADER>gd :VCSVimDiff<ENTER>
-map <LEADER>os <C-]>
-map <LEADER>oc gf
-map <LEADER>r :!perl %<ENTER>
-
-map <LEADER>90 :BufExplorer<ENTER>j<ENTER>
 
 let g:sql_type_default = 'mysql'
 
