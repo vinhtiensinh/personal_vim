@@ -125,7 +125,7 @@ function! CucumberComplete(findstart,base) abort
     endif
   endfor
   call filter(steps,'s:filterstep(v:val,a:base)')
-  return sort(steps)
+  return s:sortsteps(steps,a:base)
 endfunction
 
 function! s:filterstep(receiver,target)
@@ -137,4 +137,27 @@ function! s:filterstep(receiver,target)
   return 1 
 endfunction
 
+function! s:sortsteps(steps, base)
+  let words = ""
+  let index = 0
+  for word in split(a:base, " ")
+    if words ==# ""
+      let words = word
+    else
+      let words = words . " " . word
+    endif
+
+    let stepindex = 0
+    for step in a:steps
+      if step =~ words
+        let tmpstep = a:steps[0]
+        let a:steps[0] = a:steps[stepindex]
+        let a:steps[stepindex] = tmpstep
+      endif
+      let stepindex += 1
+    endfor
+    let index += 1
+  endfor
+  return a:steps
+endfunction
 " vim:set sts=2 sw=2:
