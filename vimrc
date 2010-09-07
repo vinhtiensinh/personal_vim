@@ -24,14 +24,8 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.git,*.swp 
 
 map ; :
-map [ gT
-map ] gt
-map 9 <C-w>h
-map 99 <C-w>j
-map 0 <C-w>l
-map 00 <C-w>k
-
-map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
+map \ gt
+map \| gT
 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
@@ -47,14 +41,17 @@ so $HOME/.vim/plugin/taglist.vim
 :Alias gib VCSBlame
 :Alias gil VCSLog
 
-
 "method to jump, jump to a step, jump to a class etc
-map jt <C-]>
+map <TAB> <C-t>
 
 "method to execute a command, run perl test
 map <LEADER>er :!perl %<ENTER>
-:Alias cmt NERDComToggleComment
+map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 
 "method to find, find file, fine buffer, find tag etc
 map <LEADER>ff :FufFile ./**/<ENTER>
 map <LEADER>fb FufMruFile<ENTER>
+
+"to speed up processing, any optimize vim config should be place in the .vimrc
+"of that dir.
+so ./.vimrc
