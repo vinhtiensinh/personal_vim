@@ -37,25 +37,24 @@ let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
 
 so $HOME/.vim/plugin/cmdalias.vim
+so $HOME/.vim/plugin/taglist.vim
 
-:Alias gd VCSVimDiff
-:Alias gs VCSStatus
-:Alias gb VCSBlame
-:Alias gl VCSLog
+:TlistAddFiles /Users/vinh_tran/ctags/rubytags
+:TlistAddFiles ./tags
+
+:Alias gid VCSVimDiff
+:Alias gis VCSStatus
+:Alias gib VCSBlame
+:Alias gil VCSLog
 
 
 "method to jump, jump to a step, jump to a class etc
-:Alias js <C-]>
-:Alias jc gf
+map jt <C-]>
 
 "method to execute a command, run perl test
 map <LEADER>er :!perl %<ENTER>
-:Alias ucm NERDComToggleComment
+:Alias cmt NERDComToggleComment
 
 "method to find, find file, fine buffer, find tag etc
 map <LEADER>ff :FufFile ./**/<ENTER>
-:Alias fb FufMruFile
-:Alias ft TlistToggle
-
-"greping methods
-:Alias grp Rgrep
+map <LEADER>fb FufMruFile<ENTER>
