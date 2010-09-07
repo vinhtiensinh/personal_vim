@@ -3,7 +3,7 @@ call pathogen#runtime_append_all_bundles()
 
 let mapleader = ' '
 
-set guioptions-=T 
+set guioptions=T 
 
 set softtabstop=2 
 set shiftwidth=2 
@@ -12,53 +12,49 @@ set expandtab
 set cindent 
 set smartindent 
 set autoindent 
-:colorscheme vividchalk
 
-set wildchar=<Tab> wildmenu wildmode=full
-
-:set number
+colorscheme vividchalk
 
 filetype on
-:filetype plugin on
-:filetype indent on
-:syntax on
+filetype plugin on
+filetype indent on
+syntax on
 
-map df gt
-map fd gT
-map DF <C-W>l
-map FD <C-W>h
-map JK <C-W>j
-map KJ <C-W>k
+set number
+
+set wildchar=<Tab> wildmenu wildmode=full
+set wildignore=*.git,*.swp 
+
+map ; :
+map [ gT
+map ] gt
+map 9 <C-w>h
+map 99 <C-w>j
+map 0 <C-w>l
+map 00 <C-w>k
 
 map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 
-set wildignore=*.git,*.swp 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
 
-"method to find, find file, fine buffer, find tag etc
-map <LEADER>ff :FufFile ./**/<ENTER>
-map <LEADER>fb :FufMruFile<ENTER>
-map <LEADER>ft :TlistToggle<ENTER>
+so $HOME/.vim/plugin/cmdalias.vim
+
+:Alias gd VCSVimDiff
+:Alias gs VCSStatus
+:Alias gb VCSBlame
+:Alias gl VCSLog
+
 
 "method to jump, jump to a step, jump to a class etc
-map <LEADER>js <C-]>
-map <LEADER>jc gf
+:Alias js <C-]>
+:Alias jc gf
 
 "method to execute a command, run perl test
 map <LEADER>er :!perl %<ENTER>
+:Alias ucm NERDComToggleComment
 
-map <LEADER>ucm :NERDComToggleComment<ENTER>
-map <LEADER>gitd :VCSVimDiff<ENTER>
-
-map 90 :BufExplorer<ENTER>j<ENTER>
-
-map ; :
-
-let g:sql_type_default = 'mysql'
-
-vmap df >
-vmap fd <
-
-map v <C-v>
-imap ;; ::
+"method to find, find file, fine buffer, find tag etc
+map <LEADER>ff :FufFile ./**/<ENTER>
+:Alias fb FufMruFile
+:Alias ft TlistToggle
