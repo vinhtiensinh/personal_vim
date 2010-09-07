@@ -1,6 +1,3 @@
-syntax on
-call pathogen#runtime_append_all_bundles() 
-
 let mapleader = ' '
 
 set guioptions=T 
@@ -15,6 +12,7 @@ set autoindent
 
 colorscheme vividchalk
 
+syntax on
 filetype on
 filetype plugin on
 filetype indent on
@@ -58,3 +56,6 @@ map <LEADER>er :!perl %<ENTER>
 map <LEADER>ff :FufFile ./**/<ENTER>
 :Alias fb FufMruFile
 :Alias ft TlistToggle
+
+"greping methods
+:Alias grp Rgrep
