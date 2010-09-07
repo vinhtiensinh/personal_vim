@@ -55,7 +55,11 @@ sub process() {
               push @niceColumns, sprintf("%-${justifyLength}s", $_);
           }
 
-          print join('|', @niceColumns) . "\n" if @niceColumns;
+          if(@niceColumns) {
+            my $line = join('|', @niceColumns);
+            $line =~ s/\s*$//;
+            print $line . "\n";
+          }
   }
 }
 
