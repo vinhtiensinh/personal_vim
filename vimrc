@@ -10,6 +10,7 @@ set cindent
 set smartindent 
 set autoindent 
 
+
 colorscheme vividchalk
 
 syntax on
@@ -19,6 +20,13 @@ filetype indent on
 syntax on
 
 set number
+set ignorecase
+set incsearch
+
+
+nnoremap gf <C-W>gf
+cab      e  tabe
+tab sball
 
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.git,*.swp 
@@ -33,7 +41,6 @@ let g:fuf_keyOpenTabpage = '<CR>'
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-:TlistAddFiles /Users/vinh_tran/ctags/rubytags
 :TlistAddFiles ./tags
 
 :Alias gid VCSVimDiff
@@ -42,7 +49,7 @@ so $HOME/.vim/plugin/taglist.vim
 :Alias gil VCSLog
 
 "method to jump, jump to a step, jump to a class etc
-map <TAB> <C-t>
+map <TAB> <C-W><C-]><C-W>T
 
 "method to execute a command, run perl test
 map <LEADER>er :!perl %<ENTER>
@@ -54,4 +61,4 @@ map <LEADER>fb FufMruFile<ENTER>
 
 "to speed up processing, any optimize vim config should be place in the .vimrc
 "of that dir.
-so ./.vimrc
+so ./.localvimrc
