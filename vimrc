@@ -49,6 +49,7 @@ map <LEADER>er :!perl %<ENTER>
 map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 
 "method to find, find file, fine buffer, find tag etc
+map <LEADER>ft :TlistToggle<ENTER>
 map <LEADER>ff :FufFile ./**/<ENTER>
 map <LEADER>fb FufMruFile<ENTER>
 
