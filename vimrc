@@ -32,8 +32,8 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.git,*.swp 
 
 map ; :
-map \ gt
-map \| gT
+map + gt
+map _ gT
 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
@@ -58,6 +58,9 @@ map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 "method to find, find file, fine buffer, find tag etc
 map <LEADER>ff :FufFile ./**/<ENTER>
 map <LEADER>fb FufMruFile<ENTER>
+
+" show mark
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 "to speed up processing, any optimize vim config should be place in the .vimrc
 "of that dir.
