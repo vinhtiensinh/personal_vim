@@ -34,6 +34,8 @@ set wildignore=*.git,*.swp
 map ; :
 map + gt
 map _ gT
+map \| <C-w>h
+map \|\| <C-w>l
 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
