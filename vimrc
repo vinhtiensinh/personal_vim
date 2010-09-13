@@ -34,6 +34,8 @@ set wildignore=*.git,*.swp
 map ; :
 map + gt
 map _ gT
+map \| <C-w>h
+map \|\| <C-w>l
 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
@@ -56,6 +58,7 @@ map <LEADER>er :!perl %<ENTER>
 map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 
 "method to find, find file, fine buffer, find tag etc
+map <LEADER>ft :TlistToggle<ENTER>
 map <LEADER>ff :FufFile ./**/<ENTER>
 map <LEADER>fb FufMruFile<ENTER>
 
