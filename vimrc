@@ -52,6 +52,32 @@ map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
 map <LEADER>ff :FufFile ./**/<ENTER>
 map <LEADER>fb FufMruFile<ENTER>
 
+" Color the status line
+hi StatusLine ctermfg=blue ctermbg=lightgrey
+
+"-----------------------------------------------------------------
+" Custom status line
+"set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
+set statusline=%F,\ %=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+" Status line always on
+set laststatus=2
+
+" put cursor at last pos when you open file again
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\  exe "normal g`\"" |
+\ endif
+
+"------------------------------------------------------------------------
+" searching
+" Highlight search matches
+set hlsearch
+" Start searching immediately - even before <Enter> is pressed
+set incsearch
+" Make searches case-insensitive, unless you use upcase
+set ignorecase
+set smartcase
+
 "to speed up processing, any optimize vim config should be place in the .vimrc
 "of that dir.
-so ./.vimrc
+so ./.localvimrc
