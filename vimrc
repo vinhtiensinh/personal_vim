@@ -84,6 +84,11 @@ set smartcase
 " show mark
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-"to speed up processing, any optimize vim config should be place in the .vimrc
+" Set autoclose,  the quote is border line because once you inside move out is
+" abit annoying,  not remove it from here
+imap (<CR> ()<Left><CR><CR><Up><TAB>
+imap {<CR> {}<Left><CR><CR><Up><TAB>
+imap [<CR> []<Left><CR><CR><Up><TAB>
+"to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
