@@ -34,9 +34,6 @@ map \| <C-w>w
 map  <LEADER>v <C-v>
 imap <LEADER><TAB> <C-x><C-o>
 
-let g:fuf_modesDisable = []
-let g:fuf_keyOpenTabpage = '<CR>'
-
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
@@ -56,8 +53,8 @@ map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<CR>
 
 "method to find, find file, fine buffer, find tag etc
 map <LEADER>ft :TlistToggle<CR>
-map <LEADER>ff :FufFile ./**/<CR>
-map <LEADER>fb FufMruFile<CR>
+map <LEADER><LEADER> :CommandT<CR>
+let g:CommandTAcceptSelectionTabMap='<CR>'
 
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
