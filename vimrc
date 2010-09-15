@@ -92,6 +92,20 @@ imap (<CR> ()<Left><CR><CR><Up><TAB>
 imap {<CR> {}<Left><CR><CR><Up><TAB>
 imap [<CR> []<Left><CR><CR><Up><TAB>
 
+" Align text
+" ---------------------------------------------------------------------------------
+map :al :Align
+vmap :al :Align
+map :aleq :Align=<CR>
+vmap :aleq :Align=<CR>
+map :alar :Align=><CR>
+vmap :alar :Align=><CR>
+map :al; :Align:<CR>
+vmap :al; :Align:<CR>
+map :alpi :Align\|<CR>
+vmap :alpi :Align\|<CR>
+map :alsq :Align[<CR>
+vmap :alsq :Align[<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
