@@ -24,18 +24,15 @@ set ignorecase
 set incsearch
 
 
-nnoremap gf <C-W>gf
-cab      e  tabe
-tab sball
-
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.git,*.swp 
 
 map ; :
 map + gt
 map _ gT
-map \| <C-w>h
-map \|\| <C-w>l
+map \| <C-w>w
+map  <LEADER>v <C-v>
+imap <LEADER><TAB> <C-x><C-o>
 
 let g:fuf_modesDisable = []
 let g:fuf_keyOpenTabpage = '<CR>'
@@ -54,13 +51,13 @@ so $HOME/.vim/plugin/taglist.vim
 map <TAB> <C-W><C-]><C-W>T
 
 "method to execute a command, run perl test
-map <LEADER>er :!perl %<ENTER>
-map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<ENTER>
+map <LEADER>er :!perl %<CR>
+map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<CR>
 
 "method to find, find file, fine buffer, find tag etc
-map <LEADER>ft :TlistToggle<ENTER>
-map <LEADER>ff :FufFile ./**/<ENTER>
-map <LEADER>fb FufMruFile<ENTER>
+map <LEADER>ft :TlistToggle<CR>
+map <LEADER>ff :FufFile ./**/<CR>
+map <LEADER>fb FufMruFile<CR>
 
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
