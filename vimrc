@@ -129,6 +129,8 @@ map vimabbr tabnew ~/.vim/plugin/abbreviations.vim<CR>
 map <LEADER>ss :Ack<SPACE>-i<SPACE>
 map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
 " -------------------------------------------------------------------------------
+:Alias nrr Narrow
+:Alias wid Widen 
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
