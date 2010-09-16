@@ -1,6 +1,7 @@
 let mapleader = ' '
 
 set guioptions-=T
+set guifont=Menlo:h14
 
 set softtabstop=2 
 set shiftwidth=2 
@@ -75,6 +76,18 @@ autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
 \  exe "normal g`\"" |
 \ endif
+" -------------------------------------------------------------------------------
+set showtabline=2 " always show tabs in gvim, but not vim
+set guitablabel=%N\ %t\ %M
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
 
 " searching
 "-----------------------------------------------------------------------------
@@ -115,6 +128,7 @@ map vimabbr tabnew ~/.vim/plugin/abbreviations.vim<CR>
 " seaching by ack
 map <LEADER>ss :Ack<SPACE>-i<SPACE>
 map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
+" -------------------------------------------------------------------------------
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
