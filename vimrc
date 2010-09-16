@@ -1,6 +1,6 @@
 let mapleader = ' '
 
-set guioptions=T 
+set guioptions-=T
 
 set softtabstop=2 
 set shiftwidth=2 
@@ -25,7 +25,7 @@ set incsearch
 
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=*.git,*.swp 
+set wildignore=.git,*.swp 
 
 map ; :
 map + gt
@@ -52,7 +52,7 @@ map <TAB> <C-W><C-]><C-W>T
 
 "method to execute a command, run perl test
 map <LEADER>er :!perl %<CR>
-map <LEADER>al :!~/.vim/scripts/psvAlign.pl %<CR>
+map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER>ft :TlistToggle<CR>
@@ -94,18 +94,27 @@ imap [<CR> []<Left><CR><CR><Up><TAB>
 
 " Align text
 " ---------------------------------------------------------------------------------
-map :al :Align
-vmap :al :Align
-map :aleq :Align=<CR>
-vmap :aleq :Align=<CR>
-map :alar :Align=><CR>
-vmap :alar :Align=><CR>
-map :al; :Align:<CR>
-vmap :al; :Align:<CR>
-map :alpi :Align\|<CR>
-vmap :alpi :Align\|<CR>
-map :alsq :Align[<CR>
-vmap :alsq :Align[<CR>
+map <LEADER>al :Align
+vmap <LEADER>al :Align
+map <LEADER>aleq :Align=<CR>
+vmap <LEADER>aleq :Align=<CR>
+map <LEADER>alar :Align=><CR>
+vmap <LEADER>alar :Align=><CR>
+map <LEADER>al; :Align:<CR>
+vmap <LEADER>al; :Align:<CR>
+map <LEADER>alsq :Align[<CR>
+vmap <LEADER>alsq :Align[<CR>
+
+"----------------------------------------------------------------------------------
+" quicly open vim config file
+map vimrc tabnew ~/.vimrc<CR>
+map sovimrc so ~/.vimrc<CR>
+map vimabbr tabnew ~/.vim/plugin/abbreviations.vim<CR>
+
+"--------------------------------------------------------------------------------
+" seaching by ack
+map <LEADER>ss :Ack<SPACE>-i<SPACE>
+map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
