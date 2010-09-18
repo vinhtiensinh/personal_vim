@@ -26,7 +26,7 @@ set incsearch
 
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp 
+set wildignore=.git,*.swp,*.~ 
 
 map ; :
 map + gt
