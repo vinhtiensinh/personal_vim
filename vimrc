@@ -39,12 +39,6 @@ so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
 :TlistAddFiles ./tags
-
-:Alias gid VCSVimDiff
-:Alias gis VCSStatus
-:Alias gib VCSBlame
-:Alias gil VCSLog
-:Alias diff VCSVimDiff
 :Alias difp diffput
 :Alias difg diffget
 
@@ -79,6 +73,7 @@ autocmd BufReadPost *
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
 set guitablabel=%N\ %t\ %M
+map tss :set<SPACE>guitablabel=%N\<SPACE>%f\<SPACE>%M<CR>
 map <D-1> 1gt
 map <D-2> 2gt
 map <D-3> 3gt
