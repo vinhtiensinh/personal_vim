@@ -26,12 +26,9 @@ set incsearch
 
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.~ 
+set wildignore=.git,*.swp,*.*~ 
 
 map ; :
-map + gt
-map _ gT
-map \| <C-w>w
 map  <LEADER>v <C-v>
 imap <LEADER><TAB> <C-x><C-o>
 
@@ -43,10 +40,10 @@ so $HOME/.vim/plugin/taglist.vim
 :Alias difg diffget
 
 "method to jump, jump to a step, jump to a class etc
-map <TAB> <C-W><C-]><C-W>T
+map <TAB>t <C-W><C-]><C-W>T
+map <TAB>f <C-W>gf
 
 "method to execute a command, run perl test
-map <LEADER>er :!perl %<CR>
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
@@ -84,6 +81,9 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 
+map _ gT
+map + gt
+map \| <C-w>w
 " searching
 "-----------------------------------------------------------------------------
 set hlsearch
@@ -113,12 +113,6 @@ vmap <LEADER>al; :Align:<CR>
 map <LEADER>alsq :Align[<CR>
 vmap <LEADER>alsq :Align[<CR>
 
-"----------------------------------------------------------------------------------
-" quicly open vim config file
-map vimrc tabnew ~/.vimrc<CR>
-map sovimrc so ~/.vimrc<CR>
-map vimabbr tabnew ~/.vim/plugin/abbreviations.vim<CR>
-
 "--------------------------------------------------------------------------------
 " seaching by ack
 map <LEADER>ss :Ack<SPACE>-i<SPACE>
@@ -126,6 +120,10 @@ map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
 " -------------------------------------------------------------------------------
 :Alias nrr Narrow
 :Alias wid Widen 
+
+" -------------------------------------------------------------------------------
+"  Open a shell for command
+map <LEADER>sh :split<CR>:ConqueTerm bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
