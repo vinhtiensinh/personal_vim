@@ -3,6 +3,8 @@ let mapleader = ' '
 set guioptions-=T
 set guifont=Menlo:h14
 
+set paste
+
 set softtabstop=2 
 set shiftwidth=2 
 set tabstop=2 
@@ -118,19 +120,14 @@ vmap <LEADER>al; :Align:<CR>
 map <LEADER>alsq :Align[<CR>
 vmap <LEADER>alsq :Align[<CR>
 
-"----------------------------------------------------------------------------------
-" quicly open vim config file
-map vimrc tabnew ~/.vimrc<CR>
-map sovimrc so ~/.vimrc<CR>
-map vimabbr tabnew ~/.vim/plugin/abbreviations.vim<CR>
-
 "--------------------------------------------------------------------------------
 " seaching by ack
 map <LEADER>ss :Ack<SPACE>-i<SPACE>
 map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
+"--------------------------------------------------------------------------------
+vmap <LEADER>nrw :Narrow<CR>
+vmap <LEADER>wid :Widen<CR>
 " -------------------------------------------------------------------------------
-:Alias nrr Narrow
-:Alias wid Widen 
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
