@@ -28,12 +28,9 @@ set incsearch
 
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp 
+set wildignore=.git,*.swp,*.*~ 
 
 map ; :
-map + gt
-map _ gT
-map \| <C-w>w
 map  <LEADER>v <C-v>
 imap <LEADER><TAB> <C-x><C-o>
 
@@ -41,20 +38,14 @@ so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
 :TlistAddFiles ./tags
-
-:Alias gid VCSVimDiff
-:Alias gis VCSStatus
-:Alias gib VCSBlame
-:Alias gil VCSLog
-:Alias diff VCSVimDiff
 :Alias difp diffput
 :Alias difg diffget
 
 "method to jump, jump to a step, jump to a class etc
-map <TAB> <C-W><C-]><C-W>T
+map <TAB>t <C-W><C-]><C-W>T
+map <TAB>f <C-W>gf
 
 "method to execute a command, run perl test
-map <LEADER>er :!perl %<CR>
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
@@ -81,6 +72,7 @@ autocmd BufReadPost *
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
 set guitablabel=%N\ %t\ %M
+map tss :set<SPACE>guitablabel=%N\<SPACE>%f\<SPACE>%M<CR>
 map <D-1> 1gt
 map <D-2> 2gt
 map <D-3> 3gt
@@ -91,6 +83,9 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 
+map _ gT
+map + gt
+map \| <C-w>w
 " searching
 "-----------------------------------------------------------------------------
 set hlsearch
@@ -124,10 +119,13 @@ vmap <LEADER>alsq :Align[<CR>
 " seaching by ack
 map <LEADER>ss :Ack<SPACE>-i<SPACE>
 map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
-"--------------------------------------------------------------------------------
+"-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
-" -------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------
+"  Open a shell for command
+map <LEADER>sh :ConqueTermVSplit bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc

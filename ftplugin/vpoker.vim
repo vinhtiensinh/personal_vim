@@ -27,6 +27,5 @@ map fs zc
 map uu U
 map qq <ESC>:w<CR>:q<CR>
 imap uu <ESC>U
-imap [ [<CR><CR>]<ESC>==ka<SPACE><SPACE>
 imap hh \|
 imap JJ <ESC>kJJ
