@@ -123,7 +123,7 @@ map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
 
 " -------------------------------------------------------------------------------
 "  Open a shell for command
-map <LEADER>sh :split<CR>:ConqueTerm bash<CR>
+map <LEADER>sh :ConqueTermVSplit bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 so ./.localvimrc
