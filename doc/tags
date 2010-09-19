@@ -344,6 +344,7 @@ conque_term-usage	conque_term.txt	/*conque_term-usage*
 cs	surround.txt	/*cs*
 cvscommand-changes	vcscommand.txt	/*cvscommand-changes*
 ds	surround.txt	/*ds*
+<<<<<<< Updated upstream
 fugitive	fugitive.txt	/*fugitive*
 fugitive#statusline()	fugitive.txt	/*fugitive#statusline()*
 fugitive-:Gblame	fugitive.txt	/*fugitive-:Gblame*
@@ -483,6 +484,7 @@ multiple-items-example	yankring.txt	/*multiple-items-example*
 o_[%	matchit.txt	/*o_[%*
 o_]%	matchit.txt	/*o_]%*
 o_g%	matchit.txt	/*o_g%*
+<<<<<<< Updated upstream
 perl-support	perlsupport.txt	/*perl-support*
 perlsupport	perlsupport.txt	/*perlsupport*
 perlsupport-Ctrl-j	perlsupport.txt	/*perlsupport-Ctrl-j*
@@ -836,6 +838,15 @@ vcscommand-ssh-wrapper	vcscommand.txt	/*vcscommand-ssh-wrapper*
 vcscommand-statusline	vcscommand.txt	/*vcscommand-statusline*
 vcscommand.txt	vcscommand.txt	/*vcscommand.txt*
 vgS	surround.txt	/*vgS*
+vimcommander	vimcommander.txt	/*vimcommander*
+vimcommander-contents	vimcommander.txt	/*vimcommander-contents*
+vimcommander-features	vimcommander.txt	/*vimcommander-features*
+vimcommander-install	vimcommander.txt	/*vimcommander-install*
+vimcommander-keys	vimcommander.txt	/*vimcommander-keys*
+vimcommander-links	vimcommander.txt	/*vimcommander-links*
+vimcommander-opts	vimcommander.txt	/*vimcommander-opts*
+vimcommander-todo	vimcommander.txt	/*vimcommander-todo*
+vimcommander.txt	vimcommander.txt	/*vimcommander.txt*
 vs	surround.txt	/*vs*
 yS	surround.txt	/*yS*
 ySS	surround.txt	/*ySS*
