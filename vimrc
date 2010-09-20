@@ -1,4 +1,5 @@
 let mapleader = ' '
+set nocompatible
 
 set guioptions-=T
 set guifont=Menlo:h14
@@ -55,7 +56,7 @@ map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
 " Status line
-"-----------------------------------------------------------------
+"------------------------------------------------------------------------
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line
@@ -106,19 +107,6 @@ imap [<CR> []<Left><CR><CR><Up><TAB>
 " ---------------------------------------------------------------------------------
 map <LEADER>al :Align
 vmap <LEADER>al :Align
-map <LEADER>aleq :Align=<CR>
-vmap <LEADER>aleq :Align=<CR>
-map <LEADER>alar :Align=><CR>
-vmap <LEADER>alar :Align=><CR>
-map <LEADER>al; :Align:<CR>
-vmap <LEADER>al; :Align:<CR>
-map <LEADER>alsq :Align[<CR>
-vmap <LEADER>alsq :Align[<CR>
-
-"--------------------------------------------------------------------------------
-" seaching by ack
-map <LEADER>ss :Ack<SPACE>-i<SPACE>
-map <LEADER>sw :exe "Ack -i " . expand("<cword>")<CR>
 "-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
@@ -128,4 +116,12 @@ vmap <LEADER>wid :Widen<CR>
 map <LEADER>sh :ConqueTermVSplit bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
+set visualbell    "don't beep
+set noerrorbells  "dont beep
+
+"------------------------------------------------------------------------
+"no backup
+set nobackup
+set noswapfile
+
 so ./.localvimrc
