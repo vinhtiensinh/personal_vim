@@ -37,14 +37,15 @@ imap <C-SPACE> <C-x><C-o>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
-
+ 
 :TlistAddFiles ./tags
 :Alias difp diffput
 :Alias difg diffget
 
 "method to jump, jump to a step, jump to a class etc
 map <TAB>t <C-W><C-]><C-W>T
-map <TAB>f <C-W>gf
+map <TAB>f <C-W>gF
+map <TAB>l ^<C-W>gF
 map <TAB>b <S-CR>
 
 "method to execute a command, run perl test
