@@ -45,6 +45,7 @@ so $HOME/.vim/plugin/taglist.vim
 "method to jump, jump to a step, jump to a class etc
 map <TAB>t <C-W><C-]><C-W>T
 map <TAB>f <C-W>gf
+map <TAB>b <S-CR>
 
 "method to execute a command, run perl test
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
@@ -74,7 +75,7 @@ autocmd BufReadPost *
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
 set guitablabel=%N\ %t\ %M
-map tss :set<SPACE>guitablabel=%N\<SPACE>%f\<SPACE>%M<CR>
+map tss :set<SPACE>guitablabel=%N\<SPACE>%t\<SPACE>%M<CR>
 map <D-1> 1gt
 map <D-2> 2gt
 map <D-3> 3gt
