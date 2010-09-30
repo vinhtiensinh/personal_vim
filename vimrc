@@ -53,7 +53,7 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER>ft :TlistToggle<CR>
-map <LEADER>fb :BufExplorerVerticalSplit<CR>
+map <LEADER>fb :BufExplorer<CR>
 map <LEADER>ff :NERDTreeToggle<CR>
 map <LEADER>fy :YRShow<CR>
 map <LEADER><LEADER> :CommandT<CR>
@@ -91,6 +91,7 @@ map <D-9> 9gt
 map _ gT
 map + gt
 map \| <C-w>w
+map <C-TAB> :BufExplorer<CR><Down><CR>
 " searching
 "-----------------------------------------------------------------------------
 set hlsearch
