@@ -54,6 +54,7 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 " find/show file, yand ring, tag etc
 map <LEADER>ft :TlistToggle<CR>
 map <LEADER>fb :BufExplorerVerticalSplit<CR>
+map <LEADER>ff :NERDTreeToggle<CR>
 map <LEADER>fy :YRShow<CR>
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTAcceptSelectionTabMap='<CR>'
