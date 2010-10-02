@@ -34,6 +34,7 @@ set wildignore=.git,*.swp,*.*~
 map ; :
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
+imap <TAB> <C-n>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
@@ -46,7 +47,7 @@ so $HOME/.vim/plugin/taglist.vim
 map <TAB>t <C-W><C-]><C-W>T
 map <TAB>f <C-W>gF
 map <TAB>l ^<C-W>gF
-map <TAB>b <S-CR>
+map <TAB>g :OpenGizmoPage()<CR>
 
 "method to execute a command, run perl test
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
@@ -56,6 +57,7 @@ map <LEADER>ft :TlistToggle<CR>
 map <LEADER>fb :BufExplorer<CR>
 map <LEADER>ff :NERDTreeToggle<CR>
 map <LEADER>fy :YRShow<CR>
+map <LEADER>fs :call StepFileRecommendations()<CR>
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
@@ -128,5 +130,7 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
+
+
 
 so ./.localvimrc

@@ -7,6 +7,60 @@ if (exists("b:did_ftplugin"))
   finish
 endif
 let b:did_ftplugin = 1
+sign define fixme text=!! linehl=Todo
+function! CheckLineStepDefinition()
+  let line_nr = line('.') 
+
+  let current_line = getline(line_nr)
+  if (( current_line =~ '\s\+Given\s') || (current_line =~ '\s\+And\s') || (current_line =~ '\s\+When\s') || (current_line =~ '\s\+Then\s'))
+    if len(s:steps(line_nr)) == 0
+      execute ":sign place ".line_nr." line=".line_nr." name=fixme file=".expand("%:p")
+    else
+      execute ":sign unplace " . line_nr
+    endif
+  endif
+endfunction
+
+function! CheckFileStepDefinition()
+  call feedkeys('G')
+
+  let line_nr = line('.')
+
+  while line_nr > 0
+
+    let current_line = getline(line_nr)
+    let all_steps = s:allsteps()
+
+    if (( current_line =~ '\s\+Given\s') || (current_line =~ '\s\+And\s') || (current_line =~ '\s\+When\s') || (current_line =~ '\s\+Then\s'))
+
+      let c = indent(line_nr) + 1
+      while synIDattr(synID(line_nr,c,1),'name') !~# '^$\|Region$'
+        let c = c + 1
+      endwhile
+
+      let tmp_all_steps = all_steps
+      let step = matchstr(getline(line_nr)[c-1 : -1],'^\s*\zs.\{-\}\ze\s*$')
+      let step_defined = 0
+
+      for tmp_step in all_steps
+        if s:stepmatch(tmp_step[3], step)
+          let step_defined = 1
+          break
+        endif
+      endfor
+
+      if step_defined == 0
+        execute ":sign place ".line_nr." line=".line_nr." name=fixme file=".expand("%:p")
+      else
+        execute ":sign unplace " . line_nr
+      endif
+
+    endif
+
+    let line_nr = line_nr - 1
+  endwhile
+
+endfunction
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
@@ -73,18 +127,8 @@ function! s:stepmatch(receiver,target)
   else
     return 0
   endif
-  try
-    let vimpattern = substitute(substitute(pattern,'\\\@<!(?:','%(','g'),'\\\@<!\*?','{-}','g')
-    if a:target =~# '\v'.vimpattern
-      return 1
-    endif
-  catch
-  endtry
-  if has("ruby")
-    ruby VIM.command("return #{if (begin; Kernel.eval('/'+VIM.evaluate('pattern')+'/'); rescue SyntaxError; end) === VIM.evaluate('a:target') then 1 else 0 end}")
-  else
-    return 0
-  endif
+
+  ruby VIM.command("return #{if (begin; Kernel.eval('/'+VIM.evaluate('pattern')+'/'); rescue SyntaxError; end) === VIM.evaluate('a:target') then 1 else 0 end}")
 endfunction
 
 function! s:bsub(target,pattern,replacement)
