@@ -1,8 +1,19 @@
 class CommandList
   @@lists = {}
-  def self.display_command_list()
+  def self.display_command_list(*lists)
+
+    display_lists = []
+
+    if lists.empty?
+      display_lists = @@lists.values
+    else
+      lists.each do | list_name |
+        display_lists.push(@@lists[list_name])
+      end
+    end
+
     VIM::command('split __Command-List__')
-    VIM::Buffer.current.append(0, @@lists.values.join("\n"))
+    VIM::Buffer.current.append(0, display_lists.join("\n"))
     VIM::set_option('buftype=nofile')
     VIM::command('map <buffer> <CR> :call ExecuteFunction()<CR>')
   end
@@ -10,7 +21,11 @@ class CommandList
   def self.execute_function()
     function = VIM::Buffer.current.line.match(/\s(\w+)\s*$/).captures.first
     VIM::command("bd __Command-List__")
-    VIM::command("call #{function}()")
+    if function.match('\(')
+      VIM::command("call #{function}()")
+    else
+      VIM::command(function)
+    end
   end
 
   def self.register (menu, function, text, description = '')
