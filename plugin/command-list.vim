@@ -1,5 +1,5 @@
 rubyf $HOME/.vim/ruby/command-list/ruby_vim_extension.rb
-rubyf $HOME/.vim/ruby/command-list/show_list.rb
+rubyf $HOME/.vim/ruby/command-list/command-list.rb
 ruby VIM::register_vim_command('DisplayCommandList', 'CommandList::display_command_list')
 ruby VIM::register_vim_command('ExecuteFunction', 'CommandList::execute_function')
 ruby CommandList::register('Cucumber', 'StepFileRecommendations', 'display step files')
