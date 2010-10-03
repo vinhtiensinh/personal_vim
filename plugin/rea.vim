@@ -1,4 +1,5 @@
 function! StepFileRecommendations()
+  let g:rea_current_undef_step = getline('.')
   let recommendation = system("step_recommendation.rb '" . getline('.') . "'")
   
   execute 'vsplit __Step_Files__' 
@@ -6,9 +7,20 @@ function! StepFileRecommendations()
   set buftype=nofile
   map <buffer> j <Down>:call InspectStepFile()<CR>
   map <buffer> k <Up>:call InspectStepFile()<CR>
+  map <buffer> <CR> :call AddNewStep()<CR>
   execute '1'
   execute 'd'
   call InspectStepFile()
+endfunction
+
+function! AddNewStep()
+  execute 'vsplit ' . getline('.') 
+  execute ':bd __Step_definitions.feature'
+  execute ':bd __Step_Files__' 
+  let step_definition = system("step_conversion.rb '" . g:rea_current_undef_step . "'")
+  call append(line("$"), ['', step_definition])
+  execute '$'
+  call feedkeys('o')
 endfunction
 
 function! InspectStepFile()
