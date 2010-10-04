@@ -3,7 +3,6 @@ class CommandList
   def self.display_command_list(*lists)
 
     @display_lists = []
-
     if lists.empty?
       @display_lists = @@lists.values
     else
@@ -16,21 +15,62 @@ class CommandList
     VIM::command("split __Command-List__")
     VIM::Buffer.current.append(0, display_content)
     VIM::set_option('buftype=nofile')
-    VIM::command('map <buffer> <CR> :call ExecuteFunction()<CR>')
+    self.syntax_on
+    
+    self.map_key @display_lists
   end
 
-  def self.execute_function()
-    command = self.get_selected_command(@display_lists)
+  def self.syntax_on
+    [
+      "syn region  menuHeader start='---' end='---'",
+      'syn region  shortcut   start="\\["   end="\\]"',
+      "hi def link menuHeader Constant",
+      "hi def link shortcut   Statement"
+    ].each do | command |
+      VIM::command(command)
+    end
+  end
+
+  def self.map_key lists
+    VIM::command('map <buffer> <CR> :ruby CommandList::execute_function()<CR>')
+
+    (1 .. 9).each do | line_number|
+      VIM::command("map <buffer> #{line_number} #{line_number}G<CR>")
+    end
+
+    lists.each do | list |
+      list.items.each do | item |
+        VIM::command("map <buffer> #{item.map} :ruby CommandList::execute_shortcut('#{item.map}')<CR>")
+      end
+    end
+  end
+
+  def self.execute_shortcut(shortcut)
+    command = self.get_selected_command_shortcut(shortcut)
     VIM::command("bd __Command-List__")
     command.execute unless command.nil?
   end
 
-  def self.get_selected_command(lists)
+  def self.get_selected_command_shortcut(shortcut)
+    @display_lists.each do | list |
+      list.items.each do | item |
+        return item if item.map == shortcut
+      end
+    end
+  end
+
+  def self.execute_function()
+    command = self.get_selected_command()
+    VIM::command("bd __Command-List__")
+    command.execute unless command.nil?
+  end
+
+  def self.get_selected_command()
     selected_line = VIM::Buffer.current.line
     selected_line.sub!(/^\s*/, '')
     selected_line.sub!(/\s*$/, '')
 
-    lists.each do | list |
+    @display_lists.each do | list |
       list.items.each do | item |
         item_line = item.to_s
         item_line.sub!(/^\s*/, '')
@@ -57,16 +97,16 @@ class CommandList
  end
 
 class MenuItem
-  attr_reader :function, :text, :description, :visual_mode
+  attr_reader :function, :text, :map, :visual_mode
   def initialize options
     @function    = options[:function]
     @text        = options[:text]        || ''
-    @description = options[:description] || ''
+    @map         = options[:map]         || ''
     @visual_mode = options[:visual_mode] || false
   end
 
   def to_s
-    sprintf("%s ...  %s", @text, @function)
+    sprintf(@text)
   end
 
   def execute
@@ -97,7 +137,7 @@ class Menu
   end
 
   def to_s
-    "#{@name}\n\t" + @items.join("\n\t")
+    "---#{@name}---\n\t" + @items.join("\n\t")
   end
 end
 

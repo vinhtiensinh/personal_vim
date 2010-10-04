@@ -92,10 +92,13 @@ map <D-9> 9gt
 
 map _ gT
 map + gt
-map \| <C-w>w
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 map <C-TAB> :BufExplorer<CR><Down><CR>
 " searching
-"-----------------------------------------------------------------------------
+"--------------------------------------------------------------------
 set hlsearch
 set incsearch
 set ignorecase

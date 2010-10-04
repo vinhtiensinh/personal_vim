@@ -3,29 +3,57 @@ CommandList::register_list(
   :items => [
     {
       :function    => 'Align=',
-      :text        => '=',
+      :map         => 'e',
+      :text        => '=  [e]qual',
       :visual_mode => true,
     },
     {
       :function    => 'Align|',
-      :text        => '|',
+      :map         => 'p',
+      :text        => '|  [p]ipe',
       :visual_mode => true,
     },
     {
       :function    => 'Align[',
-      :text        => '[',
+      :map         => 's',
+      :text        => '[  [s]quare',
       :visual_mode => true,
     },
     {
       :function    => 'Align]',
-      :text        => ']',
+      :map         => 'cs',
+      :text        => ']  [c]close [s]quare',
       :visual_mode => true,
     },
     {
       :function    => 'Align=>',
-      :text        => '=>',
+      :map         => '=>',
+      :text        => '=> [a]rrow',
+      :visual_mode => true,
+    },
+    {
+      :function    => 'Align(',
+      :map         => 'b',
+      :text        => '(  [b]racket',
+      :visual_mode => true,
+    },
+    {
+      :function    => 'Align(',
+      :map         => 'cb',
+      :text        => ')  [c]lose [b]racket',
+      :visual_mode => true,
+    },
+    {
+      :function    => 'Align{',
+      :map         => 'c',
+      :text        => '{  [c]urly',
+      :visual_mode => true,
+    },
+    {
+      :function    => 'Align}',
+      :map         => 'cc',
+      :text        => '}  [c]lose [c]urly',
       :visual_mode => true,
     }
   ]
 )
-CommandList::register_command(:list => 'Cucumber', :function => 'CheckLineStepDefinition()', :text => 'Check Line Step Definition')
