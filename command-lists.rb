@@ -2,58 +2,127 @@ CommandList::register_list(
   :name  => 'Align',
   :items => [
     {
-      :function    => 'Align=',
+      :function    => ':Align=',
       :map         => 'e',
-      :text        => '=  [e]qual',
+      :text        => '[e]qual               =',
       :visual_mode => true,
     },
     {
-      :function    => 'Align|',
+      :function    => ':Align|',
       :map         => 'p',
-      :text        => '|  [p]ipe',
+      :text        => '[p]ipe                |',
       :visual_mode => true,
     },
     {
-      :function    => 'Align[',
+      :function    => ':Align[',
       :map         => 's',
-      :text        => '[  [s]quare',
+      :text        => '[s]quare              [',
       :visual_mode => true,
     },
     {
-      :function    => 'Align]',
-      :map         => 'cs',
-      :text        => ']  [c]close [s]quare',
+      :function    => ':Align]',
+      :map         => 'xs',
+      :text        => '[x]close [s]quare     ]',
       :visual_mode => true,
     },
     {
-      :function    => 'Align=>',
-      :map         => '=>',
-      :text        => '=> [a]rrow',
+      :function    => ':Align=>',
+      :map         => 'a',
+      :text        => '[a]rrow               =>',
       :visual_mode => true,
     },
     {
-      :function    => 'Align(',
+      :function    => ':Align(',
       :map         => 'b',
-      :text        => '(  [b]racket',
+      :text        => '[b]racket             (',
       :visual_mode => true,
     },
     {
-      :function    => 'Align(',
-      :map         => 'cb',
-      :text        => ')  [c]lose [b]racket',
+      :function    => ':Align(',
+      :map         => 'xb',
+      :text        => '[x]close [b]racket    ]',
       :visual_mode => true,
     },
     {
-      :function    => 'Align{',
+      :function    => ':Align{',
       :map         => 'c',
-      :text        => '{  [c]urly',
+      :text        => '[c]urly               {',
       :visual_mode => true,
     },
     {
-      :function    => 'Align}',
-      :map         => 'cc',
-      :text        => '}  [c]lose [c]urly',
+      :function    => ':Align}',
+      :map         => 'xc',
+      :text        => '[x]close [c]urly      }',
       :visual_mode => true,
     }
+  ]
+)
+
+CommandList::register_list(
+  :name  => 'Cucumber',
+  :items => [
+    {
+      :function    => 'CheckLineStepDefinition()',
+      :map         => 'cl',
+      :text        => '[c]heck step definition on the [l]ine',
+    },
+    {
+      :function    => 'CheckFileStepDefinition()',
+      :map         => 'cf',
+      :text        => '[c]heck step definition for the [f]ile',
+    },
+    {
+      :function    => 'StepFileRecommendations()',
+      :map         => 'ns',
+      :text        => '[n]ew [s]tep definition',
+    },
+    {
+      :function    => '\<TAB>t',
+      :map         => 'j',
+      :text        => '[j]ump to step definition',
+    }
+  ]
+)
+
+CommandList::register_list(
+  :name  => 'Browse',
+  :items => [
+    {
+      :function    => ':TlistToggle',
+      :map         => 't',
+      :text        => '[t]ag',
+    },
+    {
+      :function    => ':NERDTreeToggle',
+      :map         => 'f',
+      :text        => '[f]ile',
+    }
+  ]
+)
+
+
+CommandList::register_list(
+  :name  => 'Jump',
+  :items => [
+    {
+      :function    => '\<C-W>\<C-]>\<C-W>T',
+      :map         => 't',
+      :text        => '[t]ag',
+    },
+    {
+      :function    => '\<C-W>gF',
+      :map         => 'f',
+      :text        => '[f]ile',
+    },
+    {
+      :function    => '^\<C-W>gF',
+      :map         => 'l',
+      :text        => 'file on the current [l]ine',
+    },
+    {
+      :function    => 'OpenGizmoPage()',
+      :map         => 'g',
+      :text        => '[g]izmo page',
+    },
   ]
 )

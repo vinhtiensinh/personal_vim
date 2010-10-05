@@ -17,7 +17,7 @@ class CommandList
     VIM::set_option('buftype=nofile')
     self.syntax_on
     
-    self.map_key @display_lists
+    self.map_key @display_lists, options
   end
 
   def self.syntax_on
@@ -113,13 +113,15 @@ class MenuItem
     VIM::command("call feedkeys('gv')") if @visual_mode
     if @function.match('\(')
       VIM::command("call #{@function}")
-    else
+    elsif @function.match(/^:/)
       if @visual_mode
         VIM::command("call feedkeys(':#{@function}')")
         VIM::command('call feedkeys("\<CR>")')
       else
         VIM::command(@function)
       end
+    else
+      VIM::command("call feedkeys(\"#{@function}\")")
     end
   end
 end

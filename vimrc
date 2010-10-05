@@ -43,21 +43,15 @@ so $HOME/.vim/plugin/taglist.vim
 :Alias difp diffput
 :Alias difg diffget
 
-"method to jump, jump to a step, jump to a class etc
-map <TAB>t <C-W><C-]><C-W>T
-map <TAB>f <C-W>gF
-map <TAB>l ^<C-W>gF
-map <TAB>g :OpenGizmoPage()<CR>
-
+" display command list
+map <silent> <LEADER>j  :ruby CommandList::display_command_list('Jump')<CR>
+map <silent> <LEADER>c  :ruby CommandList::display_command_list('Cucumber')<CR>
+map <silent> <LEADER>b  :ruby CommandList::display_command_list('Browse')<CR>
+map <silent> <LEADER>a  :ruby CommandList::display_command_list('Align')<CR>
 "method to execute a command, run perl test
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
-map <LEADER>ft :TlistToggle<CR>
-map <LEADER>fb :BufExplorer<CR>
-map <LEADER>ff :NERDTreeToggle<CR>
-map <LEADER>fy :YRShow<CR>
-map <LEADER>fs :call StepFileRecommendations()<CR>
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTAcceptSelectionTabMap='<CR>'
 
@@ -133,7 +127,5 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-
-
 
 so ./.localvimrc
