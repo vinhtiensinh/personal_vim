@@ -17,7 +17,7 @@ class CommandList
     VIM::set_option('buftype=nofile')
     self.syntax_on
     
-    self.map_key @display_lists, options
+    self.map_key @display_lists
   end
 
   def self.syntax_on
