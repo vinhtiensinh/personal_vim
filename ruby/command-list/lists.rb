@@ -1,5 +1,7 @@
 CommandList::register_list(
   :name  => 'Align',
+  :map   =>'<LEADER>a',
+  :map_item_with_list => true,
   :items => [
     {
       :function    => ':Align=',
@@ -60,6 +62,8 @@ CommandList::register_list(
 
 CommandList::register_list(
   :name  => 'Cucumber',
+  :map   =>'<LEADER>c',
+  :map_item_with_list => true,
   :items => [
     {
       :function    => 'CheckLineStepDefinition()',
@@ -77,7 +81,7 @@ CommandList::register_list(
       :text        => '[n]ew [s]tep definition',
     },
     {
-      :function    => '\<TAB>t',
+      :function    => '\<C-W>\<C-]>\<C-W>T',
       :map         => 'j',
       :text        => '[j]ump to step definition',
     }
@@ -86,6 +90,8 @@ CommandList::register_list(
 
 CommandList::register_list(
   :name  => 'Browse',
+  :map   =>'<LEADER>b',
+  :map_item_with_list => true,
   :items => [
     {
       :function    => ':TlistToggle',
@@ -103,6 +109,8 @@ CommandList::register_list(
 
 CommandList::register_list(
   :name  => 'Jump',
+  :map   =>'<LEADER>j',
+  :map_item_with_list => true,
   :items => [
     {
       :function    => '\<C-W>\<C-]>\<C-W>T',
