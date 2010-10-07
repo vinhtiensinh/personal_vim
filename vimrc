@@ -2,7 +2,10 @@ let mapleader = ' '
 set nocompatible
 
 set guioptions-=T
+set go+=b
+set nowrap
 set guifont=Menlo:h14
+set clipboard=unnamed
 
 set paste
 
@@ -123,10 +126,19 @@ map <LEADER>sh :ConqueTermVSplit bash<CR>
 "of that dir.
 set visualbell    "don't beep
 set noerrorbells  "dont beep
-
 "------------------------------------------------------------------------
 "no backup
 set nobackup
 set noswapfile
+
+autocmd  FocusLost    *   :call Autosave() 
+function! Autosave ()
+   if &modified
+       write
+       echo "Autosaved file while you were absent" 
+   endif
+endfunction
+
+
 
 so ./.localvimrc
