@@ -119,6 +119,16 @@ imap [<CR> []<Left><CR><CR><Up><TAB>
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
+" Open file from clipboard
+map <D-e> :call OpenFilesFromClipboard()<CR>
+" Run single test
+map <LEADER>t :call RunSingleTest()<CR>
+
+" Run all tests on file
+map <LEADER>T :call RunSingleTestFile()<CR>
+
+" Run all tests on file
+map <LEADER>tt :call RunAllTests()<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
 map <LEADER>sh :ConqueTermVSplit bash<CR>

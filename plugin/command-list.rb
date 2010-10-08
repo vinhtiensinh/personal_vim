@@ -10,7 +10,7 @@ CommandList::register_list(
       :visual_mode => true,
     },
     {
-      :function    => ':Align|',
+      :function    => ':!~/.vim/scripts/psvAlign.pl',
       :map         => 'p',
       :text        => '[p]ipe                |',
       :visual_mode => true,
