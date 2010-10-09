@@ -108,13 +108,6 @@ set smartcase
 " show mark
 " -----------------------------------------------------------------------------
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-" auto close
-" ----------------------------------------------------------------------------
-imap (<CR> ()<Left><CR><CR><Up><TAB>
-imap {<CR> {}<Left><CR><CR><Up><TAB>
-imap [<CR> []<Left><CR><CR><Up><TAB>
-
 "-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
