@@ -16,7 +16,7 @@ while(line = file.gets)
     vars = vars.split(',')
 
     while line.match('<var>') && vars.length > 0
-      line.sub!('<var>', "<#{vars.shift}>")
+      line.sub!('<var>', "\"<#{vars.shift}>\"")
     end
   end
   line.sub!(/\sdo(\s+\|.*)?$/, '')

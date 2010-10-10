@@ -11,8 +11,10 @@ class VIMCucumber
   def self.check_step_on_line line_number=VIM::Buffer.current.line_number
     current_buffer = VIM::Buffer.current
 
-    VIM::command(":sign unplace #{line_number}") if current_buffer[line_number].match(/^\s*$/)
-    return unless Cucumber.is_a_step(current_buffer[line_number])
+    unless Cucumber.is_a_step(current_buffer[line_number])
+      VIM::command(":sign unplace #{line_number}")
+      return;
+    end
 
     string = self.normalise_step(current_buffer[line_number])
 

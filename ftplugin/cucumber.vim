@@ -12,7 +12,7 @@ sign define fixme text=!! linehl=Error
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
 setlocal omnifunc=CucumberComplete
-autocmd BufWritePost,BufEnter *.feature,*.story ruby VIMCucumber.check_steps_on_file
+autocmd BufWritePost,BufEnter <buffer> ruby VIMCucumber.check_steps_on_file
 autocmd BufWritePost *.rb ruby VIMCucumber.refresh
 
 nmap <silent><buffer> <C-W><C-]>  :ruby VIMCucumber.jump_step<CR>

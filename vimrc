@@ -38,7 +38,7 @@ set wildignore=.git,*.swp,*.*~
 map ; :
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
-imap <TAB> <C-n>
+imap <S-TAB> <C-n>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim

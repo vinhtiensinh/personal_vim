@@ -8,6 +8,9 @@ function! StepFileRecommendations()
   map <buffer> j <Down>:call InspectStepFile()<CR>
   map <buffer> k <Up>:call InspectStepFile()<CR>
   map <buffer> <CR> :call AddNewStep()<CR>
+  map <buffer> <ESC> :bwipe<CR>
+  map <buffer> :q :bwipe
+  autocmd  BufUnload __Step_Files__ execute ':silent! bwipe __Step_definitions.feature'
   execute '1'
   execute 'd'
   call InspectStepFile()
@@ -15,20 +18,19 @@ endfunction
 
 function! AddNewStep()
   execute 'vsplit ' . getline('.') 
-  execute ':bd __Step_definitions.feature'
-  execute ':bd __Step_Files__' 
+  execute ':bwipe __Step_definitions.feature'
+  execute ':bwipe __Step_Files__' 
   let step_definition = system("step_conversion.rb '" . g:rea_current_undef_step . "'")
-  call append(line("$"), ['', step_definition])
+  call append(line("$"), ['', step_definition, 'end'])
   execute '$'
   call feedkeys('o')
 endfunction
 
 function! InspectStepFile()
-  let file = getline('.')
-  let recommendation = system("step_definitions.rb " . getline('.'))
+  let recommendation = system("step_definitions.rb '" . getline('.') . "'")
   
   if bufexists('__Step_definitions.feature')
-    execute ':bd __Step_definitions.feature'
+    execute ':bwipe __Step_definitions.feature'
   endif
 
   execute 'bel split __Step_definitions.feature' 

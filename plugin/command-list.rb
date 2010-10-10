@@ -66,16 +66,6 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => 'CheckLineStepDefinition()',
-      :map         => 'cl',
-      :text        => '[c]heck step definition on the [l]ine',
-    },
-    {
-      :function    => 'CheckFileStepDefinition()',
-      :map         => 'cf',
-      :text        => '[c]heck step definition for the [f]ile',
-    },
-    {
       :function    => 'StepFileRecommendations()',
       :map         => 'ns',
       :text        => '[n]ew [s]tep definition',
