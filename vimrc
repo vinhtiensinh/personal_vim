@@ -1,5 +1,6 @@
 let mapleader = ' '
 set nocompatible
+set autowrite
 
 set guioptions-=T
 set go+=b

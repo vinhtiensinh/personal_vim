@@ -5,6 +5,8 @@ class Cucumber
 
   def self.fetch_steps
 
+    @@steps = []
+
     ['Given', 'Then', 'When'].each do |keyword|
       rgrep_results = `grep -rin '^\s*#{keyword} ' features/step_definitions`
 
@@ -14,7 +16,6 @@ class Cucumber
         @@steps.push(Step.parse(line))
       end
     end
-    
   end
 
   def self.all_steps
@@ -37,7 +38,7 @@ class Cucumber
   end
 
   def self.is_a_step string
-    return string.match(/^\s*(Given|And|When|Then)\s+/)
+    return string.match(/^\s*(Given|And|When|Then|But)\s+/)
   end
 
   def self.find_steps_for string
@@ -48,7 +49,7 @@ class Cucumber
     @@steps.each do |step|
       matched = true
       words.each do |word|
-        if not step.has_word? word
+        unless step.has_word? word
           matched = false
           break
         end

@@ -23,6 +23,23 @@ class VIMCucumber
     end
   end
 
+  def self.find_steps string = VIM::Buffer.current.line
+    string = self.normalise_step(string)
+    steps = Cucumber.find_steps_for string
+    steps_strings = []
+
+    steps.each do |step|
+      steps_strings.push(step.to_s)
+    end
+
+
+    puts steps_strings.join("\n")
+  end
+
+  def self.refresh
+    Cucumber.fetch_steps
+  end
+
   def self.jump_step string=VIM::Buffer.current.line
 
     step = Cucumber.step_for self.normalise_step(string)
@@ -37,7 +54,12 @@ class VIMCucumber
 
   def self.normalise_step line
     string = String.new(line)
-    string.sub!(/^\s*\w+ /, '')
+    string.sub!(/^\s*/, '')
+
+    if string.match(/^(Given|Then|When|And)\s*/) 
+      string.sub!(/^(Given|Then|When|And)\s*/, '') 
+    end
+
     string.sub!(/\s*$/,'')
     return string
   end
