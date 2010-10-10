@@ -143,6 +143,11 @@ function! Autosave ()
    endif
 endfunction
 
+vmap <LEADER>' s'
+vmap <LEADER>" s"
+vmap <LEADER>( s(
+vmap <LEADER>[ s[
+
 
 
 so ./.localvimrc
