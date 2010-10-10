@@ -158,4 +158,11 @@ map @ ^
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /\s\+$/
 
+"use sign for checking syntax
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disabled_filetypes = ['cucumber']
+
+
 silent! so ./.localvimrc
