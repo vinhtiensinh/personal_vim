@@ -71,8 +71,8 @@ autocmd BufReadPost *
 \ endif
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
-set guitablabel=%N\ %t\ %M
-map tss :set<SPACE>guitablabel=%N\<SPACE>%t\<SPACE>%M<CR>
+autocmd VimEnter * set guitablabel=%N\ %t\ %M
+
 map  <D-1> 1gt
 imap <D-1> <ESC>1gt
 map  <D-2> 2gt
@@ -151,9 +151,11 @@ map <LEADER>" cs'"
 map <LEADER>,, ,c<SPACE>
 map <LEADER>,b ^V%,c<SPACE>
 
+" ^ is hard to reach, use @ instead
+map @ ^
+
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /\s\+$/
 
-
-so ./.localvimrc
+silent! so ./.localvimrc
