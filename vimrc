@@ -114,7 +114,7 @@ vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
-map <D-e> :call OpenFilesFromClipboard()<CR>
+map <D-e> :call OpenFilesFromClipboard('tabnew')<CR>
 " Run single test
 map <LEADER>t :call RunSingleTest()<CR>
 
@@ -134,12 +134,12 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-
+autocmd InsertLeave * :call Autosave() 
 autocmd  FocusLost    *   :call Autosave()
 function! Autosave ()
    if &modified
        write
-       echo "Autosaved file while you were absent"
+       echo "Autosaved"
    endif
 endfunction
 
