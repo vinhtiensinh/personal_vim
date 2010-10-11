@@ -138,8 +138,7 @@ autocmd InsertLeave * :call Autosave()
 autocmd  FocusLost    *   :call Autosave()
 function! Autosave ()
    if &modified
-       write
-       echo "Autosaved"
+     call feedkeys(":w\<CR>")
    endif
 endfunction
 
