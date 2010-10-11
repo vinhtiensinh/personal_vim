@@ -7,7 +7,7 @@ class Cucumber
 
     @@steps = []
 
-    ['Given', 'Then', 'When'].each do |keyword|
+    ['Given', 'Then', 'When', 'And', 'But'].each do |keyword|
       rgrep_results = `grep -rin '^\s*#{keyword} ' features/step_definitions`
 
       rgrep_results = rgrep_results.split("\n")
