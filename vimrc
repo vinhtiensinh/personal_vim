@@ -10,13 +10,13 @@ set clipboard=unnamed
 
 set paste
 
-set softtabstop=2 
-set shiftwidth=2 
-set tabstop=2 
-set expandtab 
-set cindent 
-set smartindent 
-set autoindent 
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set cindent
+set smartindent
+set autoindent
 
 
 colorscheme vividchalk
@@ -33,7 +33,7 @@ set incsearch
 
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~ 
+set wildignore=.git,*.swp,*.*~
 
 map ; :
 map  <LEADER>v <C-v>
@@ -42,7 +42,7 @@ imap <S-TAB> <C-n>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
- 
+
 :TlistAddFiles ./tags
 :Alias difp diffput
 :Alias difg diffget
@@ -135,11 +135,11 @@ set noerrorbells  "dont beep
 set nobackup
 set noswapfile
 
-autocmd  FocusLost    *   :call Autosave() 
+autocmd  FocusLost    *   :call Autosave()
 function! Autosave ()
    if &modified
        write
-       echo "Autosaved file while you were absent" 
+       echo "Autosaved file while you were absent"
    endif
 endfunction
 
@@ -164,5 +164,7 @@ let g:syntastic_quiet_warnings=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes = ['cucumber']
 
+"better background
+highlight Pmenu guibg=LightGrey guifg=Black gui=bold
 
 silent! so ./.localvimrc

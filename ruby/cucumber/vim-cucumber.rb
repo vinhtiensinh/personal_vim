@@ -58,8 +58,8 @@ class VIMCucumber
     string = String.new(line)
     string.sub!(/^\s*/, '')
 
-    if string.match(/^(Given|Then|When|And)\s*/) 
-      string.sub!(/^(Given|Then|When|And)\s*/, '') 
+    if string.match(/^(Given|Then|When|And|But)\s*/) 
+      string.sub!(/^(Given|Then|When|And|But)\s*/, '') 
     end
 
     string.sub!(/\s*$/,'')
