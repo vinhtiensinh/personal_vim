@@ -31,11 +31,9 @@ set number
 set ignorecase
 set incsearch
 
-
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=.git,*.swp,*.*~
 
-map ; :
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
 imap <S-TAB> <C-n>
@@ -134,11 +132,11 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-autocmd InsertLeave * :call Autosave() 
+autocmd InsertLeave * :call Autosave()
 autocmd  FocusLost    *   :call Autosave()
 function! Autosave ()
    if &modified
-     call feedkeys(":w\<CR>")
+     write
    endif
 endfunction
 
