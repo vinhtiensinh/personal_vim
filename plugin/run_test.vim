@@ -8,7 +8,7 @@ autocmd VimEnter *_spec.rb map <LEADER>tt :call RunTests('spec')<CR>
 autocmd VimEnter *.t map <LEADER>t :call Terminal('testem')<CR>
 
 function! Terminal(icommand)
-  execute system('terminal.scpt ' . "'" . a:icommand . "'")
+  let output = system('terminal.scpt ' . "'" . a:icommand . "'")
 endfunction
 
 function! RunSingleTest(icommand)
