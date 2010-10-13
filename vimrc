@@ -112,17 +112,8 @@ vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
 map <D-e> :call OpenFilesFromClipboard('tabnew')<CR>
-" Run single test
-map <LEADER>t :call RunSingleTest()<CR>
-
-" Run all tests on file
-map <LEADER>T :call RunSingleTestFile()<CR>
-
-" Run all tests on file
-map <LEADER>tt :call RunAllTests()<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
-map <LEADER>sh :ConqueTermVSplit bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 set visualbell    "don't beep
@@ -162,10 +153,5 @@ let g:syntastic_disabled_filetypes = ['cucumber']
 
 "better background
 highlight Pmenu guibg=LightGrey guifg=Black gui=bold
-
-"set this to 0
-let g:ConqueTerm_CloseOnEnd = 0
-let g:ConqueTerm_ReadUnfocused = 1
-
 
 silent! so ./.localvimrc
