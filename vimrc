@@ -1,6 +1,5 @@
 let mapleader = ' '
 set nocompatible
-set autowrite
 
 set guioptions-=T
 set go+=b
@@ -163,5 +162,10 @@ let g:syntastic_disabled_filetypes = ['cucumber']
 
 "better background
 highlight Pmenu guibg=LightGrey guifg=Black gui=bold
+
+"set this to 0
+let g:ConqueTerm_CloseOnEnd = 0
+let g:ConqueTerm_ReadUnfocused = 1
+
 
 silent! so ./.localvimrc
