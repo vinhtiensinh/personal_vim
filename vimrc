@@ -4,7 +4,7 @@ set nocompatible
 set guioptions-=T
 set go+=b
 set nowrap
-set guifont=Menlo:h14
+set guifont=Consolas:h16
 set clipboard=unnamed
 
 set paste

@@ -23,5 +23,13 @@ endfunction
 
 function! RunTests(icommand)
   let test = input(a:icommand . '?: ')
+
+  if test == ''
+    return
+  elseif test =~ '^\s*\d\+\s*$'
+    let test = expand('%') . ':'. test
+  end
+
   call Terminal('cd ' . getcwd() . ';' . a:icommand . ' ' . test)
+
 endfunction

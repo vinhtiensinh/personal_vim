@@ -29,6 +29,7 @@ function! MapSelectMatches()
   let matches += [['=', '=']]
   let matches += [['<', '>']]
   let matches += [['\|', '\|']]
+  let matches += [['.', '.']]
 
   for imatch in matches
     execute 'map <LEADER>s' . imatch[0] . ' T' . imatch[0] . 'vt' . imatch[1]
@@ -43,6 +44,10 @@ function! MapSelectMatches()
     endif
   endfor
 endfunction
+
+function! SelectNext()
+  orders = ['.', "'", '"', ']', ')', '}']
+end
 
 autocmd BufEnter * call MapSelectMatches()
 nnoremap  <LEADER>y :<C-U>call CopyLineNumber()<CR>
