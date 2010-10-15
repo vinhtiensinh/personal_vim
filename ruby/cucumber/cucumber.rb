@@ -3,12 +3,12 @@
 class Cucumber
   @@steps = []
 
-  def self.fetch_steps
+  def self.fetch_steps dir_path='features/step_definitions'
 
     @@steps = []
 
-    ['Given', 'Then', 'When'].each do |keyword|
-      rgrep_results = `grep -rin '^\s*#{keyword} ' features/step_definitions`
+    ['Given', 'Then', 'When', 'And', 'But'].each do |keyword|
+      rgrep_results = `grep -rin '^\s*#{keyword} ' #{dir_path}`
 
       rgrep_results = rgrep_results.split("\n")
       rgrep_results.each do | line |

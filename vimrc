@@ -1,22 +1,21 @@
 let mapleader = ' '
 set nocompatible
-set autowrite
 
 set guioptions-=T
 set go+=b
 set nowrap
-set guifont=Menlo:h14
+set guifont=Consolas:h16
 set clipboard=unnamed
 
 set paste
 
-set softtabstop=2 
-set shiftwidth=2 
-set tabstop=2 
-set expandtab 
-set cindent 
-set smartindent 
-set autoindent 
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set cindent
+set smartindent
+set autoindent
 
 
 colorscheme vividchalk
@@ -31,18 +30,16 @@ set number
 set ignorecase
 set incsearch
 
-
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~ 
+set wildignore=.git,*.swp,*.*~
 
-map ; :
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
 imap <S-TAB> <C-n>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
- 
+
 :TlistAddFiles ./tags
 :Alias difp diffput
 :Alias difg diffget
@@ -114,18 +111,9 @@ vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
-map <D-e> :call OpenFilesFromClipboard()<CR>
-" Run single test
-map <LEADER>t :call RunSingleTest()<CR>
-
-" Run all tests on file
-map <LEADER>T :call RunSingleTestFile()<CR>
-
-" Run all tests on file
-map <LEADER>tt :call RunAllTests()<CR>
+map <D-e> :call OpenFilesFromClipboard('tabnew')<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
-map <LEADER>sh :ConqueTermVSplit bash<CR>
 "to speed up processing, any optimize vim config should be place in the .localvimrc
 "of that dir.
 set visualbell    "don't beep
@@ -134,12 +122,11 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-
-autocmd  FocusLost    *   :call Autosave() 
+autocmd InsertLeave * :call Autosave()
+autocmd  FocusLost    *   :call Autosave()
 function! Autosave ()
    if &modified
-       write
-       echo "Autosaved file while you were absent" 
+     silent! write
    endif
 endfunction
 
@@ -157,5 +144,14 @@ map @ ^
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /\s\+$/
+
+"use sign for checking syntax
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disabled_filetypes = ['cucumber']
+
+"better background
+highlight Pmenu guibg=LightGrey guifg=Black gui=bold
 
 silent! so ./.localvimrc

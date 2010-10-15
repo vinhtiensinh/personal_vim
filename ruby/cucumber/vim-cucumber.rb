@@ -12,16 +12,16 @@ class VIMCucumber
     current_buffer = VIM::Buffer.current
 
     unless Cucumber.is_a_step(current_buffer[line_number])
-      VIM::command(":sign unplace #{line_number}")
+      VIM::command(":silent! sign unplace #{line_number}")
       return;
     end
 
     string = self.normalise_step(current_buffer[line_number])
 
     if Cucumber.defined? string 
-      VIM::command(":sign unplace #{line_number}")
+      VIM::command(":silent! sign unplace #{line_number}")
     else
-      VIM::command(":sign place #{line_number} line=#{line_number} name=fixme file=#{current_buffer.name}")
+      VIM::command(":silent! sign place #{line_number} line=#{line_number} name=fixme file=#{current_buffer.name}")
     end
   end
 
@@ -42,14 +42,14 @@ class VIMCucumber
     Cucumber.fetch_steps
   end
 
-  def self.jump_step string=VIM::Buffer.current.line
+  def self.jump_step command, string=VIM::Buffer.current.line
 
     step = Cucumber.step_for self.normalise_step(string)
     if step.nil?
       VIM::command("echo 'step is nil'")
       self.check_step_on_line
     else
-      VIM::command("tabnew #{step.file}")
+      VIM::command("#{command} #{step.file}")
       VIM::command("#{step.line_number}")
     end
   end
@@ -58,8 +58,8 @@ class VIMCucumber
     string = String.new(line)
     string.sub!(/^\s*/, '')
 
-    if string.match(/^(Given|Then|When|And)\s*/) 
-      string.sub!(/^(Given|Then|When|And)\s*/, '') 
+    if string.match(/^(Given|Then|When|And|But)\s*/) 
+      string.sub!(/^(Given|Then|When|And|But)\s*/, '') 
     end
 
     string.sub!(/\s*$/,'')
