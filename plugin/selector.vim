@@ -45,10 +45,6 @@ function! MapSelectMatches()
   endfor
 endfunction
 
-function! SelectNext()
-  orders = ['.', "'", '"', ']', ')', '}']
-end
-
 autocmd BufEnter * call MapSelectMatches()
 nnoremap  <LEADER>y :<C-U>call CopyLineNumber()<CR>
 map  <LEADER>w :call CopyLines()<CR>

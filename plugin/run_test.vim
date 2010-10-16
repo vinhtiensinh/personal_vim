@@ -1,10 +1,10 @@
 autocmd VimEnter *.feature,*.story map <LEADER>t :call RunSingleTest('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>T :call RunSingleTestFile('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>tt :call RunTests('cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>TT :call RunSingleTestFile('cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>T :call RunTests('cucumber')<CR>
 
 autocmd VimEnter *_spec.rb map <LEADER>t :call RunSingleTest('spec')<CR>
-autocmd VimEnter *_spec.rb map <LEADER>T :call RunSingleTestFile('spec')<CR>
-autocmd VimEnter *_spec.rb map <LEADER>tt :call RunTests('spec')<CR>
+autocmd VimEnter *_spec.rb map <LEADER>TT :call RunSingleTestFile('spec')<CR>
+autocmd VimEnter *_spec.rb map <LEADER>T :call RunTests('spec')<CR>
 autocmd VimEnter *.t map <LEADER>t :call Terminal('testem')<CR>
 
 function! Terminal(icommand)
