@@ -1,16 +1,27 @@
 class Grepper
-  def self.grep string, path, options
-    result = `grep -#{options.join('')} #{string} #{path} `
+  def self.grep options, path, string=VIM::evaluate("expand('<cword>')")
+
+    result = `grep -#{options} '#{string}' #{path} `
     @@current_match = MatchResult.new(result)
+    @@string = string
+
     self.display(string, @@current_match)
   end
 
-  def self.display string, match_result
-    VIM::command('tabnew __grep__')
+  def self.string
+    @@string
+  end
+
+  def self.display string=@@string, match_result=@@current_match
+    VIM::command('split __grep__')
     VIM::Buffer.current.append(0, self.prepare(match_result))
     VIM::set_option('buftype=nofile')
-    VIM::command("match Constant '#{string}'")
     self.syntax_on
+    self.map_on
+  end
+
+  def self.map_on
+    VIM::command('map <buffer> <ESC> :q!<CR>')
   end
 
   def self.prepare match_result
@@ -20,12 +31,12 @@ class Grepper
       if (value.length > 1 )
         text = text +  "#{key}: (#{value.length}) {{{\n"
         value.each do | match |
-          text = text + "    #{match.file}:#{match.line_number} #{match.line}\n"
+          text = text + "    #{match.file}:#{match.line_number}: #{match.line}\n"
         end
         text = text +  "}}}\n"
       else
         match = value[0]
-        text = text + "#{match.file}:#{match.line_number} #{match.line}\n"
+        text = text + "#{match.file}:#{match.line_number}: #{match.line}\n"
       end
     end
 
@@ -37,7 +48,11 @@ class Grepper
       "setlocal foldmethod=marker",
       "set fillchars=fold:\\ ",
       "set foldtext=substitute(getline(v:foldstart),'{{{','+','g')",
-      "highlight Folded ctermfg=White ctermbg=Black guifg=White guibg=Black",
+      "highlight Folded ctermfg=Cyan ctermbg=Black guifg=Cyan guibg=Black",
+      "syn match searchWord '#{self.string}'",
+      "syn match fileName '^\.*:'",
+      "hi def link searchWord Constant",
+      "hi def link fileName Type",
     ].each do | command |
       VIM::command(command)
     end
