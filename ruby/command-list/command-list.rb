@@ -139,7 +139,7 @@ class MenuItem
     VIM::command("call feedkeys('gv')") if @visual_mode
     if @function.match(/^:/)
       if @visual_mode
-        VIM::command("call feedkeys(':#{@function}')")
+        VIM::command("call feedkeys(\":#{@function}\")")
         VIM::command('call feedkeys("\<CR>")')
       else
         VIM::command(@function)
