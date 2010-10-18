@@ -22,7 +22,7 @@ function! RunSingleTestFile(icommand)
 endfunction
 
 function! RunTests(icommand)
-  let test = input(a:icommand . '?: ')
+  let test = input(a:icommand . '?: ', 'features/', 'file')
 
   if test == ''
     return

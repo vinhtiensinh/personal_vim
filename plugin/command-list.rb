@@ -136,18 +136,23 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => "GrepperGrep('rin', '.', '')",
+      :function    => "GrepperGrep('-rin', '.', '')",
       :map         => '.',
       :text        => 'search for word case insensitive in current[.] directory',
     },
     {
-      :function    => "GrepperGrep('rin','','')",
+      :function    => "GrepperGrep('-rin','','')",
       :map         => 'w',
       :text        => 'search for [w]ord case insensitive',
     },
     {
-      :function    => "GrepperGrep('rn','','')",
+      :function    => "GrepperGrep('-rn','','')",
       :map         => 's',
+      :text        => 'search for word case [s]ensitive',
+    },
+    {
+      :function    => "GrepperGrepCmd()",
+      :map         => 'g',
       :text        => 'search for word case [s]ensitive',
     }
   ]

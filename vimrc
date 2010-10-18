@@ -15,7 +15,7 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
-
+set cursorline
 
 colorscheme vividchalk
 
@@ -148,7 +148,7 @@ match ExtraWhitespace /\s\+$/
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes = ['cucumber']
+let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
 highlight Pmenu guibg=LightGrey guifg=Black gui=bold

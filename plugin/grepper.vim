@@ -10,7 +10,22 @@ function! GrepperGrep(options, path, string)
     let path = input('grep -' . a:options . " '" . string . "' " . '<where ?>: ', "", "file")
   endif
 
+  if empty(path)
+    return
+  endif
+
   execute  'ruby ' . "Grepper.grep('" . a:options . "','" . path . "','" . string . "')"
+
+endfunction
+
+function! GrepperGrepCmd()
+
+  let input = input('grep: ', '', 'file')
+  if empty(input)
+    return
+  endif
+  let parts = split(input, "'")
+  execute  'ruby ' . "Grepper.grep('" . parts[0] . "','" . parts[2] . "','" . parts[1] . "')"
 
 endfunction
 

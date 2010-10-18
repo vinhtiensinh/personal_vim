@@ -1,7 +1,7 @@
 class Grepper
   def self.grep options, path, string=VIM::evaluate("expand('<cword>')")
 
-    result = `grep -#{options} '#{string}' #{path} `
+    result = `grep #{options} '#{string}' #{path} `
     @@current_match = MatchResult.new(result)
     @@string = string
 
