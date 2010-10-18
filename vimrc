@@ -137,9 +137,6 @@ map <LEADER>" cs'"
 map <LEADER>,, ,c<SPACE>
 map <LEADER>,b ^V%,c<SPACE>
 
-" ^ is hard to reach, use @ instead
-map @ ^
-
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /\s\+$/
