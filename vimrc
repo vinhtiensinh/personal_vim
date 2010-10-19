@@ -144,10 +144,10 @@ match ExtraWhitespace /\s\+$/
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
 highlight Pmenu guibg=LightGrey guifg=Black gui=bold
 
+map <LEADER>o :tabnew<SPACE>
 silent! so ./.localvimrc
