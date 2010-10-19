@@ -15,7 +15,6 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
-set cursorline
 
 colorscheme vividchalk
 
