@@ -1,11 +1,14 @@
 #!/opt/local/bin/ruby
 
 class Cucumber
-  @@steps = []
+
+  def self.fetch_all_steps
+    @@steps = {}
+    self.fetch_steps 'features/step_definitions'
+  end
 
   def self.fetch_steps dir_path='features/step_definitions'
-
-    @@steps = []
+    @@steps[dir_path] = [] if @@steps.has_key?(dir_path)
 
     ['Given', 'Then', 'When', 'And', 'But'].each do |keyword|
       rgrep_results = `grep -rin '^\s*#{keyword} ' #{dir_path}`
@@ -13,17 +16,27 @@ class Cucumber
       rgrep_results = rgrep_results.split("\n")
       rgrep_results.each do | line |
         next if line =~ /#\{/;
-        @@steps.push(Step.parse(line))
+        self.add_step(Step.parse(dir_path, line))
       end
     end
   end
 
+  def self.add_step step
+    @@steps[step.file] = [] unless @@steps.has_key?(step.file)
+    @@steps[step.file].push(step)
+  end
+
   def self.all_steps
-    return @@steps
+    steps = []
+    @@steps.each_pair do |file, file_steps|
+      steps.push(file_steps)
+    end
+
+    return steps.flatten
   end
 
   def self.defined? string
-    @@steps.each do |step|
+    self.all_steps.each do |step|
       return true if step.match(string)
     end
 
@@ -31,7 +44,7 @@ class Cucumber
   end
 
   def self.step_for string
-    @@steps.each do |step|
+    self.all_steps.each do |step|
       return step if step.match(string)
     end
     return nil
@@ -45,8 +58,8 @@ class Cucumber
 
     matched_steps = []
     words = string.downcase.split(' ')
-  
-    @@steps.each do |step|
+
+    self.all_steps.each do |step|
       matched = true
       words.each do |word|
         unless step.has_word? word
@@ -64,16 +77,21 @@ class Cucumber
   end
 end
 
-
 class Step
   attr_reader :regex, :file, :line_number, :variables, :type, :raw
 
-  def self.parse line
+  def self.parse dir_path, line
     parts = line.split(':')
 
-    file        = parts.shift
-    line_number = parts.shift
-    regex       = parts.join(':')
+    if parts[0].match(/\d+/)
+      file        = dir_path
+      line_number = parts.shift
+      regex       = parts.join(':')
+    else
+      file        = parts.shift
+      line_number = parts.shift
+      regex       = parts.join(':')
+    end
 
     if regex.match(/\|(.*?)\|\s*$/)
       variables = regex.match(/do\s+\|(.*?)\|\s*$/).captures.first.split(',')
@@ -88,7 +106,7 @@ class Step
     regex.sub!(/\/\s*(do\s*)?$/, '')
 
     return Step.new(
-      :file        => file,
+      :file        =>  File.expand_path(file),
       :line_number => line_number,
       :regex       => regex,
       :variables   => variables,

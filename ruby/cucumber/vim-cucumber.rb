@@ -1,4 +1,4 @@
-Cucumber.fetch_steps
+Cucumber.fetch_all_steps
 
 class VIMCucumber
   def self.check_steps_on_file
@@ -38,8 +38,8 @@ class VIMCucumber
     puts steps_strings.join("\n")
   end
 
-  def self.refresh
-    Cucumber.fetch_steps
+  def self.refresh file
+    Cucumber.fetch_steps file
   end
 
   def self.jump_step command, string=VIM::Buffer.current.line
