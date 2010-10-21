@@ -1,6 +1,6 @@
-autocmd VimEnter *.feature,*.story map <LEADER>t :call RunSingleTest('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>TT :call RunSingleTestFile('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>T :call RunTests('cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>t :call RunSingleTest('bundle exec cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>TT :call RunSingleTestFile('bundle exec cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>T :call RunTests('bundle exec cucumber')<CR>
 
 autocmd VimEnter *_spec.rb map <LEADER>t :call RunSingleTest('spec')<CR>
 autocmd VimEnter *_spec.rb map <LEADER>TT :call RunSingleTestFile('spec')<CR>
