@@ -1,3 +1,7 @@
+if !has('ruby')
+  finish
+endif
+
 function! GrepperGrep(options, path, string)
   let path = a:path
   let string = a:string

@@ -1,3 +1,7 @@
+if !has('ruby')
+  finish
+endif
+
 ruby << EOF
   # require Ruby files
   VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
