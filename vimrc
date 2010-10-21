@@ -29,16 +29,16 @@ set ignorecase
 set incsearch
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~
+set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
-imap <S-TAB> <C-n>
+imap <S-Tab> <C-n>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-:TlistAddFiles ./tags
+:TlistAddFiles ./Tags
 :Alias difp diffput
 :Alias difg diffget
 
@@ -146,7 +146,9 @@ let g:syntastic_quiet_warnings=1
 let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
-highlight Pmenu guibg=LightGrey guifg=Black gui=bold
+highlight Pmenu guibg=grey14 guifg=moccasin
 
 map <LEADER>o :tabnew<SPACE>
+map <Tab> <C-W><C-]><C-W>T
+
 silent! so ./.localvimrc
