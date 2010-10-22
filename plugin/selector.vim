@@ -1,3 +1,7 @@
+if !has('ruby')
+  finish
+endif
+
 rubyf /Users/vinh_tran/vim-lab/text_queue.rb
 
 function! CopyLineNumber() range
