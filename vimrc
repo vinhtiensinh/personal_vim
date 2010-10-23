@@ -34,7 +34,8 @@ set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
-imap <S-Tab> <C-n>
+imap <S-Tab> <C-o>
+imap <S-Space> <ESC>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
@@ -121,8 +122,7 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-autocmd InsertLeave * :call Autosave()
-autocmd  FocusLost    *   :call Autosave()
+autocmd InsertLeave,FocusLost * :call Autosave()
 function! Autosave ()
    if &modified
      silent! write

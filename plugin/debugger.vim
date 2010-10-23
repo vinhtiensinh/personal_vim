@@ -16,13 +16,12 @@ function! AddBreakPoint(debugCode)
 endfunction
 
 function! RedrawBreakPoints(debugCode)
-  if has('sign')
+  if has('signs')
     let signIDStart = 1000000
-    let line_number = line('.')
     let iend = line('$')
     let index = 1
 
-    while index < iend
+    while index <= iend
       let signID = index + signIDStart
       let file_name   = expand('%')
       if getline(index) =~ a:debugCode
