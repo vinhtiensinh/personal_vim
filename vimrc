@@ -151,6 +151,6 @@ map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-W><C-]><C-W>T
 
 "experiment of Marker plugin
-map '' :ruby Marker.open()<CR>
+map <SPACE>' :ruby Marker.open()<CR>
 
 silent! so ./.localvimrc
