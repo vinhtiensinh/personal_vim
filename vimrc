@@ -152,4 +152,7 @@ highlight Pmenu guibg=grey14 guifg=moccasin
 map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-W><C-]><C-W>T
 
+"experiment of Marker plugin
+map '' :ruby Marker.open()<CR>
+
 silent! so ./.localvimrc
