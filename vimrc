@@ -89,8 +89,6 @@ imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
 
-map _ gT
-map + gt
 map \| <C-w>w
 map <C-h> <C-w>h
 map <C-j> <C-w>j
