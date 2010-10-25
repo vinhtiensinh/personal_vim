@@ -1,9 +1,9 @@
 let mapleader = ' '
 set nocompatible
+set autowrite
 
 set guioptions-=T
 set go+=b
-set nowrap
 set guifont=Consolas:h16
 set clipboard=unnamed
 
@@ -16,7 +16,6 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
-
 
 colorscheme vividchalk
 
@@ -31,16 +30,17 @@ set ignorecase
 set incsearch
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~
+set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
-imap <S-TAB> <C-n>
+imap <S-Tab> <C-o>
+imap <S-Space> <ESC>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-:TlistAddFiles ./tags
+:TlistAddFiles ./Tags
 :Alias difp diffput
 :Alias difg diffget
 
@@ -89,8 +89,6 @@ imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
 
-map _ gT
-map + gt
 map \| <C-w>w
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -122,8 +120,7 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-autocmd InsertLeave * :call Autosave()
-autocmd  FocusLost    *   :call Autosave()
+autocmd InsertLeave,FocusLost * :call Autosave()
 function! Autosave ()
    if &modified
      silent! write
@@ -138,9 +135,6 @@ map <LEADER>" cs'"
 map <LEADER>,, ,c<SPACE>
 map <LEADER>,b ^V%,c<SPACE>
 
-" ^ is hard to reach, use @ instead
-map @ ^
-
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /\s\+$/
@@ -148,10 +142,18 @@ match ExtraWhitespace /\s\+$/
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes = ['cucumber']
+let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
-highlight Pmenu guibg=LightGrey guifg=Black gui=bold
+highlight Pmenu guibg=grey14 guifg=moccasin
+
+map <LEADER>o :tabnew<SPACE>
+map <Tab> <C-W><C-]><C-W>T
+
+"experiment of Marker plugin
+map <SPACE>' :ruby Marker.open()<CR>
+
+"quicker autocomplete
+set complete -=i
 
 silent! so ./.localvimrc

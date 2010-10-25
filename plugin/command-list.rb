@@ -4,55 +4,55 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => ':Align=',
+      :function    => ":!~/.vim/scripts/aligner.rb '=' -",
       :map         => 'e',
       :text        => '[e]qual               =',
       :visual_mode => true,
     },
     {
-      :function    => ':!~/.vim/scripts/psvAlign.pl',
+      :function    => ":!~/.vim/scripts/aligner.rb '|' -",
       :map         => 'p',
       :text        => '[p]ipe                |',
       :visual_mode => true,
     },
     {
-      :function    => ':Align[',
+      :function    => ":!~/.vim/scripts/aligner.rb '[' -",
       :map         => 's',
       :text        => '[s]quare              [',
       :visual_mode => true,
     },
     {
-      :function    => ':Align]',
+      :function    => ":!~/.vim/scripts/aligner.rb ']' -",
       :map         => 'xs',
       :text        => '[x]close [s]quare     ]',
       :visual_mode => true,
     },
     {
-      :function    => ':Align=>',
+      :function    => ":!~/.vim/scripts/aligner.rb '=>' -",
       :map         => 'a',
       :text        => '[a]rrow               =>',
       :visual_mode => true,
     },
     {
-      :function    => ':Align(',
+      :function    => ":!~/.vim/scripts/aligner.rb '(' -",
       :map         => 'b',
       :text        => '[b]racket             (',
       :visual_mode => true,
     },
     {
-      :function    => ':Align(',
+      :function    => ":!~/.vim/scripts/aligner.rb ')' -",
       :map         => 'xb',
-      :text        => '[x]close [b]racket    ]',
+      :text        => '[x]close [b]racket    )',
       :visual_mode => true,
     },
     {
-      :function    => ':Align{',
+      :function    => ":!~/.vim/scripts/aligner.rb '{' -",
       :map         => 'c',
       :text        => '[c]urly               {',
       :visual_mode => true,
     },
     {
-      :function    => ':Align}',
+      :function    => ":!~/.vim/scripts/aligner.rb '}' -",
       :map         => 'xc',
       :text        => '[x]close [c]urly      }',
       :visual_mode => true,
@@ -126,6 +126,34 @@ CommandList::register_list(
       :function    => 'OpenGizmoPage()',
       :map         => 'g',
       :text        => '[g]izmo page',
+    }
+  ]
+)
+
+CommandList::register_list(
+  :name  => 'Search',
+  :map   =>'<LEADER>g',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => "GrepperGrep('-rin', '.', '')",
+      :map         => '.',
+      :text        => 'search for word case insensitive in current[.] directory',
+    },
+    {
+      :function    => "GrepperGrep('-rin','','')",
+      :map         => 'w',
+      :text        => 'search for [w]ord case insensitive',
+    },
+    {
+      :function    => "GrepperGrep('-rn','','')",
+      :map         => 's',
+      :text        => 'search for word case [s]ensitive',
+    },
+    {
+      :function    => "GrepperGrepCmd()",
+      :map         => 'g',
+      :text        => 'search for word case [s]ensitive',
     }
   ]
 )

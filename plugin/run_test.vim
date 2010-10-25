@@ -1,11 +1,11 @@
-autocmd VimEnter *.feature,*.story map <LEADER>t :call RunSingleTest('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>T :call RunSingleTestFile('cucumber')<CR>
-autocmd VimEnter *.feature,*.story map <LEADER>tt :call RunTests('cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>r :call RunSingleTest('bundle exec cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>RR :call RunSingleTestFile('bundle exec cucumber')<CR>
+autocmd VimEnter *.feature,*.story map <LEADER>R :call RunTests('bundle exec cucumber')<CR>
 
-autocmd VimEnter *_spec.rb map <LEADER>t :call RunSingleTest('spec')<CR>
-autocmd VimEnter *_spec.rb map <LEADER>T :call RunSingleTestFile('spec')<CR>
-autocmd VimEnter *_spec.rb map <LEADER>tt :call RunTests('spec')<CR>
-autocmd VimEnter *.t map <LEADER>t :call Terminal('testem')<CR>
+autocmd VimEnter *_spec.rb map <LEADER>r :call RunSingleTest('spec')<CR>
+autocmd VimEnter *_spec.rb map <LEADER>RR :call RunSingleTestFile('spec')<CR>
+autocmd VimEnter *_spec.rb map <LEADER>R :call RunTests('spec')<CR>
+autocmd VimEnter *.t map <LEADER>r :call Terminal('testem')<CR>
 
 function! Terminal(icommand)
   let output = system('terminal.scpt ' . "'" . a:icommand . "'")
@@ -22,7 +22,7 @@ function! RunSingleTestFile(icommand)
 endfunction
 
 function! RunTests(icommand)
-  let test = input(a:icommand . '?: ')
+  let test = input(a:icommand . '?: ', 'features/', 'file')
 
   if test == ''
     return

@@ -12,9 +12,13 @@ silent! sign define fixme text=!! linehl=Error
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
 
+if !has('ruby')
+  finish
+endif
+
 setlocal omnifunc=CucumberComplete
 autocmd BufWritePost,BufEnter <buffer> ruby VIMCucumber.check_steps_on_file
-autocmd BufWritePost *.rb ruby VIMCucumber.refresh
+autocmd BufWritePost *.rb execute "ruby VIMCucumber.refresh('" . expand('%') . "')"
 
 nmap <silent><buffer> <C-W><C-]>  :ruby VIMCucumber.jump_step('tabnew')<CR>
 

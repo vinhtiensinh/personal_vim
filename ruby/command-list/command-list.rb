@@ -137,15 +137,15 @@ class MenuItem
 
   def execute
     VIM::command("call feedkeys('gv')") if @visual_mode
-    if @function.match('\(')
-      VIM::command("call #{@function}")
-    elsif @function.match(/^:/)
+    if @function.match(/^:/)
       if @visual_mode
-        VIM::command("call feedkeys(':#{@function}')")
+        VIM::command("call feedkeys(\":#{@function}\")")
         VIM::command('call feedkeys("\<CR>")')
       else
         VIM::command(@function)
       end
+    elsif @function.match('\(')
+      VIM::command("call #{@function}")
     else
       VIM::command("call feedkeys(\"#{@function}\")")
     end
