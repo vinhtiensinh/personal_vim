@@ -153,4 +153,7 @@ map <Tab> <C-W><C-]><C-W>T
 "experiment of Marker plugin
 map <SPACE>' :ruby Marker.open()<CR>
 
+"quicker autocomplete
+set complete -=i
+
 silent! so ./.localvimrc
