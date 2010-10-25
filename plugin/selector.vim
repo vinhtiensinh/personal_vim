@@ -36,16 +36,23 @@ function! MapSelectMatches()
   let matches += [['.', '.']]
 
   for imatch in matches
-    execute 'map <LEADER>f' . imatch[0] . ' T' . imatch[0] . 'vt' . imatch[1]
-    execute 'map <LEADER>F' . imatch[0] . ' F' . imatch[0] . 'vf' . imatch[1]
+    execute 'map <LEADER>f' . imatch[0] . ' f' . imatch[0] . 'vf' . imatch[1]
+    execute 'xmap <LEADER>f' . imatch[0] . ' <ESC>f' . imatch[0] . 'vf' . imatch[1]
+    execute 'map <LEADER>F' . imatch[0] . ' F' . imatch[0] . ';' . 'vf' . imatch[1]
+    execute 'xmap <LEADER>F' . imatch[0] . ' <ESC>F' . imatch[0] . ';' . 'vf' . imatch[1]
+    execute 'map <LEADER>t' . imatch[0] . ' f' . imatch[0] . 'lvt' . imatch[1]
+    execute 'xmap <LEADER>t' . imatch[0] . ' <ESC>f' . imatch[0] . 'lvt' . imatch[1]
+    execute 'map <LEADER>T' . imatch[0] . ' F' . imatch[0] . 'lvt' . imatch[1]
+    execute 'xmap <LEADER>T' . imatch[0] . ' <ESC>F' . imatch[0] . 'lvt' . imatch[1]
 
     if (imatch[0] == imatch[1])
-      execute 'map <LEADER>ff' . imatch[0] . ' f' . imatch[0] . 'l' . 'vt' . imatch[1]
-      execute 'map <LEADER>fb' . imatch[0] . ' F' . imatch[0] . ';l' . 'vt' . imatch[1]
+      execute 'nmap <LEADER>ff' . imatch[0] . ' f' . imatch[0] . 'l' . 'vt' . imatch[1]
+      execute 'xmap <LEADER>ff' . imatch[0] . ' <ESC><LEADER>ff' . imatch[0]
       execute 'map <LEADER>F' . '' . imatch[0] . ' f' . imatch[0] . 'l' . 'vf' . imatch[1]
+      execute 'xmap <LEADER>F' . '' . imatch[0] . ' <ESC>f' . imatch[0] . 'l' . 'vf' . imatch[1]
     else
-      execute 'map <LEADER>f' . imatch[1] . ' f' . imatch[0] . 'l'. 'vt' . imatch[1]
-      execute 'map <LEADER>F' . imatch[1] . ' f' . imatch[0] . 'vf' . imatch[1]
+      execute 'map <LEADER>f' . imatch[1] . ' f' . imatch[0] . 'l'. 'vf' . imatch[1]
+      execute 'map <LEADER>t' . imatch[1] . ' f' . imatch[1] . 'hvT' . imatch[0]
     endif
   endfor
 endfunction
