@@ -129,8 +129,8 @@ endfunction
 
 vmap ' s'
 vmap " s"
-map <LEADER>' cs"'``
-map <LEADER>" cs'"``
+map <LEADER>' cs"'
+map <LEADER>" cs'"
 
 map <LEADER>,, ,c<SPACE>
 
@@ -150,7 +150,7 @@ map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-W><C-]><C-W>T
 
 "experiment of Marker plugin
-map <SPACE>' :ruby Marker.open()<CR>
+map <SPACE>'' :ruby Marker.open()<CR>
 map <S-Space> <ESC>
 
 "quicker autocomplete

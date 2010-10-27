@@ -113,7 +113,7 @@ CommandList::register_list(
       :text        => '[f]ile',
     },
     {
-      :function    => 'V\<D-c>\<D-e>',
+      :function    => '^\<C-W>gF',
       :map         => 'l',
       :text        => 'file on the current [l]ine',
     },
