@@ -151,6 +151,7 @@ map <Tab> <C-W><C-]><C-W>T
 
 "experiment of Marker plugin
 map <SPACE>' :ruby Marker.open()<CR>
+map <S-Space> <ESC>
 
 "quicker autocomplete
 set complete -=i
