@@ -113,7 +113,7 @@ CommandList::register_list(
       :text        => '[f]ile',
     },
     {
-      :function    => '^\<C-W>gF',
+      :function    => 'V\<D-c>\<D-e>',
       :map         => 'l',
       :text        => 'file on the current [l]ine',
     },
@@ -126,6 +126,11 @@ CommandList::register_list(
       :function    => 'OpenGizmoPage()',
       :map         => 'g',
       :text        => '[g]izmo page',
+    },
+    {
+      :function    => ':ruby SmartJumper.jump',
+      :map         => 'p',
+      :text        => '[p]erl class',
     }
   ]
 )

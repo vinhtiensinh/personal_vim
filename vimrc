@@ -129,11 +129,10 @@ endfunction
 
 vmap ' s'
 vmap " s"
-map <LEADER>' cs"'
-map <LEADER>" cs'"
+map <LEADER>' cs"'``
+map <LEADER>" cs'"``
 
 map <LEADER>,, ,c<SPACE>
-map <LEADER>,b ^V%,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
