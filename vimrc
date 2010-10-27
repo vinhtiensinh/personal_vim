@@ -1,6 +1,7 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
+set fileformat=mac
 
 set guioptions-=T
 set go+=b
@@ -89,7 +90,6 @@ imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
 
-map \| <C-w>w
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
