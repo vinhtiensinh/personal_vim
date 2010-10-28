@@ -156,4 +156,7 @@ map <S-Space> <ESC>
 "quicker autocomplete
 set complete -=i
 
+"enter new line without insert mode
+map <LEADER><CR> o<ESC>
+
 silent! so ./.localvimrc
