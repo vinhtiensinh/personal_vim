@@ -8,6 +8,18 @@ class Selector
 
     @action.select
   end
+
+  def self.select_forward
+    VIM::command('call feedkeys("\<ESC>")')
+    VIM::command("call feedkeys('f#{@action.char}')")
+    @action.select
+  end
+
+  def self.select_backward
+    VIM::command('call feedkeys("\<ESC>")')
+    VIM::command("call feedkeys('F#{@action.char}')")
+    @action.select
+  end
 end
 
 class SelectBracesAction
@@ -47,7 +59,7 @@ class SelectAction
     end
     beginIndex = beginIndex + 1 if line[beginIndex - 1].chr == @char && @inner
 
-    endIndex = column
+    endIndex = column + 1
     while endIndex < VIM::evaluate("col('$')") - 1
       if line[endIndex - 1].chr == @char
         break
@@ -57,13 +69,5 @@ class SelectAction
     endIndex = endIndex - 1 if line[endIndex - 1].chr == @char && @inner
 
     VIM::command("call feedkeys('#{beginIndex}|v#{endIndex}|')")
-  end
-
-  def select_forward char
-
-  end
-
-  def select_backward char
-
   end
 end
