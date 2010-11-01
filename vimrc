@@ -36,7 +36,8 @@ set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
-imap <S-Space> <ESC>
+imap <S-Space> <ESC>:w<CR>
+map <S-Space> <ESC>:w<CR>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
