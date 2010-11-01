@@ -3,29 +3,26 @@ if (exists("b:did_ftplugin"))
 endif
 let b:did_ftplugin = 1
 
-imap NN <ESC>rr/\|<CR>a<SPACE>
-imap <TAB> <C-N>
-imap dv <Down>
-imap df <Up>
-imap oo <ESC>:w<CR>rr
-imap vv <CR>
-imap cm <CR>--
-map ; :
-imap ; :
-map rr maggVG:!psvAlign.pl<CR>:w<CR>`a
-map sv  :so ../vpk_shortcut.vim<CR>
-map ff :tabnew <cword>.vpk <CR>
-map df gt 
-map fd gT
-map oo rr
-map cc <C-V>:!copyFirst.pl<CR>
-map cs ?\| <CR>v/\| <CR>  
-map cd c\| <ESC><ESC>       
-map v <C-V>
-map fo zmzo
-map fs zc
-map uu U
-map qq <ESC>:w<CR>:q<CR>
-imap uu <ESC>U
-imap hh \|
-imap JJ <ESC>kJJ
+imap <buffer> NN <ESC>rr/\|<CR>a<SPACE>
+imap <buffer> <TAB> <C-N>
+imap <buffer> dv <Down>
+imap <buffer> df <Up>
+imap <buffer> oo <ESC>:w<CR>rr
+imap <buffer> vv <CR>
+imap <buffer> cm <CR>--
+map <buffer> ; :
+imap <buffer> ; :
+map <buffer> rr maggVG:!psvAlign.pl<CR>:w<CR>`a
+map <buffer> sv  :so ../vpk_shortcut.vim<CR>
+map <buffer> ff :tabnew <cword>.vpk <CR>
+map <buffer> df gt 
+map <buffer> fd gT
+map <buffer> oo rr
+map <buffer> cc <C-V>:!copyFirst.pl<CR>
+map <buffer> cs ?\| <CR>v/\| <CR>  
+map <buffer> cd c\| <ESC><ESC>       
+map <buffer> v <C-V>
+map <buffer> fo zmzo
+map <buffer> fs zc
+imap <buffer> hh \|
+imap <buffer> JJ <ESC>kJJ
