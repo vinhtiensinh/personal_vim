@@ -152,12 +152,19 @@ map <Tab> <C-W><C-]><C-W>T
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
-map <S-Space> <ESC>
 
 "quicker autocomplete
 set complete -=i
 
 "enter new line without insert mode
 map <LEADER><CR> o<ESC>
+nmap <CR> o<S-Space>
+nmap <S-CR> O<S-Space>
+
+"map Command J and command K
+map <D-j> <C-d>
+map <D-k> <C-u>
+map <D-u> <C-e>
+map <D-i> <C-y>
 
 silent! so ./.localvimrc
