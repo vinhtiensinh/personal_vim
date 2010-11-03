@@ -7,7 +7,7 @@ if (exists("b:did_ftplugin"))
 endif
 let b:did_ftplugin = 1
 hi Error guifg=Red gui=italic guibg=Black
-silent! sign define fixme text=!! linehl=Error
+silent! sign define fixme linehl=Error
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
@@ -52,6 +52,7 @@ ruby << EOF
       require "#{path}/ruby/cucumber/cucumber.rb"
       require "#{path}/ruby/cucumber/vim-cucumber.rb"
       VIM::command("let g:vim_path = '#{path}'")
+      break
     end
   end
 EOF

@@ -1,7 +1,6 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
-set fileformat=mac
 
 set guioptions-=T
 set go+=b
@@ -34,9 +33,6 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
-imap <C-SPACE> <C-x><C-o>
-imap <S-Tab> <C-o>
-imap <S-Space> <ESC>:w<CR>
 map <S-Space> <ESC>:w<CR>
 
 so $HOME/.vim/plugin/cmdalias.vim
@@ -166,5 +162,10 @@ map <D-j> <C-d>
 map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
+
+"edit mode keymap
+imap <C-SPACE> <C-x><C-o>
+imap <S-Tab> <C-o>
+imap <S-Space> <ESC>:w<CR>
 
 silent! so ./.localvimrc
