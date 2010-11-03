@@ -39,7 +39,7 @@ imap <S-Tab> <C-n>
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-:TlistAddFiles ./Tags
+silent! :TlistAddFiles ./tags
 :Alias difp diffput
 :Alias difg diffget
 
