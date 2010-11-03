@@ -126,6 +126,11 @@ CommandList::register_list(
       :function    => 'OpenGizmoPage()',
       :map         => 'g',
       :text        => '[g]izmo page',
+    },
+    {
+      :function    => ':ruby SmartJumper.jump',
+      :map         => 'p',
+      :text        => '[p]erl class',
     }
   ]
 )

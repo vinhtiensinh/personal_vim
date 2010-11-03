@@ -2,8 +2,6 @@ if !has('ruby')
   finish
 endif
 
-rubyf /Users/vinh_tran/vim-lab/text_queue.rb
-
 function! CopyLineNumber() range
   call feedkeys(v:count . "Gyy\<C-o>")
   echo "copied: " . getline(v:count)
@@ -23,33 +21,20 @@ function! CopyLines()
 endfunction
 
 function! MapSelectMatches()
-  let matches = []
-  let matches += [["'", "'"]]
-  let matches += [['"', '"']]
-  let matches += [['(', ')']]
-  let matches += [['{', '}']]
-  let matches += [['[', ']']]
-  let matches += [[':', ':']]
-  let matches += [['=', '=']]
-  let matches += [['<', '>']]
-  let matches += [['\|', '\|']]
-  let matches += [['.', '.']]
-
-  for imatch in matches
-    execute 'map <LEADER>s' . imatch[0] . ' T' . imatch[0] . 'vt' . imatch[1]
-    execute 'map <LEADER>S' . imatch[0] . ' F' . imatch[0] . 'vf' . imatch[1]
-
-    if (imatch[0] == imatch[1])
-      execute 'map <LEADER>s' . 'f' . imatch[0] . ' f' . imatch[0] . 'l' . 'vt' . imatch[1]
-      execute 'map <LEADER>S' . '' . imatch[0] . ' f' . imatch[0] . 'l' . 'vf' . imatch[1]
-    else
-      execute 'map <LEADER>s' . imatch[1] . ' f' . imatch[0] . 'l'. 'vt' . imatch[1]
-      execute 'map <LEADER>S' . imatch[1] . ' f' . imatch[0] . 'vf' . imatch[1]
-    endif
-  endfor
+  ruby Selector.map
 endfunction
 
 autocmd BufEnter * call MapSelectMatches()
 nnoremap  <LEADER>y :<C-U>call CopyLineNumber()<CR>
 map  <LEADER>w :call CopyLines()<CR>
 imap <S-Tab> <ESC>ncw
+
+ruby << EOF
+  # require Ruby files
+  VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
+    if File.exist?("#{path}/ruby/selector")
+      require "#{path}/ruby/selector/selector.rb"
+    end
+  end
+EOF
+

@@ -1,6 +1,7 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
+set fileformat=mac
 
 set guioptions-=T
 set go+=b
@@ -34,7 +35,9 @@ set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
 imap <C-SPACE> <C-x><C-o>
-imap <S-Tab> <C-n>
+imap <S-Tab> <C-o>
+imap <S-Space> <ESC>:w<CR>
+map <S-Space> <ESC>:w<CR>
 
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
@@ -88,9 +91,6 @@ imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
 
-map _ gT
-map + gt
-map \| <C-w>w
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -121,8 +121,7 @@ set noerrorbells  "dont beep
 "no backup
 set nobackup
 set noswapfile
-autocmd InsertLeave * :call Autosave()
-autocmd  FocusLost    *   :call Autosave()
+autocmd InsertLeave,FocusLost * :call Autosave()
 function! Autosave ()
    if &modified
      silent! write
@@ -135,7 +134,6 @@ map <LEADER>' cs"'
 map <LEADER>" cs'"
 
 map <LEADER>,, ,c<SPACE>
-map <LEADER>,b ^V%,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
@@ -151,5 +149,22 @@ highlight Pmenu guibg=grey14 guifg=moccasin
 
 map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-W><C-]><C-W>T
+
+"experiment of Marker plugin
+map <SPACE>'' :ruby Marker.open()<CR>
+
+"quicker autocomplete
+set complete -=i
+
+"enter new line without insert mode
+map <LEADER><CR> o<ESC>
+nmap <CR> o<S-Space>
+nmap <S-CR> O<S-Space>
+
+"map Command J and command K
+map <D-j> <C-d>
+map <D-k> <C-u>
+map <D-u> <C-e>
+map <D-i> <C-y>
 
 silent! so ./.localvimrc

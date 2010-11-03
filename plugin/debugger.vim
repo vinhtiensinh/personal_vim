@@ -1,5 +1,5 @@
 hi BreakPoint guifg=DarkRed ctermfg=DarkRed guibg=LightGrey ctermbg=LightGrey
-silent! sign define breakpoint text=* linehl=BreakPoint
+silent! sign define breakpoint linehl=BreakPoint
 
 autocmd BufEnter *.rb map <LEADER>x :call AddBreakPoint('require "ruby-debug"; debugger')<CR>
 autocmd BufEnter,BufWritePost *.rb call RedrawBreakPoints('require "ruby-debug"; debugger')
@@ -8,6 +8,7 @@ autocmd BufEnter,BufWritePost *.feature,*.story call RedrawBreakPoints('And we d
 
 autocmd BufEnter *.pm,*.pl,*.t map <LEADER>x :call AddBreakPoint('use XXX; XXX::DUMPER()')<CR>
 autocmd BufEnter *.pm,*.pl,*.t map <LEADER>X :call AddBreakPoint('use Data::Dumper; print Dumper()')<CR>
+autocmd BufEnter,BufWritePost *.feature,*.story call RedrawBreakPoints('use XXX; XXX::DUMER()')
 
 
 function! AddBreakPoint(debugCode)
@@ -16,13 +17,12 @@ function! AddBreakPoint(debugCode)
 endfunction
 
 function! RedrawBreakPoints(debugCode)
-  if has('sign')
+  if has('signs')
     let signIDStart = 1000000
-    let line_number = line('.')
     let iend = line('$')
     let index = 1
 
-    while index < iend
+    while index <= iend
       let signID = index + signIDStart
       let file_name   = expand('%')
       if getline(index) =~ a:debugCode
