@@ -154,8 +154,8 @@ set complete -=i
 
 "enter new line without insert mode
 map <LEADER><CR> o<ESC>
-nmap <CR> o<S-Space>
-nmap <S-CR> O<S-Space>
+nmap <CR> i<CR><S-Space>
+nmap <S-CR> o<S-Space>
 
 "map Command J and command K
 map <D-j> <C-d>
@@ -163,9 +163,12 @@ map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
 
+map <D-CR> <C-w>w
+
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 imap <S-Space> <ESC>:w<CR>
+imap <D-d> <C-w>
 
 silent! so ./.localvimrc
