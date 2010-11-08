@@ -33,6 +33,24 @@ function! GrepperGrepCmd()
 
 endfunction
 
+function! GrepperGrepRinCmd()
+
+  let iinput = input('grep -rin: ', '')
+  if empty(iinput)
+    return
+  endif
+  let string = iinput
+
+  let iinput = input('location: ', '', 'file')
+  if empty(iinput)
+    return
+  endif
+
+  let location = iinput
+  execute  'ruby ' . "Grepper.grep('-rin','" . iinput . "','" .  location . "')"
+
+endfunction
+
 ruby << EOF
   # require Ruby files
   VIM::evaluate('&runtimepath').to_s.split(',').each do |path|

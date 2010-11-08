@@ -156,9 +156,14 @@ CommandList::register_list(
       :text        => 'search for word case [s]ensitive',
     },
     {
-      :function    => "GrepperGrepCmd()",
+      :function    => "GrepperGrepRinCmd()",
       :map         => 'g',
-      :text        => 'grep command, grep word need to be in quote',
+      :text        => 'grep -rin command',
+    },
+    {
+      :function    => "GrepperGrepCmd()",
+      :map         => 'c',
+      :text        => 'grep [c]ommand, grep word need to be in quote',
     }
   ]
 )
