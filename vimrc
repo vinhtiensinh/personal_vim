@@ -86,6 +86,8 @@ map  <D-8> 8gt
 imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
+map  <D-0> :tabo<CR>
+imap <D-0> <ESC>:tabo<CR>a
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
