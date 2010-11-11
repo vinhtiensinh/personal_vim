@@ -26,8 +26,7 @@ endfunction
 
 autocmd BufEnter * call MapSelectMatches()
 nnoremap  <LEADER>y :<C-U>call CopyLineNumber()<CR>
-map  <LEADER>w :call CopyLines()<CR>
-imap <S-Tab> <ESC>ncw
+map  <LEADER>Y :call CopyLines()<CR>
 
 ruby << EOF
   # require Ruby files

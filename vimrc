@@ -7,8 +7,6 @@ set go+=b
 set guifont=Consolas:h16
 set clipboard=unnamed
 
-set paste
-
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
@@ -165,11 +163,15 @@ map <D-u> <C-e>
 map <D-i> <C-y>
 
 map <D-CR> <C-w>w
+imap <D-CR> <ESC><C-w>w
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
-imap <S-Space> <ESC>:w<CR>
+imap <silent> <S-Space> <ESC>:w<CR>
 imap <D-d> <C-w>
+
+"quit the second window
+map <LEADER>w <C-w>w:q<CR>
 
 silent! so ./.localvimrc
