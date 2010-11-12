@@ -91,7 +91,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-TAB> :BufExplorer<CR><Down><CR>
+map <C-Tab> :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -133,18 +133,17 @@ map <LEADER>,, ,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
-match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /[\s\t]\+$/
 
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
 highlight Pmenu guibg=grey14 guifg=moccasin
 
 map <LEADER>o :tabnew<SPACE>
-map <Tab> <C-W><C-]><C-W>T
+map <Tab> <C-w><C-]><C-w>T
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
