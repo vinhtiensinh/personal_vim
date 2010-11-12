@@ -133,7 +133,7 @@ map <LEADER>,, ,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
-match ExtraWhitespace /[\s\t]\+$/
+match ExtraWhitespace /[ \t]\+$/
 
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
