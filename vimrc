@@ -168,7 +168,8 @@ imap <D-CR> <ESC><C-w>w
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 imap <silent> <S-Space> <ESC>:w<CR>
-imap <D-d> <C-w>
+imap <D-[> <ESC>bdwi
+imap <D-]> <ESC>wdwi
 
 "quit the second window
 map <LEADER>w <C-w>w:q<CR>
