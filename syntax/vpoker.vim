@@ -11,7 +11,7 @@ setlocal foldmethod=marker
 setlocal foldmarker=[,]
 set foldtext=VPKFoldText()
   set fillchars=fold:\ "(there's a space after that \)
-  highlight Folded ctermfg=White ctermbg=Black
+  highlight Folded ctermfg=White ctermbg=Black guibg=grey6
 
 function! VPKFoldText()
   let line = getline(v:foldstart)
