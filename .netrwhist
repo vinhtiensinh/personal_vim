@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/vinh_tran/product-e2e/spec'
 let g:netrw_dirhist_2='/Users/vinhtiensinh/.vim/bundle/vpoker/ftplugin'
 let g:netrw_dirhist_3='/Users/vinhtiensinh/.vim/bundle/vpoker/syntax'
 let g:netrw_dirhist_4='/Users/vinh_tran/product-e2e/features/step_definitions'
 let g:netrw_dirhist_5='/Users/vinh_tran/customer-platform/app/models'
+let g:netrw_dirhist_6='/private/var/tmp/jetwire/dataloader-data/2010/11/18'
