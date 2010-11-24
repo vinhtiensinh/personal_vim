@@ -2,9 +2,9 @@ autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>r :call RunSingleTe
 autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>RR :call RunSingleTestFile('bundle exec cucumber')<CR>
 autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>R :call RunTests('bundle exec cucumber')<CR>
 
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>r :call RunSingleTest('spec')<CR>
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>RR :call RunSingleTestFile('spec')<CR>
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>R :call RunTests('spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>r :call RunSingleTest('bundle exec spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>RR :call RunSingleTestFile('bundle exec spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>R :call RunTests('bundle exec spec')<CR>
 
 autocmd BufNewFile,BufReadPost *.t map <LEADER>r :call Terminal('testem')<CR>
 

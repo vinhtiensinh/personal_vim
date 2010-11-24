@@ -1,14 +1,11 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
-set fileformat=mac
 
 set guioptions-=T
 set go+=b
 set guifont=Consolas:h16
 set clipboard=unnamed
-
-set paste
 
 set softtabstop=2
 set shiftwidth=2
@@ -34,9 +31,6 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
 
 map  <LEADER>v <C-v>
-imap <C-SPACE> <C-x><C-o>
-imap <S-Tab> <C-o>
-imap <S-Space> <ESC>:w<CR>
 map <S-Space> <ESC>:w<CR>
 
 so $HOME/.vim/plugin/cmdalias.vim
@@ -90,12 +84,14 @@ map  <D-8> 8gt
 imap <D-8> <ESC>8gt
 map  <D-9> 9gt
 imap <D-9> <ESC>9gt
+map  <D-0> :tabo<CR>
+imap <D-0> <ESC>:tabo<CR>a
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-TAB> :BufExplorer<CR><Down><CR>
+map <C-Tab> :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -137,18 +133,17 @@ map <LEADER>,, ,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
-match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /[ \t]\+$/
 
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-let g:syntastic_disabled_filetypes = ['cucumber', 'perl']
 
 "better background
-highlight Pmenu guibg=grey14 guifg=moccasin
+highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :tabnew<SPACE>
-map <Tab> <C-W><C-]><C-W>T
+map <Tab> <C-w><C-]><C-w>T
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
@@ -157,14 +152,30 @@ map <SPACE>'' :ruby Marker.open()<CR>
 set complete -=i
 
 "enter new line without insert mode
-map <LEADER><CR> o<ESC>
-nmap <CR> o<S-Space>
-nmap <S-CR> O<S-Space>
+map <LEADER><CR> o<S-Space>
+nmap <S-CR> i<CR><S-Space>
 
 "map Command J and command K
 map <D-j> <C-d>
 map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
+
+map <D-CR> <C-w>w
+imap <D-CR> <ESC><C-w>w
+
+"edit mode keymap
+imap <C-SPACE> <C-x><C-o>
+imap <S-Tab> <C-o>
+imap <silent> <S-Space> <ESC>:w<CR>
+imap <D-[> <ESC>lvBxi
+imap <D-]> <ESC>lvExi
+
+"quit the second window
+map <LEADER>w <C-w>w:q<CR>
+
+"open bash
+map <D-'> :shell<CR>
+imap <D-'> <ESC>:shell<CR>
 
 silent! so ./.localvimrc

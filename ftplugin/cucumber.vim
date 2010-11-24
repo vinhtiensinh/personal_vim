@@ -6,8 +6,8 @@ if (exists("b:did_ftplugin"))
   finish
 endif
 let b:did_ftplugin = 1
-hi Error guifg=Red gui=italic guibg=Black
-silent! sign define fixme text=!! linehl=Error
+hi Error guifg=Red gui=italic guibg=Black ctermfg=Red ctermbg=Black
+silent! sign define fixme linehl=Error
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
@@ -43,15 +43,3 @@ function! CucumberComplete(findstart, base) abort
   let steps       = split(output, "\n")
   return steps
 endfunction
-
-
-ruby << EOF
-  # require Ruby files
-  VIM::evaluate('&runtimepath').to_s.split(',').each do |path|
-    if File.exist?("#{path}/ruby/cucumber")
-      require "#{path}/ruby/cucumber/cucumber.rb"
-      require "#{path}/ruby/cucumber/vim-cucumber.rb"
-      VIM::command("let g:vim_path = '#{path}'")
-    end
-  end
-EOF

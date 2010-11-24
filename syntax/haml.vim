@@ -17,7 +17,6 @@
 "   - Lasse Jansen make syntax highlighting of multiline ruby commands work
 "     ("|" at the end of the line).
 "
-
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
