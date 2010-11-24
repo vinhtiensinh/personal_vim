@@ -140,7 +140,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
 "better background
-highlight Pmenu guibg=grey14 guifg=moccasin
+highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-w><C-]><C-w>T
@@ -168,10 +168,14 @@ imap <D-CR> <ESC><C-w>w
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 imap <silent> <S-Space> <ESC>:w<CR>
-imap <D-[> <ESC>bdwi
-imap <D-]> <ESC>wdwi
+imap <D-[> <ESC>lvBxi
+imap <D-]> <ESC>lvExi
 
 "quit the second window
 map <LEADER>w <C-w>w:q<CR>
+
+"open bash
+map <D-'> :shell<CR>
+imap <D-'> <ESC>:shell<CR>
 
 silent! so ./.localvimrc
