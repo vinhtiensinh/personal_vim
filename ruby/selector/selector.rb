@@ -1,19 +1,20 @@
 class Selector
   def self.map
-    '"({[,:.=`/'.split('').each do |seperator|
-      VIM::command("map <LEADER>f#{seperator} :ruby Selector.select(:char => '#{seperator}')<CR>")
-      VIM::command("map <LEADER>t#{seperator} :ruby Selector.select(:char => '#{seperator}',:end_char => '#{seperator}', :inner => true)<CR>")
+    ',:.=`/'.split('').each do |seperator|
+      VIM::command("vmap a#{seperator} :ruby Selector.select(:char => '#{seperator}')<CR>")
+      VIM::command("vmap i#{seperator} :ruby Selector.select(:char => '#{seperator}',:end_char => '#{seperator}', :inner => true)<CR>")
+      VIM::command("omap a#{seperator} :normal va#{seperator}<CR>")
+      VIM::command("omap i#{seperator} :normal vi#{seperator}<CR>")
     end
 
-    VIM::command("map <LEADER>f' :ruby Selector.select(:char => '\\'')<CR>")
-    VIM::command("map <LEADER>t' :ruby Selector.select(:char => '\\'',:end_char => '\\'', :inner => true)<CR>")
-
-    VIM::command("map <LEADER>f\\| :ruby Selector.select(:char => '\\|')<CR>")
-    VIM::command("map <LEADER>f\\| :ruby Selector.select(:char => '\\|',:end_char => '\\|', :inner => true)<CR>")
+    VIM::command("vmap a\\| :ruby Selector.select(:char => '\\|')<CR>")
+    VIM::command("vmap i\\| :ruby Selector.select(:char => '\\|',:end_char => '\\|', :inner => true)<CR>")
+    VIM::command("omap a\\| :normal va\\|<CR>")
+    VIM::command("omap i\\| :normal vi\\|<CR>")
 
     VIM::command("xmap <Tab> :ruby Selector.select_forward<CR>")
     VIM::command("xmap <S-Tab> :ruby Selector.select_backward<CR>")
-    
+
   end
 
   def self.select attr
