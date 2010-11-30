@@ -53,6 +53,10 @@ let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
+" Nerd tree using 1 tree
+autocmd BufEnter * :NERDTreeMirror
+
+
 " Taglist config
 let Tlist_Exit_OnlyWindow = 1
 

@@ -1,11 +1,12 @@
-autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>r :call RunSingleTest('bundle exec cucumber')<CR>
-autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>RR :call RunSingleTestFile('bundle exec cucumber')<CR>
-autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>R :call RunTests('bundle exec cucumber')<CR>
+autocmd BufNewFile,BufReadPost *.feature,*.story map <D-R> :call RunSingleTest('bundle exec cucumber')<CR>
+autocmd BufNewFile,BufReadPost *.feature,*.story map <D-r> :call RunSingleTestFile('bundle exec cucumber')<CR>
+autocmd BufNewFile,BufReadPost *.feature,*.story map <LEADER>r :call RunTests('bundle exec cucumber')<CR>
 
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>r :call RunSingleTest('bundle exec spec')<CR>
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>RR :call RunSingleTestFile('bundle exec spec')<CR>
-autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>R :call RunTests('bundle exec spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <D-R> :call RunSingleTest('bundle exec spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <D-r> :call RunSingleTestFile('bundle exec spec')<CR>
+autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>r :call RunTests('bundle exec spec')<CR>
 
+autocmd BufNewFile,BufReadPost *.t map <D-r> :call RunSingleTestFile('perl')<CR>
 autocmd BufNewFile,BufReadPost *.t map <LEADER>r :call Terminal('testem')<CR>
 
 function! RunSingleTest(icommand)
