@@ -15,7 +15,7 @@ set cindent
 set smartindent
 set autoindent
 
-set macmeta
+silent! set macmeta
 set splitright
 
 colorscheme vividchalk
@@ -39,9 +39,9 @@ map <S-Space> <ESC>:w<CR>
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-:TlistAddFiles ./Tags
-:Alias difp diffput
-:Alias difg diffget
+if(has('gui'))
+  :TlistAddFiles ./Tags
+endif
 
 "method to execute a command, run perl test
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
@@ -101,7 +101,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
-map <D-`> :BufExplorer<CR><Down><CR>
+map <D-'> :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -185,9 +185,5 @@ imap <D-]> <ESC>lvExi
 
 "quit the second window
 map <LEADER>w <C-w>w:q<CR>
-
-"open bash
-map <D-'> :shell<CR>
-imap <D-'> <ESC>:shell<CR>
 
 silent! so ./.localvimrc
