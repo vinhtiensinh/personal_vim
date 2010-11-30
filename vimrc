@@ -92,6 +92,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
+map <D-`> :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch

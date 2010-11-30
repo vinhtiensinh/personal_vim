@@ -7,3 +7,4 @@ imap <buffer> cm <CR>--
 imap <buffer> ; :
 imap <buffer> hh \|
 imap <buffer> JJ <ESC>kJJ
+map  <buffer> <Tab> za
