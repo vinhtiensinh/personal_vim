@@ -16,6 +16,7 @@ set smartindent
 set autoindent
 
 set macmeta
+set splitright
 
 colorscheme vividchalk
 
@@ -50,7 +51,10 @@ map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
-let g:CommandTAcceptSelectionVSplitMap = '<D-s>'
+let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
+
+" Taglist config
+let Tlist_Exit_OnlyWindow = 1
 
 " Status line
 "------------------------------------------------------------------------
@@ -150,6 +154,8 @@ highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-w><C-]><C-w>T
+map <S-Tab> <C-w><C-v><C-]>
+map <LEADER><Tab> <C-w><C-]>
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
