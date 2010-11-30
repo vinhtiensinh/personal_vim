@@ -47,7 +47,10 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
-let g:CommandTAcceptSelectionTabMap='<CR>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTCancelMap = '<SPACE>'
+let g:CommandTSelectNextMap = '<Tab>'
+let g:CommandTAcceptSelectionVSplitMap = '<D-s>'
 
 " Status line
 "------------------------------------------------------------------------
