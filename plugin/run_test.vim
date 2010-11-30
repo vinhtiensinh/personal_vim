@@ -8,10 +8,6 @@ autocmd BufNewFile,BufReadPost *_spec.rb map <LEADER>R :call RunTests('bundle ex
 
 autocmd BufNewFile,BufReadPost *.t map <LEADER>r :call Terminal('testem')<CR>
 
-function! Terminal(icommand)
-  let output = system('terminal.scpt ' . "'" . a:icommand . "'")
-endfunction
-
 function! RunSingleTest(icommand)
   let test = expand('%') . ':'. line('.')
   call Terminal('cd ' . getcwd() . ';' . a:icommand . ' ' . test)
