@@ -1,4 +1,4 @@
-let g:screen_line_jumper_skip = 4
+let g:screen_line_jumper_skip = 1
 
 function! MoveLineNumberEndWith(number)
   let current_line = getpos('.')[1]
@@ -27,6 +27,7 @@ function! MoveLineNumberEndWith(number)
 endfunction
 
 function! MoveLineNumberEndWithBackward(number)
+  echo "Hello World"
   let current_line = getpos('.')[1]
   let start_line = getpos('w0')[1]
   let end_line = getpos('w$')[1]

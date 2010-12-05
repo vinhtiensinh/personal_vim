@@ -53,8 +53,9 @@ let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
-" Nerd tree using 1 tree
-autocmd BufEnter * :NERDTreeMirror
+"show file drawer
+map <D-/> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
 
 
 " Taglist config
@@ -73,7 +74,7 @@ set laststatus=2
 " put cursor at last pos when you open file again
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
-\  exe "normal g`\"" |
+\  exe "normal! g`\"" |
 \ endif
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
@@ -189,5 +190,6 @@ imap <D-]> <ESC>lvExi
 
 "quit the second window
 map <LEADER>w <C-w>w:q<CR>
+
 
 silent! so ./.localvimrc

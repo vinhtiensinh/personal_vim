@@ -79,57 +79,37 @@ CommandList::register_list(
 )
 
 CommandList::register_list(
-  :name  => 'Browse',
-  :map   =>'<LEADER>b',
-  :map_item_with_list => true,
-  :items => [
-    {
-      :function    => ':TlistToggle',
-      :map         => 't',
-      :text        => '[t]ag',
-    },
-    {
-      :function    => ':NERDTreeToggle',
-      :map         => 'f',
-      :text        => '[f]ile',
-    }
-  ]
-)
-
-
-CommandList::register_list(
   :name  => 'Jump',
-  :map   =>'<LEADER>j',
   :map_item_with_list => true,
   :items => [
     {
       :function    => '\<C-W>\<C-]>\<C-W>T',
-      :map         => 't',
-      :text        => '[t]ag',
+      :map         => 'ga',
+      :text        => 't[a]g',
     },
     {
       :function    => '\<C-W>gF',
-      :map         => 'f',
+      :map         => 'gf',
       :text        => '[f]ile',
     },
     {
       :function    => '^\<C-W>gF',
-      :map         => 'l',
+      :map         => 'gl',
       :text        => 'file on the current [l]ine',
     },
     {
       :function    => 'OpenFilesFromClipboard()',
-      :map         => 'c',
+      :map         => 'gc',
       :text        => 'open file path in [c]lipboard',
     },
     {
       :function    => 'OpenGizmoPage()',
-      :map         => 'g',
-      :text        => '[g]izmo page',
+      :map         => 'gz',
+      :text        => 'gi[z]mo page',
     },
     {
       :function    => ':ruby SmartJumper.jump',
-      :map         => 'p',
+      :map         => 'gp',
       :text        => '[p]erl class',
     }
   ]
