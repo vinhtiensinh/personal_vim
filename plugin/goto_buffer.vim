@@ -3,3 +3,9 @@ function! GotoBuffer(index)
   call feedkeys(a:index . "G")
   call feedkeys("\<CR>")
 endfunction
+
+function! GotoBuffer(index)
+  b -MiniBufExplorer-
+  call feedkeys(a:index . "G")
+  call feedkeys("\<CR>")
+endfunction

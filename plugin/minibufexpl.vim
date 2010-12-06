@@ -47,7 +47,7 @@
 "               <Leader>mbt to toggle the Explorer window; it will open if
 "               closed or close if open. Each of these key bindings can be
 "               overridden (see the notes on <Leader>mbe above.)
-" 
+"
 "               You can map these additional commands as follows:
 "
 "                 map <Leader>c :CMiniBufExplorer<cr>
@@ -302,6 +302,7 @@ endif
 " 
 noremap <unique> <script> <Plug>MiniBufExplorer  :call <SID>StartExplorer(1, -1)<CR>:<BS>
 noremap <unique> <script> <Plug>CMiniBufExplorer :call <SID>StopExplorer(1)<CR>:<BS>
+noremap <unique> <script> <Plug>OMiniBufExplorer :call <SID>OpenExplorer()<CR>:<BS>
 noremap <unique> <script> <Plug>UMiniBufExplorer :call <SID>AutoUpdate(-1)<CR>:<BS>
 noremap <unique> <script> <Plug>TMiniBufExplorer :call <SID>ToggleExplorer()<CR>:<BS>
 
@@ -313,6 +314,9 @@ if !exists(':MiniBufExplorer')
 endif
 if !exists(':CMiniBufExplorer')
     command! CMiniBufExplorer  call <SID>StopExplorer(1)
+endif
+if !exists(':OMiniBufExplorer')
+    command! OMiniBufExplorer  call <SID>OpenExplorer()
 endif
 if !exists(':UMiniBufExplorer')
     command! UMiniBufExplorer  call <SID>AutoUpdate(-1)
@@ -763,6 +767,15 @@ augroup MiniBufExplorer
         call <SID>DEBUG('Completed ToggleExplorer()' ,10)
         call <SID>DEBUG('===========================',10)
 
+    endfunction
+
+    function! <SID>OpenExplorer()
+        let l:winNum = <SID>FindWindow('-MiniBufExplorer-', 1)
+
+        if l:winNum == -1
+            call <SID>StartExplorer(1, -1)
+            wincmd p
+        endif
     endfunction
 
     " }}}

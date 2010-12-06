@@ -16,6 +16,7 @@ class Grepper
     VIM::command('split __grep__')
     VIM::Buffer.current.append(0, self.prepare(match_result))
     VIM::set_option('buftype=nofile')
+    VIM::command('setlocal nobuflisted')
     self.syntax_on
     self.map_on
   end

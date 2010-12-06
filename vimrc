@@ -3,6 +3,8 @@ set nocompatible
 set autowrite
 
 set guioptions-=T
+set guioptions-=L
+set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 set clipboard=unnamed
@@ -101,6 +103,13 @@ autocmd BufReadPost *
 map  <D-0> :tabo<CR>
 imap <D-0> <ESC>:tabo<CR>a
 
+function! CloseBuffer()
+  call feedkeys(":bd\<CR>")
+  call feedkeys(":OMiniBufExplorer\<CR>")
+endfunction
+
+map <D-w> :call CloseBuffer()<CR>
+imap <D-w> <ESC><D-w>
 map  <D-1> :call GotoBuffer(1)<CR>
 imap <D-1> <ESC>:call GotoBuffer(1)<CR>
 map  <D-2> :call GotoBuffer(2)<CR>
@@ -208,10 +217,10 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "quit the second window
-map <LEADER>w <C-w>w:q<CR>
+map <LEADER>w <C-w>w<D-w>
 
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25
-
+autocmd BufDelete * :UMiniBufExplorer
 
 silent! so ./.localvimrc
