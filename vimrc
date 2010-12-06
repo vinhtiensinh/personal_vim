@@ -222,5 +222,7 @@ map <LEADER>w <C-w>w<D-w>
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25
 autocmd BufDelete * :UMiniBufExplorer
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 silent! so ./.localvimrc
