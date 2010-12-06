@@ -15,6 +15,9 @@ set cindent
 set smartindent
 set autoindent
 
+silent! set macmeta
+set splitright
+
 colorscheme vividchalk
 
 syntax on
@@ -28,7 +31,7 @@ set ignorecase
 set incsearch
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg
+set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp
 
 map  <LEADER>v <C-v>
 map <S-Space> <ESC>:w<CR>
@@ -36,16 +39,27 @@ map <S-Space> <ESC>:w<CR>
 so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
-silent! :TlistAddFiles ./tags
-:Alias difp diffput
-:Alias difg diffget
+if(has('gui'))
+  :TlistAddFiles ./Tags
+endif
 
 "method to execute a command, run perl test
 map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
-let g:CommandTAcceptSelectionTabMap='<CR>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTCancelMap = '<SPACE>'
+let g:CommandTSelectNextMap = '<Tab>'
+let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
+
+"show file drawer
+map <D-/> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
+
+
+" Taglist config
+let Tlist_Exit_OnlyWindow = 1
 
 " Status line
 "------------------------------------------------------------------------
@@ -60,7 +74,7 @@ set laststatus=2
 " put cursor at last pos when you open file again
 autocmd BufReadPost *
 \ if line("'\"") > 0 && line("'\"") <= line("$") |
-\  exe "normal g`\"" |
+\  exe "normal! g`\"" |
 \ endif
 " -------------------------------------------------------------------------------
 set showtabline=2 " always show tabs in gvim, but not vim
@@ -92,6 +106,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
+map <D-'> :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -144,6 +159,8 @@ highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :tabnew<SPACE>
 map <Tab> <C-w><C-]><C-w>T
+map <S-Tab> <C-w><C-v><C-]>
+map <LEADER><Tab> <C-w><C-]>
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
@@ -174,8 +191,5 @@ imap <D-]> <ESC>lvExi
 "quit the second window
 map <LEADER>w <C-w>w:q<CR>
 
-"open bash
-map <D-'> :shell<CR>
-imap <D-'> <ESC>:shell<CR>
 
 silent! so ./.localvimrc

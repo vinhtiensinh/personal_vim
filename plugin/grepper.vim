@@ -47,7 +47,7 @@ function! GrepperGrepRinCmd()
   endif
 
   let location = iinput
-  execute  'ruby ' . "Grepper.grep('-rin','" . string . "','" .  location . "')"
+  execute  'ruby ' . "Grepper.grep('-rin','" . location . "','" .  string . "')"
 
 endfunction
 

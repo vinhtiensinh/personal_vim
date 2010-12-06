@@ -20,7 +20,9 @@ setlocal omnifunc=CucumberComplete
 autocmd BufWritePost,BufEnter <buffer> ruby VIMCucumber.check_steps_on_file
 autocmd BufWritePost *.rb execute "ruby VIMCucumber.refresh('" . expand('%') . "')"
 
-nmap <silent><buffer> <C-W><C-]>  :ruby VIMCucumber.jump_step('tabnew')<CR>
+nmap <silent><buffer> <Tab> :ruby VIMCucumber.jump_step('tabnew')<CR>
+nmap <silent><buffer> <S-Tab> :ruby VIMCucumber.jump_step('vsplit')<CR>
+nmap <silent><buffer> <SPACE><Tab> :ruby VIMCucumber.jump_step('split')<CR>
 
 let b:undo_ftplugin = "setl fo< com< cms< ofu<"
 
