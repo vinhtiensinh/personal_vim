@@ -2,7 +2,7 @@ class SmartJumper
 
   @@jumbers = []
 
-  def self.jump string=nil
+  def self.jump command, string=nil
     jumper = self.get_jumper
     
     if jumper.nil?
@@ -11,7 +11,7 @@ class SmartJumper
       file_path = jumper.jump string
     end
 
-    VIM::command("tabnew #{file_path}")
+    VIM::command("#{command} #{file_path}")
 
   end
 
