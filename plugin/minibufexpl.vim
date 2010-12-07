@@ -660,14 +660,94 @@ augroup MiniBufExplorer
             syn match MBEVisibleNormal      '[^\]]*\*+\='
             syn match MBEVisibleChanged     '[^\]]*\*+\*+\='
 
+            syn match CucumberFileNormal      '[^\]]*\.feature+\='
+            syn match CucumberFileVisible     '[^\]]*\.feature\*+\='
+
+            syn match RubyFileNormal      '[^\]]*\.rb+\='
+            syn match RubyFileVisible     '[^\]]*\.rb\*+\='
+
+            syn match PerlFileNormal      '[^\]]*\.pm+\='
+            syn match PerlFileVisible     '[^\]]*\.pm\*+\='
+
+            syn match PerlPlFileNormal      '[^\]]*\.pl+\='
+            syn match PerlPlFileVisible     '[^\]]*\.pl\*+\='
+
+            syn match PerlTestFileNormal      '[^\]]*\.t+\='
+            syn match PerlTestFileVisible     '[^\]]*\.t\*+\='
+
+            syn match HamlFileNormal      '[^\]]*\.haml+\='
+            syn match HamlFileVisible     '[^\]]*\.haml\*+\='
+
+            syn match SassFileNormal      '[^\]]*\.scss+\='
+            syn match SassFileVisible     '[^\]]*\.scss\*+\='
+
+            syn match HtmlFileNormal      '[^\]]*\.html+\='
+            syn match HtmlFileVisible     '[^\]]*\.html\*+\='
+
+            syn match VpkFileNormal      '[^\]]*\.vpk+\='
+            syn match VpkFileVisible     '[^\]]*\.vpk\*+\='
+
             if !exists("g:did_minibufexplorer_syntax_inits")
                 let g:did_minibufexplorer_syntax_inits = 1
 
                 hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
-                hi SelectedBuffer guifg=Green guibg=DimGray ctermfg=DarkGreen ctermbg=White
+                hi SelectedBuffer gui=underline guibg=grey20
                 hi ChangedBuffer guifg=Yellow ctermfg=Yellow
-                hi SelectedChangedBuffer guifg=Yellow guibg=DimGray ctermfg=Yellow ctermbg=White
+                hi SelectedChangedBuffer  ctermfg=Yellow ctermbg=White
                 hi NormalBuffer guifg=White ctermfg=White
+
+                " cucumber hightlight
+                hi CucumberNormalHighlight guifg=Green ctermfg=Green
+                hi CucumberVisibleHighlight guifg=Green ctermfg=Green gui=underline
+                " ruby highlight
+                hi RubyNormalHighlight guifg=IndianRed ctermfg=Red
+                hi RubyVisibleHighlight guifg=IndianRed ctermfg=Red gui=underline
+                " perl highlight
+                hi PerlNormalHighlight guifg=SandyBrown ctermfg=Yellow
+                hi PerlVisibleHighlight guifg=SandyBrown ctermfg=Yellow gui=underline
+                " perl test highlight
+                hi PerlTestNormalHighlight guifg=sienna ctermfg=Yellow
+                hi PerlTestVisibleHighlight guifg=sienna ctermfg=Yellow gui=underline
+                "haml highlight
+                hi HamlNormalHighlight guifg=OrangeRed ctermfg=196
+                hi HamlVisibleHighlight guifg=OrangeRed ctermfg=196 gui=underline
+                "sass highlight
+                hi SassNormalHighlight guifg=Orchid ctermfg=207
+                hi SassVisibleHighlight guifg=Orchid ctermfg=207 gui=underline
+                "vpk highlight
+                hi VpkNormalHighlight guifg=turquoise ctermfg=123
+                hi VpkVisibleHighlight guifg=turquoise ctermfg=123 gui=underline
+                "html highlight
+                hi HtmlNormalHighlight guifg=LightBlue ctermfg=Blue
+                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline
+
+                "apply cucumber hightlight
+                hi def link CucumberFileVisible CucumberVisibleHighlight
+                hi def link CucumberFileNormal CucumberNormalHighlight
+                "apply ruby hightlight
+                hi def link RubyFileVisible RubyVisibleHighlight
+                hi def link RubyFileNormal RubyNormalHighlight
+                "apply perl hightlight
+                hi def link PerlFileVisible PerlVisibleHighlight
+                hi def link PerlFileNormal PerlNormalHighlight
+                "apply perl pl hightlight
+                hi def link PerlPlFileVisible PerlVisibleHighlight
+                hi def link PerlPlFileNormal PerlNormalHighlight
+                "apply perl test hightlight
+                hi def link PerlTestFileVisible PerlTestVisibleHighlight
+                hi def link PerlTestFileNormal PerlTestNormalHighlight
+                "apply haml hightlight
+                hi def link HamlFileVisible HamlVisibleHighlight
+                hi def link HamlTestFileNormal HamlNormalHighlight
+                "apply sass hightlight
+                hi def link SassFileVisible SassVisibleHighlight
+                hi def link SassFileNormal SassNormalHighlight
+                "apply vpk hightlight
+                hi def link VpkFileVisible VpkVisibleHighlight
+                hi def link VpkFileNormal VpkNormalHighlight
+                "apply html hightlight
+                hi def link HtmlFileVisible HtmlVisibleHighlight
+                hi def link HtmlFileNormal HtmlNormalHighlight
 
                 hi def link BufNumber  HiddenBufNumber
                 hi def link MBEVisibleNormal  SelectedBuffer

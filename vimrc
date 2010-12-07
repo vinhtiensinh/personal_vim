@@ -221,6 +221,9 @@ map <LEADER>w <C-w>w<D-w>
 
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25
+let g:miniBufExplMinSize = 30
+let g:miniBufExplMaxSize = 30
+
 autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
