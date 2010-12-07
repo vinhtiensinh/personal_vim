@@ -82,27 +82,6 @@ autocmd BufReadPost *
 "set showtabline=2 " always show tabs in gvim, but not vim
 "autocmd VimEnter * set guitablabel=%N\ %t\ %M
 
-"map  <D-1> 1gt
-"imap <D-1> <ESC>1gt
-"map  <D-2> 2gt
-"imap <D-2> <ESC>2gt
-"map  <D-3> 3gt
-"imap <D-3> <ESC>3gt
-"map  <D-4> 4gt
-"imap <D-4> <ESC>4gt
-"map  <D-5> 5gt
-"imap <D-5> <ESC>5gt
-"map  <D-6> 6gt
-"imap <D-6> <ESC>6gt
-"map  <D-7> 7gt
-"imap <D-7> <ESC>7gt
-"map  <D-8> 8gt
-"imap <D-8> <ESC>8gt
-"map  <D-9> 9gt
-"imap <D-9> <ESC>9gt
-map  <D-0> :tabo<CR>
-imap <D-0> <ESC>:tabo<CR>a
-
 function! CloseBuffer()
   call feedkeys(":bd\<CR>")
   call feedkeys(":OMiniBufExplorer\<CR>")
@@ -110,24 +89,37 @@ endfunction
 
 map <D-w> :call CloseBuffer()<CR>
 imap <D-w> <ESC><D-w>
-map  <D-1> :call GotoBuffer(1)<CR>
-imap <D-1> <ESC>:call GotoBuffer(1)<CR>
-map  <D-2> :call GotoBuffer(2)<CR>
-imap <D-2> <ESC>:call GotoBuffer(2)<CR>
-map  <D-3> :call GotoBuffer(3)<CR>
-imap <D-3> <ESC>:call GotoBuffer(3)<CR>
-map  <D-4> :call GotoBuffer(4)<CR>
-imap <D-4> <ESC>:call GotoBuffer(4)<CR>
-map  <D-5> :call GotoBuffer(5)<CR>
-imap <D-5> <ESC>:call GotoBuffer(5)<CR>
-map  <D-6> :call GotoBuffer(6)<CR>
-imap <D-6> <ESC>:call GotoBuffer(6)<CR>
-map  <D-7> :call GotoBuffer(7)<CR>
-imap <D-7> <ESC>:call GotoBuffer(7)<CR>
-map  <D-8> :call GotoBuffer(8)<CR>
-imap <D-8> <ESC>:call GotoBuffer(8)<CR>
-map  <D-9> :call GotoBuffer(9)<CR>
-imap <D-9> <ESC>:call GotoBuffer(9)<CR>
+
+if (has("gui"))
+  map  <D-1> :call GotoBuffer(1)<CR>
+  imap <D-1> <ESC>:call GotoBuffer(1)<CR>
+  map  <D-2> :call GotoBuffer(2)<CR>
+  imap <D-2> <ESC>:call GotoBuffer(2)<CR>
+  map  <D-3> :call GotoBuffer(3)<CR>
+  imap <D-3> <ESC>:call GotoBuffer(3)<CR>
+  map  <D-4> :call GotoBuffer(4)<CR>
+  imap <D-4> <ESC>:call GotoBuffer(4)<CR>
+  map  <D-5> :call GotoBuffer(5)<CR>
+  imap <D-5> <ESC>:call GotoBuffer(5)<CR>
+  map  <D-6> :call GotoBuffer(6)<CR>
+  imap <D-6> <ESC>:call GotoBuffer(6)<CR>
+  map  <D-7> :call GotoBuffer(7)<CR>
+  imap <D-7> <ESC>:call GotoBuffer(7)<CR>
+  map  <D-8> :call GotoBuffer(8)<CR>
+  imap <D-8> <ESC>:call GotoBuffer(8)<CR>
+  map  <D-9> :call GotoBuffer(9)<CR>
+  imap <D-9> <ESC>:call GotoBuffer(9)<CR>
+else
+  map  <LEADER>1 :call GotoBuffer(1)<CR>
+  map  <LEADER>2 :call GotoBuffer(2)<CR>
+  map  <LEADER>3 :call GotoBuffer(3)<CR>
+  map  <LEADER>4 :call GotoBuffer(4)<CR>
+  map  <LEADER>5 :call GotoBuffer(5)<CR>
+  map  <LEADER>6 :call GotoBuffer(6)<CR>
+  map  <LEADER>7 :call GotoBuffer(7)<CR>
+  map  <LEADER>8 :call GotoBuffer(8)<CR>
+  map  <LEADER>9 :call GotoBuffer(9)<CR>
+endif
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
