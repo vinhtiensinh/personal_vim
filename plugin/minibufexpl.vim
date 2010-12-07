@@ -698,28 +698,28 @@ augroup MiniBufExplorer
 
                 " cucumber hightlight
                 hi CucumberNormalHighlight guifg=Green ctermfg=Green
-                hi CucumberVisibleHighlight guifg=Green ctermfg=Green gui=underline
+                hi CucumberVisibleHighlight guifg=Green ctermfg=Green gui=underline cterm=underline
                 " ruby highlight
                 hi RubyNormalHighlight guifg=IndianRed ctermfg=Red
-                hi RubyVisibleHighlight guifg=IndianRed ctermfg=Red gui=underline
+                hi RubyVisibleHighlight guifg=IndianRed ctermfg=Red gui=underline cterm=underline
                 " perl highlight
                 hi PerlNormalHighlight guifg=SandyBrown ctermfg=Yellow
-                hi PerlVisibleHighlight guifg=SandyBrown ctermfg=Yellow gui=underline
+                hi PerlVisibleHighlight guifg=SandyBrown ctermfg=Yellow gui=underline cterm=underline
                 " perl test highlight
                 hi PerlTestNormalHighlight guifg=sienna ctermfg=Yellow
-                hi PerlTestVisibleHighlight guifg=sienna ctermfg=Yellow gui=underline
+                hi PerlTestVisibleHighlight guifg=sienna ctermfg=Yellow gui=underline cterm=underline
                 "haml highlight
                 hi HamlNormalHighlight guifg=OrangeRed ctermfg=196
-                hi HamlVisibleHighlight guifg=OrangeRed ctermfg=196 gui=underline
+                hi HamlVisibleHighlight guifg=OrangeRed ctermfg=196 gui=underline cterm=underline
                 "sass highlight
                 hi SassNormalHighlight guifg=Orchid ctermfg=207
-                hi SassVisibleHighlight guifg=Orchid ctermfg=207 gui=underline
+                hi SassVisibleHighlight guifg=Orchid ctermfg=207 gui=underline cterm=underline
                 "vpk highlight
                 hi VpkNormalHighlight guifg=turquoise ctermfg=123
-                hi VpkVisibleHighlight guifg=turquoise ctermfg=123 gui=underline
+                hi VpkVisibleHighlight guifg=turquoise ctermfg=123 gui=underline cterm=underline
                 "html highlight
                 hi HtmlNormalHighlight guifg=LightBlue ctermfg=Blue
-                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline
+                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline cterm=underline
 
                 "apply cucumber hightlight
                 hi def link CucumberFileVisible CucumberVisibleHighlight
