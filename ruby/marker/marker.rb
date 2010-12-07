@@ -14,6 +14,7 @@ class Marker
     VIM::command('split __marks__')
     VIM::Buffer.current.append(0, content)
     VIM::set_option('buftype=nofile')
+    VIM::command('setlocal nobuflisted')
 
     VIM::command("set filetype=#{filetype}")
 

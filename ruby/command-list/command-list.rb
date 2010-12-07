@@ -17,8 +17,9 @@ class CommandList
     VIM::command("#{length}split __Command-List__")
     VIM::Buffer.current.append(0, display_content)
     VIM::set_option('buftype=nofile')
+    VIM::command('setlocal nobuflisted')
     self.syntax_on
-    
+ 
     self.map_key @display_lists
   end
 
@@ -136,18 +137,22 @@ class MenuItem
   end
 
   def execute
-    VIM::command("call feedkeys('gv')") if @visual_mode
-    if @function.match(/^:/)
-      if @visual_mode
-        VIM::command("call feedkeys(\":#{@function}\")")
-        VIM::command('call feedkeys("\<CR>")')
+    functions = [@function].flatten
+
+    functions.each do | ifunction |
+      VIM::command("call feedkeys('gv')") if @visual_mode
+      if ifunction.match(/^:/)
+        if @visual_mode
+          VIM::command("call feedkeys(\":#{ifunction}\")")
+          VIM::command('call feedkeys("\<CR>")')
+        else
+          VIM::command(ifunction)
+        end
+      elsif ifunction.match('\(')
+        VIM::command("call #{ifunction}")
       else
-        VIM::command(@function)
+        VIM::command("call feedkeys(\"#{ifunction}\")")
       end
-    elsif @function.match('\(')
-      VIM::command("call #{@function}")
-    else
-      VIM::command("call feedkeys(\"#{@function}\")")
     end
   end
 end

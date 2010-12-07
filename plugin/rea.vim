@@ -40,7 +40,7 @@ function! InspectStepFile()
 
 endfunction
 
-function! OpenGizmoPage()
+function! OpenGizmoPage(command)
 
   let current_line_number = line('.')
   let page   = ''
@@ -68,7 +68,7 @@ function! OpenGizmoPage()
   if page == ''
     echo "Cannot find gizmo page"
   else
-    execute 'tabnew features/support/pages/page_with_' . page . '.rb'
+    execute a:command . ' features/support/pages/page_with_' . page . '.rb'
   endif
 
   if method != ''

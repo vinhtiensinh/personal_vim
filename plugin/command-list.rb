@@ -83,17 +83,17 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => '\<C-W>\<C-]>\<C-W>T',
+      :function    => '<C-]>',
       :map         => 'ga',
       :text        => 't[a]g',
     },
     {
-      :function    => '\<C-W>gF',
+      :function    => 'gf',
       :map         => 'gf',
       :text        => '[f]ile',
     },
     {
-      :function    => '^\<C-W>gF',
+      :function    => '^gf',
       :map         => 'gl',
       :text        => 'file on the current [l]ine',
     },
@@ -103,12 +103,12 @@ CommandList::register_list(
       :text        => 'open file path in [c]lipboard',
     },
     {
-      :function    => 'OpenGizmoPage()',
+      :function    => 'OpenGizmoPage("e")',
       :map         => 'gz',
       :text        => 'gi[z]mo page',
     },
     {
-      :function    => ':ruby SmartJumper.jump',
+      :function    => ':ruby SmartJumper.jump("e")',
       :map         => 'gp',
       :text        => '[p]erl class',
     }
@@ -159,7 +159,7 @@ CommandList::register_list(
       :text        => 'git [s]tatus',
     },
     {
-      :function    => ":Gdiff",
+      :function    => [":CMiniBufExplorer", ":Gdiff"],
       :map         => 'd',
       :text        => 'git [d]iff file',
     },

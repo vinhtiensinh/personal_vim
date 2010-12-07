@@ -3,6 +3,8 @@ set nocompatible
 set autowrite
 
 set guioptions-=T
+set guioptions-=L
+set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 set clipboard=unnamed
@@ -48,7 +50,7 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
-let g:CommandTAcceptSelectionTabMap = '<CR>'
+"let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
@@ -77,29 +79,55 @@ autocmd BufReadPost *
 \  exe "normal! g`\"" |
 \ endif
 " -------------------------------------------------------------------------------
-set showtabline=2 " always show tabs in gvim, but not vim
-autocmd VimEnter * set guitablabel=%N\ %t\ %M
+"set showtabline=2 " always show tabs in gvim, but not vim
+"autocmd VimEnter * set guitablabel=%N\ %t\ %M
 
-map  <D-1> 1gt
-imap <D-1> <ESC>1gt
-map  <D-2> 2gt
-imap <D-2> <ESC>2gt
-map  <D-3> 3gt
-imap <D-3> <ESC>3gt
-map  <D-4> 4gt
-imap <D-4> <ESC>4gt
-map  <D-5> 5gt
-imap <D-5> <ESC>5gt
-map  <D-6> 6gt
-imap <D-6> <ESC>6gt
-map  <D-7> 7gt
-imap <D-7> <ESC>7gt
-map  <D-8> 8gt
-imap <D-8> <ESC>8gt
-map  <D-9> 9gt
-imap <D-9> <ESC>9gt
+"map  <D-1> 1gt
+"imap <D-1> <ESC>1gt
+"map  <D-2> 2gt
+"imap <D-2> <ESC>2gt
+"map  <D-3> 3gt
+"imap <D-3> <ESC>3gt
+"map  <D-4> 4gt
+"imap <D-4> <ESC>4gt
+"map  <D-5> 5gt
+"imap <D-5> <ESC>5gt
+"map  <D-6> 6gt
+"imap <D-6> <ESC>6gt
+"map  <D-7> 7gt
+"imap <D-7> <ESC>7gt
+"map  <D-8> 8gt
+"imap <D-8> <ESC>8gt
+"map  <D-9> 9gt
+"imap <D-9> <ESC>9gt
 map  <D-0> :tabo<CR>
 imap <D-0> <ESC>:tabo<CR>a
+
+function! CloseBuffer()
+  call feedkeys(":bd\<CR>")
+  call feedkeys(":OMiniBufExplorer\<CR>")
+endfunction
+
+map <D-w> :call CloseBuffer()<CR>
+imap <D-w> <ESC><D-w>
+map  <D-1> :call GotoBuffer(1)<CR>
+imap <D-1> <ESC>:call GotoBuffer(1)<CR>
+map  <D-2> :call GotoBuffer(2)<CR>
+imap <D-2> <ESC>:call GotoBuffer(2)<CR>
+map  <D-3> :call GotoBuffer(3)<CR>
+imap <D-3> <ESC>:call GotoBuffer(3)<CR>
+map  <D-4> :call GotoBuffer(4)<CR>
+imap <D-4> <ESC>:call GotoBuffer(4)<CR>
+map  <D-5> :call GotoBuffer(5)<CR>
+imap <D-5> <ESC>:call GotoBuffer(5)<CR>
+map  <D-6> :call GotoBuffer(6)<CR>
+imap <D-6> <ESC>:call GotoBuffer(6)<CR>
+map  <D-7> :call GotoBuffer(7)<CR>
+imap <D-7> <ESC>:call GotoBuffer(7)<CR>
+map  <D-8> :call GotoBuffer(8)<CR>
+imap <D-8> <ESC>:call GotoBuffer(8)<CR>
+map  <D-9> :call GotoBuffer(9)<CR>
+imap <D-9> <ESC>:call GotoBuffer(9)<CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -121,7 +149,7 @@ vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
-map <D-e> :call OpenFilesFromClipboard('tabnew')<CR>
+map <D-e> :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
 "to speed up processing, any optimize vim config should be place in the .localvimrc
@@ -157,8 +185,8 @@ let g:syntastic_quiet_warnings=1
 "better background
 highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
-map <LEADER>o :tabnew<SPACE>
-map <Tab> <C-w><C-]><C-w>T
+map <LEADER>o :e<SPACE>
+map <Tab> <C-]>
 map <S-Tab> <C-w><C-v><C-]>
 map <LEADER><Tab> <C-w><C-]>
 
@@ -189,7 +217,15 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "quit the second window
-map <LEADER>w <C-w>w:q<CR>
+map <LEADER>w <C-w>w<D-w>
 
+"tryingout minibufexplorer
+let g:miniBufExplVSplit = 25
+let g:miniBufExplMinSize = 30
+let g:miniBufExplMaxSize = 30
+
+autocmd BufDelete * :UMiniBufExplorer
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 silent! so ./.localvimrc
