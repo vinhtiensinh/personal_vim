@@ -159,7 +159,7 @@ CommandList::register_list(
       :text        => 'git [s]tatus',
     },
     {
-      :function    => [":CMiniBufExplorer", ":Gdiff"],
+      :function    => [":CMiniBufExplorer", ":Gdiff", ":TMiniBufExplorer"],
       :map         => 'd',
       :text        => 'git [d]iff file',
     },

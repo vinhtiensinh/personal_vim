@@ -675,14 +675,14 @@ augroup MiniBufExplorer
             syn match PerlTestFileNormal      '[^\]]*\.t+\='
             syn match PerlTestFileVisible     '[^\]]*\.t\*+\='
 
+            syn match HtmlFileNormal      '[^\]]*\.html+\='
+            syn match HtmlFileVisible     '[^\]]*\.html\*+\='
+
             syn match HamlFileNormal      '[^\]]*\.haml+\='
             syn match HamlFileVisible     '[^\]]*\.haml\*+\='
 
             syn match SassFileNormal      '[^\]]*\.scss+\='
             syn match SassFileVisible     '[^\]]*\.scss\*+\='
-
-            syn match HtmlFileNormal      '[^\]]*\.html+\='
-            syn match HtmlFileVisible     '[^\]]*\.html\*+\='
 
             syn match VpkFileNormal      '[^\]]*\.vpk+\='
             syn match VpkFileVisible     '[^\]]*\.vpk\*+\='
@@ -708,6 +708,9 @@ augroup MiniBufExplorer
                 " perl test highlight
                 hi PerlTestNormalHighlight guifg=sienna ctermfg=Yellow
                 hi PerlTestVisibleHighlight guifg=sienna ctermfg=Yellow gui=underline cterm=underline
+                "html highlight
+                hi HtmlNormalHighlight guifg=LightBlue ctermfg=Blue
+                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline cterm=underline
                 "haml highlight
                 hi HamlNormalHighlight guifg=OrangeRed ctermfg=196
                 hi HamlVisibleHighlight guifg=OrangeRed ctermfg=196 gui=underline cterm=underline
@@ -717,9 +720,6 @@ augroup MiniBufExplorer
                 "vpk highlight
                 hi VpkNormalHighlight guifg=turquoise ctermfg=123
                 hi VpkVisibleHighlight guifg=turquoise ctermfg=123 gui=underline cterm=underline
-                "html highlight
-                hi HtmlNormalHighlight guifg=LightBlue ctermfg=Blue
-                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline cterm=underline
 
                 "apply cucumber hightlight
                 hi def link CucumberFileVisible CucumberVisibleHighlight
@@ -736,18 +736,18 @@ augroup MiniBufExplorer
                 "apply perl test hightlight
                 hi def link PerlTestFileVisible PerlTestVisibleHighlight
                 hi def link PerlTestFileNormal PerlTestNormalHighlight
+                "apply html hightlight
+                hi def link HtmlFileVisible HtmlVisibleHighlight
+                hi def link HtmlFileNormal HtmlNormalHighlight
                 "apply haml hightlight
                 hi def link HamlFileVisible HamlVisibleHighlight
-                hi def link HamlTestFileNormal HamlNormalHighlight
+                hi def link HamlFileNormal HamlNormalHighlight
                 "apply sass hightlight
                 hi def link SassFileVisible SassVisibleHighlight
                 hi def link SassFileNormal SassNormalHighlight
                 "apply vpk hightlight
                 hi def link VpkFileVisible VpkVisibleHighlight
                 hi def link VpkFileNormal VpkNormalHighlight
-                "apply html hightlight
-                hi def link HtmlFileVisible HtmlVisibleHighlight
-                hi def link HtmlFileNormal HtmlNormalHighlight
 
                 hi def link BufNumber  HiddenBufNumber
                 hi def link MBEVisibleNormal  SelectedBuffer
@@ -850,7 +850,9 @@ augroup MiniBufExplorer
     endfunction
 
     function! <SID>OpenExplorer()
-        let l:winNum = <SID>FindWindow('-MiniBufExplorer-', 1)
+
+        let g:miniBufExplorerAutoUpdate = 0
+        let l:winNum = <SID>FindWindow('-MiniBufExplorer-', 0)
 
         if l:winNum == -1
             call <SID>StartExplorer(1, -1)

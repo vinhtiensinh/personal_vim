@@ -82,12 +82,7 @@ autocmd BufReadPost *
 "set showtabline=2 " always show tabs in gvim, but not vim
 "autocmd VimEnter * set guitablabel=%N\ %t\ %M
 
-function! CloseBuffer()
-  call feedkeys(":bd\<CR>")
-  call feedkeys(":OMiniBufExplorer\<CR>")
-endfunction
-
-map <D-w> :call CloseBuffer()<CR>
+map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
 
 if (has("gui"))
