@@ -1139,7 +1139,13 @@ augroup MiniBufExplorer
 
     function! SortMiniBufFiles(i1, i2)
         if (a:i1[0] == a:i2[0])
-            if a:i1[2] > a:i2[2]
+            if a:i1[2] == a:i2[2]
+                if a:i1[1] > a:i2[1]
+                    return 1
+                else
+                    return -2
+                endif
+            elseif a:i1[2] > a:i2[2]
                 return 1
             else
                 return -1
