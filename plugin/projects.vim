@@ -13,12 +13,8 @@ autocmd BufEnter * call SwitchToProject()
 
 function! SwitchToProject()
   let current_buffer = expand('%:p')
-  for project in g:projects
-    if current_buffer =~ project[1]
-      execute 'cd ' . project[1]
-      let g:current_project = project[0]
-    endif
-  endfor
+  let name = ProjectNameOf(current_buffer)
+  call SwitchToProjectCmd(name)
 endfunction
 
 function! SwitchToProjectCmd(name)
