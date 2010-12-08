@@ -65,11 +65,13 @@ let Tlist_Exit_OnlyWindow = 1
 
 " Status line
 "------------------------------------------------------------------------
+let g:current_project = 'unset'
+
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line
 "set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F,\ %=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ [\ %{g:current_project}\ ]\ %=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 " Status line always on
 set laststatus=2
 

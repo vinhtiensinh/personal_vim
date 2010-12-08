@@ -77,7 +77,7 @@ class CommandList
       command = self.get_command_shortcut(shortcut)
     end
 
-    VIM::command("bd __Command-List__")
+    VIM::command("bd")
 
     command.execute unless command.nil?
   end
