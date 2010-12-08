@@ -1084,7 +1084,7 @@ augroup MiniBufExplorer
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  
                             let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
-                            let l:tab = l:shortBufName
+                            let l:tab = '[' . ProjectOf(fnamemodify(l:BufName, ":p")) . ']' . l:shortBufName
 
                             " If the buffer is open in a window mark it
                             if bufwinnr(l:i) != -1

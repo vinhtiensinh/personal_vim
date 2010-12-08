@@ -1,11 +1,11 @@
 let g:projects = [
-  \ ['product-e2e', '/Users/vinh_tran/product-e2e'],
-  \ ['customer-platform', '/Users/vinh_tran/customer-platform'],
-  \ ['vim', '/Users/vinh_tran/personal_vim'],
-  \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop'],
-  \ ['librea', '/Users/vinh_tran/branches/master/librea'],
-  \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml'],
-  \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire']
+  \ ['product-e2e', '/Users/vinh_tran/product-e2e', 'pe2e'],
+  \ ['customer-platform', '/Users/vinh_tran/customer-platform', 'cust'],
+  \ ['vim', '/Users/vinh_tran/personal_vim', '.vim'],
+  \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop', 'agdk'],
+  \ ['librea', '/Users/vinh_tran/branches/master/librea', 'brea'],
+  \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
+  \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw']
 \]
 
 autocmd BufEnter * call SwitchToProject()
@@ -27,4 +27,14 @@ function! SwitchToProjectByName(name)
       let g:current_project = project[0]
     endif
   endfor
+endfunction
+
+function! ProjectOf(name)
+  for project in g:projects
+    if a:name =~ project[1]
+      return project[2]
+    endif
+  endfor
+
+  return ''
 endfunction
