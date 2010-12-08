@@ -242,13 +242,18 @@ CommandList::register_list(
       :text        => '[p]roduct-e2e',
     },
     {
-      :function    => ":call SwitchToProjectCmd('customerflatform')",
+      :function    => ":call SwitchToProjectCmd('customer-platform')",
       :map         => 'c',
       :text        => '[c]ustomer-platform',
     },
     {
       :function    => ":call SwitchToProjectCmd('db-migrations')",
       :map         => 'd',
+      :text        => '[d]b-migrations',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('vim')",
+      :map         => 'v',
       :text        => '[d]b-migrations',
     },
     {
