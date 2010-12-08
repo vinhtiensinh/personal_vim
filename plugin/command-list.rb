@@ -242,7 +242,7 @@ CommandList::register_list(
       :text        => '[p]roduct-e2e',
     },
     {
-      :function    => ":call SwitchToProjectCmd('customer-flatform')",
+      :function    => ":call SwitchToProjectCmd('customerflatform')",
       :map         => 'c',
       :text        => '[c]ustomer-platform',
     },

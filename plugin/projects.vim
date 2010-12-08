@@ -23,6 +23,10 @@ function! SwitchToProjectCmd(name)
     if a:name == project[0]
       execute 'cd ' . project[1]
       let g:current_project = project[0]
+      if (has('ruby'))
+        ruby Cucumber.fetch_all_steps
+      endif
+      return
     endif
   endfor
 

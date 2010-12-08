@@ -302,7 +302,6 @@ endif
 " 
 noremap <unique> <script> <Plug>MiniBufExplorer  :call <SID>StartExplorer(1, -1)<CR>:<BS>
 noremap <unique> <script> <Plug>CMiniBufExplorer :call <SID>StopExplorer(1)<CR>:<BS>
-noremap <unique> <script> <Plug>OMiniBufExplorer :call <SID>OpenExplorer()<CR>:<BS>
 noremap <unique> <script> <Plug>UMiniBufExplorer :call <SID>AutoUpdate(-1)<CR>:<BS>
 noremap <unique> <script> <Plug>TMiniBufExplorer :call <SID>ToggleExplorer()<CR>:<BS>
 
@@ -314,9 +313,6 @@ if !exists(':MiniBufExplorer')
 endif
 if !exists(':CMiniBufExplorer')
     command! CMiniBufExplorer  call <SID>StopExplorer(1)
-endif
-if !exists(':OMiniBufExplorer')
-    command! OMiniBufExplorer  call <SID>OpenExplorer()
 endif
 if !exists(':UMiniBufExplorer')
     command! UMiniBufExplorer  call <SID>AutoUpdate(-1)
@@ -742,17 +738,6 @@ augroup MiniBufExplorer
         call <SID>DEBUG('Completed ToggleExplorer()' ,10)
         call <SID>DEBUG('===========================',10)
 
-    endfunction
-
-    function! <SID>OpenExplorer()
-
-        let g:miniBufExplorerAutoUpdate = 0
-        let l:winNum = <SID>FindWindow('-MiniBufExplorer-', 0)
-
-        if l:winNum == -1
-            call <SID>StartExplorer(1, -1)
-            wincmd p
-        endif
     endfunction
 
     " }}}

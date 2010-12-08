@@ -1,6 +1,5 @@
 function! GotoBuffer(index)
 
-  normal! :OMiniBufExplorer
   let winNum = FindWindow('-MiniBufExplorer-')
   exec l:winNum.' wincmd w'
 

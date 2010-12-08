@@ -3,9 +3,8 @@
 class Cucumber
 
   def self.fetch_all_steps
-    @@steps = {}
-
     return unless File.exists? 'features/step_definitions'
+    @@steps = {}
 
     self.fetch_steps 'features/step_definitions'
   end
