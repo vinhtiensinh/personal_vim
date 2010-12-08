@@ -12,7 +12,6 @@ function! SwitchToProject()
     if current_buffer =~ project[1]
       execute 'cd ' . project[1]
       let g:current_project = project[0]
-      echo "Current Project: " . g:current_project
     endif
   endfor
 endfunction
@@ -22,7 +21,6 @@ function! SwitchToProjectByName(name)
     if a:name == project[0]
       execute 'cd ' . project[1]
       let g:current_project = project[0]
-      echo "Current Project: " . g:current_project
     endif
   endfor
 endfunction

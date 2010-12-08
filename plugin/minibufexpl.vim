@@ -691,9 +691,9 @@ augroup MiniBufExplorer
                 let g:did_minibufexplorer_syntax_inits = 1
 
                 hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
-                hi SelectedBuffer gui=underline guibg=grey20
+                hi SelectedBuffer gui=underline guibg=grey20 cterm=underline
                 hi ChangedBuffer guifg=Yellow ctermfg=Yellow
-                hi SelectedChangedBuffer  ctermfg=Yellow ctermbg=White
+                hi SelectedChangedBuffer  ctermfg=Yellow ctermbg=White cterm=underline
                 hi NormalBuffer guifg=White ctermfg=White
 
                 " cucumber hightlight
