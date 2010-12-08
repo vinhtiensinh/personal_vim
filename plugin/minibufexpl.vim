@@ -1062,6 +1062,8 @@ augroup MiniBufExplorer
         let l:fileNames = ''
         let l:maxTabWidth = 0
 
+        let l:all_files = []
+
         " Loop through every buffer less than the total number of buffers.
         while(l:i <= l:NBuffers)
             let l:i = l:i + 1
@@ -1084,7 +1086,7 @@ augroup MiniBufExplorer
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  
                             let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
-                            let l:tab = '[' . ProjectOf(fnamemodify(l:BufName, ":p")) . ']' . l:shortBufName
+                            let l:tab = '[' . ProjectAbbrOf(fnamemodify(l:BufName, ":p")) . ']' . l:shortBufName
 
                             " If the buffer is open in a window mark it
                             if bufwinnr(l:i) != -1
@@ -1097,22 +1099,31 @@ augroup MiniBufExplorer
                             endif
 
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
-                            let l:fileNames = l:fileNames.l:tab.':'.l:i
+                            let l:tab = l:tab.':'.l:i
 
-                            " If horizontal and tab wrap is turned on we need to add spaces
-                            if g:miniBufExplVSplit == 0
-                                if g:miniBufExplTabWrap != 0
-                                    let l:fileNames = l:fileNames.' '
-                                endif
-                                " If not horizontal we need a newline
-                            else
-                                let l:fileNames = l:fileNames . "\n"
-                            endif
+                            let l:all_files += [[
+                                \ ProjectAbbrOf(fnamemodify(l:BufName, ':p')),
+                                \ l:tab,
+                                \ fnamemodify(l:BufName, ':e')
+                            \ ]]
                         endif
                     endif
                 endif
             endif
         endwhile
+
+        let l:sorted_all_files = sort(l:all_files, "SortMiniBufFiles")
+        " If horizontal and tab wrap is turned on we need to add spaces
+        if g:miniBufExplVSplit == 0
+            for ifile in l:sorted_all_files
+                let l:fileNames = l:fileNames . ifile[1] . ' '
+            endfor
+        " If not horizontal we need a newline
+        else
+            for ifile in l:sorted_all_files
+                let l:fileNames = l:fileNames . ifile[1] . "\n"
+            endfor
+        endif
 
         if (g:miniBufExplBufList != l:fileNames)
             if (a:updateBufList)
@@ -1124,6 +1135,20 @@ augroup MiniBufExplorer
             return 0
         endif
 
+    endfunction
+
+    function! SortMiniBufFiles(i1, i2)
+        if (a:i1[0] == a:i2[0])
+            if a:i1[2] > a:i2[2]
+                return 1
+            else
+                return -1
+            endif
+        elseif (a:i1[0] > a:i2[0])
+            return 1
+        else
+            return -1
+        end
     endfunction
 
     " }}}

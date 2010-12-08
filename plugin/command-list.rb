@@ -215,3 +215,46 @@ CommandList::register_list(
     }
   ]
 )
+
+CommandList::register_list(
+  :name  => 'Switch Project',
+  :map   =>'<LEADER>.',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => ":call SwitchToProjectCmd('librea')",
+      :map         => 'l',
+      :text        => '[l]ibrea',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('agentdesktop')",
+      :map         => 'a',
+      :text        => '[a]gentdesktop',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('reaxml')",
+      :map         => 'r',
+      :text        => '[r]eaxml',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('product-e2e')",
+      :map         => 'p',
+      :text        => '[p]roduct-e2e',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('customer-flatform')",
+      :map         => 'c',
+      :text        => '[c]ustomer-platform',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('db-migrations')",
+      :map         => 'd',
+      :text        => '[d]b-migrations',
+    },
+    {
+      :function    => ":call SwitchToProjectByName()",
+      :map         => '.',
+      :text        => '[.] switch with input',
+    },
+  ]
+)

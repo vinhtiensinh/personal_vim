@@ -57,11 +57,14 @@ let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
 "show file drawer
 map <D-/> :NERDTreeToggle<CR>
+map <LEADER>/ :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 
 
 " Taglist config
 let Tlist_Exit_OnlyWindow = 1
+
+"project
 
 " Status line
 "------------------------------------------------------------------------
@@ -71,7 +74,7 @@ let g:current_project = 'unset'
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line
 "set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F\ [\ %{g:current_project}\ ]\ %=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ [\ %{ProjectNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 " Status line always on
 set laststatus=2
 
@@ -124,6 +127,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
 map <D-'> :BufExplorer<CR><Down><CR>
+map <LEADER>' :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
