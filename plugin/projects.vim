@@ -6,7 +6,7 @@ let g:projects = [
   \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop', 'agdk'],
   \ ['librea', '/Users/vinh_tran/branches/master/librea', 'brea'],
   \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
-  \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw']
+  \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
 \]
 

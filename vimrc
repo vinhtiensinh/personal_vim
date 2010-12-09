@@ -126,8 +126,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
-map <D-'> :BufExplorer<CR><Down><CR>
-map <LEADER>' :BufExplorer<CR><Down><CR>
+map <LEADER>, :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -142,7 +141,7 @@ vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
-map <D-e> :call OpenFilesFromClipboard('e')<CR>
+map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
 "to speed up processing, any optimize vim config should be place in the .localvimrc
