@@ -40,7 +40,7 @@ class CommandList
     VIM::command('map <buffer> q :q!<CR>')
 
     (1 .. 9).each do | line_number|
-      VIM::command("map <buffer> #{line_number} #{line_number}G<CR>")
+      VIM::command('map <buffer> #{line_number} #{line_number}G<CR>')
     end
 
     lists.each do | list |

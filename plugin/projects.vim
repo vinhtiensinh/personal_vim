@@ -10,12 +10,15 @@ let g:projects = [
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
 \]
 
-autocmd BufEnter * call SwitchToProject()
+autocmd BufNew * call SwitchToProject()
 
 function! SwitchToProject()
   let current_buffer = expand('%:p')
   let name = ProjectNameOf(current_buffer)
-  call SwitchToProjectCmd(name)
+
+  if name != ''
+    call SwitchToProjectCmd(name)
+  endif
 endfunction
 
 function! SwitchToProjectCmd(name)
@@ -24,6 +27,14 @@ function! SwitchToProjectCmd(name)
     if a:name == project[0]
       execute 'cd ' . project[1]
       let g:current_project = project[0]
+
+      "if (IsBufExplorerOpen())
+        "exec ":NERDTree " . ProjectPathOf(g:current_project)
+        "exec ":NERDTreeToggle"
+      "else
+        "exec ":NERDTree " . ProjectPathOf(g:current_project)
+      "endif
+
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
       endif
@@ -47,6 +58,16 @@ function! ProjectNameOf(name)
   for project in g:projects
     if a:name =~ project[1]
       return project[0]
+    endif
+  endfor
+
+  return ''
+endfunction
+
+function! ProjectPathOf(name)
+  for project in g:projects
+    if a:name == project[0]
+      return project[1]
     endif
   endfor
 

@@ -55,11 +55,13 @@ let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
-"show file drawer
-map <D-/> :NERDTreeToggle<CR>
-map <LEADER>/ :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen = 1
+function! ToggleNERDTreeAndBufExplorer()
+    exec ":NERDTreeToggle " . ProjectPathOf(g:current_project)
+    exec ":TMiniBufExplorer"
+endfunction
 
+"show file drawer
+map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
 let Tlist_Exit_OnlyWindow = 1
@@ -198,8 +200,7 @@ map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
 
-map <D-CR> <C-w>w
-imap <D-CR> <ESC><C-w>w
+map <LEADER><CR> <C-w>w
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
@@ -219,5 +220,5 @@ let g:miniBufExplMaxSize = 30
 autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
-
+let g:miniBufExplorerMoreThanOne = 1
 silent! so ./.localvimrc

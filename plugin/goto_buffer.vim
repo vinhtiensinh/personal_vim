@@ -6,6 +6,10 @@ function! GotoBuffer(index)
   call feedkeys(a:index . "G")
   call feedkeys("\<CR>")
 endfunction
+
+function! IsBufExplorerOpen()
+  return FindWindow('-MiniBufExplorer') != -1
+endfunction
  
 function! FindWindow(bufName)
     " Try to find an existing window that contains 
