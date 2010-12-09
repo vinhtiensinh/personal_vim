@@ -1,7 +1,7 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
-
+set mouse=a 
 set guioptions-=T
 set guioptions-=L
 set guioptions-=r
@@ -50,7 +50,6 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
-"let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
@@ -62,6 +61,7 @@ endfunction
 
 "show file drawer
 map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
+map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
 let Tlist_Exit_OnlyWindow = 1
@@ -70,8 +70,6 @@ let Tlist_Exit_OnlyWindow = 1
 
 " Status line
 "------------------------------------------------------------------------
-let g:current_project = 'unset'
-
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line

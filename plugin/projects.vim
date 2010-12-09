@@ -10,7 +10,7 @@ let g:projects = [
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
 \]
 
-autocmd BufNew * call SwitchToProject()
+autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
 
 function! SwitchToProject()
   let current_buffer = expand('%:p')
@@ -27,6 +27,8 @@ function! SwitchToProjectCmd(name)
     if a:name == project[0]
       execute 'cd ' . project[1]
       let g:current_project = project[0]
+      execute ":CMiniBufExplorer"
+      execute ":NERDTree " . ProjectPathOf(g:current_project)
 
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
