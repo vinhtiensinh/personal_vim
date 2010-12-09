@@ -92,27 +92,6 @@ autocmd BufReadPost *
 map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
 
-if (has("gui"))
-  map  <D-1> :call GotoBuffer(1)<CR>
-  imap <D-1> <ESC>:call GotoBuffer(1)<CR>
-  map  <D-2> :call GotoBuffer(2)<CR>
-  imap <D-2> <ESC>:call GotoBuffer(2)<CR>
-  map  <D-3> :call GotoBuffer(3)<CR>
-  imap <D-3> <ESC>:call GotoBuffer(3)<CR>
-  map  <D-4> :call GotoBuffer(4)<CR>
-  imap <D-4> <ESC>:call GotoBuffer(4)<CR>
-  map  <D-5> :call GotoBuffer(5)<CR>
-  imap <D-5> <ESC>:call GotoBuffer(5)<CR>
-  map  <D-6> :call GotoBuffer(6)<CR>
-  imap <D-6> <ESC>:call GotoBuffer(6)<CR>
-  map  <D-7> :call GotoBuffer(7)<CR>
-  imap <D-7> <ESC>:call GotoBuffer(7)<CR>
-  map  <D-8> :call GotoBuffer(8)<CR>
-  imap <D-8> <ESC>:call GotoBuffer(8)<CR>
-  map  <D-9> :call GotoBuffer(9)<CR>
-  imap <D-9> <ESC>:call GotoBuffer(9)<CR>
-endif
-
 map  <LEADER>1 :call GotoBuffer(1)<CR>
 map  <LEADER>2 :call GotoBuffer(2)<CR>
 map  <LEADER>3 :call GotoBuffer(3)<CR>
@@ -210,7 +189,7 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "quit the second window
-map <LEADER>w <C-w>w<D-w>
+map <LEADER>w :bd<CR>
 
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25

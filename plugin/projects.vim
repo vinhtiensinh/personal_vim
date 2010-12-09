@@ -28,13 +28,6 @@ function! SwitchToProjectCmd(name)
       execute 'cd ' . project[1]
       let g:current_project = project[0]
 
-      "if (IsBufExplorerOpen())
-        "exec ":NERDTree " . ProjectPathOf(g:current_project)
-        "exec ":NERDTreeToggle"
-      "else
-        "exec ":NERDTree " . ProjectPathOf(g:current_project)
-      "endif
-
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
       endif
