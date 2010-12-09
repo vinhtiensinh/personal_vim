@@ -16,8 +16,8 @@ syn match PerlFileVisible     '[^\]]*\.pm\*+\='
 syn match PerlPlFileNormal      '[^\]]*\.pl+\='
 syn match PerlPlFileVisible     '[^\]]*\.pl\*+\='
 
-syn match PerlTestFileNormal      '[^\]]*\.t+\='
-syn match PerlTestFileVisible     '[^\]]*\.t\*+\='
+syn match PerlTestFileNormal      '[^\]]*\.t:+\='
+syn match PerlTestFileVisible     '[^\]]*\.t:\*+\='
 
 syn match HtmlFileNormal      '[^\]]*\.html+\='
 syn match HtmlFileVisible     '[^\]]*\.html\*+\='

@@ -109,24 +109,24 @@ if (has("gui"))
   imap <D-8> <ESC>:call GotoBuffer(8)<CR>
   map  <D-9> :call GotoBuffer(9)<CR>
   imap <D-9> <ESC>:call GotoBuffer(9)<CR>
-else
-  map  <LEADER>1 :call GotoBuffer(1)<CR>
-  map  <LEADER>2 :call GotoBuffer(2)<CR>
-  map  <LEADER>3 :call GotoBuffer(3)<CR>
-  map  <LEADER>4 :call GotoBuffer(4)<CR>
-  map  <LEADER>5 :call GotoBuffer(5)<CR>
-  map  <LEADER>6 :call GotoBuffer(6)<CR>
-  map  <LEADER>7 :call GotoBuffer(7)<CR>
-  map  <LEADER>8 :call GotoBuffer(8)<CR>
-  map  <LEADER>9 :call GotoBuffer(9)<CR>
 endif
+
+map  <LEADER>1 :call GotoBuffer(1)<CR>
+map  <LEADER>2 :call GotoBuffer(2)<CR>
+map  <LEADER>3 :call GotoBuffer(3)<CR>
+map  <LEADER>4 :call GotoBuffer(4)<CR>
+map  <LEADER>5 :call GotoBuffer(5)<CR>
+map  <LEADER>6 :call GotoBuffer(6)<CR>
+map  <LEADER>7 :call GotoBuffer(7)<CR>
+map  <LEADER>8 :call GotoBuffer(8)<CR>
+map  <LEADER>9 :call GotoBuffer(9)<CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
-map <LEADER>, :BufExplorer<CR><Down><CR>
+map <LEADER>; :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch

@@ -254,7 +254,7 @@ CommandList::register_list(
     {
       :function    => ":call SwitchToProjectCmd('vim')",
       :map         => 'v',
-      :text        => '[d]b-migrations',
+      :text        => '[v]im',
     },
     {
       :function    => ":call SwitchToProjectByName()",

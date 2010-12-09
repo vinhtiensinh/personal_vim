@@ -37,6 +37,7 @@ class CommandList
   def self.map_key lists
     VIM::command('map <buffer> <CR> :ruby CommandList::execute_function()<CR>')
     VIM::command('map <buffer> <ESC> :q!<CR>')
+    VIM::command('map <buffer> q :q!<CR>')
 
     (1 .. 9).each do | line_number|
       VIM::command("map <buffer> #{line_number} #{line_number}G<CR>")
