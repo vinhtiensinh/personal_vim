@@ -302,7 +302,6 @@ endif
 " 
 noremap <unique> <script> <Plug>MiniBufExplorer  :call <SID>StartExplorer(1, -1)<CR>:<BS>
 noremap <unique> <script> <Plug>CMiniBufExplorer :call <SID>StopExplorer(1)<CR>:<BS>
-noremap <unique> <script> <Plug>OMiniBufExplorer :call <SID>OpenExplorer()<CR>:<BS>
 noremap <unique> <script> <Plug>UMiniBufExplorer :call <SID>AutoUpdate(-1)<CR>:<BS>
 noremap <unique> <script> <Plug>TMiniBufExplorer :call <SID>ToggleExplorer()<CR>:<BS>
 
@@ -314,9 +313,6 @@ if !exists(':MiniBufExplorer')
 endif
 if !exists(':CMiniBufExplorer')
     command! CMiniBufExplorer  call <SID>StopExplorer(1)
-endif
-if !exists(':OMiniBufExplorer')
-    command! OMiniBufExplorer  call <SID>OpenExplorer()
 endif
 if !exists(':UMiniBufExplorer')
     command! UMiniBufExplorer  call <SID>AutoUpdate(-1)
@@ -646,116 +642,11 @@ augroup MiniBufExplorer
         " We don't want the mouse to change focus without a click
         set nomousefocus
 
-        " If folks turn numbering and columns on by default we will turn 
+        " If folks turn numbering and columns on by default we will turn
         " them off for the MBE window
         setlocal foldcolumn=0
         "setlocal nonumber
-
-
-        if has("syntax")
-            syn clear
-            syn match BufNumber             ':[0-9]*'
-            syn match MBENormal             '[^\]]*\*+\='
-            syn match MBEChanged            '[^\]]*+\*+\='
-            syn match MBEVisibleNormal      '[^\]]*\*+\='
-            syn match MBEVisibleChanged     '[^\]]*\*+\*+\='
-
-            syn match CucumberFileNormal      '[^\]]*\.feature+\='
-            syn match CucumberFileVisible     '[^\]]*\.feature\*+\='
-
-            syn match RubyFileNormal      '[^\]]*\.rb+\='
-            syn match RubyFileVisible     '[^\]]*\.rb\*+\='
-
-            syn match PerlFileNormal      '[^\]]*\.pm+\='
-            syn match PerlFileVisible     '[^\]]*\.pm\*+\='
-
-            syn match PerlPlFileNormal      '[^\]]*\.pl+\='
-            syn match PerlPlFileVisible     '[^\]]*\.pl\*+\='
-
-            syn match PerlTestFileNormal      '[^\]]*\.t+\='
-            syn match PerlTestFileVisible     '[^\]]*\.t\*+\='
-
-            syn match HamlFileNormal      '[^\]]*\.haml+\='
-            syn match HamlFileVisible     '[^\]]*\.haml\*+\='
-
-            syn match SassFileNormal      '[^\]]*\.scss+\='
-            syn match SassFileVisible     '[^\]]*\.scss\*+\='
-
-            syn match HtmlFileNormal      '[^\]]*\.html+\='
-            syn match HtmlFileVisible     '[^\]]*\.html\*+\='
-
-            syn match VpkFileNormal      '[^\]]*\.vpk+\='
-            syn match VpkFileVisible     '[^\]]*\.vpk\*+\='
-
-            if !exists("g:did_minibufexplorer_syntax_inits")
-                let g:did_minibufexplorer_syntax_inits = 1
-
-                hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
-                hi SelectedBuffer gui=underline guibg=grey20
-                hi ChangedBuffer guifg=Yellow ctermfg=Yellow
-                hi SelectedChangedBuffer  ctermfg=Yellow ctermbg=White
-                hi NormalBuffer guifg=White ctermfg=White
-
-                " cucumber hightlight
-                hi CucumberNormalHighlight guifg=Green ctermfg=Green
-                hi CucumberVisibleHighlight guifg=Green ctermfg=Green gui=underline
-                " ruby highlight
-                hi RubyNormalHighlight guifg=IndianRed ctermfg=Red
-                hi RubyVisibleHighlight guifg=IndianRed ctermfg=Red gui=underline
-                " perl highlight
-                hi PerlNormalHighlight guifg=SandyBrown ctermfg=Yellow
-                hi PerlVisibleHighlight guifg=SandyBrown ctermfg=Yellow gui=underline
-                " perl test highlight
-                hi PerlTestNormalHighlight guifg=sienna ctermfg=Yellow
-                hi PerlTestVisibleHighlight guifg=sienna ctermfg=Yellow gui=underline
-                "haml highlight
-                hi HamlNormalHighlight guifg=OrangeRed ctermfg=196
-                hi HamlVisibleHighlight guifg=OrangeRed ctermfg=196 gui=underline
-                "sass highlight
-                hi SassNormalHighlight guifg=Orchid ctermfg=207
-                hi SassVisibleHighlight guifg=Orchid ctermfg=207 gui=underline
-                "vpk highlight
-                hi VpkNormalHighlight guifg=turquoise ctermfg=123
-                hi VpkVisibleHighlight guifg=turquoise ctermfg=123 gui=underline
-                "html highlight
-                hi HtmlNormalHighlight guifg=LightBlue ctermfg=Blue
-                hi HtmlVisibleHighlight guifg=LightBlue ctermfg=blue gui=underline
-
-                "apply cucumber hightlight
-                hi def link CucumberFileVisible CucumberVisibleHighlight
-                hi def link CucumberFileNormal CucumberNormalHighlight
-                "apply ruby hightlight
-                hi def link RubyFileVisible RubyVisibleHighlight
-                hi def link RubyFileNormal RubyNormalHighlight
-                "apply perl hightlight
-                hi def link PerlFileVisible PerlVisibleHighlight
-                hi def link PerlFileNormal PerlNormalHighlight
-                "apply perl pl hightlight
-                hi def link PerlPlFileVisible PerlVisibleHighlight
-                hi def link PerlPlFileNormal PerlNormalHighlight
-                "apply perl test hightlight
-                hi def link PerlTestFileVisible PerlTestVisibleHighlight
-                hi def link PerlTestFileNormal PerlTestNormalHighlight
-                "apply haml hightlight
-                hi def link HamlFileVisible HamlVisibleHighlight
-                hi def link HamlTestFileNormal HamlNormalHighlight
-                "apply sass hightlight
-                hi def link SassFileVisible SassVisibleHighlight
-                hi def link SassFileNormal SassNormalHighlight
-                "apply vpk hightlight
-                hi def link VpkFileVisible VpkVisibleHighlight
-                hi def link VpkFileNormal VpkNormalHighlight
-                "apply html hightlight
-                hi def link HtmlFileVisible HtmlVisibleHighlight
-                hi def link HtmlFileNormal HtmlNormalHighlight
-
-                hi def link BufNumber  HiddenBufNumber
-                hi def link MBEVisibleNormal  SelectedBuffer
-                hi def link MBENormal  NormalBuffer
-                hi def link MBEChanged        ChangedBuffer
-                hi def link MBEVisibleChanged SelectedChangedBuffer
-            endif
-        endif
+        set filetype=minibufexplorer
 
         " If you press return in the -MiniBufExplorer- then try
         " to open the selected buffer in the previous window.
@@ -847,15 +738,6 @@ augroup MiniBufExplorer
         call <SID>DEBUG('Completed ToggleExplorer()' ,10)
         call <SID>DEBUG('===========================',10)
 
-    endfunction
-
-    function! <SID>OpenExplorer()
-        let l:winNum = <SID>FindWindow('-MiniBufExplorer-', 1)
-
-        if l:winNum == -1
-            call <SID>StartExplorer(1, -1)
-            wincmd p
-        endif
     endfunction
 
     " }}}
@@ -1165,6 +1047,8 @@ augroup MiniBufExplorer
         let l:fileNames = ''
         let l:maxTabWidth = 0
 
+        let l:all_files = []
+
         " Loop through every buffer less than the total number of buffers.
         while(l:i <= l:NBuffers)
             let l:i = l:i + 1
@@ -1187,7 +1071,7 @@ augroup MiniBufExplorer
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  
                             let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
-                            let l:tab = l:shortBufName
+                            let l:tab = '[' . ProjectAbbrOf(fnamemodify(l:BufName, ":p")) . ']' . l:shortBufName
 
                             " If the buffer is open in a window mark it
                             if bufwinnr(l:i) != -1
@@ -1200,22 +1084,31 @@ augroup MiniBufExplorer
                             endif
 
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
-                            let l:fileNames = l:fileNames.l:tab.':'.l:i
+                            let l:tab = l:tab.':'.l:i
 
-                            " If horizontal and tab wrap is turned on we need to add spaces
-                            if g:miniBufExplVSplit == 0
-                                if g:miniBufExplTabWrap != 0
-                                    let l:fileNames = l:fileNames.' '
-                                endif
-                                " If not horizontal we need a newline
-                            else
-                                let l:fileNames = l:fileNames . "\n"
-                            endif
+                            let l:all_files += [[
+                                \ ProjectAbbrOf(fnamemodify(l:BufName, ':p')),
+                                \ l:tab,
+                                \ fnamemodify(l:BufName, ':e')
+                            \ ]]
                         endif
                     endif
                 endif
             endif
         endwhile
+
+        let l:sorted_all_files = sort(l:all_files, "SortMiniBufFiles")
+        " If horizontal and tab wrap is turned on we need to add spaces
+        if g:miniBufExplVSplit == 0
+            for ifile in l:sorted_all_files
+                let l:fileNames = l:fileNames . ifile[1] . ' '
+            endfor
+        " If not horizontal we need a newline
+        else
+            for ifile in l:sorted_all_files
+                let l:fileNames = l:fileNames . ifile[1] . "\n"
+            endfor
+        endif
 
         if (g:miniBufExplBufList != l:fileNames)
             if (a:updateBufList)
@@ -1227,6 +1120,26 @@ augroup MiniBufExplorer
             return 0
         endif
 
+    endfunction
+
+    function! SortMiniBufFiles(i1, i2)
+        if (a:i1[0] == a:i2[0])
+            if a:i1[2] == a:i2[2]
+                if a:i1[1] > a:i2[1]
+                    return 1
+                else
+                    return -2
+                endif
+            elseif a:i1[2] > a:i2[2]
+                return 1
+            else
+                return -1
+            endif
+        elseif (a:i1[0] > a:i2[0])
+            return 1
+        else
+            return -1
+        end
     endfunction
 
     " }}}

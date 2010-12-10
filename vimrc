@@ -1,7 +1,7 @@
 let mapleader = ' '
 set nocompatible
 set autowrite
-
+set mouse=a 
 set guioptions-=T
 set guioptions-=L
 set guioptions-=r
@@ -33,7 +33,7 @@ set ignorecase
 set incsearch
 
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp
+set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp
 
 map  <LEADER>v <C-v>
 map <S-Space> <ESC>:w<CR>
@@ -50,18 +50,23 @@ map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
 
 " find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
-"let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
-"show file drawer
-map <D-/> :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen = 1
+function! ToggleNERDTreeAndBufExplorer()
+    exec ":NERDTreeToggle " . ProjectPathOf(g:current_project)
+    exec ":TMiniBufExplorer"
+endfunction
 
+"show file drawer
+map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
+map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
 let Tlist_Exit_OnlyWindow = 1
+
+"project
 
 " Status line
 "------------------------------------------------------------------------
@@ -69,7 +74,7 @@ let Tlist_Exit_OnlyWindow = 1
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line
 "set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F,\ %=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ [\ %{ProjectNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 " Status line always on
 set laststatus=2
 
@@ -82,59 +87,25 @@ autocmd BufReadPost *
 "set showtabline=2 " always show tabs in gvim, but not vim
 "autocmd VimEnter * set guitablabel=%N\ %t\ %M
 
-"map  <D-1> 1gt
-"imap <D-1> <ESC>1gt
-"map  <D-2> 2gt
-"imap <D-2> <ESC>2gt
-"map  <D-3> 3gt
-"imap <D-3> <ESC>3gt
-"map  <D-4> 4gt
-"imap <D-4> <ESC>4gt
-"map  <D-5> 5gt
-"imap <D-5> <ESC>5gt
-"map  <D-6> 6gt
-"imap <D-6> <ESC>6gt
-"map  <D-7> 7gt
-"imap <D-7> <ESC>7gt
-"map  <D-8> 8gt
-"imap <D-8> <ESC>8gt
-"map  <D-9> 9gt
-"imap <D-9> <ESC>9gt
-map  <D-0> :tabo<CR>
-imap <D-0> <ESC>:tabo<CR>a
-
-function! CloseBuffer()
-  call feedkeys(":bd\<CR>")
-  call feedkeys(":OMiniBufExplorer\<CR>")
-endfunction
-
-map <D-w> :call CloseBuffer()<CR>
+map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
-map  <D-1> :call GotoBuffer(1)<CR>
-imap <D-1> <ESC>:call GotoBuffer(1)<CR>
-map  <D-2> :call GotoBuffer(2)<CR>
-imap <D-2> <ESC>:call GotoBuffer(2)<CR>
-map  <D-3> :call GotoBuffer(3)<CR>
-imap <D-3> <ESC>:call GotoBuffer(3)<CR>
-map  <D-4> :call GotoBuffer(4)<CR>
-imap <D-4> <ESC>:call GotoBuffer(4)<CR>
-map  <D-5> :call GotoBuffer(5)<CR>
-imap <D-5> <ESC>:call GotoBuffer(5)<CR>
-map  <D-6> :call GotoBuffer(6)<CR>
-imap <D-6> <ESC>:call GotoBuffer(6)<CR>
-map  <D-7> :call GotoBuffer(7)<CR>
-imap <D-7> <ESC>:call GotoBuffer(7)<CR>
-map  <D-8> :call GotoBuffer(8)<CR>
-imap <D-8> <ESC>:call GotoBuffer(8)<CR>
-map  <D-9> :call GotoBuffer(9)<CR>
-imap <D-9> <ESC>:call GotoBuffer(9)<CR>
+
+map  <LEADER>1 :call GotoBuffer(1)<CR>
+map  <LEADER>2 :call GotoBuffer(2)<CR>
+map  <LEADER>3 :call GotoBuffer(3)<CR>
+map  <LEADER>4 :call GotoBuffer(4)<CR>
+map  <LEADER>5 :call GotoBuffer(5)<CR>
+map  <LEADER>6 :call GotoBuffer(6)<CR>
+map  <LEADER>7 :call GotoBuffer(7)<CR>
+map  <LEADER>8 :call GotoBuffer(8)<CR>
+map  <LEADER>9 :call GotoBuffer(9)<CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
-map <D-'> :BufExplorer<CR><Down><CR>
+map <LEADER>; :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -149,7 +120,7 @@ vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
-map <D-e> :call OpenFilesFromClipboard('e')<CR>
+map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
 "  Open a shell for command
 "to speed up processing, any optimize vim config should be place in the .localvimrc
@@ -197,8 +168,8 @@ map <SPACE>'' :ruby Marker.open()<CR>
 set complete -=i
 
 "enter new line without insert mode
-map <LEADER><CR> o<S-Space>
-nmap <S-CR> i<CR><S-Space>
+map <LEADER><CR> o<ESC>
+nmap <S-CR> i<CR><ESC>
 
 "map Command J and command K
 map <D-j> <C-d>
@@ -206,18 +177,18 @@ map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
 
-map <D-CR> <C-w>w
-imap <D-CR> <ESC><C-w>w
+map <LEADER><CR> <C-w>w
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 imap <silent> <S-Space> <ESC>:w<CR>
+imap <silent> <M-Space> <ESC>:w<CR>
 imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "quit the second window
-map <LEADER>w <C-w>w<D-w>
+map <LEADER>w :bd<CR>
 
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25
@@ -226,6 +197,6 @@ let g:miniBufExplMaxSize = 30
 
 autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
+let g:miniBufExplForceSyntaxEnable = 1
+let g:miniBufExplorerMoreThanOne = 1
 silent! so ./.localvimrc

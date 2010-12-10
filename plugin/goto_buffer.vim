@@ -1,11 +1,14 @@
 function! GotoBuffer(index)
 
-  normal! :OMiniBufExplorer
   let winNum = FindWindow('-MiniBufExplorer-')
   exec l:winNum.' wincmd w'
 
   call feedkeys(a:index . "G")
   call feedkeys("\<CR>")
+endfunction
+
+function! IsBufExplorerOpen()
+  return FindWindow('-MiniBufExplorer') != -1
 endfunction
  
 function! FindWindow(bufName)

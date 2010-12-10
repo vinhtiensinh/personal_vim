@@ -159,7 +159,7 @@ CommandList::register_list(
       :text        => 'git [s]tatus',
     },
     {
-      :function    => [":CMiniBufExplorer", ":Gdiff"],
+      :function    => [":NERDTreeClose", ":CMiniBufExplorer", ":Gdiff", ":TMiniBufExplorer"],
       :map         => 'd',
       :text        => 'git [d]iff file',
     },
@@ -213,5 +213,53 @@ CommandList::register_list(
       :map         => 'p',
       :text        => 'git [p]ull and push',
     }
+  ]
+)
+
+CommandList::register_list(
+  :name  => 'Switch Project',
+  :map   =>'<LEADER>.',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => ":call SwitchToProjectCmd('librea')",
+      :map         => 'l',
+      :text        => '[l]ibrea',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('agentdesktop')",
+      :map         => 'a',
+      :text        => '[a]gentdesktop',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('reaxml')",
+      :map         => 'r',
+      :text        => '[r]eaxml',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('product-e2e')",
+      :map         => 'p',
+      :text        => '[p]roduct-e2e',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('customer-platform')",
+      :map         => 'c',
+      :text        => '[c]ustomer-platform',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('db-migrations')",
+      :map         => 'd',
+      :text        => '[d]b-migrations',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('vim')",
+      :map         => 'v',
+      :text        => '[v]im',
+    },
+    {
+      :function    => ":call SwitchToProjectByName()",
+      :map         => '.',
+      :text        => '[.] switch with input',
+    },
   ]
 )
