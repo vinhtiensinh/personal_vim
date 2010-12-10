@@ -4,8 +4,11 @@ let g:projects = [
   \ ['vim', '/Users/vinh_tran/personal_vim', '.vim'],
   \ ['vim', '/Users/vinh_tran/.vim', '.vim'],
   \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop', 'agdk'],
+  \ ['agentdesktop', '/web/home/vtran/branches/master/agentdesktop', 'agdk'],
   \ ['librea', '/Users/vinh_tran/branches/master/librea', 'brea'],
+  \ ['librea', '/web/home/vtran/branches/master/librea', 'brea'],
   \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
+  \ ['reaxml', '/web/home/vtran/branches/master/reaxml', 'rxml'],
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
 \]
@@ -23,20 +26,17 @@ endfunction
 
 function! SwitchToProjectCmd(name)
 
-  for project in g:projects
-    if a:name == project[0]
-      execute 'cd ' . project[1]
-      let g:current_project = project[0]
+  let project_path = ProjectPathOf(a:name)
+  if project_path != ''
+      execute 'cd ' . project_path
+      let g:current_project = a:name
       execute ":CMiniBufExplorer"
       execute ":NERDTree " . ProjectPathOf(g:current_project)
 
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
       endif
-      return
-    endif
-  endfor
-
+  endif
 endfunction
 
 function! SwitchToProjectByName()
@@ -61,7 +61,7 @@ endfunction
 
 function! ProjectPathOf(name)
   for project in g:projects
-    if a:name == project[0]
+    if a:name == project[0] && isdirectory(project[1])
       return project[1]
     endif
   endfor
