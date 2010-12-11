@@ -28,25 +28,29 @@ function! SwitchToProjectCmd(name)
 
   let project_path = ProjectPathOf(a:name)
   if project_path != ''
-      execute 'cd ' . project_path
-      let g:current_project = a:name
+    let g:current_project = a:name
+    call SwitchPath(project_path)
+  endif
+endfunction
+
+function! SwitchPath(path)
+      execute 'cd ' . a:path
       execute ":CMiniBufExplorer"
-      execute ":NERDTree " . ProjectPathOf(g:current_project)
+      execute ":NERDTree " . a:path
 
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
       endif
-  endif
 endfunction
 
-function! SwitchToProjectByName()
+function! SwitchToPath()
 
-  let name = input("Project: ")
-  if name == ''
+  let path = input("Path: ")
+  if path == ''
     return
   endif
+  call SwitchPath(name)
   
-  call SwitchToProjectCmd(name)
 endfunction
  
 function! ProjectNameOf(name)
@@ -56,7 +60,7 @@ function! ProjectNameOf(name)
     endif
   endfor
 
-  return ''
+  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
 endfunction
 
 function! ProjectPathOf(name)
@@ -76,5 +80,5 @@ function! ProjectAbbrOf(name)
     endif
   endfor
 
-  return ''
+  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
 endfunction

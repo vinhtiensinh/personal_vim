@@ -257,7 +257,7 @@ CommandList::register_list(
       :text        => '[v]im',
     },
     {
-      :function    => ":call SwitchToProjectByName()",
+      :function    => ":call SwitchToPath()",
       :map         => '.',
       :text        => '[.] switch with input',
     },
