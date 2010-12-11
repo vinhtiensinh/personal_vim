@@ -49,7 +49,7 @@ function! SwitchToPath()
   if path == ''
     return
   endif
-  call SwitchPath(name)
+  call SwitchPath(path)
   
 endfunction
  
