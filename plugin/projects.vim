@@ -10,7 +10,8 @@ let g:projects = [
   \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
   \ ['reaxml', '/web/home/vtran/branches/master/reaxml', 'rxml'],
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
-  \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
+  \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm'],
+  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbn']
 \]
 
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
@@ -45,7 +46,7 @@ endfunction
 
 function! SwitchToPath()
 
-  let path = input("Path: ")
+  let path = input("Path: ", '', 'file')
   if path == ''
     return
   endif

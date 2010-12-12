@@ -91,7 +91,7 @@ imap <D-w> <ESC><D-w>
 let inumber = 1
 
 while inumber < 100
-  execute "map  " . inumber . "<LEADER> " . ":call GotoBuffer(" . inumber . ")<CR>"
+  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
@@ -192,4 +192,8 @@ autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplorerMoreThanOne = 1
+
+"folding the block
+map zz zf%
+
 silent! so ./.localvimrc
