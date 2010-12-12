@@ -16,6 +16,7 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
+set foldmethod=syntax
 
 silent! set macmeta
 set splitright
@@ -194,6 +195,9 @@ let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplorerMoreThanOne = 1
 
 "folding the block
-map zz zf%
+map zz za
+
+"quick record is qq so quick replacy is @@
+map @@ @q
 
 silent! so ./.localvimrc
