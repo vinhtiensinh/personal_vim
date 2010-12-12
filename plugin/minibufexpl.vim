@@ -1084,7 +1084,7 @@ augroup MiniBufExplorer
                             endif
 
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
-                            let l:tab = l:tab.':'.l:i
+                            let l:tab = 'x'.l:tab.':'.l:i
 
                             let l:all_files += [[
                                 \ ProjectAbbrOf(fnamemodify(l:BufName, ':p')),
@@ -1524,7 +1524,12 @@ augroup MiniBufExplorer
     "
     function! s:MBEClick()
         call <SID>DEBUG('Entering MBEClick()',10)
-        call <SID>MBESelectBuffer()
+        let column = getpos('.')[2]
+        if column == 1
+            call feedkeys('d')
+        else
+            call <SID>MBESelectBuffer()
+        endif
     endfunction
 
     "
@@ -1532,7 +1537,12 @@ augroup MiniBufExplorer
     "
     function! s:MBEDoubleClick()
         call <SID>DEBUG('Entering MBEDoubleClick()',10)
-        call <SID>MBESelectBuffer()
+        let column = getpos('.')[2]
+        if column == 1
+            call feedkeys('d')
+        else
+            call <SID>MBESelectBuffer()
+        endif
     endfunction
 
     " }}}

@@ -18,20 +18,20 @@ hi def link MBEVisibleChanged SelectedChangedBuffer
 
 let file_types = [
       \ ['PerlTest', '[^\]]*\.t+\=', '[^\]]*\.t\*+\=', 'sienna', 'Yellow'],
-      \ ['Todo', '[^\]]*\.todo+\=', '[^\]]*\.todo\*+\=', 'Red', 'Red'],
-      \ ['Text', '[^\]]*\.txt+\=', '[^\]]*\.txt\*+\=', 'turquoise', '123'],
+      \ ['Todo',     '[^\]]*\.todo+\=', '[^\]]*\.todo\*+\=', 'Red', 'Red'],
+      \ ['Text',     '[^\]]*\.txt+\=', '[^\]]*\.txt\*+\=', 'turquoise', '123'],
       \ ['Cucumber', '[^\]]*\.feature+\=', '[^\]]*\.feature\*+\=', 'Green', 'Green'],
-      \ ['Ruby', '[^\]]*\.rb+\=', '[^\]]*\.rb\*+\=', 'IndianRed', 'Red'],
-      \ ['Gemfile', '[^\]]*Gemfile+\=', '[^\]]*Gemfile\*+\=', 'IndianRed', 'Red'],
+      \ ['Ruby',     '[^\]]*\.rb+\=', '[^\]]*\.rb\*+\=', 'IndianRed', 'Red'],
+      \ ['Gemfile',  '[^\]]*Gemfile+\=', '[^\]]*Gemfile\*+\=', 'IndianRed', 'Red'],
       \ ['Rakefile', '[^\]]*Rakefile+\=', '[^\]]*Rakefile\*+\=', 'IndianRed', 'Red'],
-      \ ['Spec', '[^\]]*_spec\.rb+\=', '[^\]]*_spec\.rb\*+\=', 'Green', 'Green'],
-      \ ['Perl', '[^\]]*\.pm+\=', '[^\]]*\.pm\*+\=', 'SandyBrown', 'Yellow'],
-      \ ['Html', '[^\]]*\.html+\=', '[^\]]*\.html\*+\=', 'LightBlue', 'Blue'],
-      \ ['Haml', '[^\]]*\.haml+\=', '[^\]]*\.haml\*+\=', 'OrangeRed', '196'],
-      \ ['Sass', '[^\]]*\.scss+\=', '[^\]]*\.scss\*+\=', 'Orchid', '207'],
-      \ ['Vpk', '[^\]]*\.vpk+\=', '[^\]]*\.vpk\*+\=', 'turquoise', '123'],
-      \ ['Vim', '[^\]]*\.vim+\=', '[^\]]*\.vim\*+\=', 'turquoise', '123'],
-      \ ['vimrc', '[^\]]*\.vimrc+\=', '[^\]]*\.vimrc\*+\=', 'turquoise', '123'],
+      \ ['Spec',     '[^\]]*_spec\.rb+\=', '[^\]]*_spec\.rb\*+\=', 'Green', 'Green'],
+      \ ['Perl',     '[^\]]*\.pm+\=', '[^\]]*\.pm\*+\=', 'SandyBrown', 'Yellow'],
+      \ ['Html',     '[^\]]*\.html+\=', '[^\]]*\.html\*+\=', 'LightBlue', 'Blue'],
+      \ ['Haml',     '[^\]]*\.haml+\=', '[^\]]*\.haml\*+\=', 'OrangeRed', '196'],
+      \ ['Sass',     '[^\]]*\.scss+\=', '[^\]]*\.scss\*+\=', 'Orchid', '207'],
+      \ ['Vpk',      '[^\]]*\.vpk+\=', '[^\]]*\.vpk\*+\=', 'turquoise', '123'],
+      \ ['Vim',      '[^\]]*\.vim+\=', '[^\]]*\.vim\*+\=', 'turquoise', '123'],
+      \ ['vimrc',    '[^\]]*\.vimrc+\=', '[^\]]*\.vimrc\*+\=', 'turquoise', '123'],
 \ ]
 
 for file_type in file_types
@@ -53,3 +53,8 @@ for file_type in file_types
   execute 'hi def link '.visual_id.' '.visual_hightlight
   execute 'hi def link '.normal_id.' '.normal_highlight
 endfor
+
+
+syn match DeleteX     '^x'
+hi DeleteXHighlight guifg=Black guibg=Grey ctermfg=Black ctermbg=Grey
+hi def link DeleteX DeleteXHighlight
