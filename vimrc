@@ -45,10 +45,6 @@ if(has('gui'))
   :TlistAddFiles ./Tags
 endif
 
-"method to execute a command, run perl test
-map <LEADER>alp :!~/.vim/scripts/psvAlign.pl %<CR>
-
-" find/show file, yand ring, tag etc
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = '<Tab>'
@@ -84,8 +80,6 @@ autocmd BufReadPost *
 \  exe "normal! g`\"" |
 \ endif
 " -------------------------------------------------------------------------------
-"set showtabline=2 " always show tabs in gvim, but not vim
-"autocmd VimEnter * set guitablabel=%N\ %t\ %M
 
 map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
@@ -112,9 +106,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-" show mark
-" -----------------------------------------------------------------------------
-let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
@@ -122,15 +113,14 @@ vmap <LEADER>wid :Widen<CR>
 " Open file from clipboard
 map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
-"  Open a shell for command
-"to speed up processing, any optimize vim config should be place in the .localvimrc
-"of that dir.
 set visualbell    "don't beep
 set noerrorbells  "dont beep
 "------------------------------------------------------------------------
 "no backup
 set nobackup
 set noswapfile
+"-----------------------------------------------------------------------
+"auto save
 autocmd InsertLeave,FocusLost * :call Autosave()
 function! Autosave ()
    if &modified
@@ -199,4 +189,5 @@ autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplorerMoreThanOne = 1
+
 silent! so ./.localvimrc
