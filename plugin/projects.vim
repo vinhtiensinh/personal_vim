@@ -10,7 +10,8 @@ let g:projects = [
   \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
   \ ['reaxml', '/web/home/vtran/branches/master/reaxml', 'rxml'],
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
-  \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm']
+  \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm'],
+  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbn']
 \]
 
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
@@ -28,25 +29,29 @@ function! SwitchToProjectCmd(name)
 
   let project_path = ProjectPathOf(a:name)
   if project_path != ''
-      execute 'cd ' . project_path
-      let g:current_project = a:name
+    let g:current_project = a:name
+    call SwitchPath(project_path)
+  endif
+endfunction
+
+function! SwitchPath(path)
+      execute 'cd ' . a:path
       execute ":CMiniBufExplorer"
-      execute ":NERDTree " . ProjectPathOf(g:current_project)
+      execute ":NERDTree " . a:path
 
       if (has('ruby'))
         ruby Cucumber.fetch_all_steps
       endif
-  endif
 endfunction
 
-function! SwitchToProjectByName()
+function! SwitchToPath()
 
-  let name = input("Project: ")
-  if name == ''
+  let path = input("Path: ", '', 'file')
+  if path == ''
     return
   endif
+  call SwitchPath(path)
   
-  call SwitchToProjectCmd(name)
 endfunction
  
 function! ProjectNameOf(name)
@@ -56,7 +61,7 @@ function! ProjectNameOf(name)
     endif
   endfor
 
-  return ''
+  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
 endfunction
 
 function! ProjectPathOf(name)
@@ -76,5 +81,5 @@ function! ProjectAbbrOf(name)
     endif
   endfor
 
-  return ''
+  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
 endfunction

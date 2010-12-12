@@ -16,6 +16,7 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
+set foldmethod=syntax
 
 silent! set macmeta
 set splitright
@@ -42,12 +43,13 @@ so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
 if(has('gui'))
-  :TlistAddFiles ./Tags
+  :TlistAddFiles ./tags
 endif
 
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
-let g:CommandTSelectNextMap = '<Tab>'
+let g:CommandTSelectNextMap = "<Tab>"
+let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
 function! ToggleNERDTreeAndBufExplorer()
@@ -84,22 +86,19 @@ autocmd BufReadPost *
 map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
 
-map  <LEADER>1 :call GotoBuffer(1)<CR>
-map  <LEADER>2 :call GotoBuffer(2)<CR>
-map  <LEADER>3 :call GotoBuffer(3)<CR>
-map  <LEADER>4 :call GotoBuffer(4)<CR>
-map  <LEADER>5 :call GotoBuffer(5)<CR>
-map  <LEADER>6 :call GotoBuffer(6)<CR>
-map  <LEADER>7 :call GotoBuffer(7)<CR>
-map  <LEADER>8 :call GotoBuffer(8)<CR>
-map  <LEADER>9 :call GotoBuffer(9)<CR>
+let inumber = 1
+
+while inumber < 100
+  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
+  let inumber = inumber + 1
+endwhile
+map 0<LEADER> :BufExplorer<CR><Down><CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-Tab> :BufExplorer<CR><Down><CR>
-map <LEADER>; :BufExplorer<CR><Down><CR>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
@@ -147,9 +146,8 @@ let g:syntastic_quiet_warnings=1
 highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :e<SPACE>
-map <Tab> <C-]>
-map <S-Tab> <C-w><C-v><C-]>
-map <LEADER><Tab> <C-w><C-]>
+map <Tab> :MBEbn<CR>
+map <S-Tab> :MBEbp<CR>
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
@@ -176,7 +174,6 @@ imap <silent> <S-Space> <ESC>:w<CR>
 imap <silent> <M-Space> <ESC>:w<CR>
 imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
-
 "quit the second window
 map <LEADER>w :bd<CR>
 
@@ -189,5 +186,11 @@ autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplorerMoreThanOne = 1
+
+"folding the block
+map zz za
+
+"quick record is qq so quick replacy is @@
+map @@ @q
 
 silent! so ./.localvimrc

@@ -257,9 +257,46 @@ CommandList::register_list(
       :text        => '[v]im',
     },
     {
-      :function    => ":call SwitchToProjectByName()",
+      :function    => ":call SwitchToPath()",
       :map         => '.',
       :text        => '[.] switch with input',
+    },
+  ]
+)
+CommandList::register_list(
+  :name  => 'Rails Goto...',
+  :map   =>'gr',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => ":Rcontroller",
+      :map         => 'c',
+      :text        => '[c]ontroller',
+    },
+    {
+      :function    => ":Rview",
+      :map         => 'v',
+      :text        => '[v]iew',
+    },
+    {
+      :function    => ":Rmodel",
+      :map         => 'm',
+      :text        => '[m]odel',
+    },
+    {
+      :function    => ":Rmodel",
+      :map         => 'm',
+      :text        => '[m]odel',
+    },
+    {
+      :function    => ":Renvironment",
+      :map         => 'e',
+      :text        => '[e]nvironment config',
+    },
+    {
+      :function    => ":A",
+      :map         => 's',
+      :text        => '[s]pec (only work if execute from model',
     },
   ]
 )
