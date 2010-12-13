@@ -72,7 +72,7 @@ let Tlist_Exit_OnlyWindow = 1
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 " Custom status line
 "set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F\ [\ %{ProjectNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ [\ %{ProjectNameOrFolderNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 " Status line always on
 set laststatus=2
 

@@ -51,17 +51,15 @@ function! SwitchToPath()
     return
   endif
   call SwitchPath(path)
-  
+
 endfunction
- 
+
 function! ProjectNameOf(name)
   for project in g:projects
     if a:name =~ project[1]
       return project[0]
     endif
   endfor
-
-  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
 endfunction
 
 function! ProjectPathOf(name)
@@ -80,6 +78,19 @@ function! ProjectAbbrOf(name)
       return project[2]
     endif
   endfor
+  return FolderNameOf(a:name)
+endfunction
 
+function! FolderNameOf(name)
   return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
+endfunction
+
+function! ProjectNameOrFolderNameOf(name)
+  let project_name = ProjectNameOf(a:name)
+
+  if project_name == ''
+    return FolderNameOf(a:name)
+  else
+    return project_name
+  endif
 endfunction
