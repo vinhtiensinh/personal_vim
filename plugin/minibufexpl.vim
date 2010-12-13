@@ -304,6 +304,7 @@ noremap <unique> <script> <Plug>MiniBufExplorer  :call <SID>StartExplorer(1, -1)
 noremap <unique> <script> <Plug>CMiniBufExplorer :call <SID>StopExplorer(1)<CR>:<BS>
 noremap <unique> <script> <Plug>UMiniBufExplorer :call <SID>AutoUpdate(-1)<CR>:<BS>
 noremap <unique> <script> <Plug>TMiniBufExplorer :call <SID>ToggleExplorer()<CR>:<BS>
+noremap <unique> <script> <Plug>TMiniBufExplorerCloseAllOthers :call <SID>CloseAllOthers()<CR>:<BS>
 
 " }}}
 " MBE commands {{{
@@ -319,6 +320,9 @@ if !exists(':UMiniBufExplorer')
 endif
 if !exists(':TMiniBufExplorer')
     command! TMiniBufExplorer  call <SID>ToggleExplorer()
+endif
+if !exists(':TMiniBufExplorerCloseAllOthers')
+    command! TMiniBufExplorerCloseAllOthers  call <SID>CloseAllOthers()
 endif
 if !exists(':MBEbn')
     command! MBEbn call <SID>CycleBuffer(1)
@@ -1337,6 +1341,19 @@ augroup MiniBufExplorer
             return -1
         endif
 
+    endfunction
+
+    function! <SID>CloseAllOthers()
+        let l:NBuffers = bufnr('$')     " Get the number of the last buffer.
+        let l:i = 0                     " Set the buffer index to zero.
+
+        " Loop through every buffer less than the total number of buffers.
+        while(l:i <= l:NBuffers)
+            let l:i = l:i + 1
+            if bufwinnr(l:i) == -1 && getbufvar(l:i, '&buflisted') == 1
+                exec "bd ".l:i
+            endif
+        endwhile
     endfunction
 
     " }}}

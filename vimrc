@@ -186,6 +186,7 @@ autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplorerMoreThanOne = 1
+map d<Space> :TMiniBufExplorerCloseAllOthers<CR>
 
 "folding the block
 map zz za
