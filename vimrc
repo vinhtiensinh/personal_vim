@@ -190,7 +190,4 @@ let g:miniBufExplorerMoreThanOne = 1
 "folding the block
 map zz za
 
-"quick record is qq so quick replacy is @@
-map @@ @q
-
 silent! so ./.localvimrc
