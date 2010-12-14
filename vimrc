@@ -62,8 +62,10 @@ map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
 map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
+map <Space>; :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
-
+let Tlist_Use_Right_Window = 1
+let Tlist_Show_One_File = 1
 "project
 
 " Status line
@@ -146,6 +148,7 @@ let g:syntastic_quiet_warnings=1
 highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :e<SPACE>
+map <LEADER>n :n<SPACE>
 map <Tab> :MBEbn<CR>
 map <S-Tab> :MBEbp<CR>
 
