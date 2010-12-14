@@ -10,6 +10,7 @@ endif
 
 syn case match
 syn sync minlines=20
+hi Error guifg=Red gui=italic guibg=Black ctermfg=Red ctermbg=Black
 
 let g:cucumber_languages = {
       \"en": {"and": "And\\>", "background": "Background\\>", "but": "But\\>", "examples": "Scenarios\\>\\|Examples\\>", "feature": "Feature\\>", "given": "Given\\>", "scenario": "Scenario\\>", "scenario_outline": "Scenario Outline\\>", "then": "Then\\>", "when": "When\\>"},
