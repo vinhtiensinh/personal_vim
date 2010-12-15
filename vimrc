@@ -149,8 +149,12 @@ highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
 map <LEADER>o :e<SPACE>
 map <LEADER>n :n<SPACE>
-map <Tab> :MBEbn<CR>
-map <S-Tab> :MBEbp<CR>
+map <Tab> :call NextBuffer()<CR>
+map <S-Tab> :call PreviousBuffer()<CR>
+
+"Tab in visual mode
+  vmap <Tab> >
+  vmap <S-Tab> <
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
