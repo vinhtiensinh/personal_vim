@@ -1,7 +1,7 @@
 #!/opt/local/bin/ruby
 
 class Cucumber
-
+  @@steps = {}
   def self.fetch_all_steps
     return unless File.exists? 'features/step_definitions'
     @@steps = {}
