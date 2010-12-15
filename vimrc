@@ -156,6 +156,9 @@ map <S-Tab> :call PreviousBuffer()<CR>
   vmap <Tab> >
   vmap <S-Tab> <
 
+"while border differenciate between j, k and gj, jk
+map j gj
+map k gk
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
 
