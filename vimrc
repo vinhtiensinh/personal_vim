@@ -165,7 +165,6 @@ map <SPACE>'' :ruby Marker.open()<CR>
 set complete -=i
 
 "enter new line without insert mode
-map <LEADER><CR> o<ESC>
 nmap <S-CR> i<CR><ESC>
 
 "map Command J and command K
@@ -175,6 +174,7 @@ map <D-u> <C-e>
 map <D-i> <C-y>
 
 map <LEADER><CR> <C-w>w
+map <D-CR> <C-w>w
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
