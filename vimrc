@@ -39,7 +39,6 @@ set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.
 map  <LEADER>v <C-v>
 map <S-Space> <ESC>:w<CR>
 
-so $HOME/.vim/plugin/cmdalias.vim
 so $HOME/.vim/plugin/taglist.vim
 
 if(has('gui'))
