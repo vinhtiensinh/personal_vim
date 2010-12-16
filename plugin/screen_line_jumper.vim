@@ -64,13 +64,13 @@ map <D-7> :call MoveLineNumberEndWith(7)<CR>
 map <D-8> :call MoveLineNumberEndWith(8)<CR>
 map <D-9> :call MoveLineNumberEndWith(9)<CR>
 
-"map <D-)> :call MoveLineNumberEndWithBackward(0)<CR>
-"map <D-!> :call MoveLineNumberEndWithBackward(1)<CR>
-"map <D-@> :call MoveLineNumberEndWithBackward(2)<CR>
-"map <D-#> :call MoveLineNumberEndWithBackward(3)<CR>
-"map <D-$> :call MoveLineNumberEndWithBackward(4)<CR>
-"map <D-%> :call MoveLineNumberEndWithBackward(5)<CR>
-"map <D-^> :call MoveLineNumberEndWithBackward(6)<CR>
-"map <D-&> :call MoveLineNumberEndWithBackward(7)<CR>
-"map <D-*> :call MoveLineNumberEndWithBackward(8)<CR>
-"map <D-(> :call MoveLineNumberEndWithBackward(9)<CR>
+map <M-0> :call MoveLineNumberEndWithBackward(0)<CR>
+map <M-1> :call MoveLineNumberEndWithBackward(1)<CR>
+map <M-2> :call MoveLineNumberEndWithBackward(2)<CR>
+map <M-3> :call MoveLineNumberEndWithBackward(3)<CR>
+map <M-4> :call MoveLineNumberEndWithBackward(4)<CR>
+map <M-5> :call MoveLineNumberEndWithBackward(5)<CR>
+map <M-6> :call MoveLineNumberEndWithBackward(6)<CR>
+map <M-7> :call MoveLineNumberEndWithBackward(7)<CR>
+map <M-8> :call MoveLineNumberEndWithBackward(8)<CR>
+map <M-9> :call MoveLineNumberEndWithBackward(9)<CR>
