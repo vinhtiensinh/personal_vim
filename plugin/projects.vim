@@ -11,7 +11,8 @@ let g:projects = [
   \ ['reaxml', '/web/home/vtran/branches/master/reaxml', 'rxml'],
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm'],
-  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbn']
+  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbln'],
+  \ ['vpkr', '/Users/vinhtiensinh/repos/vpoker', 'vpkr']
 \]
 
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))

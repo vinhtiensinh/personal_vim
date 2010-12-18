@@ -22,6 +22,7 @@ let file_types = [
       \ ['Text',     '[^\]]*\.txt+\=',     '[^\]]*\.txt\*+\=',     'turquoise', '123'     ],
       \ ['Cucumber', '[^\]]*\.feature+\=', '[^\]]*\.feature\*+\=', 'Green',     'Green'   ],
       \ ['Ruby',     '[^\]]*\.rb+\=',      '[^\]]*\.rb\*+\=',      'IndianRed', 'Red'     ],
+      \ ['GemSpec',  '[^\]]*\.gemspec+\=', '[^\]]*\.gemspec\*+\=', 'IndianRed', 'Red'     ],
       \ ['Rake',     '[^\]]*\.rake+\=',    '[^\]]*\.rake\*+\=',      'IndianRed', 'Red'   ],
       \ ['Gemfile',  '[^\]]*Gemfile+\=',   '[^\]]*Gemfile\*+\=',   'IndianRed', 'Red'     ],
       \ ['Rakefile', '[^\]]*Rakefile+\=',  '[^\]]*Rakefile\*+\=',  'IndianRed', 'Red'     ],

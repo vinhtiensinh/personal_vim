@@ -16,13 +16,11 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
-set foldmethod=syntax
 
 silent! set macmeta
 set splitright
 
 colorscheme vividchalk
-
 syntax on
 filetype on
 filetype plugin on
