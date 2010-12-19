@@ -37,17 +37,22 @@ set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.
 map  <LEADER>v <C-v>
 map <S-Space> <ESC>:w<CR>
 
+" Taglist config
 so $HOME/.vim/plugin/taglist.vim
-
 if(has('gui'))
   :TlistAddFiles ./tags
 endif
+map <Space>; :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Show_One_File = 1
 
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
+map g] g<C-]>
 
 function! ToggleNERDTreeAndBufExplorer()
     exec ":NERDTreeToggle " . ProjectPathOf(g:current_project)
@@ -57,13 +62,6 @@ endfunction
 "show file drawer
 map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
 map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
-
-" Taglist config
-map <Space>; :TlistToggle<CR>
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
-"project
 
 " Status line
 "------------------------------------------------------------------------
