@@ -52,7 +52,7 @@ let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
-map g] g<C-]>
+map g<Space> g<C-]>
 
 function! ToggleNERDTreeAndBufExplorer()
     exec ":NERDTreeToggle " . ProjectPathOf(g:current_project)
