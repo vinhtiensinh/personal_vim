@@ -154,7 +154,7 @@ map <S-Tab> :call PreviousBuffer()<CR>
   vmap <Tab> >
   vmap <S-Tab> <
 
-"while border differenciate between j, k and gj, jk
+"why bother differenciate between j, k and gj, jk
 map j gj
 map k gk
 "experiment of Marker plugin
