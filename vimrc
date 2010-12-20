@@ -87,15 +87,19 @@ let inumber = 1
 
 while inumber < 100
   execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
+  execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
+  execute "map  " . inumber . "<S-Space><S-Space> " . ":vsplit<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-Tab> :BufExplorer<CR><Down><CR>
+map <D-H> <C-w>h
+map <D-J> <C-w>j
+map <D-K> <C-w>k
+map <D-L> <C-w>l
+map <Tab> :BufExplorer<CR><Down><CR>
+map <D-<> 5<C-w><
+map <D->> 5<C-w>>
 " searching
 "--------------------------------------------------------------------
 set hlsearch
