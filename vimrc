@@ -97,7 +97,6 @@ map <D-H> <C-w>h
 map <D-J> <C-w>j
 map <D-K> <C-w>k
 map <D-L> <C-w>l
-map <Tab> :BufExplorer<CR><Down><CR>
 map <D-<> 5<C-w><
 map <D->> 5<C-w>>
 " searching
@@ -152,8 +151,8 @@ map <Tab> :call NextBuffer()<CR>
 map <S-Tab> :call PreviousBuffer()<CR>
 
 "Tab in visual mode
-  vmap <Tab> >
-  vmap <S-Tab> <
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 "why bother differenciate between j, k and gj, jk
 map j gj

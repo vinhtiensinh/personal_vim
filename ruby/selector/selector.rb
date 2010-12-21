@@ -1,6 +1,6 @@
 class Selector
   def self.map
-    ',:.=`/'.split('').each do |seperator|
+    ',:.=`/_'.split('').each do |seperator|
       VIM::command("vmap a#{seperator} :ruby Selector.select(:char => '#{seperator}')<CR>")
       VIM::command("vmap i#{seperator} :ruby Selector.select(:char => '#{seperator}',:end_char => '#{seperator}', :inner => true)<CR>")
       VIM::command("omap a#{seperator} :normal va#{seperator}<CR>")
@@ -12,8 +12,8 @@ class Selector
     VIM::command("omap a\\| :normal va\\|<CR>")
     VIM::command("omap i\\| :normal vi\\|<CR>")
 
-    VIM::command("xmap <Tab> :ruby Selector.select_forward<CR>")
-    VIM::command("xmap <S-Tab> :ruby Selector.select_backward<CR>")
+    VIM::command("xmap <Space>; :ruby Selector.select_forward<CR>")
+    VIM::command("xmap <Space>, :ruby Selector.select_backward<CR>")
 
   end
 
