@@ -99,6 +99,9 @@ map <D-K> <C-w>k
 map <D-L> <C-w>l
 map <D-<> 5<C-w><
 map <D->> 5<C-w>>
+map <D-_> 5<C-w>-
+map <D-+> 5<C-w>+
+
 " searching
 "--------------------------------------------------------------------
 set hlsearch
