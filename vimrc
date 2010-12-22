@@ -118,10 +118,6 @@ map <D-e> :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
 set visualbell    "don't beep
 set noerrorbells  "dont beep
-"------------------------------------------------------------------------
-"no backup
-set nobackup
-set noswapfile
 "-----------------------------------------------------------------------
 "auto save
 autocmd InsertLeave,FocusLost * :call Autosave()
