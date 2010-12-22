@@ -174,7 +174,6 @@ map <D-i> <C-y>
 
 map <LEADER><CR> <C-w>w
 map <D-CR> <C-w>w
-
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
@@ -184,7 +183,6 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 "quit the second window
 map <LEADER>w :bd<CR>
-
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25
 let g:miniBufExplMinSize = 30
@@ -198,5 +196,9 @@ map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
 "folding the block
 map zz za
+
+"for perl only move to next
+imap <D-"> <Right>
+imap <D-'> <ESC>A;
 
 silent! so ./.localvimrc
