@@ -1114,7 +1114,7 @@ augroup MiniBufExplorer
                 if current_project != ifile[0]
                     let l:fileNames = l:fileNames.'x['.ifile[0].']'.ifile[1].':'.ifile[3]."\n"
                 else
-                    let l:fileNames = l:fileNames.'x      '.ifile[1].':'.ifile[3]."\n"
+                    let l:fileNames = l:fileNames.'x  '.ifile[1].':'.ifile[3]."\n"
                 endif
                 let current_project = ifile[0]
             endfor
