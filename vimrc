@@ -13,6 +13,8 @@ set autoindent
 
 set splitright
 
+set fillchars=vert:\ 
+
 colorscheme vividchalk
 syntax on
 filetype on

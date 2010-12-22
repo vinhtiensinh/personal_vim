@@ -120,8 +120,8 @@ map <D-@> :call ToggleTransparency()<CR>
 let g:transparency = 0
 function! ToggleTransparency()
   if g:transparency == 0
-    set transparency=30
-    let g:transparency = 30
+    set transparency=25
+    let g:transparency = 25
   else
     set transparency=0
     let g:transparency=0
