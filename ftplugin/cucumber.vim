@@ -12,7 +12,7 @@ silent! sign define fixme linehl=Error
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s
 
-if !has('ruby')
+if !has('ruby') || !has('gui')
   finish
 endif
 
