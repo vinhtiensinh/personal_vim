@@ -95,8 +95,3 @@ imap <S-Tab> <C-o>
 map zz za
 
 silent! so ./.localvimrc
-
-"Macvim only stuff
-if(has('gui'))
-  so ~/.guivimrc
-endif
