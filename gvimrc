@@ -113,3 +113,17 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
+
+"transparency stuff
+"not sure if use it when already have Divvy
+map <D-@> :call ToggleTransparency()<CR>
+let g:transparency = 0
+function! ToggleTransparency()
+  if g:transparency == 0
+    set transparency=30
+    let g:transparency = 30
+  else
+    set transparency=0
+    let g:transparency=0
+  endif
+endfunction
