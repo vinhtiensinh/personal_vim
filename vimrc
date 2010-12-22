@@ -114,6 +114,7 @@ vmap <LEADER>wid :Widen<CR>
 
 " Open file from clipboard
 map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
+map <D-e> :call OpenFilesFromClipboard('e')<CR>
 " ------------------------------------------------------------------------
 set visualbell    "don't beep
 set noerrorbells  "dont beep
