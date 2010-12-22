@@ -1075,7 +1075,7 @@ augroup MiniBufExplorer
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  
                             let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
-                            let l:tab = '[' . ProjectAbbrOf(fnamemodify(l:BufName, ":p")) . ']' . l:shortBufName
+                            let l:tab = l:shortBufName
 
                             " If the buffer is open in a window mark it
                             if bufwinnr(l:i) != -1
@@ -1088,12 +1088,12 @@ augroup MiniBufExplorer
                             endif
 
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
-                            let l:tab = 'x'.l:tab.':'.l:i
 
                             let l:all_files += [[
                                 \ ProjectAbbrOf(fnamemodify(l:BufName, ':p')),
                                 \ l:tab,
-                                \ fnamemodify(l:BufName, ':e')
+                                \ fnamemodify(l:BufName, ':e'),
+                                \ l:i
                             \ ]]
                         endif
                     endif
@@ -1109,8 +1109,14 @@ augroup MiniBufExplorer
             endfor
         " If not horizontal we need a newline
         else
+            let current_project = ''
             for ifile in l:sorted_all_files
-                let l:fileNames = l:fileNames . ifile[1] . "\n"
+                if current_project != ifile[0]
+                    let l:fileNames = l:fileNames.'x['.ifile[0].']'.ifile[1].':'.ifile[3]."\n"
+                else
+                    let l:fileNames = l:fileNames.'x      '.ifile[1].':'.ifile[3]."\n"
+                endif
+                let current_project = ifile[0]
             endfor
         endif
 
