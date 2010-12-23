@@ -37,6 +37,8 @@ let file_types = [
       \ ['Vim',      '[^\]]*\.vim+\=',     '[^\]]*\.vim\*+\=',     'turquoise', '123'     ],
       \ ['vimrc',    '[^\]]*vimrc+\=',     '[^\]]*vimrc\*+\=',     'turquoise', '123'     ],
       \ ['Yaml',     '[^\]]*\.yml+\=',     '[^\]]*\.yml\*+\=',     'LightSteelBlue', '110'],
+      \ ['SQL',      '[^\]]*\.sql+\=',     '[^\]]*\.sql\*+\=',     'lavender',  '189'     ],
+      \ ['XML',      '[^\]]*\.xml+\=',     '[^\]]*\.xml\*+\=',     'LightSkyBlue',  '81'  ],
 \ ]
 for file_type in file_types
   let name              = file_type[0]
