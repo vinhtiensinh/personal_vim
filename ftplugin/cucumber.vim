@@ -18,7 +18,7 @@ endif
 
 setlocal omnifunc=CucumberComplete
 autocmd BufWritePost <buffer> ruby VIMCucumber.check_steps_on_file
-autocmd BufWritePost *.rb execute "ruby VIMCucumber.refresh('" . expand('%:p') . "')"
+autocmd BufWritePost *.rb execute "ruby VIMCucumber.refresh('" . expand('%') . "')"
 
 nmap <silent><buffer> g<C-]> :ruby VIMCucumber.jump_step('e')<CR>
 "nmap <silent><buffer> g} :ruby VIMCucumber.jump_step('vsplit')<CR>
