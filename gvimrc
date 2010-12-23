@@ -109,7 +109,6 @@ let g:miniBufExplVSplit = 25
 let g:miniBufExplMinSize = 30
 let g:miniBufExplMaxSize = 30
 
-autocmd BufDelete * :UMiniBufExplorer
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
 let g:miniBufExplForceSyntaxEnable = 1
