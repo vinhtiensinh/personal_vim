@@ -68,7 +68,6 @@ map <LEADER>,, ,c<SPACE>
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
 match ExtraWhitespace /[ \t]\+$/
-
 "better background
 highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 
@@ -88,6 +87,7 @@ set complete -=i
 
 "enter new line without insert mode
 nmap <S-CR> i<CR><ESC>
+nmap <Space><CR> o<ESC>
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
