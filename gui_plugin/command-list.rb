@@ -84,7 +84,7 @@ CommandList::register_list(
   :items => [
     {
       :function    => '<C-]>',
-      :map         => 'ga',
+      :map         => "g\<Space>",
       :text        => 't[a]g',
     },
     {
@@ -279,9 +279,9 @@ CommandList::register_list(
       :text        => '[v]iew',
     },
     {
-      :function    => ":Rmodel",
-      :map         => 'm',
-      :text        => '[m]odel',
+      :function    => ":Rlayout",
+      :map         => 'l',
+      :text        => '[l]ayout',
     },
     {
       :function    => ":Rmodel",
@@ -294,9 +294,54 @@ CommandList::register_list(
       :text        => '[e]nvironment config',
     },
     {
-      :function    => ":A",
+      :function    => ":Rspec",
       :map         => 's',
-      :text        => '[s]pec (only work if execute from model',
+      :text        => '[s]spec',
+    },
+    {
+      :function    => ":Rhelper",
+      :map         => 'h',
+      :text        => '[h]elper',
+    },
+    {
+      :function    => ":Rstylesheet",
+      :map         => 'y',
+      :text        => 'st[y]lesheet',
+    },
+    {
+      :function    => ":Rmigration",
+      :map         => 'i',
+      :text        => 'm[i]gration',
+    },
+    {
+      :function    => ":Rtask",
+      :map         => 't',
+      :text        => '[t]ask',
+    },
+    {
+      :function    => ":Rjavascript",
+      :map         => 'j',
+      :text        => '[j]avascript',
+    },
+    {
+      :function    => ":Rfixtures",
+      :map         => 'f',
+      :text        => '[f]fixtures',
+    },
+    {
+      :function    => ":Rlocale",
+      :map         => 'o',
+      :text        => 'l[o]cale',
+    },
+    {
+      :function    => ":A",
+      :map         => 'a',
+      :text        => '[a]lternate a(model) = spec',
+    },
+    {
+      :function    => ":Relate",
+      :map         => 'r',
+      :text        => '[r]elate a(model) = schema',
     },
   ]
 )

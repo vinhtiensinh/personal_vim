@@ -1090,7 +1090,7 @@ augroup MiniBufExplorer
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
 
                             let l:all_files += [[
-                                \ ProjectAbbrOf(fnamemodify(l:BufName, ':p')),
+                                \ ProjectNameOf(fnamemodify(l:BufName, ':p')),
                                 \ l:tab,
                                 \ fnamemodify(l:BufName, ':e'),
                                 \ l:i
@@ -1112,10 +1112,9 @@ augroup MiniBufExplorer
             let current_project = ''
             for ifile in l:sorted_all_files
                 if current_project != ifile[0]
-                    let l:fileNames = l:fileNames.'x['.ifile[0].']'.ifile[1].':'.ifile[3]."\n"
-                else
-                    let l:fileNames = l:fileNames.'x  '.ifile[1].':'.ifile[3]."\n"
+                    let l:fileNames = l:fileNames.'['.ifile[0]."]\n"
                 endif
+                let l:fileNames = l:fileNames.'x  '.ifile[1].':'.ifile[3]."\n"
                 let current_project = ifile[0]
             endfor
         endif

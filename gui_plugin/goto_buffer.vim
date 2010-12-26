@@ -3,6 +3,12 @@ function! GotoBuffer(index)
   let winNum = FindWindow('-MiniBufExplorer-')
   exec l:winNum.' wincmd w'
 
+  if getline(a:index) =~ '\[.*\]'
+    exec 'wincmd p'
+    exec "echo 'is not a buffer'"
+    return
+  endif
+
   call feedkeys(a:index . "G")
   call feedkeys("\<CR>")
 endfunction
