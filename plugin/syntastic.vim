@@ -95,11 +95,9 @@ function! s:ErrorsForType(type)
     return filter(copy(b:syntastic_loclist), 'v:val["type"] ==# "' . a:type . '"')
 endfunction
 
-if g:syntastic_enable_signs
-    "use >> to display syntax errors in the sign column
-    sign define SyntasticError text=>> texthl=error
-    sign define SyntasticWarning text=>> texthl=todo
-endif
+"use >> to display syntax errors in the sign column
+sign define SyntasticError text=>> texthl=error
+sign define SyntasticWarning text=>> texthl=todo
 
 "start counting sign ids at 5000, start here to hopefully avoid conflicting
 "with any other code that places signs (not sure if this precaution is
