@@ -61,8 +61,22 @@ endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
 
 function! ToggleNERDTreeAndBufExplorer()
-    exec ":NERDTreeToggle " . ProjectPathOf(g:current_project)
-    exec ":TMiniBufExplorer"
+
+    if IsBufExplorerOpen()
+      exec ":CMiniBufExplorer"
+
+      if !IsNERDTreeWindowOpen()
+        exec ":NERDTreeToggle"
+      endif
+      return
+    endif
+
+    if IsNERDTreeWindowOpen()
+      exec ":NERDTreeToggle"
+      exec ":TMiniBufExplorer"
+    else
+      exec ":TMiniBufExplorer"
+    endif
 endfunction
 
 "show file drawer

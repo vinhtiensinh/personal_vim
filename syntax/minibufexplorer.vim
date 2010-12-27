@@ -3,18 +3,21 @@ syn match MBENormal             '[^\]]*\*+\='
 syn match MBEChanged            '[^\]]*+\*+\='
 syn match MBEVisibleNormal      '[^\]]*\*+\='
 syn match MBEVisibleChanged     '[^\]]*\*+\*+\='
+syn match CurrentDir            '\[.*#\]'
 
 hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
 hi SelectedBuffer gui=underline guibg=grey20 cterm=underline
 hi ChangedBuffer guifg=Yellow ctermfg=Yellow
 hi SelectedChangedBuffer  ctermfg=Yellow ctermbg=White cterm=underline
 hi NormalBuffer guifg=White ctermfg=White
+hi CurrentDirHightLight guifg=Yellow ctermfg=Yellow
 
-hi def link BufNumber  HiddenBufNumber
+hi def link BufNumber         HiddenBufNumber
 hi def link MBEVisibleNormal  SelectedBuffer
-hi def link MBENormal  NormalBuffer
+hi def link MBENormal         NormalBuffer
 hi def link MBEChanged        ChangedBuffer
 hi def link MBEVisibleChanged SelectedChangedBuffer
+hi def link CurrentDir        CurrentDirHightLight
 
 let file_types = [
       \ ['PerlTest', '[^\]]*\.t+\=',       '[^\]]*\.t\*+\=',       'sienna',    'Yellow'  ],
@@ -64,7 +67,3 @@ endfor
 syn match DeleteX     '^x'
 hi DeleteXHighlight guifg=Black guibg=Grey ctermfg=Black ctermbg=Grey
 hi def link DeleteX DeleteXHighlight
-
-syn match ProjectPart     '\[.*\]'
-hi ProjectPartHighlight guifg=White guibg=Black ctermfg=White ctermbg=Black
-hi def link ProjectPart ProjectPartHighlight

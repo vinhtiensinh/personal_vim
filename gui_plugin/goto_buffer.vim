@@ -13,27 +13,6 @@ function! GotoBuffer(index)
   call feedkeys("\<CR>")
 endfunction
 
-function! NextBuffer()
-  let winNum = FindWindow('-MiniBufExplorer-')
-  exec l:winNum.' wincmd w'
-  let last_line = getpos('$')[1]
-
-  let current = 1
-  while (current <= last_line)
-    if getline(current) =~ '\*'
-      break
-    else
-      let current = current + 1
-    endif
-  endwhile
-
-  if current == last_line
-    call GotoBuffer(1)
-  else
-    call GotoBuffer(current + 1)
-  endif
-endfunction
-
 function! PreviousBuffer()
   let winNum = FindWindow('-MiniBufExplorer-')
   exec l:winNum.' wincmd w'
@@ -48,15 +27,59 @@ function! PreviousBuffer()
     endif
   endwhile
 
-  if current == 1
-    call GotoBuffer(last_line)
-  else
-    call GotoBuffer(current - 1)
-  endif
+  while(1)
+    if current == 1
+      let current = last_line
+    else
+      let current = current - 1
+    endif
+
+    if getline(current) !~ '\[.*\]'
+      call GotoBuffer(current)
+      return
+    endif
+  endwhile
+endfunction
+
+function! NextBuffer()
+  let winNum = FindWindow('-MiniBufExplorer-')
+  exec l:winNum.' wincmd w'
+
+  let current = 1
+  let last_line = getpos('$')[1]
+
+  while(current <= last_line)
+    if getline(current) =~ '\*'
+      break
+    else
+      let current = current + 1
+    endif
+  endwhile
+
+  while(1)
+    if current == last_line
+      let current = 1
+    else
+      let current = current + 1
+    endif
+
+    if getline(current) !~ '\[.*\]'
+      call GotoBuffer(current)
+      return
+    endif
+  endwhile
 endfunction
 
 function! IsBufExplorerOpen()
-  return FindWindow('-MiniBufExplorer') != -1
+  return FindWindow('-MiniBufExplorer-') != -1
+endfunction
+
+function! IsNERDTreeWindowOpen()
+    if exists("t:NERDTreeBufName")
+        return FindWindow(t:NERDTreeBufName) != -1
+    else
+        return 0
+    endif
 endfunction
  
 function! FindWindow(bufName)
