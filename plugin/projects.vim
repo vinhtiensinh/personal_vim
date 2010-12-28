@@ -12,7 +12,7 @@ let g:projects = [
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
   \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm'],
   \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbln'],
-  \ ['vpkr', '/Users/vinhtiensinh/repos/vpoker', 'vpkr']
+  \ ['vpoker', '/Users/vinhtiensinh/repos/vpoker', 'vpkr']
 \]
 
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))

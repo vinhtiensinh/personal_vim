@@ -1093,7 +1093,8 @@ augroup MiniBufExplorer
                                 \ ProjectNameOf(fnamemodify(l:BufName, ':p')),
                                 \ l:tab,
                                 \ fnamemodify(l:BufName, ':e'),
-                                \ l:i
+                                \ l:i,
+                                \ fnamemodify(l:BufName, ':p')
                             \ ]]
                         endif
                     endif
@@ -1138,7 +1139,7 @@ augroup MiniBufExplorer
     function! SortMiniBufFiles(i1, i2)
         if (a:i1[0] == a:i2[0])
             if a:i1[2] == a:i2[2]
-                if a:i1[1] > a:i2[1]
+                if a:i1[4] > a:i2[4]
                     return 1
                 else
                     return -2
