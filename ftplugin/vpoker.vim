@@ -8,7 +8,9 @@ imap <buffer> cm <CR>--
 imap <buffer> ; :
 imap <buffer> hh \|
 imap <buffer> JJ <ESC>kJJ
-map <buffer> g<Space> :call JumpVPoker()<CR>
+map <buffer> g<Space> :call JumpVPoker(':e')<CR>
+map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
+map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
 
 
 if exists("g:did_vpoker_ftplugin_functions")
@@ -16,7 +18,7 @@ if exists("g:did_vpoker_ftplugin_functions")
 endif
 let g:did_vpoker_ftplugin_functions = 1
 
-function! JumpVPoker()
+function! JumpVPoker(open)
   normal "0yi[
   let action = getreg(0)
 
@@ -37,7 +39,7 @@ function! JumpVPoker()
   let strategy = matchstr(current_file, 'formulas/\(.*\)/')
   let strategy = split(strategy, '/')[1]
   let ifile =  '/Users/vinhtiensinh/repos/vpoker/formulas/'.strategy.'/'.ifile.'.vpk'
-  execute ":e " . ifile
+  execute a:open ." " . ifile
   silent call feedkeys('gg0')
   silent call feedkeys('/@'.action."\<CR>")
   normal! zo
