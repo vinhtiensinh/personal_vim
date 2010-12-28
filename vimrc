@@ -31,6 +31,8 @@ set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.ico,*.jpg,vendor,*.class,*.gem,*.
 map  <LEADER>v <C-v>
 
 map g<Space> g<C-]>
+map g<S-Space> :split<CR>g<C-]>
+map g<S-Space><S-Space> :vsplit<CR>g<C-]>
 
 " Status line
 "------------------------------------------------------------------------
