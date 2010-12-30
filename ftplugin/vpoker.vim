@@ -19,14 +19,20 @@ endif
 let g:did_vpoker_ftplugin_functions = 1
 
 function! JumpVPoker(open)
-  normal "0yi[
-  let action = getreg(0)
+
+  let action = substitute(getline('.'), '\n', '', '')
+  let action = substitute(action, '^\s*', '', '')
+  let action = substitute(action, ',$', '', '')
+
+  if action =~ '\['
+    normal "0yi[
+    let action = getreg(0)
+  endif
 
   if action =~ '\~'
     let action = substitute(action, '\~', '', '')
     silent call feedkeys('gg0')
     silent call feedkeys('/@'.action."\<CR>")
-    normal! zo
     return
   endif
 
@@ -42,5 +48,4 @@ function! JumpVPoker(open)
   execute a:open ." " . ifile
   silent call feedkeys('gg0')
   silent call feedkeys('/@'.action."\<CR>")
-  normal! zo
 endfunction

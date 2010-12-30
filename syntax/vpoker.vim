@@ -19,9 +19,9 @@ function! VPKFoldText()
 endfunction
 
 syntax clear
-syn region  lineComment start='--' end='\n'
-syn region  todoComment start='---#' end='\n'
-syn region  colComment start='| --' end='|'
+syn region  lineComment start='#' end='\n'
+syn region  todoComment start='#TODO' end='\n'
+syn region  colComment start='#' end='\n'
 
 syn keyword headers Bet Action Round Hole Cards Flop Turn River Hand Preflop Betting Player Position Action Board
 syn keyword betRound preflop flop turn river
