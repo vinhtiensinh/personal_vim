@@ -83,11 +83,6 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => '<C-]>',
-      :map         => "g\<Space>",
-      :text        => 't[a]g',
-    },
-    {
       :function    => 'gf',
       :map         => 'gf',
       :text        => '[f]ile',

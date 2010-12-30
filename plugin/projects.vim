@@ -3,6 +3,8 @@ let g:projects = [
   \ ['customer-platform', '/Users/vinh_tran/customer-platform', 'cust'],
   \ ['vim', '/Users/vinh_tran/personal_vim', '.vim'],
   \ ['vim', '/Users/vinh_tran/.vim', '.vim'],
+  \ ['vim', '/Users/vinhtiensinh/personal_vim', '.vim'],
+  \ ['vim', '/Users/vinhtiensinh/.vim', '.vim'],
   \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop', 'agdk'],
   \ ['agentdesktop', '/web/home/vtran/branches/master/agentdesktop', 'agdk'],
   \ ['librea', '/Users/vinh_tran/branches/master/librea', 'brea'],

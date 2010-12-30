@@ -21,9 +21,12 @@ imap <silent> <S-Space> <ESC>:w<CR>
 map <D-w> :bd<CR>
 imap <D-w> <ESC><D-w>
 
-"for perl only move to next
-imap <D-"> <Right>
-imap <D-'> <ESC>A;
+imap <D-A> <ESC>A
+imap <D-I> <ESC>I
+imap <D-H> <Left>
+imap <D-J> <Down>
+imap <D-K> <Up>
+imap <D-L> <Right>
 
 "delete next and previous word in insert mode
 imap <D-[> <ESC>lvBxi
@@ -113,8 +116,8 @@ let g:syntastic_quiet_warnings=1
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
 
-map <Tab> :call NextBuffer()<CR>
-map <S-Tab> :call PreviousBuffer()<CR>
+nmap <Tab> :call NextBuffer()<CR>
+nmap <S-Tab> :call PreviousBuffer()<CR>
 
 "quit the second window
 map <LEADER>w :bd<CR>
