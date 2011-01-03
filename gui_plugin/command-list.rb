@@ -56,6 +56,12 @@ CommandList::register_list(
       :map         => 'xc',
       :text        => '[x]close [c]urly      }',
       :visual_mode => true,
+    },
+    {
+      :function    => ":!~/.vim/scripts/aligner.rb '#' -",
+      :map         => 'h',
+      :text        => '[h]ash                #',
+      :visual_mode => true,
     }
   ]
 )

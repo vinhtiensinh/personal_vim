@@ -45,6 +45,9 @@ map <D-+> 5<C-w>+
 
 map <D-e> :call OpenFilesFromClipboard('e')<CR>
 
+"redo with D-r
+map <D-r> <C-r>
+
 "map scrolling
 map <D-j> <C-d>
 map <D-k> <C-u>

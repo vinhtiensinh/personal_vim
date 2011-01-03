@@ -38,22 +38,22 @@ function! SwitchToProjectCmd(name)
 endfunction
 
 function! SwitchPath(path)
-      execute 'cd ' . a:path
-      if IsNERDTreeWindowOpen()
-        exec ":NERDTreeToggle"
-        exec ":NERDTree " . getcwd()
-      else
-        if IsBufExplorerOpen()
-          exec ":CMiniBufExplorer"
-          exec ":NERDTree " . getcwd()
-          exec ":NERDTreeToggle"
-          exec ":MiniBufExplorer"
-        endif
+  execute 'cd ' . a:path
+  if IsNERDTreeWindowOpen()
+    exec ":NERDTreeToggle"
+    exec ":NERDTree " . getcwd()
+  else
+    if IsBufExplorerOpen()
+      exec ":CMiniBufExplorer"
+      exec ":NERDTree " . getcwd()
+      exec ":NERDTreeToggle"
+      exec ":MiniBufExplorer"
     endif
+  endif
 
-      if (has('ruby'))
-        ruby Cucumber.fetch_all_steps
-      endif
+  if (has('ruby'))
+    ruby Cucumber.fetch_all_steps
+  endif
 endfunction
 
 function! SwitchToPath()
