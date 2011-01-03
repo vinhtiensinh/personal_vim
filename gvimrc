@@ -68,14 +68,21 @@ map 0<LEADER> :BufExplorer<CR><Down><CR>
 
 function! ToggleNERDTreeAndBufExplorer()
 
-    if IsBufExplorerOpen()
-      exec ":CMiniBufExplorer"
+  if IsBufExplorerOpen()
+    exec ":CMiniBufExplorer"
 
-      if !IsNERDTreeWindowOpen()
+    if !IsNERDTreeWindowOpen()
+
+      if exists("g:NERDTree_need_update") && g:NERDTree_need_update
+        exec ":NERDTree " . getcwd()
+        let g:NERDTree_need_update = 0
+      else
         exec ":NERDTreeToggle"
-      endif
-      return
+      end
     endif
+    return
+
+  else
 
     if IsNERDTreeWindowOpen()
       exec ":NERDTreeToggle"
@@ -83,6 +90,8 @@ function! ToggleNERDTreeAndBufExplorer()
     else
       exec ":TMiniBufExplorer"
     endif
+
+  endif
 endfunction
 
 "show file drawer
@@ -125,7 +134,7 @@ nmap <S-Tab> :call PreviousBuffer()<CR>
 "quit the second window
 map <LEADER>w :bd<CR>
 "tryingout minibufexplorer
-let g:miniBufExplVSplit = 25
+let g:miniBufExplVSplit = 25 
 let g:miniBufExplMinSize = 30
 let g:miniBufExplMaxSize = 30
 

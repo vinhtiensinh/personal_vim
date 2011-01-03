@@ -42,13 +42,13 @@ function! SwitchPath(path)
   if IsNERDTreeWindowOpen()
     exec ":NERDTreeToggle"
     exec ":NERDTree " . getcwd()
-  else
-    if IsBufExplorerOpen()
-      exec ":CMiniBufExplorer"
-      exec ":NERDTree " . getcwd()
-      exec ":NERDTreeToggle"
-      exec ":MiniBufExplorer"
-    endif
+  endif
+
+  if IsBufExplorerOpen()
+    "hacky!!!
+    let g:NERDTree_need_update = 1
+    "exec ":NERDTree " . getcwd()
+    "exec ":NERDTreeToggle"
   endif
 
   if (has('ruby'))

@@ -4,12 +4,12 @@ function! GotoBuffer(index)
   exec l:winNum.' wincmd w'
 
   if getline(a:index) =~ '\[.*\]'
-    "let project_name = getline(a:index)
-    "let project_name = substitute(project_name, '^\s*\[', '', '')
-    "let project_name = substitute(project_name, '\].*', '', '')
+    let project_name = getline(a:index)
+    let project_name = substitute(project_name, '^\s*\[', '', '')
+    let project_name = substitute(project_name, '\].*', '', '')
 
+    call SwitchToProjectCmd(project_name)
     exec 'wincmd p'
-    "call SwitchToProjectCmd(project_name)
     return
   endif
 
