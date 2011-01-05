@@ -1,5 +1,3 @@
-autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
-
 function! SwitchToProject()
   let current_buffer = expand('%:p')
   let name = ProjectNameOf(current_buffer)

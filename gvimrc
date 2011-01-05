@@ -1,3 +1,5 @@
+autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
+
 let gui_plugins = split(glob("~/.vim/gui_plugin/*"), "\n")
 
 for plugin in gui_plugins
@@ -110,7 +112,7 @@ endif
 map <Space>; :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
+"let Tlist_Show_One_File = 1
 
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
