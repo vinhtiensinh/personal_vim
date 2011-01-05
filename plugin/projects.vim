@@ -1,22 +1,3 @@
-let g:projects = [
-  \ ['product-e2e', '/Users/vinh_tran/product-e2e', 'pe2e'],
-  \ ['customer-platform', '/Users/vinh_tran/customer-platform', 'cust'],
-  \ ['vim', '/Users/vinh_tran/personal_vim', '.vim'],
-  \ ['vim', '/Users/vinh_tran/.vim', '.vim'],
-  \ ['vim', '/Users/vinhtiensinh/personal_vim', '.vim'],
-  \ ['vim', '/Users/vinhtiensinh/.vim', '.vim'],
-  \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop', 'agdk'],
-  \ ['agentdesktop', '/web/home/vtran/branches/master/agentdesktop', 'agdk'],
-  \ ['librea', '/Users/vinh_tran/branches/master/librea', 'brea'],
-  \ ['librea', '/web/home/vtran/branches/master/librea', 'brea'],
-  \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml', 'rxml'],
-  \ ['reaxml', '/web/home/vtran/branches/master/reaxml', 'rxml'],
-  \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire', 'jetw'],
-  \ ['db-migrations', '/Users/vinh_tran/db-migrations', 'dbm'],
-  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina', 'tbln'],
-  \ ['vpoker', '/Users/vinhtiensinh/repos/vpoker', 'vpkr']
-\]
-
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
 
 function! SwitchToProject()
@@ -45,10 +26,7 @@ function! SwitchPath(path)
   endif
 
   if IsBufExplorerOpen()
-    "hacky!!!
     let g:NERDTree_need_update = 1
-    "exec ":NERDTree " . getcwd()
-    "exec ":NERDTreeToggle"
   endif
 
   if (has('ruby'))
