@@ -38,9 +38,6 @@ map g<S-Space><S-Space> :vsplit<CR>g<C-]>
 "------------------------------------------------------------------------
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
-" Custom status line
-"set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F\ [\ %{ProjectNameOrFolderNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 " Status line always on
 set laststatus=2
 

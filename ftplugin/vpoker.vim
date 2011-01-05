@@ -21,14 +21,16 @@ let g:did_vpoker_ftplugin_functions = 1
 function! JumpVPoker(open)
 
   let action = substitute(getline('.'), '\n', '', '')
-  let action = substitute(action, '#.*', '', '')
-  let action = substitute(action, '^\s*', '', '')
-  let action = substitute(action, ',\s*$', '', '')
 
   if action =~ '\['
     normal "0yi[
     let action = getreg(0)
   endif
+
+  let action = substitute(action, '#.*', '', '')
+  let action = substitute(action, '^\s*', '', '')
+  let action = substitute(action, ',\s*$', '', '')
+  let action = substitute(action, '^\s*', '', '')
 
   if action =~ '\~'
     let action = substitute(action, '\~', '', '')
