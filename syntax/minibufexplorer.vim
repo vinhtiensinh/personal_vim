@@ -22,6 +22,7 @@ hi def link CurrentDir        CurrentDirHightLight
 let file_types = [
       \ ['PerlTest',     '[^\]]*\.t+\=',       '[^\]]*\.t\*+\=',       'sienna',    'Yellow'  ],
       \ ['HtmlTemplate', '[^\]]*\.tmpl+\=',    '[^\]]*\.tmpl\*+\=',    'LightBlue', '148'     ],
+      \ ['TemplateToolkit', '[^\]]*\.tt2+\=',    '[^\]]*\.tt2\*+\=',    'LightBlue', '148'    ],
       \ ['Todo',         '[^\]]*\.todo+\=',    '[^\]]*\.todo\*+\=',    'Red',       'Red'     ],
       \ ['Text',         '[^\]]*\.txt+\=',     '[^\]]*\.txt\*+\=',     'turquoise', '123'     ],
       \ ['Cucumber',     '[^\]]*\.feature+\=', '[^\]]*\.feature\*+\=', 'Green',     'Green'   ],
