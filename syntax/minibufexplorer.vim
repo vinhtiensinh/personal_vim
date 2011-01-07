@@ -67,5 +67,5 @@ endfor
 
 
 syn match DeleteX     '^x'
-hi DeleteXHighlight guifg=Black guibg=Grey ctermfg=Black ctermbg=Grey
+hi DeleteXHighlight guifg=Black guibg=gray25 ctermfg=Black ctermbg=Grey
 hi def link DeleteX DeleteXHighlight
