@@ -1,3 +1,9 @@
+silent! set macmeta
+
+:macm File.Close key=<M-w>
+:macm Tools.List\ Errors key=<M-l>
+:macm Tools.Make key=<M-b>
+
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
 
 let g:miniBufExplUseSingleClick = 1
@@ -21,19 +27,22 @@ set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 
-silent! set macmeta
 map <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
 map <D-w> :bd<CR>
-imap <D-w> <ESC><D-w>
 
 imap <D-A> <ESC>A
 imap <D-I> <ESC>I
-imap <D-H> <Left>
-imap <D-J> <Down>
-imap <D-K> <Up>
-imap <D-L> <Right>
+imap <D-h> <Left>
+imap <D-j> <Down>
+imap <D-k> <Up>
+imap <D-l> <Right>
+imap <D-w> <Right><ESC>wi
+imap <D-e> <Right><ESC>ea
+imap <D-b> <ESC>bi
+imap <D-x> <ESC>xi
+imap <D-X> <ESC>Xi
 
 "delete next and previous word in insert mode
 imap <D-[> <ESC>lvBxi
@@ -102,7 +111,7 @@ function! ToggleNERDTreeAndBufExplorer()
 endfunction
 
 "show file drawer
-map <LEADER>/ :call ToggleNERDTreeAndBufExplorer()<CR>
+map <LEADER>2 :call ToggleNERDTreeAndBufExplorer()<CR>
 map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
