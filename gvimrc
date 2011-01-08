@@ -1,5 +1,6 @@
 autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
 
+let g:miniBufExplUseSingleClick = 1
 let gui_plugins = split(glob("~/.vim/gui_plugin/*"), "\n")
 
 for plugin in gui_plugins
