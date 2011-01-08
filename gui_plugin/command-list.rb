@@ -219,7 +219,7 @@ CommandList::register_list(
 
 CommandList::register_list(
   :name  => 'Switch Project',
-  :map   =>'<LEADER>.',
+  :map   =>'<LEADER>f',
   :map_item_with_list => true,
   :items => [
     {
@@ -259,8 +259,8 @@ CommandList::register_list(
     },
     {
       :function    => ":call SwitchToPath()",
-      :map         => '.',
-      :text        => '[.] switch with input',
+      :map         => 'f',
+      :text        => '[f] switch with input',
     },
   ]
 )
