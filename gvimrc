@@ -59,10 +59,8 @@ map <D->> 5<C-w>>
 map <D-_> 5<C-w>-
 map <D-+> 5<C-w>+
 
-map <D-e> :call OpenFilesFromClipboard('e')<CR>
-
-"redo with D-r
-map <D-r> <C-r>
+"redo with D-2 (@ for easily remember)
+map <D-2> <C-r>
 
 "map scrolling
 map <D-j> <C-d>
@@ -116,9 +114,8 @@ map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
 " Taglist config
 so $HOME/.vim/plugin/taglist.vim
-if(has('gui'))
-  :TlistAddFiles ./tags
-endif
+:TlistAddFiles ./tags
+
 map <Space>; :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
