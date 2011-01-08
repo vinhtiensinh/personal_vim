@@ -62,7 +62,7 @@ vmap " s"
 map <LEADER>' cs"'
 map <LEADER>" cs'"
 
-map <LEADER>,, ,c<SPACE>
+map <LEADER>3 ,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
