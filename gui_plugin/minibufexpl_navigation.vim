@@ -19,13 +19,15 @@ endfunction
 
 function! PreviousBuffer()
   if IsBufExplorerOpen()
+    let buf_file = expand('%:t')
+
     let winNum = FindWindow('-MiniBufExplorer-')
     exec l:winNum.' wincmd w'
     let last_line = getpos('$')[1]
 
     let current = 1
     while (current <= last_line)
-      if getline(current) =~ '\*'
+      if getline(current) =~ buf_file.'\*'
         break
       else
         let current = current + 1
@@ -55,6 +57,8 @@ endfunction
 
 function! NextBuffer()
   if IsBufExplorerOpen()
+    let buf_file = expand('%:t')
+
     let winNum = FindWindow('-MiniBufExplorer-')
     exec l:winNum.' wincmd w'
 
@@ -62,7 +66,7 @@ function! NextBuffer()
     let last_line = getpos('$')[1]
 
     while(current <= last_line)
-      if getline(current) =~ '\*'
+      if getline(current) =~ buf_file.'\*'
         break
       else
         let current = current + 1
