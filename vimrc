@@ -1,4 +1,5 @@
 let mapleader = ' '
+let maplocalleader = '\'
 set nocompatible
 set mouse=a
 set clipboard=unnamed
@@ -93,6 +94,14 @@ imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 
 "folding the block
-map zz za
+nnoremap <silent> zz :call FoldBlock()<CR>
+
+function! FoldBlock()
+  if foldclosed('.') != -1
+    call feedkeys('za')
+  else
+    call feedkeys('zf%')
+  endif
+endfunction
 
 silent! so ./.localvimrc
