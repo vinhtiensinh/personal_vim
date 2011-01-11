@@ -140,4 +140,6 @@ let g:projects = [
   \ ['appcmd', '/Users/vinh_tran/branches/master/appcmd'],
   \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire'],
   \ ['db-migrations', '/Users/vinh_tran/db-migrations'],
+  \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina'],
+  \ ['vpoker', '/Users/vinhtiensinh/repos/vpoker'],
 \]
