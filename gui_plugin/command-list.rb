@@ -73,14 +73,14 @@ CommandList::register_list(
   :items => [
     {
       :function    => 'StepFileRecommendations()',
-      :map         => 'ns',
-      :text        => '[n]ew [s]tep definition',
+      :map         => 'n',
+      :text        => '[n]ew step definition',
     },
     {
-      :function    => '\<C-W>\<C-]>\<C-W>T',
-      :map         => 'j',
-      :text        => '[j]ump to step definition',
-    }
+      :function    => ':ruby Cucumber.fetch_all_steps; VIMCucumber.check_steps_on_file',
+      :map         => 'c',
+      :text        => 'refresh cucumber steps and [c]heck current file',
+    },
   ]
 )
 

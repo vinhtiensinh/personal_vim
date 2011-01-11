@@ -26,10 +26,6 @@ function! SwitchPath(path)
   if IsBufExplorerOpen()
     let g:NERDTree_need_update = 1
   endif
-
-  if (has('ruby'))
-    ruby Cucumber.fetch_all_steps
-  endif
 endfunction
 
 function! SwitchToPath()
