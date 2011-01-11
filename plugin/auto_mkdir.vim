@@ -42,7 +42,7 @@ augroup END
 
 function <SID>auto_mkdir()
 	" Get directory the file is supposed to be saved in
-	let s:dir = expand("<afile>:p:h")
+	let s:dir = expand("%:p:h")
 
 	" Create that directory (and its parents) if it doesn't exist yet
 	if !isdirectory(s:dir)
