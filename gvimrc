@@ -1,10 +1,10 @@
+autocmd VimEnter * call SwitchToProject()
+
 silent! set macmeta
 
 :macm File.Close key=<M-w>
 :macm Tools.List\ Errors key=<M-l>
 :macm Tools.Make key=<M-b>
-
-autocmd VimEnter * let g:current_project = ProjectNameOf(expand('%:p')) == '' ? 'unset' : ProjectNameOf(expand('%:p'))
 
 let g:miniBufExplUseSingleClick = 1
 let gui_plugins = split(glob("~/.vim/gui_plugin/*"), "\n")
