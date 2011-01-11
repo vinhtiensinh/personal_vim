@@ -19,7 +19,7 @@ endfor
 
 " Custom status line
 "set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
-set statusline=%F\ [\ %{ProjectNameOrFolderNameOf(expand('%:p'))}\ ]\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 
 set guioptions-=T
 set guioptions-=L

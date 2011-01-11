@@ -70,7 +70,7 @@ function! ProjectAbbrOf(name)
 endfunction
 
 function! FolderNameOf(name)
-  return substitute(fnamemodify(a:name, ":h"), ".*/", "", "")
+  return substitute(fnamemodify(a:name, ":h"), $HOME, "~", "")
 endfunction
 
 function! ProjectNameOrFolderNameOf(name)
