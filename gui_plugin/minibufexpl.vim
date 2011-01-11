@@ -1090,7 +1090,7 @@ augroup MiniBufExplorer
                             let l:maxTabWidth = <SID>Max(strlen(l:tab), l:maxTabWidth)
 
                             let l:all_files += [[
-                                \ ProjectNameOrFolderNameOf(fnamemodify(l:BufName, ':p')),
+                                \ ProjectNameOf(fnamemodify(l:BufName, ':p')),
                                 \ l:tab,
                                 \ fnamemodify(l:BufName, ':e'),
                                 \ l:i,
