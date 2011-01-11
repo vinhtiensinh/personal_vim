@@ -4,3 +4,4 @@ specky.vba: call delete('/Users/vinhtiensinh/.vim/syntax/rdoc.vim')|call delete(
 supertab.vba: call delete('/Users/vinh_tran/.vim/doc/supertab.txt')|call delete('/Users/vinh_tran/.vim/plugin/supertab.vim')
 conque_1.2.vba: call delete('/Users/vinh_tran/.vim/autoload/conque_term.vim')|call delete('/Users/vinh_tran/.vim/doc/conque_term.txt')|call delete('/Users/vinh_tran/.vim/plugin/conque_term.vim')|call delete('/Users/vinh_tran/.vim/syntax/conque_term.vim')
 utl_3_0a.vba: call delete('/Users/vinh_tran/.vim/doc/utl_usr.txt')|call delete('/Users/vinh_tran/.vim/autoload/utl_lib.vim')|call delete('/Users/vinh_tran/.vim/plugin/utl.vim')|call delete('/Users/vinh_tran/.vim/plugin/utl_rc.vim')|call delete('/Users/vinh_tran/.vim/plugin/utl_scm.vim')|call delete('/Users/vinh_tran/.vim/plugin/utl_uri.vim')
+LargeFile.vba: call delete('/Users/vinh_tran/.vim/plugin/LargeFile.vim')|call delete('/Users/vinh_tran/.vim/doc/LargeFile.txt')
