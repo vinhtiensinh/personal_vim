@@ -118,3 +118,46 @@ function! FindWindow(bufName)
 
     return winNum
 endfunction
+
+let inumber = 1
+
+while inumber < 100
+  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
+  execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
+  execute "map  " . inumber . "<S-Space><S-Space> " . ":vsplit<CR>".inumber."<Space>"
+  let inumber = inumber + 1
+endwhile
+map 0<LEADER> :BufExplorer<CR><Down><CR>
+
+function! ToggleNERDTreeAndBufExplorer()
+
+  if IsBufExplorerOpen()
+    exec ":CMiniBufExplorer"
+
+    if !IsNERDTreeWindowOpen()
+
+      if exists("g:NERDTree_need_update") && g:NERDTree_need_update
+        exec ":NERDTree " . getcwd()
+        let g:NERDTree_need_update = 0
+      else
+        exec ":NERDTreeToggle"
+      end
+    endif
+    return
+
+  else
+
+    if IsNERDTreeWindowOpen()
+      exec ":NERDTreeToggle"
+      exec ":TMiniBufExplorer"
+    else
+      exec ":TMiniBufExplorer"
+    endif
+
+  endif
+endfunction
+
+"show file drawer
+map <LEADER>2 :call ToggleNERDTreeAndBufExplorer()<CR>
+map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
+
