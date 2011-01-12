@@ -18,7 +18,6 @@ for plugin in gui_plugins
 endfor
 
 " Custom status line
-"set statusline=%F,\ (col\ %c,\ line\ %l)\ of\ %L\ lines\ %h\ (%P)
 set statusline=%F\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 
 set guioptions-=T
@@ -100,8 +99,6 @@ map <SPACE>'' :ruby Marker.open()<CR>
 nmap <Tab> :call NextBuffer()<CR>
 nmap <S-Tab> :call PreviousBuffer()<CR>
 
-"quit the second window
-map <LEADER>w :bd<CR>
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25 
 let g:miniBufExplMinSize = 30
