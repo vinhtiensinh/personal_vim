@@ -1,3 +1,4 @@
+set undofile
 autocmd VimEnter * call SwitchToProject()
 
 silent! set macmeta

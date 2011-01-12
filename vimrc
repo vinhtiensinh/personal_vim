@@ -3,7 +3,6 @@ let maplocalleader = '\'
 set nocompatible
 set mouse=a
 set clipboard=unnamed
-set undofile
 
 set softtabstop=2
 set shiftwidth=2
