@@ -41,6 +41,8 @@ imap <D-l> <Right>
 imap <D-w> <Right><ESC>wi
 imap <D-e> <Right><ESC>ea
 imap <D-b> <ESC>bi
+imap <D-d> <ESC>xi
+imap <D-D> <ESC>lxi
 
 "delete next and previous word in insert mode
 imap <D-[> <ESC>lvBxi
