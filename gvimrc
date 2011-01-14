@@ -78,7 +78,7 @@ so $HOME/.vim/plugin/taglist.vim
 map <Space>; :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
-"let Tlist_Show_One_File = 1
+let Tlist_Show_One_File = 1
 
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
@@ -113,6 +113,8 @@ let g:miniBufExplMaxSize = 30
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
 "transparency stuff

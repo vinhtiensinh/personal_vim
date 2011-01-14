@@ -1,3 +1,7 @@
+if exists("b:current_syntax")
+  finish
+endif
+
 syn match BufNumber             ':[0-9]*'
 syn match MBENormal             '[^\]]*\*+\='
 syn match MBEChanged            '[^\]]*+\*+\='
@@ -69,3 +73,5 @@ endfor
 syn match DeleteX     '^x'
 hi DeleteXHighlight guifg=Black guibg=gray25 ctermfg=Black ctermbg=Grey
 hi def link DeleteX DeleteXHighlight
+
+let b:current_syntax = "minibufexplorer"

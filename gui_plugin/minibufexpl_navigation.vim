@@ -129,7 +129,7 @@ while inumber < 100
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
 
-function! ToggleNERDTreeAndBufExplorer()
+function! ToggleBetweenNERDTreeAndBufExplorer()
 
   if IsBufExplorerOpen()
     exec ":CMiniBufExplorer"
@@ -157,7 +157,19 @@ function! ToggleNERDTreeAndBufExplorer()
   endif
 endfunction
 
+function! CloseNERDTreeAndBufExplorer()
+    if IsNERDTreeWindowOpen()
+      exec ":NERDTreeToggle"
+    endif
+
+    if IsBufExplorerOpen()
+      exec ":TMiniBufExplorer"
+    endif
+    return
+endfunction
+
 "show file drawer
-map <LEADER>2 :call ToggleNERDTreeAndBufExplorer()<CR>
+map <LEADER>2 :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <LEADER>@ :call CloseNERDTreeAndBufExplorer()<CR>
 map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
 
