@@ -1307,6 +1307,7 @@ augroup MiniBufExplorer
                 if g:miniBufExplForceSyntaxEnable
                     call <SID>DEBUG('Enable Syntax', 9)
                     exec 'syntax enable'
+                    highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
                 endif
 
             else
