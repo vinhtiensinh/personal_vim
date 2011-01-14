@@ -1,8 +1,5 @@
 let mapleader = ' '
 let maplocalleader = '\'
-set nocompatible
-set mouse=a
-set clipboard=unnamed
 
 set softtabstop=2
 set shiftwidth=2
