@@ -59,7 +59,7 @@ function! ProjectPathOf(name)
 endfunction
 
 function! IsInProject(name)
-  if ProjectNameOf(a:name) !~ '\~' && PathOf(a:name) !~ '\/'
+  if ProjectNameOf(fnamemodify(a:name, ':p')) !~ '\~' && ProjectNameOf(fnamemodify(a:name, ':p')) !~ '\/'
     return 1
   endif
   return 0
@@ -68,7 +68,7 @@ endfunction
 function! FolderNameOf(name)
   let folder = fnamemodify(fnamemodify(a:name, ":h"), ":t")
   if folder !~ '\.'
-    let folder = '../'.folder
+    let folder = '..'.folder
   endif
 
   return folder

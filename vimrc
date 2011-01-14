@@ -97,7 +97,7 @@ nnoremap <silent> zz :call FoldBlock()<CR>
 function! FoldBlock()
   if foldclosed('.') != -1
     call feedkeys('za')
-  else
+  elseif &foldmethod == 'manual'
     call feedkeys('zf%')
   endif
 endfunction
