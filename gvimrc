@@ -131,6 +131,23 @@ function! ToggleTransparency()
   endif
 endfunction
 
+map gt :call GTTabMove('next')<CR>
+map gT :call GTTabMove('previous')<CR>
+function! GTTabMove(direction)
+  if IsBufExplorerOpen()
+    if a:direction == 'next'
+      call NextBuffer()
+    else
+      call PreviousBuffer()
+    endif
+  elseif a:direction == 'next'
+    normal! gt
+  else
+    normal! gT
+  endif
+
+endfunction
+
 "projects
 let g:projects = [
       \ ['product-e2e', '/Users/vinh_tran/product-e2e'],

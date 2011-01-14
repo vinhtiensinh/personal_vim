@@ -59,7 +59,7 @@ function! ProjectPathOf(name)
 endfunction
 
 function! IsInProject(name)
-  if PathOf(a:name) !~ '\~' || PathOf(a:name) !~ '\/'
+  if ProjectNameOf(a:name) !~ '\~' && PathOf(a:name) !~ '\/'
     return 1
   endif
   return 0
