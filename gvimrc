@@ -1,4 +1,8 @@
 set undofile
+set mouse=a
+set clipboard=unnamed
+set nocompatible
+
 autocmd VimEnter * call SwitchToProject()
 
 silent! set macmeta
