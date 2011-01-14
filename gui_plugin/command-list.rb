@@ -62,6 +62,12 @@ CommandList::register_list(
       :map         => 'h',
       :text        => '[h]ash                #',
       :visual_mode => true,
+    },
+    {
+      :function    => ":!~/.vim/scripts/aligner.rb ':' -",
+      :map         => 'k',
+      :text        => '[k]colon                :',
+      :visual_mode => true,
     }
   ]
 )

@@ -152,6 +152,7 @@ endfunction
 let g:projects = [
       \ ['product-e2e', '/Users/vinh_tran/product-e2e'],
       \ ['customer-platform', '/Users/vinh_tran/customer-platform'],
+      \ ['vim', '/Users/vinhtiensinh/personal_vim'],
       \ ['vim', '/Users/vinh_tran/personal_vim'],
       \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop'],
       \ ['librea', '/Users/vinh_tran/branches/master/librea'],
