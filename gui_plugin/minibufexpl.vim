@@ -1126,7 +1126,7 @@ augroup MiniBufExplorer
                         let l:fileNames = l:fileNames.'['.ifile[0]."]\n"
                     endif
                 endif
-                let l:fileNames = l:fileNames.'x '.ifile[1].':'.ifile[3]."\n"
+                let l:fileNames = l:fileNames.'x'.ifile[1].':'.ifile[3]."\n"
                 let current_project = ifile[0]
             endfor
         endif

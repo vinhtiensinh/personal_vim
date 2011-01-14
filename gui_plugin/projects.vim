@@ -68,7 +68,7 @@ endfunction
 function! FolderNameOf(name)
   let folder = fnamemodify(fnamemodify(a:name, ":h"), ":t")
   if folder !~ '\.'
-    let folder = '.../'.folder
+    let folder = '../'.folder
   endif
 
   return folder
