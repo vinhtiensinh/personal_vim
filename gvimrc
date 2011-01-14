@@ -113,7 +113,6 @@ let g:miniBufExplMaxSize = 30
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
-"let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
 "transparency stuff
