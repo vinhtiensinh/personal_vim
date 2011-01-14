@@ -1,2 +1,3 @@
 .swp
 gui_plugin/project_list.vim
+*.un~
