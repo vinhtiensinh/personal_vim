@@ -4,6 +4,7 @@ set nocompatible
 set mouse=a
 set clipboard=unnamed
 
+set noswapfile
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
@@ -58,8 +59,8 @@ set smartcase
 set visualbell    "don't beep
 set noerrorbells  "dont beep
 "-----------------------------------------------------------------------
-vmap ' s'
-vmap " s"
+smap ' s'
+smap " s"
 map <LEADER>' cs"'
 map <LEADER>" cs'"
 
