@@ -45,7 +45,7 @@ function! ProjectNameOf(name)
     endif
   endfor
 
-  return FolderNameOf(a:name)
+  return PathOf(a:name)
 endfunction
 
 function! ProjectPathOf(name)
@@ -58,7 +58,23 @@ function! ProjectPathOf(name)
   return a:name
 endfunction
 
+function! IsInProject(name)
+  if PathOf(a:name) !~ '\~' || PathOf(a:name) !~ '\/'
+    return 1
+  endif
+  return 0
+endfunction
+
 function! FolderNameOf(name)
+  let folder = fnamemodify(fnamemodify(a:name, ":h"), ":t")
+  if folder !~ '\.'
+    let folder = '.../'.folder
+  endif
+
+  return folder
+endfunction
+
+function! PathOf(name)
   return substitute(fnamemodify(a:name, ":h"), $HOME, "~", "")
 endfunction
 

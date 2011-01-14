@@ -1074,6 +1074,13 @@ augroup MiniBufExplorer
 
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  
+
+                            if IsInProject(l:BufName)
+                                let l:shortBufName = FolderNameOf(l:BufName).'/'.l:shortBufName
+                            else
+                                let l:shortBufName = './'.l:shortBufName
+                            endif
+
                             let l:shortBufName = substitute(l:shortBufName, '[][()]', '', 'g') 
                             let l:tab = l:shortBufName
 
@@ -1119,7 +1126,7 @@ augroup MiniBufExplorer
                         let l:fileNames = l:fileNames.'['.ifile[0]."]\n"
                     endif
                 endif
-                let l:fileNames = l:fileNames.'x  '.ifile[1].':'.ifile[3]."\n"
+                let l:fileNames = l:fileNames.'x '.ifile[1].':'.ifile[3]."\n"
                 let current_project = ifile[0]
             endfor
         endif
