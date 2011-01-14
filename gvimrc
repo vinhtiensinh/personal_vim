@@ -1,8 +1,5 @@
-set undofile
 set mouse=a
-set clipboard=unnamed
-set nocompatible
-
+set selectmode=mouse
 autocmd VimEnter * call SwitchToProject()
 
 silent! set macmeta
@@ -93,6 +90,9 @@ let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
 
+smap ' s'
+smap " s"
+
 " Open file from clipboard
 map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 
@@ -113,7 +113,7 @@ let g:miniBufExplMaxSize = 30
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
-let g:miniBufExplForceSyntaxEnable = 1
+"let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
 "transparency stuff

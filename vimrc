@@ -1,5 +1,6 @@
 let mapleader = ' '
 let maplocalleader = '\'
+set undofile
 
 set noswapfile
 set softtabstop=2
@@ -37,6 +38,7 @@ map g<S-Space><S-Space> :vsplit<CR>g<C-]>
 "------------------------------------------------------------------------
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
+
 " Status line always on
 set laststatus=2
 
@@ -56,11 +58,8 @@ set smartcase
 set visualbell    "don't beep
 set noerrorbells  "dont beep
 "-----------------------------------------------------------------------
-smap ' s'
-smap " s"
 map <LEADER>' cs"'
 map <LEADER>" cs'"
-
 map <LEADER>3 ,c<SPACE>
 
 "hightlight extra space
