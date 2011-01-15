@@ -1,15 +1,10 @@
-if exists("b:current_syntax")
-  finish
-endif
-
-
 syn match BufNumber             ':[0-9]*'
 syn match MBENormal             '[^\]]*\*+\='
 syn match MBEChanged            '[^\]]*+\*+\='
 syn match MBEVisibleNormal      '[^\]]*\*+\='
 syn match MBEVisibleChanged     '[^\]]*\*+\*+\='
-syn match CurrentDir            '\[.*#\]'
 
+execute "syn match CurrentDir '\\[". g:current_project ."\\]'"
 hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
 hi SelectedBuffer gui=underline guibg=grey20 cterm=underline
 hi ChangedBuffer guifg=Yellow ctermfg=Yellow
@@ -70,9 +65,13 @@ for file_type in file_types
   execute 'hi def link '.normal_id.' '.normal_highlight
 endfor
 
-
 syn match DeleteX     '^x'
 hi DeleteXHighlight guifg=Black guibg=gray25 ctermfg=Black ctermbg=Grey
 hi def link DeleteX DeleteXHighlight
+
+syn match FilePath ' ..\w*/'
+hi FilePathHighlight guifg=grey40 ctermfg=Grey
+hi def link FilePath FilePathHighlight
+
 
 let b:current_syntax = "minibufexplorer"
