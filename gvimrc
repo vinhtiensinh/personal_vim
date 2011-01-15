@@ -92,6 +92,8 @@ let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
+" Loclist open and close
+let g:syntastic_auto_loc_list = 1
 "-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
