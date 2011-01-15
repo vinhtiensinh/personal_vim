@@ -1561,7 +1561,7 @@ augroup MiniBufExplorer
         call <SID>DEBUG('Entering MBEClick()',10)
         let column = getpos('.')[2]
         if column == 1
-            call feedkeys('d')
+            call feedkeys('dl')
         else
             call <SID>MBESelectBuffer()
         endif
@@ -1574,7 +1574,7 @@ augroup MiniBufExplorer
         call <SID>DEBUG('Entering MBEDoubleClick()',10)
         let column = getpos('.')[2]
         if column == 1
-            call feedkeys('d')
+            call feedkeys('dl')
         else
             call <SID>MBESelectBuffer()
         endif
