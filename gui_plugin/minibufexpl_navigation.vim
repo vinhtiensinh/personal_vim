@@ -171,5 +171,5 @@ endfunction
 "show file drawer
 map <LEADER>2 :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
 map <LEADER>@ :call CloseNERDTreeAndBufExplorer()<CR>
-map <RightMouse> :call ToggleNERDTreeAndBufExplorer()<CR>
+map <RightMouse> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
 

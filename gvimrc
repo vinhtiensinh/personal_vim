@@ -78,7 +78,12 @@ so $HOME/.vim/plugin/taglist.vim
 map <Space>; :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Compact_Format = 1
+let Tlist_Auto_Update = 1
+let Tlist_Highlight_Tag_On_BufEnter = 1
+let Tlist_Use_SingleClick = 1
 
 map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
