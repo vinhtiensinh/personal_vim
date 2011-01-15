@@ -75,7 +75,7 @@ map <D-i> <C-y>
 so $HOME/.vim/plugin/taglist.vim
 :TlistAddFiles ./tags
 
-map <Space>1 :TlistToggle<CR>
+map <Space>1 :call ToggleTagList()<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0
@@ -90,7 +90,8 @@ map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
-let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
+let g:CommandTAcceptSelectionSplitMap = '<S-CR>'
+let g:CommandTAcceptSelectionVSplitMap = '\|'
 
 " Loclist open and close
 let g:syntastic_auto_loc_list = 1
@@ -124,6 +125,13 @@ let g:miniBufExplorerMoreThanOne = 1
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
+
+function ToggleTagList()
+  let current_win = winnr()
+  execute ":TlistToggle"
+
+  execute current_win . " wincmd w"
+endfunction
 
 "transparency stuff
 "not sure if use it when already have Divvy
