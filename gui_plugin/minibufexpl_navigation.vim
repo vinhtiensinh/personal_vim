@@ -127,7 +127,7 @@ while inumber < 100
   execute "map  " . inumber . "<S-Space><S-Space> " . ":vsplit<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
-map 0<LEADER> :BufExplorer<CR><Down><CR>
+map <LEADER>0 :BufExplorer<CR><Down><CR>
 
 function! ToggleBetweenNERDTreeAndBufExplorer()
 
@@ -171,5 +171,3 @@ endfunction
 "show file drawer
 map <LEADER>2 :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
 map <LEADER>@ :call CloseNERDTreeAndBufExplorer()<CR>
-map <RightMouse> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
-
