@@ -129,6 +129,28 @@ while inumber < 100
 endwhile
 map <LEADER>0 :BufExplorer<CR><Down><CR>
 
+" switching between bufexplorer and nerd tree sometime causing 2
+" bufexplorer window to open
+" this autocmd is a hacky fix to make sure we remove all duplicate
+autocmd BufEnter * call RemoveMiniBufDuplicateWindow()
+
+function! RemoveMiniBufDuplicateWindow()
+  let l:NBuffers = bufnr('$')     " Get the number of the last buffer.
+  let l:i = 0                     " Set the buffer index to zero.
+  let l:miniBufOpened = 0
+  while(l:i <= l:NBuffers)
+    let l:i = l:i + 1
+    let l:BufName = bufname(l:i)
+    if l:BufName == '-MiniBufExplorer-' && bufwinnr(l:i) != -1
+      if l:miniBufOpened
+        execute 'bw '.l:i
+      else
+        let l:miniBufOpened = 1
+      end
+    endif
+  endwhile
+endfunction
+
 function! ToggleBetweenNERDTreeAndBufExplorer()
 
   if IsBufExplorerOpen()
