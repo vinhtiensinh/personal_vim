@@ -126,10 +126,9 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
-function ToggleTagList()
+function! ToggleTagList()
   let current_win = winnr()
   execute ":TlistToggle"
-
   execute current_win . " wincmd w"
 endfunction
 
