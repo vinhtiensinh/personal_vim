@@ -269,7 +269,7 @@ CommandList::register_list(
       :text        => '[t] thumbelina',
     },
     {
-      :function    => ":call SwitchToProjectCmd()",
+      :function    => ":call SwitchToPath()",
       :map         => 'f',
       :text        => '[f] switch with input',
     },

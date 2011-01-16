@@ -34,7 +34,7 @@ function! SwitchToPath()
   if path == ''
     return
   endif
-  call SwitchPath(path)
+  call SwitchToProjectCmd(ProjectNameOf(fnamemodify(path, ':p')))
 
 endfunction
 
