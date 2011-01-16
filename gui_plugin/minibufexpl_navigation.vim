@@ -179,6 +179,19 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
   endif
 endfunction
 
+function! CloseProject(name)
+  let l:NBuffers = bufnr('$')     " Get the number of the last buffer.
+  let l:i = 0                     " Set the buffer index to zero.
+
+  while(l:i <= l:NBuffers)
+    let l:i = l:i + 1
+    let l:fileName = fnamemodify(bufname(l:i), ':p')
+    if ProjectNameOf(l:fileName) == a:name && filereadable(l:fileName)
+      silent! exec 'bd '.l:i
+    endif
+  endwhile
+endfunction
+
 function! CloseNERDTreeAndBufExplorer()
     if IsNERDTreeWindowOpen()
       exec ":NERDTreeToggle"

@@ -264,9 +264,19 @@ CommandList::register_list(
       :text        => '[v]im',
     },
     {
-      :function    => ":call SwitchToPath()",
+      :function    => ":call SwitchToProjectCmd('thumbelina')",
+      :map         => 't',
+      :text        => '[t] thumbelina',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd()",
       :map         => 'f',
       :text        => '[f] switch with input',
+    },
+    {
+      :function    => ":call CloseProject(g:current_project)",
+      :map         => 'w',
+      :text        => '[w] close current project',
     },
   ]
 )
