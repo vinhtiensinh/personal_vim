@@ -127,7 +127,7 @@ while inumber < 100
   execute "map  " . inumber . "\\| " . ":vsplit<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
-map <LEADER>0 :BufExplorer<CR><Down><CR>
+map 0<LEADER> :BufExplorer<CR><Down><CR>
 
 " switching between bufexplorer and nerd tree sometime causing 2
 " bufexplorer window to open
