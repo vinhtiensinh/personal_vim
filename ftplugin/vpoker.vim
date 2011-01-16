@@ -33,6 +33,7 @@ function! JumpVPoker(open)
   let action = substitute(action, '^\s*', '', '')
   let action = substitute(action, ',\s*$', '', '')
   let action = substitute(action, '^\s*', '', '')
+  let action = substitute(action, '\s\s*', ' ', 'g')
 
   if action =~ '\~'
     let action = substitute(action, '\~', '', '')
