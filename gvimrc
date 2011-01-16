@@ -163,19 +163,3 @@ function! GTTabMove(direction)
 
 endfunction
 
-"projects
-let g:projects = [
-      \ ['product-e2e', '/Users/vinh_tran/product-e2e'],
-      \ ['customer-platform', '/Users/vinh_tran/customer-platform'],
-      \ ['vim', '/Users/vinhtiensinh/personal_vim'],
-      \ ['vim', '/Users/vinh_tran/personal_vim'],
-      \ ['agentdesktop', '/Users/vinh_tran/branches/master/agentdesktop'],
-      \ ['librea', '/Users/vinh_tran/branches/master/librea'],
-      \ ['reaxml', '/Users/vinh_tran/branches/master/reaxml'],
-      \ ['readb', '/Users/vinh_tran/branches/master/readb'],
-      \ ['appcmd', '/Users/vinh_tran/branches/master/appcmd'],
-      \ ['jetwire', '/Users/vinh_tran/branches/master/jetwire'],
-      \ ['db-migrations', '/Users/vinh_tran/db-migrations'],
-      \ ['thumbelina', '/Users/vinhtiensinh/repos/thumbelina'],
-      \ ['vpoker', '/Users/vinhtiensinh/repos/vpoker'],
-      \]
