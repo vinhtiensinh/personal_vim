@@ -9,7 +9,6 @@ setlocal commentstring=#\ %s
 
 imap <buffer> ; :
 imap <buffer> hh \|
-imap <buffer> JJ <ESC>kJJ
 map <buffer> g<Space> :call JumpVPoker(':e')<CR>
 map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
 map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
