@@ -92,13 +92,13 @@ imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 
 "folding the block
-nnoremap <silent> zz :call FoldBlock()<CR>
+nnoremap <silent> zz :call ToggleFolding()<CR>
 
-function! FoldBlock()
-  if foldclosed('.') != -1
-    call feedkeys('za')
-  elseif &foldmethod == 'manual'
+function! ToggleFolding()
+  if foldclosed('.') == -1 && &foldmethod == 'manual'
     call feedkeys('zf%')
+  else
+    call feedkeys('za')
   endif
 endfunction
 
