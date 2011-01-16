@@ -173,7 +173,7 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
       exec ":NERDTreeToggle"
       exec ":TMiniBufExplorer"
     else
-      exec ":TMiniBufExplorer"
+      exec ":NERDTreeToggle"
     endif
 
   endif
