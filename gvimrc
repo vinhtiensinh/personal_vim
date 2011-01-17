@@ -75,7 +75,7 @@ map <D-i> <C-y>
 so $HOME/.vim/plugin/taglist.vim
 :TlistAddFiles ./tags
 
-map <Space>1 :call ToggleTagList()<CR>
+map <D-3> :call ToggleTagList()<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0

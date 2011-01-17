@@ -171,7 +171,6 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
 
     if IsNERDTreeWindowOpen()
       exec ":NERDTreeToggle"
-      exec ":TMiniBufExplorer"
     else
       exec ":MiniBufExplorer"
     endif
@@ -204,5 +203,4 @@ function! CloseNERDTreeAndBufExplorer()
 endfunction
 
 "show file drawer
-map <LEADER>2 :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
-map <LEADER>@ :call CloseNERDTreeAndBufExplorer()<CR>
+map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
