@@ -119,9 +119,10 @@ nmap <S-Tab> :call PreviousBuffer()<CR>
 let g:miniBufExplVSplit = 25 
 let g:miniBufExplMinSize = 30
 let g:miniBufExplMaxSize = 30
+let g:miniBufExplAutoClose = 1
 
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplorerMoreThanOne = 20 
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
