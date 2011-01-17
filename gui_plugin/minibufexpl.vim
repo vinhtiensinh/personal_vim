@@ -374,6 +374,9 @@ if !exists('g:miniBufExplorerMoreThanOne')
     let g:miniBufExplorerMoreThanOne = 2
 endif 
 
+if !exists('g:miniBufExplAutoClose')
+    let g:miniBufExplAutoClose = 0
+endif 
 " }}}
 " Split below/above/left/right? {{{
 " When opening a new -MiniBufExplorer- window, split the new windows below or 
@@ -1430,6 +1433,10 @@ augroup MiniBufExplorer
             endif
             let g:miniBufExplorerAutoUpdate = l:saveAutoUpdate
             call <SID>AutoUpdate(-1)
+
+            if (g:miniBufExplAutoClose)
+                call <SID>StopExplorer(1)
+            endif
 
         endif
 
