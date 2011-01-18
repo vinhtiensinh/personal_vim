@@ -21,9 +21,7 @@ function! SwitchPath(path)
   if IsNERDTreeWindowOpen()
     exec ":NERDTreeToggle"
     exec ":NERDTree " . getcwd()
-  endif
-
-  if IsBufExplorerOpen()
+  else
     let g:NERDTree_need_update = 1
   endif
 endfunction

@@ -117,8 +117,8 @@ nmap <S-Tab> :call PreviousBuffer()<CR>
 
 "tryingout minibufexplorer
 let g:miniBufExplVSplit = 25 
-let g:miniBufExplMinSize = 30
-let g:miniBufExplMaxSize = 30
+let g:miniBufExplMinSize = 60
+let g:miniBufExplMaxSize = 60
 let g:miniBufExplAutoClose = 1
 
 let g:miniBufExplMapCTabSwitchBufs = 1
@@ -126,6 +126,10 @@ let g:miniBufExplorerMoreThanOne = 20
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
+
+
+"nerd tree size
+let NERDTreeWinSize = 60
 
 function! ToggleTagList()
   let current_win = winnr()
