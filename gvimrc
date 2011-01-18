@@ -20,7 +20,7 @@ for plugin in gui_plugins
 endfor
 
 " Custom status line
-set statusline=%F\ %=[\ %{g:current_project}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
+set statusline=%F\ %=[\ %{GetCurrentProject()}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
 
 set guioptions-=T
 set guioptions-=L

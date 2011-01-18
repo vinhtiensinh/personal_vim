@@ -274,7 +274,7 @@ CommandList::register_list(
       :text        => '[f] switch with input',
     },
     {
-      :function    => ":call CloseProject(g:current_project)",
+      :function    => ":call CloseProject(GetCurrentProject())",
       :map         => 'w',
       :text        => '[w] close current project',
     },

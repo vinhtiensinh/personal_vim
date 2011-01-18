@@ -1,3 +1,11 @@
+function! GetCurrentProject()
+  return g:current_project
+endfunction
+
+function! SetCurrentProject(project)
+  let g:current_project = a:project
+endfunction
+
 function! SwitchToProject()
   let current_buffer = expand('%:p')
   let name = ProjectNameOf(current_buffer)
@@ -11,7 +19,7 @@ function! SwitchToProjectCmd(name)
 
   let project_path = ProjectPathOf(a:name)
   if project_path != ''
-    let g:current_project = a:name
+    call SetCurrentProject(a:name)
     call SwitchPath(project_path)
   endif
 endfunction

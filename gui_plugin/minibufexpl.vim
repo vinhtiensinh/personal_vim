@@ -1123,7 +1123,7 @@ augroup MiniBufExplorer
             let current_project = ''
             for ifile in l:sorted_all_files
                 if current_project != ifile[0]
-                    if ifile[0] == g:current_project
+                    if ifile[0] == GetCurrentProject()
                         let l:fileNames = l:fileNames.'['.ifile[0]."]\n"
                     else
                         let l:fileNames = l:fileNames.'['.ifile[0]."]\n"

@@ -4,7 +4,7 @@ syn match MBEChanged            '[^\]]*+\*+\='
 syn match MBEVisibleNormal      '[^\]]*\*+\='
 syn match MBEVisibleChanged     '[^\]]*\*+\*+\='
 
-let current_project_reg = substitute(g:current_project, '\~', '\\~', 'g')
+let current_project_reg = substitute(GetCurrentProject(), '\~', '\\~', 'g')
 let current_project_reg = substitute(current_project_reg, '\/', '\\/', 'g')
 execute "syn match CurrentDir '\\[". current_project_reg ."\\]'"
 hi HiddenBufNumber guifg=Black guibg=Black ctermfg=Black ctermbg=Black
