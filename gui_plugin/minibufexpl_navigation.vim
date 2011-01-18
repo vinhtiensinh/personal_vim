@@ -123,8 +123,8 @@ let inumber = 1
 
 while inumber < 100
   execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
-  execute "map  " . inumber . "<S-Space> " . ":wincmd p<CR>:split<CR>".inumber."<Space>"
-  execute "map  " . inumber . "\\| " . ":wincmd p<CR>:vsplit<CR>".inumber."<Space>"
+  execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
+  execute "map  " . inumber . "\\| " . ":vsplit<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
