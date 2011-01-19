@@ -1,9 +1,57 @@
+autocmd BufRead * call AddToProjectList(ProjectNameOf(fnamemodify(expand('%'), ':p')))
+
 function! GetCurrentProject()
-  return g:current_project
+  if (exists('g:use_project_tab') && g:use_project_tab)
+    if (exists('t:current_project'))
+      return t:current_project
+    else
+      return ProjectNameOf(getcwd())
+    endif
+  else
+    return ProjectNameOf(getcwd())
+  endif
+endfunction
+
+function! CurrentProjectPath()
+  return ProjectPathOf(GetCurrentProject())
+endfunction
+
+function! ProjectList()
+  if(!exists('t:project_list'))
+    let t:project_list = [] 
+  endif
+  return t:project_list
+endfunction
+
+function! AddToProjectList(project)
+  let project_list = ProjectList()
+  let project_list += [a:project]
 endfunction
 
 function! SetCurrentProject(project)
-  let g:current_project = a:project
+  if (exists('g:use_project_tab') && g:use_project_tab)
+    let t:current_project = a:project
+  else
+    cd ProjectPathOf(a:project)
+  end
+endfunction
+
+function! FileInProjectList(file)
+  if ProjectInProjectList(ProjectNameOf(a:file))
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+function! ProjectInProjectList(project)
+  for project in ProjectList()
+    if project == a:project
+      return 1
+    endif
+  endfor
+
+  return 0
 endfunction
 
 function! SwitchToProject()
@@ -21,16 +69,21 @@ function! SwitchToProjectCmd(name)
   if project_path != ''
     call SetCurrentProject(a:name)
     call SwitchPath(project_path)
+    call AddToProjectList(a:name)
   endif
 endfunction
 
 function! SwitchPath(path)
-  execute 'cd ' . a:path
+  execute "cd ".CurrentProjectPath()
   if IsNERDTreeWindowOpen()
     exec ":NERDTreeToggle"
-    exec ":NERDTree " . getcwd()
+    exec ":NERDTree " . CurrentProjectPath()
   else
-    let g:NERDTree_need_update = 1
+    if(exists('g:use_project_tab') && g:use_project_tab)
+      let t:NERDTree_need_update = 1
+    else
+      let g:NERDTree_need_update = 1
+    endif
   endif
 endfunction
 
