@@ -54,6 +54,15 @@ function! ProjectInProjectList(project)
   return 0
 endfunction
 
+function! SwitchToProjectInNewTabCmd(project)
+  execute "cd ".ProjectPathOf(a:project) 
+  tabnew
+endfunction
+
+function! SwitchToTabProject()
+  cal SwitchToProjectCmd(GetCurrentProject())
+endfunction
+
 function! SwitchToProject()
   let current_buffer = expand('%:p')
   let name = ProjectNameOf(current_buffer)

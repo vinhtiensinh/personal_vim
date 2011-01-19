@@ -229,6 +229,46 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
+      :function    => ":call SwitchToProjectInNewTabCmd('librea')",
+      :map         => 'L',
+      :text        => '[L]ibrea in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('agentdesktop')",
+      :map         => 'A',
+      :text        => '[A]gentdesktop in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('reaxml')",
+      :map         => 'R',
+      :text        => '[R]eaxml in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('product-e2e')",
+      :map         => 'P',
+      :text        => '[P]roduct-e2e in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('db-migrations')",
+      :map         => 'D',
+      :text        => '[D]b-migrations in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('customer-platform')",
+      :map         => 'C',
+      :text        => '[C]ustomer-platform in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('vim')",
+      :map         => 'V',
+      :text        => '[V]im in new tab',
+    },
+    {
+      :function    => ":call SwitchToProjectInNewTabCmd('thumbelina')",
+      :map         => 'T',
+      :text        => '[T] thumbelina in new tab',
+    },
+    {
       :function    => ":call SwitchToProjectCmd('librea')",
       :map         => 'l',
       :text        => '[l]ibrea',
