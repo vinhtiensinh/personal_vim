@@ -1,6 +1,5 @@
 set mouse=a
 set selectmode=mouse
-autocmd VimEnter * call SwitchToProject()
 autocmd TabEnter * call SwitchToTabProject()
 
 silent! set macmeta

@@ -26,6 +26,10 @@ endfunction
 function! AddToProjectList(project)
   let project_list = ProjectList()
   let project_list += [a:project]
+
+  if(!exists('t:current_buffer'))
+    call SwitchToProject()
+  endif
 endfunction
 
 function! SetCurrentProject(project)
@@ -60,7 +64,11 @@ function! SwitchToProjectInNewTabCmd(project)
 endfunction
 
 function! SwitchToTabProject()
-  cal SwitchToProjectCmd(GetCurrentProject())
+  if exists('t:current_project') && t:current_project
+    call SwitchToProjectCmd(GetCurrentProject())
+  else
+    call SwitchToProject()
+  endif
 endfunction
 
 function! SwitchToProject()
@@ -78,7 +86,6 @@ function! SwitchToProjectCmd(name)
   if project_path != ''
     call SetCurrentProject(a:name)
     call SwitchPath(project_path)
-    call AddToProjectList(a:name)
   endif
 endfunction
 
