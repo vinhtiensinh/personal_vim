@@ -1,4 +1,4 @@
-autocmd BufRead * call AddToProjectList(ProjectNameOf(fnamemodify(expand('%'), ':p')))
+autocmd BufNew,BufRead  * call AddToProjectList(ProjectNameOf(fnamemodify(expand('%'), ':p')))
 
 function! GetCurrentProject()
   if (exists('g:use_project_tab') && g:use_project_tab)
@@ -27,9 +27,10 @@ function! AddToProjectList(project)
   let project_list = ProjectList()
   let project_list += [a:project]
 
-  if(!exists('t:current_buffer'))
+  if(!exists('t:current_project'))
     call SwitchToProject()
   endif
+  exec ":UMiniBufExplorer"
 endfunction
 
 function! SetCurrentProject(project)
