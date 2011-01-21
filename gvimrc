@@ -21,7 +21,7 @@ endfor
 
 " Custom status line
 set statusline=%F\ %=[\ %{GetCurrentProject()}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
-set guitablabel=%{v:lnum}:\ %{GetCurrentProject()}
+set guitablabel=%{v:lnum}:\ %t\ (%{GetCurrentProject()})
 
 set guioptions-=T
 set guioptions-=L

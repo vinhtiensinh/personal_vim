@@ -27,7 +27,7 @@ function! AddToProjectList(project)
   let project_list = ProjectList()
   let project_list += [a:project]
 
-  if(!exists('t:current_project'))
+  if(!exists('t:current_project') && expand('%') != '')
     call SwitchToProject()
   endif
   exec ":UMiniBufExplorer"
@@ -74,6 +74,10 @@ endfunction
 
 function! SwitchToProject()
   let current_buffer = expand('%:p')
+  if current_buffer == ''
+    return
+  endif
+
   let name = ProjectNameOf(current_buffer)
 
   if name != ''
