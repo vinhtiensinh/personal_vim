@@ -1,6 +1,7 @@
 set mouse=a
 set selectmode=mouse
 autocmd VimEnter * call SwitchToProject()
+autocmd TabEnter * execute ":UMiniBufExplorer"
 
 silent! set macmeta
 

@@ -1,0 +1,352 @@
+[1mdiff --git a/gui_plugin/command-list.rb b/gui_plugin/command-list.rb[m
+[1mindex aec8f76..92a2287 100644[m
+[1m--- a/gui_plugin/command-list.rb[m
+[1m+++ b/gui_plugin/command-list.rb[m
+[36m@@ -229,46 +229,6 @@[m [mCommandList::register_list([m
+   :map_item_with_list => true,[m
+   :items => [[m
+     {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('librea')",[m
+[31m-      :map         => 'L',[m
+[31m-      :text        => '[L]ibrea in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('agentdesktop')",[m
+[31m-      :map         => 'A',[m
+[31m-      :text        => '[A]gentdesktop in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('reaxml')",[m
+[31m-      :map         => 'R',[m
+[31m-      :text        => '[R]eaxml in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('product-e2e')",[m
+[31m-      :map         => 'P',[m
+[31m-      :text        => '[P]roduct-e2e in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('db-migrations')",[m
+[31m-      :map         => 'D',[m
+[31m-      :text        => '[D]b-migrations in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('customer-platform')",[m
+[31m-      :map         => 'C',[m
+[31m-      :text        => '[C]ustomer-platform in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('vim')",[m
+[31m-      :map         => 'V',[m
+[31m-      :text        => '[V]im in new tab',[m
+[31m-    },[m
+[31m-    {[m
+[31m-      :function    => ":call SwitchToProjectInNewTabCmd('thumbelina')",[m
+[31m-      :map         => 'T',[m
+[31m-      :text        => '[T] thumbelina in new tab',[m
+[31m-    },[m
+[31m-    {[m
+       :function    => ":call SwitchToProjectCmd('librea')",[m
+       :map         => 'l',[m
+       :text        => '[l]ibrea',[m
+[1mdiff --git a/gui_plugin/minibufexpl.vim b/gui_plugin/minibufexpl.vim[m
+[1mindex f47eac8..03e40ff 100644[m
+[1m--- a/gui_plugin/minibufexpl.vim[m
+[1m+++ b/gui_plugin/minibufexpl.vim[m
+[36m@@ -607,9 +607,7 @@[m [mlet s:debugIndex = 0[m
+ augroup MiniBufExplorer[m
+     autocmd MiniBufExplorer BufDelete   * call <SID>DEBUG('-=> BufDelete AutoCmd', 10) |call <SID>AutoUpdate(expand('<abuf>'))[m
+     autocmd MiniBufExplorer BufEnter    * call <SID>DEBUG('-=> BufEnter  AutoCmd', 10) |call <SID>AutoUpdate(-1)[m
+[31m-    autocmd MiniBufExplorer BufNew      * call <SID>DEBUG('-=> BufEnter  AutoCmd', 10) |call <SID>AutoUpdate(-1)[m
+     autocmd MiniBufExplorer VimEnter    * call <SID>DEBUG('-=> VimEnter  AutoCmd', 10) |let g:miniBufExplorerAutoUpdate = 1 |call <SID>AutoUpdate(-1)[m
+[31m-    autocmd MiniBufExplorer TabEnter    * call <SID>DEBUG('-=> VimEnter  AutoCmd', 10) |let g:miniBufExplorerAutoUpdate = 1 |call <SID>AutoUpdate(-1)[m
+     " }}}[m
+ [m
+     " Functions[m
+[36m@@ -617,10 +615,6 @@[m [maugroup MiniBufExplorer[m
+     " StartExplorer - Sets up our explorer and causes it to be displayed {{{[m
+     "[m
+     function! <SID>StartExplorer(sticky, delBufNum)[m
+[31m-        if (exists('t:stop_explorer') && t:stop_explorer)[m
+[31m-            return[m
+[31m-        end[m
+[31m-[m
+         call <SID>DEBUG('===========================',10)[m
+         call <SID>DEBUG('Entering StartExplorer()'   ,10)[m
+         call <SID>DEBUG('===========================',10)[m
+[36m@@ -706,11 +700,6 @@[m [maugroup MiniBufExplorer[m
+     " StopExplorer - Looks for our explorer and closes the window if it is open {{{[m
+     "[m
+     function! <SID>StopExplorer(sticky)[m
+[31m-        if (exists('t:stop_explorer') && t:stop_explorer)[m
+[31m-            return[m
+[31m-        else[m
+[31m-            let t:stop_explorer = 1[m
+[31m-        end[m
+         call <SID>DEBUG('===========================',10)[m
+         call <SID>DEBUG('Entering StopExplorer()'    ,10)[m
+         call <SID>DEBUG('===========================',10)[m
+[36m@@ -748,7 +737,6 @@[m [maugroup MiniBufExplorer[m
+         if l:winNum != -1 [m
+             call <SID>StopExplorer(1)[m
+         else[m
+[31m-            let t:stop_explorer = 0[m
+             call <SID>StartExplorer(1, -1)[m
+             wincmd p[m
+         endif[m
+[36m@@ -1087,12 +1075,6 @@[m [maugroup MiniBufExplorer[m
+                         " want to show Explorers)[m
+                         if (getbufvar(l:i, '&modifiable') == 1 && BufName != '-MiniBufExplorer-')[m
+ [m
+[31m-                            if (exists('g:use_project_tab') && g:use_project_tab)[m
+[31m-                                if !FileInProjectList(fnamemodify(BufName, ':p'))[m
+[31m-                                    continue[m
+[31m-                                endif[m
+[31m-                            endif[m
+[31m-[m
+                             " Get filename & Remove []'s & ()'s[m
+                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  [m
+ [m
+[1mdiff --git a/gui_plugin/minibufexpl_navigation.vim b/gui_plugin/minibufexpl_navigation.vim[m
+[1mindex 90b4337..0688bf8 100644[m
+[1m--- a/gui_plugin/minibufexpl_navigation.vim[m
+[1m+++ b/gui_plugin/minibufexpl_navigation.vim[m
+[36m@@ -154,12 +154,12 @@[m [mendfunction[m
+ function! ToggleBetweenNERDTreeAndBufExplorer()[m
+ [m
+   if IsBufExplorerOpen()[m
+[31m-    exec ":TMiniBufExplorer"[m
+[32m+[m[32m    exec ":CMiniBufExplorer"[m
+ [m
+     if !IsNERDTreeWindowOpen()[m
+ [m
+       if exists("g:NERDTree_need_update") && g:NERDTree_need_update[m
+[31m-        exec ":NERDTree " . CurrentProjectPath()[m
+[32m+[m[32m        exec ":NERDTree " . getcwd()[m
+         let g:NERDTree_need_update = 0[m
+       else[m
+         exec ":NERDTreeToggle"[m
+[36m@@ -171,9 +171,9 @@[m [mfunction! ToggleBetweenNERDTreeAndBufExplorer()[m
+ [m
+     if IsNERDTreeWindowOpen()[m
+       exec ":NERDTreeToggle"[m
+[31m-      exec ":TMiniBufExplorer"[m
+[32m+[m[32m      exec ":MiniBufExplorer"[m
+     else[m
+[31m-      exec ":TMiniBufExplorer"[m
+[32m+[m[32m      exec ":MiniBufExplorer"[m
+     endif[m
+ [m
+   endif[m
+[1mdiff --git a/gui_plugin/projects.vim b/gui_plugin/projects.vim[m
+[1mindex f4f6c1f..dd963f0 100644[m
+[1m--- a/gui_plugin/projects.vim[m
+[1m+++ b/gui_plugin/projects.vim[m
+[36m@@ -1,83 +1,13 @@[m
+[31m-autocmd BufNew,BufRead  * call AddToProjectList(ProjectNameOf(fnamemodify(expand('%'), ':p')))[m
+[31m-[m
+ function! GetCurrentProject()[m
+[31m-  if (exists('g:use_project_tab') && g:use_project_tab)[m
+[31m-    if (exists('t:current_project'))[m
+[31m-      return t:current_project[m
+[31m-    else[m
+[31m-      return ProjectNameOf(getcwd())[m
+[31m-    endif[m
+[31m-  else[m
+[31m-    return ProjectNameOf(getcwd())[m
+[31m-  endif[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! CurrentProjectPath()[m
+[31m-  return ProjectPathOf(GetCurrentProject())[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! ProjectList()[m
+[31m-  if(!exists('t:project_list'))[m
+[31m-    let t:project_list = [] [m
+[31m-  endif[m
+[31m-  return t:project_list[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! AddToProjectList(project)[m
+[31m-  let project_list = ProjectList()[m
+[31m-  let project_list += [a:project][m
+[31m-[m
+[31m-  if(!exists('t:current_project') && expand('%') != '')[m
+[31m-    call SwitchToProject()[m
+[31m-  endif[m
+[31m-  exec ":UMiniBufExplorer"[m
+[32m+[m[32m  return g:current_project[m
+ endfunction[m
+ [m
+ function! SetCurrentProject(project)[m
+[31m-  if (exists('g:use_project_tab') && g:use_project_tab)[m
+[31m-    let t:current_project = a:project[m
+[31m-  else[m
+[31m-    cd ProjectPathOf(a:project)[m
+[31m-  end[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! FileInProjectList(file)[m
+[31m-  if ProjectInProjectList(ProjectNameOf(a:file))[m
+[31m-    return 1[m
+[31m-  else[m
+[31m-    return 0[m
+[31m-  endif[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! ProjectInProjectList(project)[m
+[31m-  for project in ProjectList()[m
+[31m-    if project == a:project[m
+[31m-      return 1[m
+[31m-    endif[m
+[31m-  endfor[m
+[31m-[m
+[31m-  return 0[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! SwitchToProjectInNewTabCmd(project)[m
+[31m-  execute "cd ".ProjectPathOf(a:project) [m
+[31m-  tabnew[m
+[31m-endfunction[m
+[31m-[m
+[31m-function! SwitchToTabProject()[m
+[31m-  if exists('t:current_project') && t:current_project[m
+[31m-    call SwitchToProjectCmd(GetCurrentProject())[m
+[31m-  else[m
+[31m-    call SwitchToProject()[m
+[31m-  endif[m
+[32m+[m[32m  let g:current_project = a:project[m
+ endfunction[m
+ [m
+ function! SwitchToProject()[m
+   let current_buffer = expand('%:p')[m
+[31m-  if current_buffer == ''[m
+[31m-    return[m
+[31m-  endif[m
+[31m-[m
+   let name = ProjectNameOf(current_buffer)[m
+ [m
+   if name != ''[m
+[36m@@ -95,16 +25,12 @@[m [mfunction! SwitchToProjectCmd(name)[m
+ endfunction[m
+ [m
+ function! SwitchPath(path)[m
+[31m-  execute "cd ".CurrentProjectPath()[m
+[32m+[m[32m  execute 'cd ' . a:path[m
+   if IsNERDTreeWindowOpen()[m
+     exec ":NERDTreeToggle"[m
+[31m-    exec ":NERDTree " . CurrentProjectPath()[m
+[32m+[m[32m    exec ":NERDTree " . getcwd()[m
+   else[m
+[31m-    if(exists('g:use_project_tab') && g:use_project_tab)[m
+[31m-      let t:NERDTree_need_update = 1[m
+[31m-    else[m
+[31m-      let g:NERDTree_need_update = 1[m
+[31m-    endif[m
+[32m+[m[32m    let g:NERDTree_need_update = 1[m
+   endif[m
+ endfunction[m
+ [m
+[1mdiff --git a/gvimrc b/gvimrc[m
+[1mindex 3ddda4f..00c2d22 100644[m
+[1m--- a/gvimrc[m
+[1m+++ b/gvimrc[m
+[36m@@ -1,6 +1,6 @@[m
+ set mouse=a[m
+ set selectmode=mouse[m
+[31m-autocmd TabEnter * call SwitchToTabProject()[m
+[32m+[m[32mautocmd VimEnter * call SwitchToProject()[m
+ [m
+ silent! set macmeta[m
+ [m
+[36m@@ -21,7 +21,6 @@[m [mendfor[m
+ [m
+ " Custom status line[m
+ set statusline=%F\ %=[\ %{GetCurrentProject()}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)[m
+[31m-set guitablabel=%{v:lnum}:\ %t\ (%{GetCurrentProject()})[m
+ [m
+ set guioptions-=T[m
+ set guioptions-=L[m
+[36m@@ -76,7 +75,7 @@[m [mmap <D-i> <C-y>[m
+ so $HOME/.vim/plugin/taglist.vim[m
+ :TlistAddFiles ./tags[m
+ [m
+[31m-map <D-4> :call ToggleTagList()<CR>[m
+[32m+[m[32mmap <D-3> :call ToggleTagList()<CR>[m
+ let Tlist_Exit_OnlyWindow = 1[m
+ let Tlist_Use_Right_Window = 1[m
+ let Tlist_Enable_Fold_Column = 0[m
+[36m@@ -87,17 +86,13 @@[m [mlet Tlist_Use_SingleClick = 1[m
+ let Tlist_Show_One_File = 1[m
+ let g:Tlist_GainFocus_On_ToggleOpen = 0[m
+ [m
+[31m-map <LEADER><LEADER> :call CommandT()<CR>[m
+[32m+[m[32mmap <LEADER><LEADER> :CommandT<CR>[m
+ let g:CommandTCancelMap = '<SPACE>'[m
+ let g:CommandTSelectNextMap = "<Tab>"[m
+ let g:CommandTSelectPrevMap = "<S-Tab>"[m
+ let g:CommandTAcceptSelectionSplitMap = '<S-CR>'[m
+ let g:CommandTAcceptSelectionVSplitMap = '\|'[m
+ [m
+[31m-function! CommandT()[m
+[31m-  execute ":CommandT ".CurrentProjectPath()[m
+[31m-endfunction[m
+[31m-[m
+ " Loclist open and close[m
+ let g:syntastic_auto_loc_list = 1[m
+ "-------------------------------------------------------------------------[m
+[36m@@ -126,7 +121,6 @@[m [mlet g:miniBufExplMinSize = 31[m
+ let g:miniBufExplMaxSize = 31 [m
+ "let g:miniBufExplAutoClose = 1[m
+ [m
+[31m-let g:use_project_tab = 1[m
+ let g:miniBufExplMapCTabSwitchBufs = 1[m
+ let g:miniBufExplorerMoreThanOne = 1[m
+ let g:miniBufExplModSelTarget = 1[m
+[36m@@ -156,3 +150,21 @@[m [mfunction! ToggleTransparency()[m
+     let g:transparency=0[m
+   endif[m
+ endfunction[m
+[32m+[m
+[32m+[m[32mmap gt :call GTTabMove('next')<CR>[m
+[32m+[m[32mmap gT :call GTTabMove('previous')<CR>[m
+[32m+[m[32mfunction! GTTabMove(direction)[m
+[32m+[m[32m  if IsBufExplorerOpen()[m
+[32m+[m[32m    if a:direction == 'next'[m
+[32m+[m[32m      call NextBuffer()[m
+[32m+[m[32m    else[m
+[32m+[m[32m      call PreviousBuffer()[m
+[32m+[m[32m    endif[m
+[32m+[m[32m  elseif a:direction == 'next'[m
+[32m+[m[32m    normal! gt[m
+[32m+[m[32m  else[m
+[32m+[m[32m    normal! gT[m
+[32m+[m[32m  endif[m
+[32m+[m
+[32m+[m[32mendfunction[m
+[41m+[m
+[1mdiff --git a/vimrc b/vimrc[m
+[1mindex 706c59d..c47e4d7 100644[m
+[1m--- a/vimrc[m
+[1m+++ b/vimrc[m
+[36m@@ -61,7 +61,7 @@[m [mset noerrorbells  "dont beep[m
+ "-----------------------------------------------------------------------[m
+ map <LEADER>' cs"'[m
+ map <LEADER>" cs'"[m
+[31m-map cc ,c<SPACE>[m
+[32m+[m[32mmap <LEADER>3 ,c<SPACE>[m
+ [m
+ "hightlight extra space[m
+ highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey[m
+[36m@@ -102,10 +102,4 @@[m [mfunction! ToggleFolding()[m
+   endif[m
+ endfunction[m
+ [m
+[31m-let inumber = 1[m
+[31m-while inumber < 10[m
+[31m-  execute "map <LEADER>".inumber." ".inumber."gt"[m
+[31m-  let inumber = inumber + 1[m
+[31m-endwhile[m
+[31m-[m
+ silent! so ./.localvimrc[m
