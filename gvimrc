@@ -1,6 +1,6 @@
 set mouse=a
 set selectmode=mouse
-autocmd TabEnter * call SwitchToTabProject()
+autocmd VimEnter * call SwitchToProject()
 
 silent! set macmeta
 
@@ -21,7 +21,6 @@ endfor
 
 " Custom status line
 set statusline=%F\ %=[\ %{GetCurrentProject()}\ ]%=[\ %c\ :\ %l\ :\ %L\ ]\ %h\ (%P)
-set guitablabel=%{v:lnum}:\ %t\ (%{GetCurrentProject()})
 
 set guioptions-=T
 set guioptions-=L
@@ -76,7 +75,7 @@ map <D-i> <C-y>
 so $HOME/.vim/plugin/taglist.vim
 :TlistAddFiles ./tags
 
-map <D-4> :call ToggleTagList()<CR>
+map <D-3> :call ToggleTagList()<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0
@@ -87,16 +86,12 @@ let Tlist_Use_SingleClick = 1
 let Tlist_Show_One_File = 1
 let g:Tlist_GainFocus_On_ToggleOpen = 0
 
-map <LEADER><LEADER> :call CommandT()<CR>
+map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionSplitMap = '<S-CR>'
 let g:CommandTAcceptSelectionVSplitMap = '\|'
-
-function! CommandT()
-  execute ":CommandT ".CurrentProjectPath()
-endfunction
 
 " Loclist open and close
 let g:syntastic_auto_loc_list = 1
@@ -126,7 +121,6 @@ let g:miniBufExplMinSize = 31
 let g:miniBufExplMaxSize = 31 
 "let g:miniBufExplAutoClose = 1
 
-let g:use_project_tab = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplorerMoreThanOne = 1
 let g:miniBufExplModSelTarget = 1
@@ -156,3 +150,21 @@ function! ToggleTransparency()
     let g:transparency=0
   endif
 endfunction
+
+map gt :call GTTabMove('next')<CR>
+map gT :call GTTabMove('previous')<CR>
+function! GTTabMove(direction)
+  if IsBufExplorerOpen()
+    if a:direction == 'next'
+      call NextBuffer()
+    else
+      call PreviousBuffer()
+    endif
+  elseif a:direction == 'next'
+    normal! gt
+  else
+    normal! gT
+  endif
+
+endfunction
+

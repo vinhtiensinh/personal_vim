@@ -607,9 +607,7 @@ let s:debugIndex = 0
 augroup MiniBufExplorer
     autocmd MiniBufExplorer BufDelete   * call <SID>DEBUG('-=> BufDelete AutoCmd', 10) |call <SID>AutoUpdate(expand('<abuf>'))
     autocmd MiniBufExplorer BufEnter    * call <SID>DEBUG('-=> BufEnter  AutoCmd', 10) |call <SID>AutoUpdate(-1)
-    autocmd MiniBufExplorer BufNew      * call <SID>DEBUG('-=> BufEnter  AutoCmd', 10) |call <SID>AutoUpdate(-1)
     autocmd MiniBufExplorer VimEnter    * call <SID>DEBUG('-=> VimEnter  AutoCmd', 10) |let g:miniBufExplorerAutoUpdate = 1 |call <SID>AutoUpdate(-1)
-    autocmd MiniBufExplorer TabEnter    * call <SID>DEBUG('-=> VimEnter  AutoCmd', 10) |let g:miniBufExplorerAutoUpdate = 1 |call <SID>AutoUpdate(-1)
     " }}}
 
     " Functions
@@ -617,10 +615,6 @@ augroup MiniBufExplorer
     " StartExplorer - Sets up our explorer and causes it to be displayed {{{
     "
     function! <SID>StartExplorer(sticky, delBufNum)
-        if (exists('t:stop_explorer') && t:stop_explorer)
-            return
-        end
-
         call <SID>DEBUG('===========================',10)
         call <SID>DEBUG('Entering StartExplorer()'   ,10)
         call <SID>DEBUG('===========================',10)
@@ -706,11 +700,6 @@ augroup MiniBufExplorer
     " StopExplorer - Looks for our explorer and closes the window if it is open {{{
     "
     function! <SID>StopExplorer(sticky)
-        if (exists('t:stop_explorer') && t:stop_explorer)
-            return
-        else
-            let t:stop_explorer = 1
-        end
         call <SID>DEBUG('===========================',10)
         call <SID>DEBUG('Entering StopExplorer()'    ,10)
         call <SID>DEBUG('===========================',10)
@@ -748,7 +737,6 @@ augroup MiniBufExplorer
         if l:winNum != -1 
             call <SID>StopExplorer(1)
         else
-            let t:stop_explorer = 0
             call <SID>StartExplorer(1, -1)
             wincmd p
         endif
@@ -1086,12 +1074,6 @@ augroup MiniBufExplorer
                         " Only show modifiable buffers (The idea is that we don't 
                         " want to show Explorers)
                         if (getbufvar(l:i, '&modifiable') == 1 && BufName != '-MiniBufExplorer-')
-
-                            if (exists('g:use_project_tab') && g:use_project_tab)
-                                if !FileInProjectList(fnamemodify(BufName, ':p'))
-                                    continue
-                                endif
-                            endif
 
                             " Get filename & Remove []'s & ()'s
                             let l:shortBufName = fnamemodify(l:BufName, ":t")                  

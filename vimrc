@@ -61,7 +61,7 @@ set noerrorbells  "dont beep
 "-----------------------------------------------------------------------
 map <LEADER>' cs"'
 map <LEADER>" cs'"
-map cc ,c<SPACE>
+map <LEADER>3 ,c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey
@@ -101,11 +101,5 @@ function! ToggleFolding()
     call feedkeys('za')
   endif
 endfunction
-
-let inumber = 1
-while inumber < 10
-  execute "map <LEADER>".inumber." ".inumber."gt"
-  let inumber = inumber + 1
-endwhile
 
 silent! so ./.localvimrc

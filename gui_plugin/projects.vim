@@ -1,83 +1,13 @@
-autocmd BufNew,BufRead  * call AddToProjectList(ProjectNameOf(fnamemodify(expand('%'), ':p')))
-
 function! GetCurrentProject()
-  if (exists('g:use_project_tab') && g:use_project_tab)
-    if (exists('t:current_project'))
-      return t:current_project
-    else
-      return ProjectNameOf(getcwd())
-    endif
-  else
-    return ProjectNameOf(getcwd())
-  endif
-endfunction
-
-function! CurrentProjectPath()
-  return ProjectPathOf(GetCurrentProject())
-endfunction
-
-function! ProjectList()
-  if(!exists('t:project_list'))
-    let t:project_list = [] 
-  endif
-  return t:project_list
-endfunction
-
-function! AddToProjectList(project)
-  let project_list = ProjectList()
-  let project_list += [a:project]
-
-  if(!exists('t:current_project') && expand('%') != '')
-    call SwitchToProject()
-  endif
-  exec ":UMiniBufExplorer"
+  return g:current_project
 endfunction
 
 function! SetCurrentProject(project)
-  if (exists('g:use_project_tab') && g:use_project_tab)
-    let t:current_project = a:project
-  else
-    cd ProjectPathOf(a:project)
-  end
-endfunction
-
-function! FileInProjectList(file)
-  if ProjectInProjectList(ProjectNameOf(a:file))
-    return 1
-  else
-    return 0
-  endif
-endfunction
-
-function! ProjectInProjectList(project)
-  for project in ProjectList()
-    if project == a:project
-      return 1
-    endif
-  endfor
-
-  return 0
-endfunction
-
-function! SwitchToProjectInNewTabCmd(project)
-  execute "cd ".ProjectPathOf(a:project) 
-  tabnew
-endfunction
-
-function! SwitchToTabProject()
-  if exists('t:current_project') && t:current_project
-    call SwitchToProjectCmd(GetCurrentProject())
-  else
-    call SwitchToProject()
-  endif
+  let g:current_project = a:project
 endfunction
 
 function! SwitchToProject()
   let current_buffer = expand('%:p')
-  if current_buffer == ''
-    return
-  endif
-
   let name = ProjectNameOf(current_buffer)
 
   if name != ''
@@ -95,16 +25,12 @@ function! SwitchToProjectCmd(name)
 endfunction
 
 function! SwitchPath(path)
-  execute "cd ".CurrentProjectPath()
+  execute 'cd ' . a:path
   if IsNERDTreeWindowOpen()
     exec ":NERDTreeToggle"
-    exec ":NERDTree " . CurrentProjectPath()
+    exec ":NERDTree " . getcwd()
   else
-    if(exists('g:use_project_tab') && g:use_project_tab)
-      let t:NERDTree_need_update = 1
-    else
-      let g:NERDTree_need_update = 1
-    endif
+    let g:NERDTree_need_update = 1
   endif
 endfunction
 
