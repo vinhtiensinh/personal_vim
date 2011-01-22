@@ -145,7 +145,7 @@ CommandList::register_list(
     {
       :function    => "GrepperGrepRinCmd()",
       :map         => 'g',
-      :text        => 'grep -rin command',
+      :text        => '[g]rep -rin command',
     },
     {
       :function    => "GrepperGrepCmd()",
