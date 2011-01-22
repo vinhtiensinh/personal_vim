@@ -32,7 +32,8 @@ set guifont=Consolas:h16
 map <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
-map <D-w> :bd<CR>
+map <D-w> :tabclose<CR>
+map <LEADER>x :bd<CR>
 
 imap <D-A> <ESC>A
 imap <D-I> <ESC>I
