@@ -156,7 +156,7 @@ endfunction
 map gt :call GTTabMove('next')<CR>
 map gT :call GTTabMove('previous')<CR>
 function! GTTabMove(direction)
-  if IsBufExplorerOpen()
+  if IsBufExplorerOpen() && tabpagenr('$') == 1
     if a:direction == 'next'
       call NextBuffer()
     else
