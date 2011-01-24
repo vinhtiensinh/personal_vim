@@ -75,10 +75,4 @@ syn match FilePath ' [.]*\w*/'
 hi FilePathHighlight guifg=grey40 ctermfg=Grey
 hi def link FilePath FilePathHighlight
 
-syn match FoldMarkerOpen '{{{'
-syn match FoldMarkerClose '}}}'
-hi FoldMarkerHighlight guifg=Black ctermfg=Black
-hi def link FoldMarkerOpen FoldMarkerHighlight
-hi def link FoldMarkerClose FoldMarkerHighlight
-
 let b:current_syntax = "minibufexplorer"
