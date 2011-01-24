@@ -80,8 +80,5 @@ syn match FoldMarkerClose '}}}'
 hi FoldMarkerHighlight guifg=Black ctermfg=Black
 hi def link FoldMarkerOpen FoldMarkerHighlight
 hi def link FoldMarkerClose FoldMarkerHighlight
-set foldmethod=marker
-normal! zR
-
 
 let b:current_syntax = "minibufexplorer"

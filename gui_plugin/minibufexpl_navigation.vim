@@ -201,30 +201,20 @@ function! ToggleFoldProject(name)
 endfunction
 
 function! UnFoldProject(name)
-  let tabClosed = GetClosedProject()
+  let tabClosed = GetFoldedProjects()
   tabClosed[a:name] = 0
-  let minibufWinnr = FindWindow('-MiniBufExplorer-')
-  execute minibufWinnr." wincmd "
-  feedkeys("/".a:name."\<CR>zz")
-  execute "wincmd p"
 endfunction
 
 function! FoldProject(name)
-  let tabClosed = GetClosedProject()
+  let tabClosed = GetFoldedProjects()
   let tabClosed[a:name] = 1
-  let minibufWinnr = FindWindow('-MiniBufExplorer-')
-  execute minibufWinnr." wincmd w"
-  call feedkeys("/".a:name)
-  call feedkeys("\<CR>")
-  call feedkeys("zz")
-  execute "wincmd p"
 endfunction
 
-function! GetClosedProject()
+function! GetFoldedProjects()
   if !exists('t:MinibufClosedProjects')
-    let t:MinibufClosedProjects = {}
+    let t:MinibufFoldedProjects = {}
   endif
-  return t:MinibufClosedProjects
+  return t:MinibufFoldedProjects
 endfunction
 
 function! CloseNERDTreeAndBufExplorer()
