@@ -125,6 +125,7 @@ while inumber < 100
   execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
   execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
   execute "map  " . inumber . "\\| " . ":vsplit<CR>".inumber."<Space>"
+  execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
