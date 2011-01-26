@@ -4,7 +4,7 @@ function! RSync(file)
   for rsync in g:rsync
     if file_full_path =~ rsync[0]
       let destination_path = substitute(file_full_path, rsync[0], rsync[1], '')
-      let output = system('rsync '.file_full_path.' '.destination_path)
+      let output = system('rsync -a '.file_full_path.' '.destination_path)
       return
     endif
   endfor

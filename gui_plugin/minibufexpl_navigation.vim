@@ -125,6 +125,7 @@ while inumber < 100
   execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
   execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
   execute "map  " . inumber . "\\| " . ":vsplit<CR>".inumber."<Space>"
+  execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
@@ -190,6 +191,31 @@ function! CloseProject(name)
       silent! exec 'bd '.l:i
     endif
   endwhile
+endfunction
+
+function! ToggleFoldProject(name)
+  if ProjectClosed(a:name)
+    call UnFoldProject(a:name)
+  else
+    call FoldProject(a:name)
+  endif
+endfunction
+
+function! UnFoldProject(name)
+  let tabClosed = GetFoldedProjects()
+  tabClosed[a:name] = 0
+endfunction
+
+function! FoldProject(name)
+  let tabClosed = GetFoldedProjects()
+  let tabClosed[a:name] = 1
+endfunction
+
+function! GetFoldedProjects()
+  if !exists('t:MinibufClosedProjects')
+    let t:MinibufFoldedProjects = {}
+  endif
+  return t:MinibufFoldedProjects
 endfunction
 
 function! CloseNERDTreeAndBufExplorer()
