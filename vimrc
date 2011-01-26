@@ -84,8 +84,7 @@ map k gk
 set complete -=i
 
 "enter new line without insert mode
-nmap <S-CR> i<CR><ESC>
-nmap <Space><CR> o<ESC>
+nmap <Space><CR> i<CR><ESC>
 
 "edit mode keymap
 imap <C-SPACE> <C-x><C-o>
