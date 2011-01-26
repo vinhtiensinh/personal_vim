@@ -7,7 +7,6 @@ let b:did_ftplugin=1
 setlocal comments=:#
 setlocal commentstring=#\ %s
 
-imap <buffer> ; :
 imap <buffer> hh \|
 map <buffer> g<Space> :call JumpVPoker(':e')<CR>
 map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
