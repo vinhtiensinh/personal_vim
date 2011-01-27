@@ -18,6 +18,28 @@ if exists("g:did_vpoker_ftplugin_functions")
 endif
 let g:did_vpoker_ftplugin_functions = 1
 
+if bufname('.') =~ '\.yaml\.vpk'
+  setlocal foldmethod=expr
+  setlocal foldexpr=(getline(v:lnum)=~'^$')?-1:((indent(v:lnum)<indent(v:lnum+1))?('>'.indent(v:lnum+1)):indent(v:lnum))
+  set foldtext=getline(v:foldstart)
+  set fillchars=fold:\ "(there's a space after that \)
+  highlight Folded ctermfg=DarkGreen ctermbg=Black
+
+else
+  setlocal foldmethod=marker
+  setlocal foldmarker=[,]
+  set foldtext=VPKFoldText()
+  set fillchars=fold:\ "(there's a space after that \)
+  highlight Folded ctermfg=White ctermbg=Black guibg=grey6
+
+endif
+
+function! VPKFoldText()
+  let line = getline(v:foldstart)
+  return line . " ... ]" 
+endfunction
+
+
 function! JumpVPoker(open)
 
   let action = substitute(getline('.'), '\n', '', '')
@@ -53,3 +75,5 @@ function! JumpVPoker(open)
   silent call feedkeys('gg0')
   silent call feedkeys('/@'.action."\<CR>")
 endfunction
+
+normal! zR

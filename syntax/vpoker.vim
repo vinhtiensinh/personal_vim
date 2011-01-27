@@ -7,17 +7,6 @@ if exists("b:current_syntax")
   finish
 endif
 
-setlocal foldmethod=marker
-setlocal foldmarker=[,]
-set foldtext=VPKFoldText()
-  set fillchars=fold:\ "(there's a space after that \)
-  highlight Folded ctermfg=White ctermbg=Black guibg=grey6
-
-function! VPKFoldText()
-  let line = getline(v:foldstart)
-  return line . " ... ]" 
-endfunction
-
 syntax clear
 syn region  lineComment start='#' end='\n'
 syn region  todoComment start='#TODO' end='\n'
