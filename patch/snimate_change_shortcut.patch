@@ -1,0 +1,19 @@
+[1mdiff --git a/after/plugin/snipMate.vim b/after/plugin/snipMate.vim[m
+[1mindex 03e79ae..aef11b0 100644[m
+[1m--- a/after/plugin/snipMate.vim[m
+[1m+++ b/after/plugin/snipMate.vim[m
+[36m@@ -5,10 +5,10 @@[m [mif !exists('loaded_snips') || exists('s:did_snips_mappings')[m
+ endif[m
+ let s:did_snips_mappings = 1[m
+ [m
+[31m-ino <silent> <tab> <c-r>=TriggerSnippet()<cr>[m
+[31m-snor <silent> <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>[m
+[31m-ino <silent> <s-tab> <c-r>=BackwardsSnippet()<cr>[m
+[31m-snor <silent> <s-tab> <esc>i<right><c-r>=BackwardsSnippet()<cr>[m
+[32m+[m[32mino <silent> <D-CR> <c-r>=TriggerSnippet()<cr>[m
+[32m+[m[32msnor <silent> <D-CR> <esc>i<right><c-r>=TriggerSnippet()<cr>[m
+[32m+[m[32mino <silent> <S-D-CR> <c-r>=BackwardsSnippet()<cr>[m
+[32m+[m[32msnor <silent> <S-D-CR> <esc>i<right><c-r>=BackwardsSnippet()<cr>[m
+ ino <silent> <c-r><tab> <c-r>=ShowAvailableSnips()<cr>[m
+ [m
+ " The default mappings for these are annoying & sometimes break snipMate.[m

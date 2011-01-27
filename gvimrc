@@ -92,8 +92,8 @@ map <LEADER><LEADER> :CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
-let g:CommandTAcceptSelectionSplitMap = '<S-CR>'
-let g:CommandTAcceptSelectionVSplitMap = '\|'
+let g:CommandTAcceptSelectionSplitMap = '<S-Space>'
+let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
 " Loclist open and close
 let g:syntastic_auto_loc_list = 1
