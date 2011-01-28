@@ -16,6 +16,10 @@ function! RSync(file)
 endfunction
 
 function! IsExcluded(file)
+  if (!exists('g:rsync_excludes')) 
+    return
+  endif
+
   for exclude in g:rsync_excludes
     if a:file =~ exclude
       return 1

@@ -12,12 +12,6 @@ map <buffer> g<Space> :call JumpVPoker(':e')<CR>
 map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
 map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
 
-
-if exists("g:did_vpoker_ftplugin_functions")
-  finish
-endif
-let g:did_vpoker_ftplugin_functions = 1
-
 if expand('%:p') =~ '\.yaml\.vpk'
   setlocal foldmethod=expr
   setlocal foldexpr=(getline(v:lnum)=~'^$')?-1:((indent(v:lnum)<indent(v:lnum+1))?('>'.indent(v:lnum+1)):indent(v:lnum))
@@ -32,6 +26,11 @@ else
   set fillchars=fold:\ "(there's a space after that \)
   highlight Folded ctermfg=White ctermbg=Black guibg=grey6
 endif
+
+if exists("g:did_vpoker_ftplugin_functions")
+  finish
+endif
+let g:did_vpoker_ftplugin_functions = 1
 
 function! VPKFoldText()
   let line = getline(v:foldstart)
