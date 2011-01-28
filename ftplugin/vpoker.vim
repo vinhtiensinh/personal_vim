@@ -18,7 +18,7 @@ if exists("g:did_vpoker_ftplugin_functions")
 endif
 let g:did_vpoker_ftplugin_functions = 1
 
-if bufname('.') =~ '\.yaml\.vpk'
+if expand('%:p') =~ '\.yaml\.vpk'
   setlocal foldmethod=expr
   setlocal foldexpr=(getline(v:lnum)=~'^$')?-1:((indent(v:lnum)<indent(v:lnum+1))?('>'.indent(v:lnum+1)):indent(v:lnum))
   set foldtext=getline(v:foldstart)
@@ -31,7 +31,6 @@ else
   set foldtext=VPKFoldText()
   set fillchars=fold:\ "(there's a space after that \)
   highlight Folded ctermfg=White ctermbg=Black guibg=grey6
-
 endif
 
 function! VPKFoldText()
