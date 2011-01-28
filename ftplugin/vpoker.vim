@@ -27,6 +27,8 @@ else
   highlight Folded ctermfg=White ctermbg=Black guibg=grey6
 endif
 
+normal! zR
+
 if exists("g:did_vpoker_ftplugin_functions")
   finish
 endif
@@ -74,4 +76,3 @@ function! JumpVPoker(open)
   silent call feedkeys('/@'.action."\<CR>")
 endfunction
 
-normal! zR

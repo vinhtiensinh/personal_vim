@@ -1,0 +1,13 @@
+diff --git a/gui_plugin/syntastic.vim b/gui_plugin/syntastic.vim
+index 7a49ca4..94eabe1 100644
+--- a/gui_plugin/syntastic.vim
++++ b/gui_plugin/syntastic.vim
+@@ -154,7 +154,7 @@ function! s:ShowLocList()
+     if exists("b:syntastic_loclist")
+         call setloclist(0, b:syntastic_loclist)
+         let num = winnr()
+-        execute "lopen " . len(b:syntastic_loclist)
++        execute "lopen " . len(b:syntastic_loclist)*2
+         if num != winnr()
+             wincmd p
+         endif

@@ -19,6 +19,7 @@ syn keyword betting nobet check bet raise reraise fold bettor call continue chec
 syn keyword handRank pair 1 2 pair possible draw two pairs trip set fullhouse quad straight flush cards card suited connected different
 syn keyword playerCond player remain behind
 syn keyword condition no not or
+syn keyword position early middle late blind
 
 hi def link headers             Type
 hi def link betRound            Constant
@@ -26,6 +27,7 @@ hi def link actionRound         Constant
 hi def link betting             Constant
 hi def link handRank            Constant
 hi def link playerCond          Constant
+hi def link position            Constant
 hi def link lineComment         Comment
 hi def link colComment          Comment
 hi def link todoComment         Comment
