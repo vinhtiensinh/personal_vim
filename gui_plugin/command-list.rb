@@ -95,11 +95,6 @@ CommandList::register_list(
   :map_item_with_list => true,
   :items => [
     {
-      :function    => 'gf',
-      :map         => 'gf',
-      :text        => '[f]ile',
-    },
-    {
       :function    => '^gf',
       :map         => 'gl',
       :text        => 'file on the current [l]ine',

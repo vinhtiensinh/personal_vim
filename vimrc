@@ -107,4 +107,7 @@ function! ToggleFolding()
   endif
 endfunction
 
+omap <silent> ic <Plug>CamelCaseMotion_iw
+xmap <silent> ic <Plug>CamelCaseMotion_iw
+
 silent! so ./.localvimrc
