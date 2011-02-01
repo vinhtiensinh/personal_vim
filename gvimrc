@@ -169,6 +169,3 @@ function! GTTabMove(direction)
   endif
 
 endfunction
-
-autocmd BufEnter * :IndentGuidesEnable
-
