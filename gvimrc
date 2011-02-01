@@ -88,7 +88,7 @@ let Tlist_Use_SingleClick = 1
 let Tlist_Show_One_File = 1
 let g:Tlist_GainFocus_On_ToggleOpen = 0
 
-map <LEADER><LEADER> :CommandT<CR>
+map <LEADER><LEADER> :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
 let g:CommandTSelectNextMap = "<Tab>"
 let g:CommandTSelectPrevMap = "<S-Tab>"
