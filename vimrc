@@ -10,6 +10,8 @@ set expandtab
 set cindent
 set smartindent
 set autoindent
+set title
+set nocompatible
 
 set splitright
 
@@ -25,7 +27,7 @@ set number
 set ignorecase
 set incsearch
 
-set wildchar=<Tab> wildmenu wildmode=full
+set wildchar=<Tab> wildmenu wildmode=list:longest
 set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.png,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp,_build
 
 map  <LEADER>v <C-v>
@@ -106,5 +108,8 @@ function! ToggleFolding()
     call feedkeys('za')
   endif
 endfunction
+
+omap <silent> ic <Plug>CamelCaseMotion_iw
+xmap <silent> ic <Plug>CamelCaseMotion_iw
 
 silent! so ./.localvimrc
