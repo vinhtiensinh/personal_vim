@@ -15,15 +15,18 @@ map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
 if expand('%:p') =~ '\.yaml\.vpk'
   setlocal foldmethod=expr
   setlocal foldexpr=(getline(v:lnum)=~'^$')?-1:((indent(v:lnum)<indent(v:lnum+1))?('>'.indent(v:lnum+1)):indent(v:lnum))
-  set foldtext=getline(v:foldstart)
-  set fillchars=fold:\ "(there's a space after that \)
+  setlocal foldtext=getline(v:foldstart)
+  setlocal fillchars=fold:\ "(there's a space after that \)
   highlight Folded ctermfg=DarkGreen ctermbg=Black
 
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
+  setlocal tabstop=4
 else
   setlocal foldmethod=marker
   setlocal foldmarker=[,]
-  set foldtext=VPKFoldText()
-  set fillchars=fold:\ "(there's a space after that \)
+  setlocal foldtext=VPKFoldText()
+  setlocal fillchars=fold:\ "(there's a space after that \)
   highlight Folded ctermfg=White ctermbg=Black guibg=grey6
 endif
 
