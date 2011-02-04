@@ -75,4 +75,6 @@ syn match FilePath ' [.]*\w*/'
 hi FilePathHighlight guifg=grey40 ctermfg=Grey
 hi def link FilePath FilePathHighlight
 
+normal! gg
+
 let b:current_syntax = "minibufexplorer"
