@@ -30,6 +30,9 @@ set go+=b
 set guifont=Consolas:h16
 
 map <S-Space> <ESC>:w<CR>
+vmap <S-Space> <ESC>:w<CR>
+cmap <S-Space> <ESC>:w<CR>
+omap <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
 map <D-w> :tabclose<CR>
