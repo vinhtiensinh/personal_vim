@@ -132,6 +132,7 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
+:highlight CursorLine guibg=grey10
 
 "nerd tree size
 "let NERDTreeWinSize = 60
