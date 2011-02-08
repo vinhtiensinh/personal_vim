@@ -71,7 +71,7 @@ syn match DeleteX     '^x'
 hi DeleteXHighlight guifg=Black guibg=gray25 ctermfg=Black ctermbg=Grey
 hi def link DeleteX DeleteXHighlight
 
-syn match FilePath ' [.]*\w*/'
+syn match FilePath ' [.]*.*/'
 hi FilePathHighlight guifg=grey40 ctermfg=Grey
 hi def link FilePath FilePathHighlight
 
