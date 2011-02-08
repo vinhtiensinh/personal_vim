@@ -28,7 +28,7 @@ set ignorecase
 set incsearch
 
 set wildchar=<Tab> wildmenu wildmode=list:longest
-set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.png,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp,_build
+set wildignore=.o,.obj,.git,*.swp,*.*~,*.gif,*.png,*.ico,*.jpg,vendor,*.class,*.gem,*.gz,dependencies,tmp,_build,cover_db
 
 map  <LEADER>v <C-v>
 
