@@ -7,7 +7,7 @@ if (exists("b:did_ftplugin"))
 endif
 let b:did_ftplugin = 1
 hi Error guifg=Red gui=italic guibg=Black ctermfg=Red ctermbg=Black
-silent! sign define fixme linehl=Error
+silent! sign define fixme text=>> texthl=Error
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:# commentstring=#\ %s

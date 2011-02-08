@@ -12,6 +12,7 @@ set smartindent
 set autoindent
 set title
 set nocompatible
+set cursorline
 
 set splitright
 
