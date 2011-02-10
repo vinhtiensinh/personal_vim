@@ -100,11 +100,6 @@ CommandList::register_list(
       :text        => 'file on the current [l]ine',
     },
     {
-      :function    => 'OpenFilesFromClipboard()',
-      :map         => 'gc',
-      :text        => 'open file path in [c]lipboard',
-    },
-    {
       :function    => 'OpenGizmoPage("e")',
       :map         => 'gz',
       :text        => 'gi[z]mo page',

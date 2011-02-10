@@ -113,4 +113,6 @@ endfunction
 omap <silent> ic <Plug>CamelCaseMotion_iw
 xmap <silent> ic <Plug>CamelCaseMotion_iw
 
+map gw :Utl<CR>
+
 silent! so ./.localvimrc
