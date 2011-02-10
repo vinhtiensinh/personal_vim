@@ -36,7 +36,7 @@ map  <LEADER>v <C-v>
 map g<Space> g<C-]>
 map g<Tab> g<S-Space><C-w>T
 map g<S-Space> :split<CR>g<C-]>
-map g\| :vsplit<CR>g<C-]>
+map g<S-CR> :vsplit<CR>g<C-]>
 
 " Status line
 "------------------------------------------------------------------------

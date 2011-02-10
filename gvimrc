@@ -134,8 +134,9 @@ map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
 
 :highlight CursorLine guibg=grey10
 
-"nerd tree size
-"let NERDTreeWinSize = 60
+"nerd tree
+let g:NERDTreeMapOpenSplit = '<S-Space>'
+let g:NERDTreeMapOpenVSplit = '<S-CR>'
 
 function! ToggleTagList()
   let current_win = winnr()
