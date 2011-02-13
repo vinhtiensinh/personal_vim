@@ -36,7 +36,7 @@ cmap <S-Space> <ESC>:w<CR>
 omap <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
-map <D-w> :tabclose<CR>
+map <D-w> :call CommandD()<CR>
 map <LEADER>d :bd<CR>
 
 imap <D-A> <ESC>A
@@ -174,4 +174,12 @@ function! GTTabMove(direction)
     normal! gT
   endif
 
+endfunction
+
+function! CommandD()
+  if tabpagenr('$') == 1
+    call feedkeys(":bd\<CR>")
+  else
+    call feedkeys(":tabclose\<CR>")
+  endif
 endfunction
