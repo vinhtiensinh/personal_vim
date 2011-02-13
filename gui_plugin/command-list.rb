@@ -215,7 +215,7 @@ CommandList::register_list(
 
 CommandList::register_list(
   :name  => 'Switch Project',
-  :map   =>'<LEADER>f',
+  :map   =>'<LEADER>;',
   :map_item_with_list => true,
   :items => [
     {
@@ -232,6 +232,11 @@ CommandList::register_list(
       :function    => ":call SwitchToProjectCmd('reaxml')",
       :map         => 'r',
       :text        => '[r]eaxml',
+    },
+    {
+      :function    => ":call SwitchToProjectCmd('readb')",
+      :map         => 'b',
+      :text        => 'read[b]',
     },
     {
       :function    => ":call SwitchToProjectCmd('product-e2e')",
