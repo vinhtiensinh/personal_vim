@@ -1,4 +1,3 @@
-set relativenumber
 set mouse=a
 set selectmode=mouse
 autocmd VimEnter * call SwitchToProject()

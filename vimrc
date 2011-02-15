@@ -13,6 +13,7 @@ set autoindent
 set title
 set nocompatible
 set cursorline
+set relativenumber
 
 set splitright
 
@@ -24,7 +25,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-set number
 set ignorecase
 set incsearch
 
