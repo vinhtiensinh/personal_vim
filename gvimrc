@@ -36,10 +36,10 @@ omap <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
 map <D-w> :call CommandD()<CR>
-map <LEADER>d :bd<CR>
+map <Space>d :bd<CR>
 
-imap <D-A> <ESC>A
-imap <D-I> <ESC>I
+imap <D-L> <ESC>A
+imap <D-H> <ESC>I
 imap <D-h> <Left>
 imap <D-j> <Down>
 imap <D-k> <Up>

@@ -244,6 +244,11 @@ CommandList::register_list(
       :text        => '[p]roduct-e2e',
     },
     {
+      :function    => ":call SwitchToProjectCmd('ec')",
+      :map         => 'e',
+      :text        => '[e]c'
+    },
+    {
       :function    => ":call SwitchToProjectCmd('customer-platform')",
       :map         => 'c',
       :text        => '[c]ustomer-platform',

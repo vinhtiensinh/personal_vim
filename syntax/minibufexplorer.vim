@@ -1,3 +1,4 @@
+setlocal number
 syn match BufNumber             ':[0-9]*'
 syn match MBENormal             '[^\]]*\*+\='
 syn match MBEChanged            '[^\]]*+\*+\='

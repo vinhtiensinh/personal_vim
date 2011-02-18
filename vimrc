@@ -114,13 +114,13 @@ map <LEADER>K <C-w>k:q<CR>:wincmd p<CR>
 map <LEADER>L <C-w>l:q<CR>:wincmd p<CR>
 
 "folding the block
-nnoremap <silent> zz :call ToggleFolding()<CR>
+nnoremap <silent> za :call ToggleFolding()<CR>
 
 function! ToggleFolding()
   if foldclosed('.') == -1 && &foldmethod == 'manual'
     call feedkeys('zf%')
   else
-    call feedkeys('za')
+    normal! za
   endif
 endfunction
 
