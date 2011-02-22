@@ -7,10 +7,16 @@ let b:did_ftplugin=1
 setlocal comments=:#
 setlocal commentstring=#\ %s
 
-imap <buffer> hh \|
-map <buffer> g<Space> :call JumpVPoker(':e')<CR>
-map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
-map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
+if expand('%:p') =~ '\.yaml\.vpk'
+  map <buffer> g<Space> :call JumpVPokerYaml(':e')<CR>
+  map <buffer> g<S-Space> :call JumpVPokerYaml(':split')<CR>
+  map <buffer> g<S-Space><S-Space> :call JumpVPokerYaml(':vsplit')<CR>
+else
+  imap <buffer> hh \|
+  map <buffer> g<Space> :call JumpVPoker(':e')<CR>
+  map <buffer> g<S-Space> :call JumpVPoker(':split')<CR>
+  map <buffer> g<S-Space><S-Space> :call JumpVPoker(':vsplit')<CR>
+endif
 
 if expand('%:p') =~ '\.yaml\.vpk'
   setlocal foldmethod=expr
@@ -79,3 +85,27 @@ function! JumpVPoker(open)
   silent call feedkeys('/@'.action."\<CR>")
 endfunction
 
+function JumpVPokerYaml(open)
+  let action = substitute(getline('.'), '\n', '', '')
+  if action =~ '\['
+    normal "0yi[
+    let action = getreg(0)
+  endif
+  let action = substitute(action, '#.*', '', '')
+  let action = substitute(action, '^\s*-', '', '')
+  let action = substitute(action, '^.*:', '', '')
+  let action = substitute(action, ',\s*$', '', '')
+  let action = substitute(action, '^\s*', '', '')
+  let action = substitute(action, '\s\s*', ' ', 'g')
+
+  if action =~ '\~'
+    let action = substitute(action, '\~', '', '')
+    silent call feedkeys('G')
+    silent call feedkeys('?'.action . ':'."\<CR>")
+    return
+  elseif action =~ '\*'
+    let action = substitute(action, '\*', '\&', '')
+    silent call feedkeys('gg')
+    silent call feedkeys('/'.action."\<CR>")
+  endif
+endfunction
