@@ -126,6 +126,9 @@ while inumber < 100
   execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
   execute "map  " . inumber . "<S-CR> " . ":vsplit<CR>".inumber."<Space>"
   execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"
+
+  execute "map  " . inumber . "<Space>w " . ":call CloseProjectWithNumber(".inumber.")<CR>"
+
   let inumber = inumber + 1
 endwhile
 map 0<LEADER> :BufExplorer<CR><Down><CR>
@@ -134,6 +137,14 @@ map 0<LEADER> :BufExplorer<CR><Down><CR>
 " bufexplorer window to open
 " this autocmd is a hacky fix to make sure we remove all duplicate
 autocmd BufEnter * call RemoveMiniBufDuplicateWindow()
+
+
+function! CloseProjectWithNumber(linenumber)
+  let projectline = getbufline(bufnr('-MiniBufExplorer-'), a:linenumber)[0]
+  let project = substitute(projectline, '[\[\]]', '', 'g')
+
+  call CloseProject(project)
+endfunction
 
 function! RemoveMiniBufDuplicateWindow()
   let l:NBuffers = bufnr('$')     " Get the number of the last buffer.

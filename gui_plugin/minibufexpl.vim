@@ -1567,10 +1567,21 @@ augroup MiniBufExplorer
     function! s:MBEClick()
         call <SID>DEBUG('Entering MBEClick()',10)
         let column = getpos('.')[2]
+        let line = getline('.')
         if column == 1
-            call feedkeys('dl')
+            if line =~ '['
+                let line = substitute(line, '[\[\]]', '', 'g')
+                call CloseProject(line)
+            else
+                call feedkeys('dl')
+            endif
         else
-            call <SID>MBESelectBuffer()
+            if line =~ '['
+                let line = substitute(line, '[\[\]]', '', 'g')
+                call SwitchToProjectCmd(line)
+            else
+                call <SID>MBESelectBuffer()
+            endif
         endif
     endfunction
 
@@ -1580,10 +1591,21 @@ augroup MiniBufExplorer
     function! s:MBEDoubleClick()
         call <SID>DEBUG('Entering MBEDoubleClick()',10)
         let column = getpos('.')[2]
+        let line = getline('.')
         if column == 1
-            call feedkeys('dl')
+            if line =~ '['
+                let line = substitute(line, '[\[\]]', '', 'g')
+                call CloseProject(line)
+            else
+                call feedkeys('dl')
+            endif
         else
-            call <SID>MBESelectBuffer()
+            if line =~ '['
+                let line = substitute(line, '[\[\]]', '', 'g')
+                call SwitchToProjectCmd(line)
+            else
+                call <SID>MBESelectBuffer()
+            endif
         endif
     endfunction
 

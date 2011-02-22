@@ -108,10 +108,10 @@ imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 
 "close surrounding windows
-map <LEADER>H <C-w>h:q<CR>:wincmd p<CR>
-map <LEADER>J <C-w>j:q<CR>:wincmd p<CR>
-map <LEADER>K <C-w>k:q<CR>:wincmd p<CR>
-map <LEADER>L <C-w>l:q<CR>:wincmd p<CR>
+map <LEADER>H <C-w>h:q<CR>
+map <LEADER>J <C-w>j:q<CR>
+map <LEADER>K <C-w>k:q<CR>
+map <LEADER>L <C-w>l:q<CR>
 
 "folding the block
 nnoremap <silent> za :call ToggleFolding()<CR>

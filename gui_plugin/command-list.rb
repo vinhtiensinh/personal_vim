@@ -278,6 +278,51 @@ CommandList::register_list(
       :map         => 'w',
       :text        => '[w] close current project',
     },
+    {
+      :function    => ":call CloseProject('librea')",
+      :map         => 'xl',
+      :text        => '[x]close [l]ibrea',
+    },
+    {
+      :function    => ":call CloseProject('agentdesktop')",
+      :map         => 'xa',
+      :text        => '[x]close agentdesktop',
+    },
+    {
+      :function    => ":call CloseProject('reaxml')",
+      :map         => 'xr',
+      :text        => '[x]close [r]eaxml',
+    },
+    {
+      :function    => ":call CloseProject('readb')",
+      :map         => 'xb',
+      :text        => '[x]close read[b]',
+    },
+    {
+      :function    => ":call CloseProject('product-e2e')",
+      :map         => 'xp',
+      :text        => '[x]close [p]roduct-e2e',
+    },
+    {
+      :function    => ":call CloseProject('ec')",
+      :map         => 'xe',
+      :text        => '[x]close [e]c'
+    },
+    {
+      :function    => ":call CloseProject('customer-platform')",
+      :map         => 'xc',
+      :text        => '[x]close [c]ustomer-platform',
+    },
+    {
+      :function    => ":call CloseProject('db-migrations')",
+      :map         => 'xd',
+      :text        => '[x]close [d]b-migrations',
+    },
+    {
+      :function    => ":call CloseProject('vim')",
+      :map         => '<Space>v',
+      :text        => '[x]close [v]im',
+    },
   ]
 )
 CommandList::register_list(
