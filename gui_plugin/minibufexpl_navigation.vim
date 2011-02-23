@@ -127,7 +127,7 @@ while inumber < 100
   execute "map  " . inumber . "<S-CR> " . ":vsplit<CR>".inumber."<Space>"
   execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"
 
-  execute "map  " . inumber . "<Space>w " . ":call CloseProjectWithNumber(".inumber.")<CR>"
+  execute "map  " . inumber . "W " . ":call CloseProjectWithNumber(".inumber.")<CR>"
 
   let inumber = inumber + 1
 endwhile

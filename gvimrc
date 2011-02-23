@@ -182,3 +182,4 @@ function! CommandD()
     call feedkeys(":tabclose\<CR>")
   endif
 endfunction
+rubyf /Users/vinh_tran/personal_vim/ruby/backend/server.rb
