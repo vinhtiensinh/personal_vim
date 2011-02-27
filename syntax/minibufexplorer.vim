@@ -23,6 +23,8 @@ hi def link MBEVisibleChanged SelectedChangedBuffer
 hi def link CurrentDir        CurrentDirHightLight
 
 let file_types = [
+      \ ['CHeader',      '[^\]]*\.h+\=',       '[^\]]*\.h\*+\=',       'IndianRed', 'Red'     ],
+      \ ['ObjectC',      '[^\]]*\.m+\=',       '[^\]]*\.m\*+\=',       'LightBlue', '148'     ],
       \ ['PerlTest',     '[^\]]*\.t+\=',       '[^\]]*\.t\*+\=',       'sienna',    'Yellow'  ],
       \ ['HtmlTemplate', '[^\]]*\.tmpl+\=',    '[^\]]*\.tmpl\*+\=',    'LightBlue', '148'     ],
       \ ['TemplateToolkit', '[^\]]*\.tt2+\=',    '[^\]]*\.tt2\*+\=',    'LightBlue', '148'    ],

@@ -224,6 +224,11 @@ CommandList::register_list(
       :text        => '[l]ibrea',
     },
     {
+      :function    => ":call SwitchToProjectCmd('jetwire')",
+      :map         => 'j',
+      :text        => '[j]etwire',
+    },
+    {
       :function    => ":call SwitchToProjectCmd('agentdesktop')",
       :map         => 'a',
       :text        => '[a]gentdesktop',
