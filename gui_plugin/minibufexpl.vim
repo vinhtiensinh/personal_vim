@@ -1579,6 +1579,7 @@ augroup MiniBufExplorer
             if line =~ '['
                 let line = substitute(line, '[\[\]]', '', 'g')
                 call SwitchToProjectCmd(line)
+                exec 'syntax enable'
             else
                 call <SID>MBESelectBuffer()
             endif
@@ -1603,6 +1604,7 @@ augroup MiniBufExplorer
             if line =~ '['
                 let line = substitute(line, '[\[\]]', '', 'g')
                 call SwitchToProjectCmd(line)
+                exec 'syntax enable'
             else
                 call <SID>MBESelectBuffer()
             endif
