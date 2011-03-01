@@ -13,7 +13,6 @@ set autoindent
 set title
 set nocompatible
 set cursorline
-set relativenumber
 
 set splitright
 
