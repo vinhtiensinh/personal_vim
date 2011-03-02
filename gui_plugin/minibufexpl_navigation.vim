@@ -5,7 +5,7 @@ function! GotoBuffer(index)
 
   if getline(a:index) =~ '\[.*\]'
     let project_name = getline(a:index)
-    let project_name = substitute(project_name, '^\s*\[', '', '')
+    let project_name = substitute(project_name, '^\s*x\[', '', '')
     let project_name = substitute(project_name, '\].*', '', '')
 
     call SwitchToProjectCmd(project_name)

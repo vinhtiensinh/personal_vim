@@ -1126,7 +1126,7 @@ augroup MiniBufExplorer
                     if l:fileNames != ''
                         let l:fileNames = l:fileNames."\n"
                     endif
-                    let l:fileNames = l:fileNames."[".ifile[0]."]"
+                    let l:fileNames = l:fileNames."x[".ifile[0]."]"
                 endif
                 let l:fileNames = l:fileNames."\nx ".ifile[1].':'.ifile[3]
                 let current_project = ifile[0]
@@ -1570,14 +1570,18 @@ augroup MiniBufExplorer
         let line = getline('.')
         if column == 1
             if line =~ '['
-                let line = substitute(line, '[\[\]]', '', 'g')
+                let line = substitute(line, '^\s*x\[', '', '')
+                let line = substitute(line, '\].*', '', '')
                 call CloseProject(line)
+                call <SID>StopExplorer(1)
+                call <SID>StartExplorer(1, -1)
             else
                 call feedkeys('dl')
             endif
         else
             if line =~ '['
-                let line = substitute(line, '[\[\]]', '', 'g')
+                let line = substitute(line, '^\s*x\[', '', '')
+                let line = substitute(line, '\].*', '', '')
                 call SwitchToProjectCmd(line)
                 exec 'syntax enable'
             else
