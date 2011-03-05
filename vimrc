@@ -13,7 +13,7 @@ set autoindent
 set title
 set nocompatible
 set cursorline
-set number
+set relativenumber
 
 set splitright
 
@@ -62,21 +62,6 @@ set smartcase
 set visualbell    "don't beep
 set noerrorbells  "dont beep
 "-----------------------------------------------------------------------
-map <LEADER>'w viws'
-map <LEADER>') vi)s'
-map <LEADER>'} vi}s'
-map <LEADER>'] vi]s'
-map <LEADER>'( vi(s'
-map <LEADER>'a vias'
-map <LEADER>'' cs"'
-
-map <LEADER>"w viws"
-map <LEADER>") vi)s"
-map <LEADER>"( vi(s"
-map <LEADER>"} vi}s"
-map <LEADER>"] vi]s"
-map <LEADER>"a vias"
-map <LEADER>"" cs'"
 
 map <LEADER>3 ,c<SPACE>
 

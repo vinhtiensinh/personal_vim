@@ -1375,6 +1375,9 @@ augroup MiniBufExplorer
                 exec "bd ".l:i
             endif
         endwhile
+
+        call <SID>StopExplorer(1)
+        call <SID>StartExplorer(1, -1)
     endfunction
 
     " }}}

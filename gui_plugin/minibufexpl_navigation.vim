@@ -241,5 +241,5 @@ function! CloseNERDTreeAndBufExplorer()
 endfunction
 
 "show file drawer
-map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:wincmd p<CR>
 map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
