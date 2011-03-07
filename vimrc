@@ -113,5 +113,8 @@ omap <silent> ic <Plug>CamelCaseMotion_iw
 xmap <silent> ic <Plug>CamelCaseMotion_iw
 
 map gw :Utl<CR>
+autocmd FileType ruby setlocal iskeyword+=?
+autocmd FileType ruby setlocal iskeyword+=!
 
 silent! so ./.localvimrc
+

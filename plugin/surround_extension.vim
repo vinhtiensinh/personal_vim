@@ -36,7 +36,7 @@ function! ChangeSurround(original, new)
   call feedkeys("cs".a:original.a:new)
 endfunction
 
-map dss :call DeleleteInnerMostSurround()<CR>
+"map dss :call DeleleteInnerMostSurround()<CR>
 
 for bchar in g:bchars
   if bchar == "'"
@@ -61,4 +61,3 @@ map <LEADER>"} vi}s"
 map <LEADER>"] vi]s"
 map <LEADER>"a vias"
 map <LEADER>"" cs'"
-
