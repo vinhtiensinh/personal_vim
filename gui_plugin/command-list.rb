@@ -412,3 +412,16 @@ CommandList::register_list(
     },
   ]
 )
+
+CommandList::register_list(
+  :name  => 'Delete ...',
+  :map   =>'<LEADER>d',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => "DeleleteInnerMostSurround()",
+      :map         => 's',
+      :text        => 'inner most [s]urround',
+    },
+  ]
+)

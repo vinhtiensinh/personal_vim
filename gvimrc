@@ -36,7 +36,7 @@ omap <S-Space> <ESC>:w<CR>
 imap <silent> <S-Space> <ESC>:w<CR>
 
 map <D-w> :call CommandW()<CR>
-map <Space>d :bd<CR>
+map <Space>x :bd<CR>
 
 imap <D-L> <ESC>A
 imap <D-H> <ESC>I
