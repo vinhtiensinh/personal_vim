@@ -1602,14 +1602,18 @@ augroup MiniBufExplorer
         let line = getline('.')
         if column == 1
             if line =~ '['
-                let line = substitute(line, '[\[\]]', '', 'g')
+                let line = substitute(line, '^\s*x\[', '', '')
+                let line = substitute(line, '\].*', '', '')
                 call CloseProject(line)
+                call <SID>StopExplorer(1)
+                call <SID>StartExplorer(1, -1)
             else
                 call feedkeys('dl')
             endif
         else
             if line =~ '['
-                let line = substitute(line, '[\[\]]', '', 'g')
+                let line = substitute(line, '^\s*x\[', '', '')
+                let line = substitute(line, '\].*', '', '')
                 call SwitchToProjectCmd(line)
                 exec 'syntax enable'
             else

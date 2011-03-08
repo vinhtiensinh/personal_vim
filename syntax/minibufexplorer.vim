@@ -36,7 +36,6 @@ let file_types = [
       \ ['Rake',         '[^\]]*\.rake+\=',    '[^\]]*\.rake\*+\=',      'IndianRed', 'Red'   ],
       \ ['Gemfile',      '[^\]]*Gemfile+\=',   '[^\]]*Gemfile\*+\=',   'IndianRed', 'Red'     ],
       \ ['Rakefile',     '[^\]]*Rakefile+\=',  '[^\]]*Rakefile\*+\=',  'IndianRed', 'Red'     ],
-      \ ['Spec',         '[^\]]*_spec\.rb+\=', '[^\]]*_spec\.rb\*+\=', 'Green',     'Green'   ],
       \ ['Perl',         '[^\]]*\.pm+\=',      '[^\]]*\.pm\*+\=',      'SandyBrown','Yellow'  ],
       \ ['PerlScript',   '[^\]]*\.pl+\=',     '[^\]]*\.pl\*+\=',      'SandyBrown','Yellow'   ],
       \ ['Html',         '[^\]]*\.html+\=',    '[^\]]*\.html\*+\=',    'LightBlue', '148'     ],
@@ -49,6 +48,7 @@ let file_types = [
       \ ['Yaml',         '[^\]]*\.yml+\=',     '[^\]]*\.yml\*+\=',     'LightSteelBlue', '110'],
       \ ['SQL',          '[^\]]*\.sql+\=',     '[^\]]*\.sql\*+\=',     'lavender',  '189'     ],
       \ ['XML',          '[^\]]*\.xml+\=',     '[^\]]*\.xml\*+\=',     'LightSkyBlue',  '81'  ],
+      \ ['Spec',         '[^\]]*_spec\.rb+\=', '[^\]]*_spec\.rb\*+\=', 'Green',     'Green'   ],
 \ ]
 for file_type in file_types
   let name              = file_type[0]
