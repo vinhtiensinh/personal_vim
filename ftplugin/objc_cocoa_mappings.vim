@@ -33,7 +33,7 @@ nn <buffer> <silent> <leader>A :cal<SID>AlternateFile()<cr>
 " Mimic some of Xcode's mappings.
 nn <buffer> <silent> <d-r> :w<bar>cal<SID>BuildAnd('launch')<cr>
 nn <buffer> <silent> <d-b> :w<bar>cal<SID>XcodeRun('build')<cr>
-nn <buffer> <silent> <d-K> :w<bar>cal<SID>XcodeRun('clean')<cr>
+"nn <buffer> <silent> <d-K> :w<bar>cal<SID>XcodeRun('clean')<cr>
 " TODO: Add this
 " nn <buffer> <silent> <d-y> :w<bar>cal<SID>BuildAnd('debug')<cr>
 nn <buffer> <silent> <d-m-up> :cal<SID>AlternateFile()<cr>
