@@ -38,6 +38,8 @@ map g<Tab> g<S-Space><C-w>T
 map g<S-Space> :split<CR>g<C-]>
 map g<S-CR> :vsplit<CR>g<C-]>
 
+map ga :Alternate<CR>
+
 " Status line
 "------------------------------------------------------------------------
 " Color the status line
