@@ -1479,7 +1479,7 @@ function! s:Tlist_Window_Init()
     " If the 'number' option is set in the source window, it will affect the
     " taglist window. So forcefully disable 'number' option for the taglist
     " window
-    silent! setlocal nonumber
+    silent! setlocal number
 
     " Use fixed height when horizontally split window is used
     if g:Tlist_Use_Horiz_Window

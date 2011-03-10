@@ -325,7 +325,7 @@ CommandList::register_list(
     },
     {
       :function    => ":call CloseProject('vim')",
-      :map         => '<Space>v',
+      :map         => 'xv',
       :text        => '[x]close [v]im',
     },
   ]
