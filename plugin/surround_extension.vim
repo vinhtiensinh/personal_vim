@@ -11,7 +11,6 @@ function! FindInnerMostSurroundingChar()
 
   let i = current_post
   while i > 0
-
     for bchar in g:bchars
       if line[i - 1] == bchar
         return bchar
@@ -38,24 +37,24 @@ endfunction
 
 for bchar in g:bchars
   if bchar == "'"
-    execute 'map css'.bchar.' :call ChangeSurroundInnerMostWithChar("'.bchar.'")<CR>'
+    execute 'nmap css'.bchar.' :call ChangeSurroundInnerMostWithChar("'.bchar.'")<CR>'
   else
-    execute "map css".bchar." :call ChangeSurroundInnerMostWithChar('".bchar."')<CR>"
+    execute "nmap css".bchar." :call ChangeSurroundInnerMostWithChar('".bchar."')<CR>"
   endif
 endfor
 
-map <LEADER>'w viws'
-map <LEADER>') vi)s'
-map <LEADER>'} vi}s'
-map <LEADER>'] vi]s'
-map <LEADER>'( vi(s'
-map <LEADER>'a vias'
-map <LEADER>'' cs"'
+nmap <LEADER>'w viws'
+nmap <LEADER>') vi)s'
+nmap <LEADER>'} vi}s'
+nmap <LEADER>'] vi]s'
+nmap <LEADER>'( vi(s'
+nmap <LEADER>'a vias'
+nmap <LEADER>'' cs"'
 
-map <LEADER>"w viws"
-map <LEADER>") vi)s"
-map <LEADER>"( vi(s"
-map <LEADER>"} vi}s"
-map <LEADER>"] vi]s"
-map <LEADER>"a vias"
-map <LEADER>"" cs'"
+nmap <LEADER>"w viws"
+nmap <LEADER>") vi)s"
+nmap <LEADER>"( vi(s"
+nmap <LEADER>"} vi}s"
+nmap <LEADER>"] vi]s"
+nmap <LEADER>"a vias"
+nmap <LEADER>"" cs'"

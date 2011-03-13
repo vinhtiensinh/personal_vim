@@ -39,7 +39,12 @@ def format matrix, indent, char
       line[index] = padding(line[index], max_length(matrix, index))
     end
 
-    line = line.join(" #{char} ")
+    if char == ':'
+      line = line.join(" #{char}")
+    else
+      line = line.join(" #{char} ")
+    end
+
     line.sub!(/\s*$/, '')
     line.sub!(/^\s*/, '')
     formated_lines.push(indent + line)
