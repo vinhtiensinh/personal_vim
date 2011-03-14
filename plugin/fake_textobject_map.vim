@@ -1,12 +1,12 @@
-vmap il :call SelectLeft('i')<CR>
-vmap al :call SelectLeft('a')<CR>
-vmap ir :call SelectRight('i')<CR>
-vmap ar :call SelectRight('a')<CR>
+vmap iH :call SelectLeft('i')<CR>
+vmap aH :call SelectLeft('a')<CR>
+vmap iL :call SelectRight('i')<CR>
+vmap aL :call SelectRight('a')<CR>
 
-omap il :normal vil<CR>
-omap al :normal val<CR>
-omap ir :normal vir<CR>
-omap ar :normal var<CR>
+omap iL :normal viL<CR>
+omap aL :normal vaL<CR>
+omap iH :normal viH<CR>
+omap aH :normal vaH<CR>
 
 function! SelectLeft(inner_or_all)
   let iStart = FindEqualSign()
@@ -22,7 +22,7 @@ function! SelectRight(inner_or_all)
   if a:inner_or_all == 'i'
     let nextChar = getline('.')[iStart + 2]
 
-    if (nextChar == '>' || nextChar == '==')
+    if (nextChar == '>' || nextChar == '=')
       let iStart = iStart + 3
     else
       let iStart = iStart + 2
