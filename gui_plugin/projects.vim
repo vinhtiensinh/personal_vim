@@ -45,6 +45,10 @@ function! SwitchToPath()
 endfunction
 
 function! ProjectNameOf(name)
+  if strlen(a:name) == 0
+    return ProjectNameOf(getcwd())
+  endif
+
   for project in g:projects
     if a:name =~ project[1]
       return project[0]

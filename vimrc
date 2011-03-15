@@ -40,7 +40,8 @@ map g<S-CR> :vsplit<CR>g<C-]>
 
 map ga :Alternate<CR>
 
-" Status line
+nmap yl ^v$hy
+nmap dl ^v$hd
 "------------------------------------------------------------------------
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey

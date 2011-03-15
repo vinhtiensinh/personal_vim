@@ -34,8 +34,6 @@ function! SelectForward(selection, char)
   endif
 endfunction
 
-nmap yl ^v$hy
-
 vmap ihb <ESC>:call SelectPrevious('i', ')')<CR>
 omap ihb :normal vihb<CR>
 vmap ahb <ESC>:call SelectPrevious('a', ')')<CR>
