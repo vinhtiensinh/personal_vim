@@ -25,7 +25,7 @@ function! SelectRight(inner_or_all)
   let iStart = FindEqualSign()
 
   if a:inner_or_all == 'i'
-    let nextChar = getline('.')[iStart + 2]
+    let nextChar = getline('.')[iStart]
 
     if (nextChar == '>' || nextChar == '=')
       let iStart = iStart + 2
