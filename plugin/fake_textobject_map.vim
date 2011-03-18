@@ -12,7 +12,12 @@ function! SelectLeft(inner_or_all)
   let iStart = FindEqualSign()
   if a:inner_or_all == 'i'
     let iStart = iStart - 1
+
+    if getline('.')[iStart -1] == ' '
+      let iStart = iStart - 1
+    endif
   endif
+
   call feedkeys(iStart.'|v^')
 endfunction
 
@@ -23,9 +28,14 @@ function! SelectRight(inner_or_all)
     let nextChar = getline('.')[iStart + 2]
 
     if (nextChar == '>' || nextChar == '=')
-      let iStart = iStart + 3
-    else
       let iStart = iStart + 2
+    else
+      let iStart = iStart + 1
+    endif
+
+    "if there is a space, shift one more
+    if getline('.')[iStart - 1] == ' '
+      let iStart = iStart + 1
     endif
   endif
 
