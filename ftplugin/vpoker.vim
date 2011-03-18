@@ -100,8 +100,7 @@ function JumpVPokerYaml(open)
 
   if action =~ '\~'
     let action = substitute(action, '\~', '', '')
-    silent call feedkeys('G')
-    silent call feedkeys('?'.action . ':'."\<CR>")
+    silent call feedkeys('/'.action . ':'."\<CR>")
     return
   elseif action =~ '\*'
     let action = substitute(action, '\*', '\&', '')
