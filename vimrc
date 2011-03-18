@@ -119,5 +119,7 @@ map gw :Utl<CR>
 autocmd FileType ruby setlocal iskeyword+=?
 autocmd FileType ruby setlocal iskeyword+=!
 
+let g:LargeFile = 3;
+
 silent! so ./.localvimrc
 

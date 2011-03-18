@@ -10,6 +10,12 @@ CommandList::register_list(
       :visual_mode => true,
     },
     {
+      :function    => ":!~/.vim/scripts/aligner.rb '==' -",
+      :map         => '=',
+      :text        => '[=]=               ==',
+      :visual_mode => true,
+    },
+    {
       :function    => ":!~/.vim/scripts/aligner.rb '|' -",
       :map         => 'p',
       :text        => '[p]ipe                |',
