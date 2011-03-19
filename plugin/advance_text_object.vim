@@ -80,18 +80,64 @@ function! SmartTextObject(select, char)
   endif
 endfunction
 
-vmap ib <ESC>:call SmartTextObject('i', '(')<CR>
-vmap ab <ESC>:call SmartTextObject('a', '(')<CR>
-omap ib :normal vib<CR>
-omap ab :normal vab<CR>
-vmap iB <ESC>:call SmartTextObject('i', '{')<CR>
-vmap aB <ESC>:call SmartTextObject('a', '{')<CR>
-omap iB :normal viB<CR>
-omap aB :normal vaB<CR>
-vmap i' <ESC>:call SmartTextObject("i", "'")<CR>
-vmap a' <ESC>:call SmartTextObject("a", "'")<CR>
-omap i' :normal vi'<CR>
-omap a' :normal va'<CR>
+function! SurroundTextObject(select)
+  if CountCharOnLine('(') > 1
+    " do nothing
+  elseif SinglePair('(', ')')
+    call SmartTextObject(a:select, '(')
+  elseif CountCharOnLine('{') > 1
+    " do nothing
+  elseif SinglePair('{', '}')
+    call SmartTextObject(a:select, '{')
+  elseif CountCharOnLine('[') > 1
+    " do nothing
+  elseif SinglePair('[', ']')
+    call SmartTextObject(a:select, '[')
+  elseif CountCharOnLine('<') > 1
+    " do nothing
+  elseif SinglePair('<', '>')
+    call SmartTextObject(a:select, '<')
+  endif
+endfunction
+
+function! QuoteTextObject(select)
+  if NoSinglePairQuote_or_TooManyQuote("'")
+    " do nothing
+  elseif SinglePairQuote("'")
+    call SmartTextObject(a:select, "'")
+  elseif NoSinglePairQuote_or_TooManyQuote('"')
+    " do nothing
+  elseif SinglePairQuote('"')
+    call SmartTextObject(a:select, '"')
+  elseif NoSinglePairQuote_or_TooManyQuote('`')
+    " do nothing
+  elseif SinglePairQuote('`')
+    call SmartTextObject(a:select, '`')
+  endif
+endfunction
+
+function! NoSinglePairQuote_or_TooManyQuote(char)
+  return CountCharOnLine(a:char) > 2 || CountCharOnLine(a:char) == 1
+endfunction
+
+function! SinglePairQuote(char)
+  return CountCharOnLine(a:char) == 2
+endfunction
+
+function! SinglePair(begin, end)
+  return CountCharOnLine(a:begin) == 1 &&
+        \CountCharOnLine(a:end) == 1 &&
+        \FindFirstPositionOf(a:begin) < FindFirstPositionOf(a:end)
+endfunction
+
+vmap is <ESC>:call SurroundTextObject('i')<CR>
+vmap as <ESC>:call SurroundTextObject('a')<CR>
+omap is :normal vis<CR>
+omap as :normal vas<CR>
+vmap iq <ESC>:call QuoteTextObject('i')<CR>
+vmap aq <ESC>:call QuoteTextObject('a')<CR>
+omap iq :normal viq<CR>
+omap aq :normal vaq<CR>
 
 vmap ihb <ESC>:call SelectPrevious('i', ')')<CR>
 omap ihb :normal vihb<CR>
@@ -123,11 +169,6 @@ omap al' :normal val'<CR>
 let list = ['(', ')', '{', '}', ']', '[','"', '`', '<', '>', ',', ':', '-']
 
 for char in list
-  execute "vmap i".char. " <ESC>:call SmartTextObject('i', '".char."')<CR>"
-  execute "vmap a".char. " <ESC>:call SmartTextObject('a', '".char."')<CR>"
-  execute "omap i".char. " :normal vi".char."<CR>"
-  execute "omap a".char. " :normal va".char."<CR>"
-
   execute "vmap ih".char." <ESC>:call SelectPrevious('i', '".char."')<CR>"
   execute "omap ih".char." :normal vih".char."<CR>"
   execute "vmap ah".char." <ESC>:call SelectPrevious('a', '".char."')<CR>"
