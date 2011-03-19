@@ -1,7 +1,7 @@
 function! FindPrevious(char)
   let current = getpos('.')[2]
 
-  while current > 1
+  while current >= 1
     if getline('.')[current - 1] == a:char
       return current
     endif
@@ -12,7 +12,7 @@ endfunction
 function! FindForward(char)
   let current = getpos('.')[2]
 
-  while current < strlen(getline('.'))
+  while current <= strlen(getline('.'))
     if getline('.')[current - 1] == a:char
       return current
     endif
@@ -33,6 +33,65 @@ function! SelectForward(selection, char)
     call feedkeys(position.'|v'.a:selection.a:char)
   endif
 endfunction
+
+function! CountCharOnLine(char)
+  let i = 0
+  let icount = 0
+  while i < strlen(getline('.'))
+    if getline('.')[i] == a:char
+      let icount = icount + 1
+    endif
+
+    let i = i + 1
+  endwhile
+
+  return icount 
+endfunction
+
+function! FindFirstPositionOf(char)
+  let i = 0
+  while i < strlen(getline('.'))
+    if getline('.')[i] == a:char
+      return i + 1
+    endif
+
+    let i = i + 1
+  endwhile
+endfunction
+
+function! SmartTextObject(select, char)
+  let single_possibility = 2 
+
+  let pairs = ['{', '}', '(', ')', '[', ']', '<', '>']
+  for char in pairs
+    if char == a:char
+      let single_possibility = 1
+    endif
+  endfor
+  
+  if CountCharOnLine(a:char) > single_possibility 
+    execute ":normal! v" . a:select . a:char
+  elseif FindFirstPositionOf(a:char) < getpos('.')[2]
+    call feedkeys('v' . a:select . 'h' . a:char)
+  elseif FindFirstPositionOf(a:char) > getpos('.')[2]
+    call feedkeys('v'. a:select . 'l' . a:char)
+  else
+    execute ":normal! v" . a:select . a:char
+  endif
+endfunction
+
+vmap ib <ESC>:call SmartTextObject('i', '(')<CR>
+vmap ab <ESC>:call SmartTextObject('a', '(')<CR>
+omap ib :normal vib<CR>
+omap ab :normal vab<CR>
+vmap iB <ESC>:call SmartTextObject('i', '{')<CR>
+vmap aB <ESC>:call SmartTextObject('a', '{')<CR>
+omap iB :normal viB<CR>
+omap aB :normal vaB<CR>
+vmap i' <ESC>:call SmartTextObject("i", "'")<CR>
+vmap a' <ESC>:call SmartTextObject("a", "'")<CR>
+omap i' :normal vi'<CR>
+omap a' :normal va'<CR>
 
 vmap ihb <ESC>:call SelectPrevious('i', ')')<CR>
 omap ihb :normal vihb<CR>
@@ -64,6 +123,11 @@ omap al' :normal val'<CR>
 let list = ['(', ')', '{', '}', ']', '[','"', '`', '<', '>', ',', ':', '-']
 
 for char in list
+  execute "vmap i".char. " <ESC>:call SmartTextObject('i', '".char."')<CR>"
+  execute "vmap a".char. " <ESC>:call SmartTextObject('a', '".char."')<CR>"
+  execute "omap i".char. " :normal vi".char."<CR>"
+  execute "omap a".char. " :normal va".char."<CR>"
+
   execute "vmap ih".char." <ESC>:call SelectPrevious('i', '".char."')<CR>"
   execute "omap ih".char." :normal vih".char."<CR>"
   execute "vmap ah".char." <ESC>:call SelectPrevious('a', '".char."')<CR>"
