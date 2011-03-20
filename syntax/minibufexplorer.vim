@@ -48,6 +48,7 @@ let file_types = [
       \ ['Yaml',         '[^\]]*\.yml+\=',     '[^\]]*\.yml\*+\=',     'LightSteelBlue', '110'],
       \ ['SQL',          '[^\]]*\.sql+\=',     '[^\]]*\.sql\*+\=',     'lavender',  '189'     ],
       \ ['XML',          '[^\]]*\.xml+\=',     '[^\]]*\.xml\*+\=',     'LightSkyBlue',  '81'  ],
+      \ ['PLIST',        '[^\]]*\.plist+\=',   '[^\]]*\.plist\*+\=',   'LightSkyBlue',  '81'  ],
       \ ['XSD',          '[^\]]*\.xsd+\=',     '[^\]]*\.xsd\*+\=',     'LightSkyBlue',  '81'  ],
       \ ['Spec',         '[^\]]*_spec\.rb+\=', '[^\]]*_spec\.rb\*+\=', 'Green',     'Green'   ],
 \ ]
