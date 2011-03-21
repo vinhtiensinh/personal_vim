@@ -130,10 +130,10 @@ function! SinglePair(begin, end)
         \FindFirstPositionOf(a:begin) < FindFirstPositionOf(a:end)
 endfunction
 
-vmap is <ESC>:call SetCurrentSelection('vis')<CR>:call SurroundTextObject('i')<CR>
-vmap as <ESC>:call SetCurrentSelection('vas')<CR><ESC>:call SurroundTextObject('a')<CR>
-omap is :normal vis<CR>
-omap as :normal vas<CR>
+vmap io <ESC>:call SetCurrentSelection('vis')<CR>:call SurroundTextObject('i')<CR>
+vmap ao <ESC>:call SetCurrentSelection('vas')<CR><ESC>:call SurroundTextObject('a')<CR>
+omap io :normal vis<CR>
+omap ao :normal vas<CR>
 vmap iq <ESC>:call SetCurrentSelection('viq')<CR>:call QuoteTextObject('i')<CR>
 vmap aq <ESC>:call SetCurrentSelection('viq')<CR>:call QuoteTextObject('a')<CR>
 omap iq :normal viq<CR>

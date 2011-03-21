@@ -17,7 +17,7 @@ function! RepeatSelectionRemap(selection)
 endfunction
 
 let selectionModes = ['i', 'a']
-let selections     = ['w', 'W', '"', 'b', 'B', '(', ')', '{', '}', '<', '>', 'p', 's', 't', '`']
+let selections     = ['w', 'W', '"', 'b', 'B', '(', ')', '{', '}', '[', ']', '<', '>', 'p', 's', 't', '`']
 
 for selectionMode in selectionModes
   for selection in selections
