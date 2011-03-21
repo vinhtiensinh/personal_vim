@@ -130,52 +130,52 @@ function! SinglePair(begin, end)
         \FindFirstPositionOf(a:begin) < FindFirstPositionOf(a:end)
 endfunction
 
-vmap is <ESC>:call SurroundTextObject('i')<CR>
-vmap as <ESC>:call SurroundTextObject('a')<CR>
+vmap is <ESC>:call SetCurrentSelection('vis')<CR>:call SurroundTextObject('i')<CR>
+vmap as <ESC>:call SetCurrentSelection('vas')<CR><ESC>:call SurroundTextObject('a')<CR>
 omap is :normal vis<CR>
 omap as :normal vas<CR>
-vmap iq <ESC>:call QuoteTextObject('i')<CR>
-vmap aq <ESC>:call QuoteTextObject('a')<CR>
+vmap iq <ESC>:call SetCurrentSelection('viq')<CR>:call QuoteTextObject('i')<CR>
+vmap aq <ESC>:call SetCurrentSelection('viq')<CR>:call QuoteTextObject('a')<CR>
 omap iq :normal viq<CR>
 omap aq :normal vaq<CR>
 
-vmap ihb <ESC>:call SelectPrevious('i', ')')<CR>
+vmap ihb <ESC>:call SetCurrentSelection('vihb')<CR>:call SelectPrevious('i', ')')<CR>
+vmap ahb <ESC>:call SetCurrentSelection('vahb')<CR>:call SelectPrevious('a', ')')<CR>
 omap ihb :normal vihb<CR>
-vmap ahb <ESC>:call SelectPrevious('a', ')')<CR>
 omap ahb :normal vahb<CR>
-vmap ilb <ESC>:call SelectForward('i', '(')<CR>
+vmap ilb <ESC>:call SetCurrentSelection('vilb')<CR>:call SelectForward('i', '(')<CR>
+vmap alb <ESC>:call SetCurrentSelection('valb')<CR>:call SelectForward('a', '(')<CR>
 omap ilb :normal vilb<CR>
-vmap alb <ESC>:call SelectForward('a', '(')<CR>
 omap alb :normal valb<CR>
 
-vmap ihB <ESC>:call SelectPrevious('i', '}')<CR>
+vmap ihB <ESC>:call SetCurrentSelection('vihB')<CR>:call SelectPrevious('i', '}')<CR>
+vmap ahB <ESC>:call SetCurrentSelection('vihB')<CR>:call SelectPrevious('a', '}')<CR>
 omap ihB :normal vihB<CR>
-vmap ahB <ESC>:call SelectPrevious('a', '}')<CR>
 omap ahB :normal vahB<CR>
-vmap ilB <ESC>:call SelectForward('i', '{')<CR>
+vmap ilB <ESC>:call SetCurrentSelection('ilB')<CR>:call SelectForward('i', '{')<CR>
+vmap alB <ESC>:call SetCurrentSelection('alB')<CR>:call SelectForward('a', '{')<CR>
 omap ilB :normal vilB<CR>
-vmap alB <ESC>:call SelectForward('a', '{')<CR>
 omap alB :normal valB<CR>
 
-vmap ih' <ESC>:call SelectPrevious('i', "'")<CR>
+vmap ih' <ESC>:call SetCurrentSelection("vih'")<CR>:call SelectPrevious('i', "'")<CR>
+vmap ah' <ESC>:call SetCurrentSelection("vah'")<CR>:call SelectPrevious('a', "'")<CR>
 omap ih' :normal vih'<CR>
-vmap ah' <ESC>:call SelectPrevious('a', "'")<CR>
 omap ah' :normal vah'<CR>
-vmap il' <ESC>:call SelectForward('i', "'")<CR>
+vmap il' <ESC>:call SetCurrentSelection("vil'")<CR>:call SelectForward('i', "'")<CR>
+vmap al' <ESC>:call SetCurrentSelection("val'")<CR>:call SelectForward('a', "'")<CR>
 omap il' :normal vil'<CR>
-vmap al' <ESC>:call SelectForward('a', "'")<CR>
 omap al' :normal val'<CR>
 
 let list = ['(', ')', '{', '}', ']', '[','"', '`', '<', '>', ',', ':', '-']
 
 for char in list
-  execute "vmap ih".char." <ESC>:call SelectPrevious('i', '".char."')<CR>"
+  execute "vmap ih".char." <ESC>:call SetCurrentSelection('vih".char."')<CR>:call SelectPrevious('i', '".char."')<CR>"
+  execute "vmap ah".char." <ESC>:call SetCurrentSelection('vah".char."')<CR>:call SelectPrevious('a', '".char."')<CR>"
   execute "omap ih".char." :normal vih".char."<CR>"
-  execute "vmap ah".char." <ESC>:call SelectPrevious('a', '".char."')<CR>"
   execute "omap ah".char." :normal vah".char."<CR>"
 
-  execute "vmap il".char." <ESC>:call SelectForward('i', '".char."')<CR>"
+  execute "vmap il".char." <ESC>:call SetCurrentSelection('vil".char."')<CR>:call SelectForward('i', '".char."')<CR>"
+  execute "vmap al".char." <ESC>:call SetCurrentSelection('val".char."')<CR>:call SelectForward('a', '".char."')<CR>"
   execute "omap il".char." :normal vil".char."<CR>"
-  execute "vmap al".char." <ESC>:call SelectForward('a', '".char."')<CR>"
   execute "omap al".char." :normal val".char."<CR>"
 endfor

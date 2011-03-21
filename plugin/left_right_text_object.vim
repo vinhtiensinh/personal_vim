@@ -1,7 +1,7 @@
-vmap iH :call SelectLeft('i')<CR>
-vmap aH :call SelectLeft('a')<CR>
-vmap iL :call SelectRight('i')<CR>
-vmap aL :call SelectRight('a')<CR>
+vmap iH :call SetCurrentSelection('viH')<CR>:call SelectLeft('i')<CR>
+vmap aH :call SetCurrentSelection('vaH')<CR>:call SelectLeft('a')<CR>
+vmap iL :call SetCurrentSelection('viL')<CR>:call SelectRight('i')<CR>
+vmap aL :call SetCurrentSelection('viL')<CR>:call SelectRight('a')<CR>
 
 omap iL :normal viL<CR>
 omap aL :normal vaL<CR>
