@@ -151,6 +151,7 @@ endfunction
 "transparency stuff
 "not sure if use it when already have Divvy
 map <D-@> :call ToggleTransparency()<CR>
+imap <D-@> <ESC>:call ToggleTransparency()<CR>a
 let g:transparency = 0
 function! ToggleTransparency()
   if g:transparency == 0
