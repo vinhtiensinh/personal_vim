@@ -4,11 +4,12 @@ function! SetCurrentSelection(selection)
 endfunction
 
 function! RepeatSelection()
-  call feedkeys(g:current_selection)
+  execute "normal " . g:current_selection
 endfunction
  
 function! RepeatSelectionInsert()
-  call feedkeys(g:current_selection. "\<C-g>")
+  call RepeatSelection()
+  call feedkeys("\<C-g>")
 endfunction
 
 function! RepeatSelectionRemap(selection)
