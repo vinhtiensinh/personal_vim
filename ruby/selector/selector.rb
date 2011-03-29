@@ -1,20 +1,16 @@
 class Selector
   def self.map
     ',:.=/_'.split('').each do |seperator|
-      VIM::command("vmap a#{seperator} :call SetCurrentSelection('va"+seperator+"')<CR>:ruby Selector.select(:char => '#{seperator}')<CR>")
-      VIM::command("vmap i#{seperator} :call SetCurrentSelection('vi"+seperator+"')<CR>:ruby Selector.select(:char => '#{seperator}',:end_char => '#{seperator}', :inner => true)<CR>")
+      VIM::command("vmap a#{seperator} <ESC>:call SetCurrentSelection('va"+seperator+"')<CR>:ruby Selector.select(:char => '#{seperator}')<CR>")
+      VIM::command("vmap i#{seperator} <ESC>:call SetCurrentSelection('vi"+seperator+"')<CR>:ruby Selector.select(:char => '#{seperator}',:end_char => '#{seperator}', :inner => true)<CR>")
       VIM::command("omap a#{seperator} :normal va#{seperator}<CR>")
       VIM::command("omap i#{seperator} :normal vi#{seperator}<CR>")
     end
 
-    VIM::command("vmap a\\| :call SetCurrentSelection('va\\|')<CR>:ruby Selector.select(:char => '\\|')<CR>")
-    VIM::command("vmap i\\| :call SetCurrentSelection('vi\\|')<CR>:ruby Selector.select(:char => '\\|',:end_char => '\\|', :inner => true)<CR>")
+    VIM::command("vmap a\\| <ESC>:call SetCurrentSelection('va\\|')<CR>:ruby Selector.select(:char => '\\|')<CR>")
+    VIM::command("vmap i\\| <ESC>:call SetCurrentSelection('vi\\|')<CR>:ruby Selector.select(:char => '\\|',:end_char => '\\|', :inner => true)<CR>")
     VIM::command("omap a\\| :normal va\\|<CR>")
     VIM::command("omap i\\| :normal vi\\|<CR>")
-
-    VIM::command("xmap <Space>; :ruby Selector.select_forward<CR>")
-    VIM::command("xmap <Space>, :ruby Selector.select_backward<CR>")
-
   end
 
   def self.select attr
