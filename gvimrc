@@ -187,3 +187,17 @@ function! CommandW()
     call feedkeys(":tabclose\<CR>")
   endif
 endfunction
+
+"moving selection fancy pant
+vmap <D-u> dp`[V`]
+vmap <expr> <D-i> VisualMapUp()
+
+"not working yet, if the selection is done bottom moving up is messed when on
+"the last line function! visualmapup()
+function! VisualMapUp()
+  if getpos('.')[1] == getpos('$')[1]
+    return 'dP`[V`]'
+  else
+    return 'dkP`[V`]'
+  endif
+endfunction
