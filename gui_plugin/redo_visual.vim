@@ -4,6 +4,9 @@ function! SetCurrentSelection(selection)
 endfunction
 
 function! RepeatSelection()
+  if g:current_selection == ''
+    return
+  endif
   execute "normal " . g:current_selection
 endfunction
  
