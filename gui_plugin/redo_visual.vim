@@ -12,23 +12,26 @@ function! RepeatSelectionInsert()
   call feedkeys("\<C-g>")
 endfunction
 
-function! RepeatSelectionRemap(selection)
-  execute "vmap ".a:selection." <ESC>:call SetCurrentSelection('v".a:selection."')<CR>:normal! v".a:selection."<CR>"
-  execute "omap ".a:selection." :normal v".a:selection."<CR>"
+function! RepeatSelectionRemap(icommand, selection)
+  execute "map "a:icommand.a:selection." <ESC>:call SetCurrentSelection('v".a:selection."')<CR>:call feedkeys('"a:icommand.a:selection."', 'n')<CR>"
 endfunction
 
-"let selectionModes = ['i', 'a']
-"let selections     = ['w', 'W', '"', 'b', 'B', '(', ')', '{', '}', '[', ']', '<', '>', 'p', 's', 't', '`']
+let commands = ['c', 'y', 'd', 'v']
+let selectionModes = ['i', 'a']
+let selections     = ['w', 'W', '"', 'b', 'B', '(', ')', '{', '}', '[', ']', '<', '>', 'p', 's', 't', '`']
 
-"for selectionMode in selectionModes
-  "for selection in selections
-    "let selection = selectionMode.selection
-    "call RepeatSelectionRemap(selection)
-  "endfor
-"endfor
 
-"vmap i' <ESC>:call SetCurrentSelection("vi'")<CR>:normal! vi'<CR>
-"omap i' :normal vi'<CR>
+for icommand in commands
+  for selectionMode in selectionModes
+    for selection in selections
+      let selection = selectionMode.selection
+      call RepeatSelectionRemap(icommand, selection)
+    endfor
+  endfor
+endfor
+
+vmap i' <ESC>:call SetCurrentSelection("vi'")<CR>:normal! vi'<CR>
+omap i' :normal vi'<CR>
 
 map <D-'> <ESC>:call RepeatSelection()<CR>
 imap <D-'> <ESC>:call RepeatSelectionInsert()<CR>
