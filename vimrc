@@ -66,7 +66,7 @@ set visualbell    "don't beep
 set noerrorbells  "dont beep
 "-----------------------------------------------------------------------
 
-map <LEADER>3 ,c<SPACE>
+map <LEADER>3 \c<SPACE>
 
 "hightlight extra space
 highlight ExtraWhitespace ctermbg=DarkGrey guibg=DarkGrey

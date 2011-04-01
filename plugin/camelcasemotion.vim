@@ -1,5 +1,4 @@
-" camelcasemotion.vim: Motion through CamelCaseWords and underscore_notation. 
-"
+" camelcasemotion.vim: Motion through CamelCaseWords and underscore_notation.  "
 " DEPENDENCIES:
 "   - Requires Vim 7.0 or higher. 
 "
@@ -159,7 +158,7 @@ function! s:CreateMotionMappings()
 	    let l:targetMapping = '<Plug>CamelCaseMotion_' . l:motion
 	    execute l:mode . 'noremap ' . l:targetMapping . ' :<C-U>call camelcasemotion#Motion(''' . l:motion . ''',v:count1,''' . l:mode . ''')<CR>'
 	    if ! hasmapto(l:targetMapping, l:mode)
-		execute (l:mode ==# 'v' ? 'x' : l:mode) . 'map <silent> ,' . l:motion . ' ' . l:targetMapping 
+		execute (l:mode ==# 'v' ? 'x' : l:mode) . 'map <silent> \' . l:motion . ' ' . l:targetMapping 
 	    endif
 	endfor
     endfor

@@ -189,8 +189,8 @@ function! CommandW()
 endfunction
 
 "moving selection fancy pant
-vmap <D-u> dp`[V`]=gv
-vmap <expr> <D-i> VisualMapUp()
+vmap , dp`[V`]=gv
+vmap <expr> . VisualMapUp()
 
 "not working yet, if the selection is done bottom moving up is messed when on
 "the last line function! visualmapup()
