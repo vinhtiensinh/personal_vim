@@ -7,3 +7,4 @@ utl_3_0a.vba: call delete('/Users/vinh_tran/.vim/doc/utl_usr.txt')|call delete('
 LargeFile.vba: call delete('/Users/vinh_tran/.vim/plugin/LargeFile.vim')|call delete('/Users/vinh_tran/.vim/doc/LargeFile.txt')
 histwin-0.21.vba: call delete('/Users/vinh_tran/.vim/plugin/histwinPlugin.vim')|call delete('/Users/vinh_tran/.vim/autoload/histwin.vim')|call delete('/Users/vinh_tran/.vim/doc/histwin.txt')
 camelcasemotion.vba: call delete('/Users/vinhtiensinh/.vim/autoload/camelcasemotion.vim')|call delete('/Users/vinhtiensinh/.vim/plugin/camelcasemotion.vim')|call delete('/Users/vinhtiensinh/.vim/doc/camelcasemotion.txt')
+xpath.vba: call delete('/Users/vinh_tran/.vim/doc/xpath.txt')|call delete('/Users/vinh_tran/.vim/plugin/xpath.vim')|call delete('/Users/vinh_tran/.vim/syntax/xpathresults.vim')|call delete('/Users/vinh_tran/.vim/xpath/xpath.py')
