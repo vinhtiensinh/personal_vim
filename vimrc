@@ -121,5 +121,9 @@ autocmd FileType ruby setlocal iskeyword+=!
 
 let g:LargeFile = 3
 
+" fancy pants moving block
+vnoremap , :m'>+<CR>gv=gv
+vnoremap . :m-2<CR>gv=gv
+
 silent! so ./.localvimrc
 

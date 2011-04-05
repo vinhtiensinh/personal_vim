@@ -187,7 +187,3 @@ function! CommandW()
     call feedkeys(":tabclose\<CR>")
   endif
 endfunction
-
-" fancy pants moving block better
-vnoremap , :m'>+<CR>gv=gv
-vnoremap . :m-2<CR>gv=gv
