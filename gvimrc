@@ -188,16 +188,6 @@ function! CommandW()
   endif
 endfunction
 
-"moving selection fancy pant
-vmap , dp`[V`]=gv
-vmap <expr> . VisualMapUp()
-
-"not working yet, if the selection is done bottom moving up is messed when on
-"the last line function! visualmapup()
-function! VisualMapUp()
-  if getpos('.')[1] == getpos('$')[1]
-    return 'dP`[V`]=gv'
-  else
-    return 'dkP`[V`]=gv'
-  endif
-endfunction
+" fancy pants moving block better
+vnoremap , :m'>+<CR>gv=gv
+vnoremap . :m-2<CR>gv=gv
