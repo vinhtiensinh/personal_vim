@@ -442,5 +442,10 @@ CommandList::register_list(
       :map         => 'v',
       :text        => 'extract [v]ariable',
     },
+    {
+      :function    => "ExtractMethod()",
+      :map         => 'm',
+      :text        => 'extract [m]ethod',
+    },
   ]
 )
