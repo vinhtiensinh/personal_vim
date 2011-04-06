@@ -431,3 +431,16 @@ CommandList::register_list(
     },
   ]
 )
+
+CommandList::register_list(
+  :name  => 'Refactor ...',
+  :map   =>'<LEADER>r',
+  :map_item_with_list => true,
+  :items => [
+    {
+      :function    => "ExtractVariable()",
+      :map         => 'v',
+      :text        => 'extract [v]ariable',
+    },
+  ]
+)
