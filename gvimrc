@@ -94,6 +94,7 @@ let Tlist_Highlight_Tag_On_BufEnter = 1
 let Tlist_Use_SingleClick = 1
 let Tlist_Show_One_File = 1
 let g:Tlist_GainFocus_On_ToggleOpen = 0
+let Tlist_Close_On_Select = 1
 
 map <LEADER><LEADER> :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
