@@ -29,11 +29,11 @@ set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 
-map <S-Space> <ESC>:w<CR>
-vmap <S-Space> <ESC>:w<CR>
-cmap <S-Space> <ESC>:w<CR>
-omap <S-Space> <ESC>:w<CR>
-imap <silent> <S-Space> <ESC>:w<CR>
+map  <D-s> <ESC>:w<CR>
+vmap <D-s> <ESC>:w<CR>
+cmap <D-s> <ESC>:w<CR>
+omap <D-s> <ESC>:w<CR>
+imap <silent> <D-s> <ESC>:w<CR>
 
 map <D-w> :call CommandW()<CR>
 map <Space>x :bd<CR>
