@@ -86,7 +86,6 @@ so $HOME/.vim/plugin/taglist.vim
 
 map <D-3> :call ToggleTagList()<CR>
 let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Compact_Format = 1
 let Tlist_Auto_Update = 1
@@ -95,6 +94,7 @@ let Tlist_Use_SingleClick = 1
 let Tlist_Show_One_File = 1
 let g:Tlist_GainFocus_On_ToggleOpen = 0
 let Tlist_Close_On_Select = 1
+let g:Tlist_Use_Right_Window = 1
 
 map <LEADER><LEADER> :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTCancelMap = '<SPACE>'
