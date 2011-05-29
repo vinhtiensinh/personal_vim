@@ -153,6 +153,11 @@ endfunction
 "not sure if use it when already have Divvy
 map <D-@> :call ToggleTransparency()<CR>
 imap <D-@> <ESC>:call ToggleTransparency()<CR>a
+
+"show file drawer
+map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:wincmd p<CR>
+map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
+
 let g:transparency = 0
 function! ToggleTransparency()
   if g:transparency == 0
