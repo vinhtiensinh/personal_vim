@@ -15,3 +15,6 @@ au BufNewFile,BufRead *.erb,*.rhtml			set filetype=eruby
 
 " rack file
 au BufNewFile,BufRead *.ru			set filetype=eruby
+
+" vagrant file
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
