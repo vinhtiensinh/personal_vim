@@ -80,6 +80,7 @@ map <D-P> $a<Space><ESC>p
 so $HOME/.vim/plugin/taglist.vim
 :TlistAddFiles ./tags
 
+let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 map <D-3> :call ToggleTagList()<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Enable_Fold_Column = 0
