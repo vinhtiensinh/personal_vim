@@ -101,6 +101,48 @@ map <LEADER>J <C-w>j:q<CR>
 map <LEADER>K <C-w>k:q<CR>
 map <LEADER>L <C-w>l:q<CR>
 
+
+nmap <Tab> :call NextBuffer()<CR>
+nmap <S-Tab> :call PreviousBuffer()<CR>
+
+"tryingout minibufexplorer
+let g:miniBufExplVSplit = 25
+let g:miniBufExplMinSize = 31
+let g:miniBufExplMaxSize = 31
+"let g:miniBufExplAutoClose = 1
+
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplForceSyntaxEnable = 1
+let g:miniBufExplUseSingleClick = 1
+"nerd tree
+let g:NERDTreeMapOpenSplit = '<S-Space>'
+let g:NERDTreeMapOpenVSplit = '<S-CR>'
+
+"light house
+autocmd VimEnter * call SwitchToProject()
+autocmd TabEnter * execute ":UMiniBufExplorer"
+map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
+map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
+map gt :call GTTabMove('next')<CR>
+map gT :call GTTabMove('previous')<CR>
+function! GTTabMove(direction)
+  if IsBufExplorerOpen() && tabpagenr('$') == 1
+    if a:direction == 'next'
+      call NextBuffer()
+    else
+      call PreviousBuffer()
+    endif
+  elseif a:direction == 'next'
+    normal! gt
+  else
+    normal! gT
+  endif
+
+endfunction
+
 "folding the block
 nnoremap <silent> za :call ToggleFolding()<CR>
 

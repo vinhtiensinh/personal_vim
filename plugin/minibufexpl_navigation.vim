@@ -169,7 +169,6 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
     exec ":CMiniBufExplorer"
 
     if !IsNERDTreeWindowOpen()
-
       if exists("g:NERDTree_need_update") && g:NERDTree_need_update
         exec ":NERDTree " . getcwd()
         let g:NERDTree_need_update = 0
@@ -177,18 +176,16 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
         exec ":NERDTreeToggle"
       end
     endif
-    return
-
   else
-
     if IsNERDTreeWindowOpen()
       exec ":NERDTreeToggle"
       exec ":MiniBufExplorer"
     else
       exec ":MiniBufExplorer"
     endif
-
   endif
+
+  exec "wincmd p"
 endfunction
 
 function! CloseProject(name)

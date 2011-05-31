@@ -1,15 +1,11 @@
 set mouse=a
 set selectmode=mouse
-autocmd VimEnter * call SwitchToProject()
-autocmd TabEnter * execute ":UMiniBufExplorer"
-
 silent! set macmeta
 
 :macm File.Close key=<M-w>
 :macm Tools.List\ Errors key=<M-l>
 :macm Tools.Make key=<M-b>
 
-let g:miniBufExplUseSingleClick = 1
 let gui_plugins = split(glob("~/.vim/gui_plugin/*"), "\n")
 
 for plugin in gui_plugins
@@ -121,27 +117,7 @@ let g:syntastic_quiet_warnings=1
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
-
-nmap <Tab> :call NextBuffer()<CR>
-nmap <S-Tab> :call PreviousBuffer()<CR>
-
-"tryingout minibufexplorer
-let g:miniBufExplVSplit = 25 
-let g:miniBufExplMinSize = 31 
-let g:miniBufExplMaxSize = 31 
-"let g:miniBufExplAutoClose = 1
-
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplorerMoreThanOne = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplForceSyntaxEnable = 1
-map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
-
 :highlight CursorLine guibg=grey10
-
-"nerd tree
-let g:NERDTreeMapOpenSplit = '<S-Space>'
-let g:NERDTreeMapOpenVSplit = '<S-CR>'
 
 function! ToggleTagList()
   let current_win = winnr()
@@ -154,10 +130,6 @@ endfunction
 map <D-@> :call ToggleTransparency()<CR>
 imap <D-@> <ESC>:call ToggleTransparency()<CR>a
 
-"show file drawer
-map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:wincmd p<CR>
-map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
-
 let g:transparency = 0
 function! ToggleTransparency()
   if g:transparency == 0
@@ -169,22 +141,6 @@ function! ToggleTransparency()
   endif
 endfunction
 
-map gt :call GTTabMove('next')<CR>
-map gT :call GTTabMove('previous')<CR>
-function! GTTabMove(direction)
-  if IsBufExplorerOpen() && tabpagenr('$') == 1
-    if a:direction == 'next'
-      call NextBuffer()
-    else
-      call PreviousBuffer()
-    endif
-  elseif a:direction == 'next'
-    normal! gt
-  else
-    normal! gT
-  endif
-
-endfunction
 
 function! CommandW()
   if tabpagenr('$') == 1

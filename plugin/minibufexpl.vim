@@ -371,7 +371,7 @@ endif
 " Display Mini Buf Explorer when there are 'More Than One' eligible buffers 
 "
 if !exists('g:miniBufExplorerMoreThanOne')
-    let g:miniBufExplorerMoreThanOne = 1 
+    let g:miniBufExplorerMoreThanOne = 2 
 endif 
 
 if !exists('g:miniBufExplAutoClose')
