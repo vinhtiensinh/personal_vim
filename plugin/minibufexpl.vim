@@ -371,7 +371,7 @@ endif
 " Display Mini Buf Explorer when there are 'More Than One' eligible buffers 
 "
 if !exists('g:miniBufExplorerMoreThanOne')
-    let g:miniBufExplorerMoreThanOne = 2
+    let g:miniBufExplorerMoreThanOne = 1 
 endif 
 
 if !exists('g:miniBufExplAutoClose')
@@ -442,7 +442,7 @@ endif
 " assign the width (in characters) you wish to assign to the MBE window.
 "
 if !exists('g:miniBufExplVSplit')
-    let g:miniBufExplVSplit = 0
+    let g:miniBufExplVSplit = 30
 endif
 
 " }}}
@@ -534,7 +534,7 @@ endif
 " Force Syntax Enable {{{
 "
 if !exists('g:miniBufExplForceSyntaxEnable')
-    let g:miniBufExplForceSyntaxEnable = 0
+    let g:miniBufExplForceSyntaxEnable = 1 
 endif
 
 " }}}

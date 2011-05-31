@@ -1,4 +1,9 @@
+autocmd VimEnter * call SwitchToProject()
+
 function! GetCurrentProject()
+  if !exists('g:current_project')
+    let g:current_project = getcwd()
+  endif
   return g:current_project
 endfunction
 
