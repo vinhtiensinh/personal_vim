@@ -280,6 +280,11 @@ CommandList::register_list(
       :text        => '[t] thumbelina',
     },
     {
+      :function    => ":call SwitchToProjectCmd('zsh')",
+      :map         => 'z',
+      :text        => '[z]sh',
+    },
+    {
       :function    => ":call SwitchToPath()",
       :map         => 'f',
       :text        => '[f] switch with input',
