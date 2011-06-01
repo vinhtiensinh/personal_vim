@@ -236,7 +236,3 @@ function! CloseNERDTreeAndBufExplorer()
     endif
     return
 endfunction
-
-"show file drawer
-map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:wincmd p<CR>
-map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
