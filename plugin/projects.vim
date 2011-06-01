@@ -12,11 +12,15 @@ function! SetCurrentProject(project)
 endfunction
 
 function! SwitchToProject()
-  let current_buffer = expand('%:p')
-  let name = ProjectNameOf(current_buffer)
+  let current_dir = fnamemodify(getcwd(), ':p')
+  let name = ProjectNameOf(current_dir)
 
   if name != ''
     call SwitchToProjectCmd(name)
+  else
+    let project_name = substitute(fnamemodify(current_dir, ":h"), $HOME, "~", "")
+    call add(g:projects, [project_name, current_dir])
+    call SwitchToProject()
   endif
 endfunction
 
@@ -60,7 +64,7 @@ function! ProjectNameOf(name)
     endif
   endfor
 
-  return PathOf(a:name)
+  return ''
 endfunction
 
 function! ProjectPathOf(name)
@@ -90,6 +94,11 @@ function! FolderNameOf(name)
 endfunction
 
 function! PathOf(name)
-  return substitute(fnamemodify(a:name, ":h"), $HOME, "~", "")
+  let project_name = ProjectNameOf(a:name)
+  if project_name != ''
+    return project_name
+  else
+    return substitute(fnamemodify(a:name, ":h"), $HOME, "~", "")
+  endif
 endfunction
 
