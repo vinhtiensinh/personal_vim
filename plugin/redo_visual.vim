@@ -34,6 +34,3 @@ for icommand in icommands
 
   execute "nmap ".icommand."a'".' <ESC>:call SetCurrentSelection("'."va'".'")<CR>:call feedkeys("'.icommand."a'".'", "n")<CR>'
 endfor
-
-map <D-'> <ESC>:call RepeatSelection()<CR>
-imap <D-'> <ESC>:call RepeatSelectionInsert()<CR>

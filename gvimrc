@@ -126,11 +126,6 @@ function! ToggleTagList()
   execute current_win . " wincmd w"
 endfunction
 
-"transparency stuff
-"not sure if use it when already have Divvy
-map <D-@> :call ToggleTransparency()<CR>
-imap <D-@> <ESC>:call ToggleTransparency()<CR>a
-
 let g:transparency = 0
 function! ToggleTransparency()
   if g:transparency == 0
@@ -142,7 +137,6 @@ function! ToggleTransparency()
   endif
 endfunction
 
-
 function! CommandW()
   if tabpagenr('$') == 1
     call feedkeys(":bd\<CR>")
@@ -150,3 +144,14 @@ function! CommandW()
     call feedkeys(":tabclose\<CR>")
   endif
 endfunction
+
+"transparency stuff
+"not sure if use it when already have Divvy
+map <D-@> :call ToggleTransparency()<CR>
+imap <D-@> <ESC>:call ToggleTransparency()<CR>a
+
+map <D-'> <ESC>:call RepeatSelection()<CR>
+imap <D-'> <ESC>:call RepeatSelectionInsert()<CR>
+
+map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>

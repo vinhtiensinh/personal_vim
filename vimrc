@@ -124,8 +124,8 @@ let g:NERDTreeMapOpenVSplit = '<S-CR>'
 autocmd VimEnter * call SwitchToProject()
 autocmd TabEnter * execute ":UMiniBufExplorer"
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
-map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
-map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
+map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <C-!> :call CloseNERDTreeAndBufExplorer()<CR>
 map gt :call GTTabMove('next')<CR>
 map gT :call GTTabMove('previous')<CR>
 function! GTTabMove(direction)
