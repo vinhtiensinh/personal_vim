@@ -1378,6 +1378,9 @@ augroup MiniBufExplorer
 
         call <SID>StopExplorer(1)
         call <SID>StartExplorer(1, -1)
+
+        wincmd p
+
     endfunction
 
     " }}}
