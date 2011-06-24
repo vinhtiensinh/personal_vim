@@ -1,5 +1,14 @@
 autocmd VimEnter * call SwitchToProject()
 
+map 0<LEADER> :BufExplorer<CR><Down><CR>
+
+" switching between bufexplorer and nerd tree sometime causing 2
+" bufexplorer window to open
+" this autocmd is a hacky fix to make sure we remove all duplicate
+autocmd BufEnter,BufNew * call RemoveMiniBufDuplicateWindow()
+
+
+
 function! GetCurrentProject()
   if !exists('g:current_project')
     let g:current_project = getcwd()
@@ -22,6 +31,8 @@ function! SwitchToProject()
     call add(g:projects, [project_name, current_dir])
     call SwitchToProject()
   endif
+
+  call RemoveMiniBufDuplicateWindow()
 endfunction
 
 function! SwitchToProjectCmd(name)
@@ -235,13 +246,6 @@ while inumber < 100
 
   let inumber = inumber + 1
 endwhile
-map 0<LEADER> :BufExplorer<CR><Down><CR>
-
-" switching between bufexplorer and nerd tree sometime causing 2
-" bufexplorer window to open
-" this autocmd is a hacky fix to make sure we remove all duplicate
-autocmd BufEnter * call RemoveMiniBufDuplicateWindow()
-
 
 function! CloseProjectWithNumber(linenumber)
   let projectline = getbufline(bufnr('-MiniBufExplorer-'), a:linenumber)[0]
