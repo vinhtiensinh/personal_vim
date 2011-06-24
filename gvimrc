@@ -25,7 +25,7 @@ set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 
-map  <D-s> <ESC>:w<CR>
+map  <D-s> <ESC>:wa<CR>
 vmap <D-s> <ESC>:w<CR>
 cmap <D-s> <ESC>:w<CR>
 omap <D-s> <ESC>:w<CR>
