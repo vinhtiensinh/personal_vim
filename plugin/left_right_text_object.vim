@@ -58,7 +58,7 @@ function! FindEqualSign()
   let i = 0 
 
   while i >= 0
-    if (line[i] == '=') || (line[i] == '-' && line[i + 1] == '>')
+    if (line[i] == '=') || (line[i] == ':') || (line[i] == '-' && line[i + 1] == '>')
       return i + 1
     endif
 
