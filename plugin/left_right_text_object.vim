@@ -10,6 +10,7 @@ omap aH :normal vaH<CR>
 
 function! SelectLeft(inner_or_all)
   let iStart = FindEqualSign()
+
   if a:inner_or_all == 'i'
     let iStart = iStart - 1
 
@@ -57,11 +58,14 @@ function! FindEqualSign()
   let line = getline('.')
   let i = 0 
 
-  while i >= 0
-    if (line[i] == '=') || (line[i] == ':') || (line[i] == '-' && line[i + 1] == '>')
+  while i >= 0 && i < len(line)
+    if (line[i] == '=') || (line[i] == ':' && line[i+1] =~ '[ ,]') || (line[i] == '-' && line[i + 1] == '>')
       return i + 1
     endif
 
     let i = i + 1
   endwhile
+
+  return getpos('.')[2]
+
 endfunction
