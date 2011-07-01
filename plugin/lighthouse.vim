@@ -5,7 +5,7 @@ map 0<LEADER> :BufExplorer<CR><Down><CR>
 " switching between bufexplorer and nerd tree sometime causing 2
 " bufexplorer window to open
 " this autocmd is a hacky fix to make sure we remove all duplicate
-autocmd BufEnter,BufNew * call RemoveMiniBufDuplicateWindow()
+autocmd BufEnter,BufNew,BufReadPost,WinEnter,WinLeave * call RemoveMiniBufDuplicateWindow()
 
 
 
