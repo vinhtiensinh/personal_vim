@@ -25,10 +25,10 @@ set guioptions-=r
 set go+=b
 set guifont=Consolas:h16
 
-map  <D-CR> <ESC>:wa<CR>
-vmap <D-CR> <ESC>:w<CR>
-cmap <D-CR> <ESC>:w<CR>
-omap <D-CR> <ESC>:w<CR>
+map  <D-s> <ESC>:wa<CR>
+vmap <D-s> <ESC>:w<CR>
+cmap <D-s> <ESC>:w<CR>
+omap <D-s> <ESC>:w<CR>
 imap <silent> <D-s> <ESC>:w<CR>
 
 map <D-w> :call CommandW()<CR>
@@ -51,6 +51,7 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "navigating between split windows
+map <D-CR> <C-w>w
 map <D-H> <C-w>h
 map <D-J> <C-w>j
 map <D-K> <C-w>k
