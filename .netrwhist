@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/vinh_tran/product-e2e/spec'
 let g:netrw_dirhist_2='/Users/vinhtiensinh/.vim/bundle/vpoker/ftplugin'
 let g:netrw_dirhist_3='/Users/vinhtiensinh/.vim/bundle/vpoker/syntax'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/Users/vinh_tran/customer-platform/app/models'
 let g:netrw_dirhist_6='/private/var/tmp/jetwire/dataloader-data/2010/11/18'
 let g:netrw_dirhist_7='/opt/local/lib/ruby/gems/1.8/gems/jasmine-1.0.1.1'
 let g:netrw_dirhist_8='/Users/vinh_tran/ad-dev01/branches/master/librea/doc'
+let g:netrw_dirhist_9='/Users/vinh_tran/negative-method/spec'

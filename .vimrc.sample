@@ -1,0 +1,6 @@
+nmap <Tab> :call NextBuffer()<CR>
+nmap <S-Tab> :call PreviousBuffer()<CR>
+map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <C-!> :call CloseNERDTreeAndBufExplorer()<CR>
+map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR> 
+let g:miniBufExplorerMoreThanOne = 1
