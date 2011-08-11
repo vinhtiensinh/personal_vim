@@ -77,6 +77,11 @@ highlight Pmenu guibg=grey14 guifg=moccasin ctermbg=DarkGrey ctermfg=Black
 map <LEADER>o :e<SPACE>
 map <LEADER>n :n<SPACE>
 
+"splitjoin
+nmap <Leader>- :SplitjoinJoin<cr>
+nmap <Leader>= :SplitjoinSplit<cr>
+let g:splitjoin_ruby_curly_braces = 0
+
 "Tab in visual mode
 vmap <Tab> >gv
 vmap <S-Tab> <gv
