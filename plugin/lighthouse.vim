@@ -1,11 +1,11 @@
-autocmd VimEnter * call SwitchToProject()
+if !exists("g:projects")
+  let g:projects = []
+endif
 
+autocmd VimEnter * call SwitchToProject()
 map 0<LEADER> :BufExplorer<CR><Down><CR>
 
-" switching between bufexplorer and nerd tree sometime causing 2
-" bufexplorer window to open
-" this autocmd is a hacky fix to make sure we remove all duplicate
-autocmd BufEnter,BufWinEnter,WinEnter * call RemoveMiniBufDuplicateWindow() | call CloseAllIfOnlyBufExplorerLeft()
+autocmd BufEnter,BufWinEnter,WinEnter * call CloseAllIfOnlyBufExplorerLeft()
 autocmd BufEnter * syntax on
 
 function! CloseAllIfOnlyBufExplorerLeft()
@@ -36,8 +36,6 @@ function! SwitchToProject()
     call add(g:projects, [project_name, current_dir])
     call SwitchToProject()
   endif
-
-  call RemoveMiniBufDuplicateWindow()
 endfunction
 
 function! SwitchToProjectCmd(name)
@@ -130,11 +128,11 @@ function! GotoBuffer(index)
 
     call SwitchToProjectCmd(project_name)
     exec 'wincmd p'
-    return
+  else
+    call feedkeys(a:index . "G")
+    call feedkeys("\<CR>")
   endif
-
-  call feedkeys(a:index . "G")
-  call feedkeys("\<CR>")
+  call RemoveMiniBufDuplicateWindow()
 endfunction
 
 function! PreviousBuffer()
@@ -242,7 +240,7 @@ endfunction
 let inumber = 1
 
 while inumber < 100
-  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>:call RemoveMiniBufDuplicateWindow()<CR>"
+  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
   execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
   execute "map  " . inumber . "<S-CR> " . ":vsplit<CR>".inumber."<Space>"
   execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"
