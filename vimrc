@@ -175,5 +175,7 @@ vnoremap . :m-2<CR>gv=gv
 
 let g:SuperTabCrMapping = 0
 
+map @@ @q
+
 silent! so ./.localvimrc
 
