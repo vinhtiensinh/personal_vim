@@ -5,9 +5,14 @@ map 0<LEADER> :BufExplorer<CR><Down><CR>
 " switching between bufexplorer and nerd tree sometime causing 2
 " bufexplorer window to open
 " this autocmd is a hacky fix to make sure we remove all duplicate
-autocmd WinEnter * call RemoveMiniBufDuplicateWindow()
+autocmd BufEnter,BufWinEnter,WinEnter * call RemoveMiniBufDuplicateWindow() | call CloseAllIfOnlyBufExplorerLeft()
+autocmd BufEnter * syntax on
 
-
+function! CloseAllIfOnlyBufExplorerLeft()
+  if winnr('$') == 1 && (IsBufExplorerOpen() || IsNERDTreeWindowOpen())
+    exec "qa"
+  endif
+endfunction
 
 function! GetCurrentProject()
   if !exists('g:current_project')
@@ -255,6 +260,12 @@ function! CloseProjectWithNumber(linenumber)
 endfunction
 
 function! RemoveMiniBufDuplicateWindow()
+
+  if IsBufExplorerOpen() && IsNERDTreeWindowOpen()
+    exec ":CMiniBufExplorer"
+    return
+  endif
+
   let l:NBuffers = bufnr('$')     " Get the number of the last buffer.
   let l:i = 0                     " Set the buffer index to zero.
   let l:miniBufOpened = 0
@@ -289,7 +300,7 @@ function! ToggleBetweenNERDTreeAndBufExplorer()
       exec ":NERDTreeToggle"
       exec ":MiniBufExplorer"
     else
-      exec ":MiniBufExplorer"
+      exec ":NERDTreeToggle"
     endif
   endif
 

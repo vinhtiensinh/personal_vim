@@ -124,12 +124,13 @@ let g:miniBufExplUseSingleClick = 1
 "nerd tree
 let g:NERDTreeMapOpenSplit = '<S-Space>'
 let g:NERDTreeMapOpenVSplit = '<S-CR>'
+let g:NERDTreeWinSize = 31
 
 "light house
 autocmd VimEnter * call SwitchToProject()
 autocmd TabEnter * execute ":UMiniBufExplorer"
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
-map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:call RemoveMiniBufDuplicateWindow()<CR>
 map <C-!> :call CloseNERDTreeAndBufExplorer()<CR>
 map gt :call GTTabMove('next')<CR>
 map gT :call GTTabMove('previous')<CR>
