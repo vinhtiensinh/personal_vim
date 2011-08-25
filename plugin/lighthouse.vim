@@ -242,7 +242,7 @@ endfunction
 let inumber = 1
 
 while inumber < 100
-  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>"
+  execute "map  " . inumber . "<Space> " . ":call GotoBuffer(" . inumber . ")<CR>:call RemoveMiniBufDuplicateWindow()<CR>"
   execute "map  " . inumber . "<S-Space> " . ":split<CR>".inumber."<Space>"
   execute "map  " . inumber . "<S-CR> " . ":vsplit<CR>".inumber."<Space>"
   execute "map  " . inumber . "<Tab> " . ":tabnew<CR>".inumber."<Space>"

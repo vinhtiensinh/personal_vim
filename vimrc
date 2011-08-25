@@ -117,7 +117,7 @@ let g:miniBufExplMaxSize = 31
 "let g:miniBufExplAutoClose = 1
 
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplorerMoreThanOne = 2
+let g:miniBufExplorerMoreThanOne = 3
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplUseSingleClick = 1
@@ -130,7 +130,7 @@ let g:NERDTreeWinSize = 31
 autocmd VimEnter * call SwitchToProject()
 autocmd TabEnter * execute ":UMiniBufExplorer"
 map <LEADER>W :TMiniBufExplorerCloseAllOthers<CR>
-map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>:call RemoveMiniBufDuplicateWindow()<CR>
+map <C-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
 map <C-!> :call CloseNERDTreeAndBufExplorer()<CR>
 map gt :call GTTabMove('next')<CR>
 map gT :call GTTabMove('previous')<CR>
