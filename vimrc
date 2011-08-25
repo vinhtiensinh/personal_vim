@@ -117,7 +117,7 @@ let g:miniBufExplMaxSize = 31
 "let g:miniBufExplAutoClose = 1
 
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplForceSyntaxEnable = 1
 let g:miniBufExplUseSingleClick = 1
