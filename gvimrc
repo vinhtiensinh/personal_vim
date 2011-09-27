@@ -51,7 +51,8 @@ imap <D-[> <ESC>lvBxi
 imap <D-]> <ESC>lvExi
 
 "navigating between split windows
-map <D-CR> <C-w>w
+map <D-]> <C-w>w
+map <D-[> <C-w>p
 map <D-H> <C-w>h
 map <D-J> <C-w>j
 map <D-K> <C-w>k

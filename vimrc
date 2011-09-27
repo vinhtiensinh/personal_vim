@@ -151,6 +151,9 @@ function! GTTabMove(direction)
 
 endfunction
 
+"string to symbol"
+map <LEADER>2s ds'i:<ESC>
+
 "folding the block
 nnoremap <silent> za :call ToggleFolding()<CR>
 
