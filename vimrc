@@ -100,7 +100,6 @@ nmap <Space><CR> i<CR><ESC>
 imap <C-SPACE> <C-x><C-o>
 imap <S-Tab> <C-o>
 imap <ESC> <ESC>:w<CR>
-map <ESC> <ESC>:w<CR>
 
 "close surrounding windows
 map <LEADER>H <C-w>h:q<CR>
