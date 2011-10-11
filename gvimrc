@@ -155,6 +155,6 @@ map <D-'> <ESC>:call RepeatSelection()<CR>
 imap <D-'> <ESC>:call RepeatSelectionInsert()<CR>
 
 map <D-1> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
-map <RIGHTMOUSE> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
+nmap <RIGHTMOUSE> :call ToggleBetweenNERDTreeAndBufExplorer()<CR>
 
 map <D-!> :call CloseNERDTreeAndBufExplorer()<CR>
