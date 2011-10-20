@@ -70,8 +70,8 @@ map <D-j> <C-d>
 map <D-k> <C-u>
 map <D-u> <C-e>
 map <D-i> <C-y>
-map <D-h> ^
-map <D-l> $
+map <D-h> g^
+map <D-l> g$
 
 map <D-P> $a<Space><ESC>p
 
