@@ -113,6 +113,9 @@ smap " s"
 " Open file from clipboard
 map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 
+" Somehow this doesnt work on terminal
+nmap <ESC> :w<CR>
+
 "use sign for checking syntax
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
