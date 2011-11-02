@@ -260,9 +260,9 @@ CommandList::register_list(
       :text        => '[e]c'
     },
     {
-      :function    => ":call SwitchToProjectCmd('customer-platform')",
+      :function    => ":call SwitchToProjectCmd('cp-agentadmin')",
       :map         => 'c',
-      :text        => '[c]ustomer-platform',
+      :text        => '[c]p-agentadmin'
     },
     {
       :function    => ":call SwitchToProjectCmd('db-migrations')",
