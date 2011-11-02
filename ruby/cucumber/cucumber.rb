@@ -18,7 +18,7 @@ class Cucumber
     rgrep_results = `egrep -rin '^\s*(Given|Then|When|And|But) ' #{dir_path}`
     rgrep_results = rgrep_results.split("\n")
     rgrep_results.each do | line |
-      next if line =~ /#\{/;
+      next if line =~ /\{/;
         self.add_step(Step.parse(dir_path, line))
     end
   end
