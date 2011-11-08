@@ -1,6 +1,8 @@
 autocmd FileWritePost,BufWritePost * call RSync(expand('%')) 
 function! RSync(file)
-  return if !exists('g:rsync')
+  if !exists('g:rsync')
+    return
+  endif
 
   let file_full_path = fnamemodify(a:file, ':p')
 
