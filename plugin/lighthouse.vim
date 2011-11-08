@@ -353,3 +353,15 @@ function! CloseNERDTreeAndBufExplorer()
     endif
     return
 endfunction
+
+function! ToggleDisableEnableMiniBufExplorer()
+  if g:miniBufExplorerMoreThanOne == 1000
+    let g:miniBufExplorerMoreThanOne = g:original_miniBufExplorerMoreThanOne
+  else
+    let g:original_miniBufExplorerMoreThanOne = g:miniBufExplorerMoreThanOne
+    let g:miniBufExplorerMoreThanOne = 1000
+    if IsBufExplorerOpen()
+      exec ":TMiniBufExplorer"
+    endif
+  endif
+endfunction

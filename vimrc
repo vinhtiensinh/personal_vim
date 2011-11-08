@@ -106,15 +106,6 @@ function! ToggleFolding()
 endfunction
 
 map <LEADER>6 :call ToggleDisableEnableMiniBufExplorer()<CR>
-function! ToggleDisableEnableMiniBufExplorer()
-  if g:miniBufExplorerMoreThanOne == 1000
-    let g:miniBufExplorerMoreThanOne = g:original_miniBufExplorerMoreThanOne
-  else
-    let g:original_miniBufExplorerMoreThanOne = g:miniBufExplorerMoreThanOne
-    let g:miniBufExplorerMoreThanOne = 1000
-  endif
-endfunction
-
 omap <silent> ic <Plug>CamelCaseMotion_iw
 xmap <silent> ic <Plug>CamelCaseMotion_iw
 
