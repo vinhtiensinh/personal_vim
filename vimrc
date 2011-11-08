@@ -40,9 +40,6 @@ map g<S-CR> :vsplit<CR>g<C-]>
 
 map ga :Alternate<CR>
 
-nmap yl ^v$hy
-nmap dl ^v$hd
-"------------------------------------------------------------------------
 " Color the status line
 hi StatusLine ctermfg=blue ctermbg=lightgrey
 
@@ -163,6 +160,16 @@ function! ToggleFolding()
     call feedkeys('zf%')
   else
     normal! za
+  endif
+endfunction
+
+map <LEADER>6 :call ToggleDisableEnableMiniBufExplorer()<CR>
+function! ToggleDisableEnableMiniBufExplorer()
+  if g:miniBufExplorerMoreThanOne == 1000
+    let g:miniBufExplorerMoreThanOne = g:original_miniBufExplorerMoreThanOne
+  else
+    let g:original_miniBufExplorerMoreThanOne = g:miniBufExplorerMoreThanOne
+    let g:miniBufExplorerMoreThanOne = 1000
   endif
 endfunction
 
