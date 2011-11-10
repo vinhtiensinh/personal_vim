@@ -56,4 +56,3 @@ set noerrorbells  "dont beep
 
 "quicker autocomplete
 set complete -=i
-

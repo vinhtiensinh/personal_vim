@@ -1,3 +1,5 @@
+silent! so ~/.vim/vimrc
+
 set mouse=a
 set selectmode=mouse
 silent! set macmeta

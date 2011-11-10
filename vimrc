@@ -1,5 +1,3 @@
-silent! so ~/.vim/minvimrc
-
 map  <LEADER>v <C-v>
 map g<Space> g<C-]>
 map g<Tab> g<S-Space><C-w>T
