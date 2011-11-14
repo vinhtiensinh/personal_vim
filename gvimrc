@@ -26,7 +26,7 @@ set guioptions-=T
 set guioptions-=L
 set guioptions-=r
 set go+=b
-set guifont=Consolas:h16
+set guifont=Courier_New:h16
 
 map  <D-s> <ESC>:wa<CR>
 vmap <D-s> <ESC>:w<CR>
