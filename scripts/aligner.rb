@@ -1,4 +1,4 @@
-#!/opt/local/bin/ruby
+#!/usr/bin/ruby
 
 def align text, char
   matrix = []
