@@ -104,8 +104,6 @@ let g:CommandTSelectPrevMap = "<S-Tab>"
 let g:CommandTAcceptSelectionSplitMap = '<S-Space>'
 let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
 
-" Loclist open and close
-let g:syntastic_auto_loc_list = 1
 "-------------------------------------------------------------------------
 vmap <LEADER>nrw :Narrow<CR>
 vmap <LEADER>wid :Widen<CR>
@@ -120,8 +118,10 @@ map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 nmap <ESC> :w<CR>
 
 "use sign for checking syntax
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
+let g:syntastic_disabled_filetypes = ['cucumber']
 
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
