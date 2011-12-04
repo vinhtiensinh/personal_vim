@@ -113,6 +113,7 @@ smap " s"
 
 " Open file from clipboard
 map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
+nmap <MiddleMouse> :call OpenFilesFromClipboard('e')<CR>
 
 " Somehow this doesnt work on terminal
 nmap <ESC> :w<CR>
