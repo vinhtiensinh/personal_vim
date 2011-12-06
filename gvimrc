@@ -78,41 +78,10 @@ map <D-l> g$
 
 map <D-P> $a<Space><ESC>p
 
-" -------------------------------------------------------------------------------
-
-" Taglist config
-so $HOME/.vim/plugin/taglist.vim
-:TlistAddFiles ./tags
-
-let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
-map <D-3> :call ToggleTagList()<CR>
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Compact_Format = 1
-let Tlist_Auto_Update = 1
-let Tlist_Highlight_Tag_On_BufEnter = 1
-let Tlist_Use_SingleClick = 1
-let Tlist_Show_One_File = 1
-let g:Tlist_GainFocus_On_ToggleOpen = 0
-"let Tlist_Close_On_Select = 1
-let Tlist_Use_Right_Window = 1
-
-map <LEADER><LEADER> :CommandTFlush<CR>:CommandT<CR>
-let g:CommandTCancelMap = '<SPACE>'
-let g:CommandTSelectNextMap = "<Tab>"
-let g:CommandTSelectPrevMap = "<S-Tab>"
-let g:CommandTAcceptSelectionSplitMap = '<S-Space>'
-let g:CommandTAcceptSelectionVSplitMap = '<S-CR>'
-
 "-------------------------------------------------------------------------
-vmap <LEADER>nrw :Narrow<CR>
-vmap <LEADER>wid :Widen<CR>
-
-smap ' s'
-smap " s"
-
+map <D-3> :call ToggleTagList()<CR>
+"-------------------------------------------------------------------------
 " Open file from clipboard
-map <LEADER>e :call OpenFilesFromClipboard('e')<CR>
 nmap <MiddleMouse> :call OpenFilesFromClipboard('e')<CR>
 
 " Somehow this doesnt work on terminal
@@ -127,12 +96,6 @@ let g:syntastic_disabled_filetypes = ['cucumber']
 "experiment of Marker plugin
 map <SPACE>'' :ruby Marker.open()<CR>
 :highlight CursorLine guibg=grey10
-
-function! ToggleTagList()
-  let current_win = winnr()
-  execute ":TlistToggle"
-  execute current_win . " wincmd w"
-endfunction
 
 let g:transparency = 0
 function! ToggleTransparency()
