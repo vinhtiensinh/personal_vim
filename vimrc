@@ -117,8 +117,6 @@ let g:LargeFile = 3
 vnoremap , :m'>+<CR>gv=gv
 vnoremap . :m-2<CR>gv=gv
 
-let g:SuperTabCrMapping = 0
-
 map @@ @q
 
 silent! so ./.localvimrc

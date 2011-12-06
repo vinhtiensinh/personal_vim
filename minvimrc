@@ -55,3 +55,7 @@ set noerrorbells  "dont beep
 
 "quicker autocomplete
 set complete -=i
+
+"this is required other wise endwise will not works along side supertab
+let g:SuperTabCrMapping = 0
+
